@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FMAA · Section A — Foundations & The Accounting Cycle</title>
+<meta name="description" content="A visual, interactive field guide for FMAA Section A: accounting language, the bookkeeping cycle from journal entry to closing, financial statements, statement of cash flows, internal controls, and operating-cycle cash management." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/style.css?v=2" />
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><span class="ornament"></span>FMAA · A</div>
+  <div class="brand-sub">Foundations & the accounting cycle · A visual field guide</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text" id="progress-text">0 of 20 units complete</div>
+  <div class="sidebar-search" style="margin-top:18px">
+    <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
+    <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
+  </div>
+  <nav id="nav" style="margin-top:8px"></nav>
+  <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); display:flex; gap:8px; flex-wrap:wrap;">
+    <a href="index.html" class="btn ghost small" style="text-decoration:none;">← FMAA home</a>
+    <a href="../../index.html" class="btn ghost small" style="text-decoration:none;">All programs</a>
+    <button class="btn ghost small" id="reset-progress">Reset progress</button>
+    <button class="btn ghost small" id="show-shortcuts" title="Keyboard shortcuts (?)">⌨ Shortcuts</button>
+  </div>
+</aside>
+
+<div id="kbd-help" role="dialog" aria-modal="true">
+  <div class="kbd-box">
+    <h3>Keyboard shortcuts</h3>
+    <div class="kbd-row"><span>Next unit</span><span class="keys"><span class="kbd">→</span> <span class="kbd">J</span></span></div>
+    <div class="kbd-row"><span>Previous unit</span><span class="keys"><span class="kbd">←</span> <span class="kbd">K</span></span></div>
+    <div class="kbd-row"><span>Focus search</span><span class="kbd">/</span></div>
+    <div class="kbd-row"><span>Bookmark this unit</span><span class="kbd">B</span></div>
+    <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
+    <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
+    <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
+    <div class="kbd-row"><span>Undo annotation</span><span class="keys"><span class="kbd">⌘/Ctrl</span><span class="kbd">Z</span></span></div>
+    <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
+    <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
+  </div>
+</div>
+
+<button id="formula-toggle-btn" title="Formula reference (F)" aria-label="Open formula reference">ƒx</button>
+<aside id="formula-panel" aria-label="Formula reference">
+  <div class="fp-header">
+    <h3>Formula reference</h3>
+    <button class="ann-panel-close" id="formula-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="fp-search"><input type="text" id="formula-search" placeholder="Search formulas, ratios, rules…" /></div>
+  <div class="fp-list" id="formula-list"></div>
+</aside>
+
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+<aside id="ann-panel">
+  <div class="ann-panel-header">
+    <h3>Notes & highlights</h3>
+    <button class="ann-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
+
+<main class="content" id="content">
+
+<article class="unit active" data-id="0">
+  <div class="cover">
+    <span class="unit-eyebrow">FMAA · Section A · ~30% of exam content</span>
+    <h1 class="cover-title">Foundations &<br/>the Accounting Cycle.</h1>
+    <p class="cover-sub">The mechanics of bookkeeping — equation, journals, ledgers, trial balances, adjusting and closing — followed by the financial statements that result, and the short-term cash, receivables, payables, and inventory decisions that keep an entity solvent. This is the largest section: master it and the others slot in on top.</p>
+    <div class="cover-meta">
+      <span>Units<strong>20 covered</strong></span>
+      <span>Practice questions<strong>~140</strong></span>
+      <span>Sub-sections<strong>A.1 — A.5</strong></span>
+      <span>Tests<strong>3 + comprehensive</strong></span>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">A.1</span>The Language of Accounting</h2>
+    <div class="toc-card">
+      <h3>A.1 — Foundations (Unit 1)</h3>
+      <ol>
+        <li><button onclick="goTo(1)">The language of accounting — entity, period, accrual basis, GAAP and the FASB</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">A.2</span>The Bookkeeping Cycle</h2>
+    <div class="toc-card">
+      <h3>A.2 — From transaction to closed books (Units 2–13)</h3>
+      <ol start="2">
+        <li><button onclick="goTo(2)">Accounting equation & double-entry foundations</button></li>
+        <li><button onclick="goTo(3)">Source documents & analyzing transactions</button></li>
+        <li><button onclick="goTo(4)">Recording journal entries</button></li>
+        <li><button onclick="goTo(5)">Posting to the ledger (T-accounts)</button></li>
+        <li><button onclick="goTo(6)">Preparing the trial balance & locating errors</button></li>
+        <li><button onclick="goTo(7)">Period-end adjustments — accruals</button></li>
+        <li><button onclick="goTo(8)">Period-end adjustments — deferrals</button></li>
+        <li><button onclick="goTo(9)">Depreciation methods & changes in estimate</button></li>
+        <li><button onclick="goTo(10)">The worksheet & adjusted trial balance</button></li>
+        <li><button onclick="goTo(11)">Closing the books</button></li>
+        <li><button onclick="goTo(12)">Post-closing trial balance & cycle review</button></li>
+        <li><button onclick="goTo(13)">Reversing entries — an optional step</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">A.3</span>Building the Financial Statements</h2>
+    <div class="toc-card">
+      <h3>A.3 — Statements & elements (Unit 14)</h3>
+      <ol start="14">
+        <li><button onclick="goTo(14)">Putting the four statements together — elements & classifications</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">A.4</span>Cash Flows & Safeguarding the Books</h2>
+    <div class="toc-card">
+      <h3>A.4 — Cash flow statement & internal controls (Units 15–16)</h3>
+      <ol start="15">
+        <li><button onclick="goTo(15)">The statement of cash flows — three activities</button></li>
+        <li><button onclick="goTo(16)">Safeguarding cash & internal controls (COSO)</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">A.5</span>Operating-Cycle Cash Management</h2>
+    <div class="toc-card">
+      <h3>A.5 — Working-capital management (Units 17–20)</h3>
+      <ol start="17">
+        <li><button onclick="goTo(17)">Working capital & the cash cycle</button></li>
+        <li><button onclick="goTo(18)">Managing accounts receivable</button></li>
+        <li><button onclick="goTo(19)">Accounts payable & short-term financing</button></li>
+        <li><button onclick="goTo(20)">Inventory management & the EOQ model</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Tests</h2>
+    <div class="toc-card">
+      <ol class="plain" style="list-style:none; padding-left:0">
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Recording Transactions (A.1–A.2) · 30 Q · ~36 min</button></li>
+        <li><button onclick="goTo(901)"><strong>T2</strong> — Financial Statements & SCF (A.3–A.4) · 25 Q · ~30 min</button></li>
+        <li><button onclick="goTo(902)"><strong>T3</strong> — Working-Capital Management (A.5) · 25 Q · ~30 min</button></li>
+        <li style="margin-top:8px; padding-top:8px; border-top:1px dashed var(--rule)"><button onclick="goTo(999)"><strong>🎓 Final</strong> — Comprehensive Section A · 50 Q · ~60 min</button></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- UNITS_PLACEHOLDER -->
+
+<!-- TESTS_PLACEHOLDER -->
+
+</main>
+</div>
+
+<!-- CONFIG_PLACEHOLDER -->
+
+<script src="../../assets/engine.js?v=2"></script>
+<script>CMA.init(window.SECTION_CONFIG);</script>
+</body>
+</html>
