@@ -21,11 +21,9 @@ A self-hostable, browser-based **multi-program learning platform** for professio
       section-b.html        ← Planning, Budgeting & Forecasting (20%)
       section-c.html        ← Performance Management (20%)
     fmaa/
-      index.html            ← FMAA program landing
-      domain-1.html         ← Financial Statements (25%, scaffolded)
-      domain-2.html         ← Cost Management (25%, scaffolded)
-      domain-3.html         ← Planning & Budgeting (25%, scaffolded)
-      domain-4.html         ← Performance Management (25%, scaffolded)
+      index.html            ← FMAA program landing (5-section layout: A–E)
+      section-a.html        ← Foundations & The Accounting Cycle (~30%, LIVE: 20 units, 4 tests, 130+ Qs)
+      (section-b.html..section-e.html — to be added; map to FMAA CSO B/C/D/E)
 ```
 
 ### URL paths
