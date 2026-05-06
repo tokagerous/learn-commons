@@ -872,6 +872,362 @@ Dividends                            1,500
   </div>
 </article>
 
+<article class="unit" data-id="7">
+  <span class="unit-eyebrow">Unit 07 · A.2 · Bookkeeping Cycle</span>
+  <h1>Period-End Adjustments — Accruals</h1>
+  <p class="unit-lead">Accrual entries record revenue earned but not yet billed, and expenses incurred but not yet billed by the supplier. Without them, the period closes with revenue or cost still hiding off the books.</p>
+
+  <h2><span class="marker">§7.1</span>Why we need adjustments</h2>
+  <table class="fin-table">
+    <thead><tr><th>Family</th><th>Cash flow</th><th>Recognition</th><th>Adjustment</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Accrued revenue</strong></td><td>After period end</td><td>This period</td><td>DR Receivable · CR Revenue</td></tr>
+      <tr><td><strong>Accrued expense</strong></td><td>After period end</td><td>This period</td><td>DR Expense · CR Payable</td></tr>
+      <tr><td><strong>Deferred revenue</strong></td><td>Before earned</td><td>Later (Unit 8)</td><td>DR Liability · CR Revenue</td></tr>
+      <tr><td><strong>Deferred expense (prepaid)</strong></td><td>Before incurred</td><td>Later (Unit 8)</td><td>DR Expense · CR Asset</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§7.2</span>Accrued revenue — earn now, bill later</h2>
+  <div class="callout formula">
+    <span class="callout-label">Pattern</span>
+    <div class="formula-box" style="font-size:14px; text-align:left;">DR Accrued Revenue Receivable<br/>&nbsp;&nbsp;&nbsp;&nbsp;CR Revenue</div>
+  </div>
+  <p>Example: Bank lent $100,000 at 6% on Nov 1, all interest due at maturity (Apr 30). On Dec 31, 2 months of interest accrued: $100,000 × 6% × 2/12 = $1,000. Entry: DR Interest Receivable 1,000 / CR Interest Revenue 1,000.</p>
+
+  <h2><span class="marker">§7.3</span>Accrued expense — incur now, pay later</h2>
+  <div class="callout formula">
+    <span class="callout-label">Pattern</span>
+    <div class="formula-box" style="font-size:14px; text-align:left;">DR Expense (Wages, Interest, Utilities, Tax)<br/>&nbsp;&nbsp;&nbsp;&nbsp;CR Payable</div>
+  </div>
+  <p>Example: Wages for Dec 26–31 ($4,500) won't be paid until Jan 7. Dec 31 entry: DR Wage Expense 4,500 / CR Wages Payable 4,500.</p>
+
+  <h2><span class="marker">§7.4</span>Common accrued items</h2>
+  <table class="fin-table">
+    <thead><tr><th>Type</th><th>Period-end adjustment</th><th>Cash entry next period</th></tr></thead>
+    <tbody>
+      <tr><td>Wages earned but unpaid</td><td>DR Wage Exp · CR Wages Payable</td><td>DR Wages Payable · CR Cash</td></tr>
+      <tr><td>Interest earned on a note receivable</td><td>DR Interest Recv · CR Interest Revenue</td><td>DR Cash · CR Interest Recv</td></tr>
+      <tr><td>Interest owed on a note payable</td><td>DR Interest Exp · CR Interest Payable</td><td>DR Interest Payable · CR Cash</td></tr>
+      <tr><td>Utilities incurred, bill not yet received</td><td>DR Utilities Exp · CR Utilities Payable</td><td>DR Util. Payable · CR Cash</td></tr>
+      <tr><td>Income tax owed</td><td>DR Income Tax Exp · CR Tax Payable</td><td>DR Tax Payable · CR Cash</td></tr>
+      <tr><td>Service revenue earned but unbilled</td><td>DR Accounts Recv · CR Service Revenue</td><td>DR Cash · CR A/R</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§7.5</span>Effect of forgetting an accrual</h2>
+  <table class="fin-table">
+    <thead><tr><th>Forgotten accrual</th><th>NI</th><th>Assets</th><th>Liabilities</th><th>Equity</th></tr></thead>
+    <tbody>
+      <tr><td>Accrued revenue</td><td>Understated</td><td>Understated</td><td>—</td><td>Understated</td></tr>
+      <tr><td>Accrued expense</td><td>Overstated</td><td>—</td><td>Understated</td><td>Overstated</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§7.6</span>Worked example — multi-line accruals</h2>
+  <p>At Dec 31:</p>
+  <ul class="plain">
+    <li>Wages earned Dec 28–31 totalling $2,000 paid Jan 4 → DR Wage Exp 2,000 / CR Wages Payable 2,000</li>
+    <li>Interest of $300 accrued on a $30,000, 4% note payable (3 months), paid March → DR Interest Exp 300 / CR Interest Payable 300</li>
+    <li>$1,500 unbilled consulting; invoice goes Jan 3 → DR A/R 1,500 / CR Service Revenue 1,500</li>
+  </ul>
+  <p>Effect: revenue ↑ $1,500, expenses ↑ $2,300, NI ↓ $800. A/R ↑ $1,500, payables ↑ $2,300, equity ↓ $800. Equation balanced.</p>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A company forgets to record accrued wages of $3,000 at year end. The effect on the financial statements is:</p>
+    <ul class="quiz-options"><li>Net income overstated $3,000; liabilities understated $3,000</li><li>Net income understated $3,000; liabilities overstated $3,000</li><li>Assets understated; equity unchanged</li><li>No effect — wages will be picked up when paid in January</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Without the accrual, the $3,000 of wage expense is missing (NI overstated) and Wages Payable is missing (liabilities understated). Equity is also overstated by $3,000.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">On December 1, a company lent $20,000 at 9% annual interest, with principal and interest due at the end of the 6-month note. The accrued interest revenue at December 31 is:</p>
+    <ul class="quiz-options"><li>$1,800</li><li>$900</li><li>$150</li><li>$300</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> 1 month of interest = $20,000 × 9% × 1/12 = <strong>$150</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">An accrued revenue adjustment:</p>
+    <ul class="quiz-options"><li>Always involves cash</li><li>Decreases liabilities</li><li>Has no effect on net income</li><li>Increases an asset (receivable) and increases revenue</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Accrual recognises earned-but-unbilled work. The asset is the new receivable; the credit is the new revenue.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">A utility bill for December is received and paid in early January. If no Dec 31 adjusting entry is made:</p>
+    <ul class="quiz-options"><li>December's net income is understated</li><li>December's net income is overstated and December's liabilities are understated</li><li>January's net income is correct, December is wrong</li><li>Nothing is wrong because the bill arrives in the new year</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The economic event happened in December (electricity consumed). Without the accrual, December's expense is missing — NI overstated; Util. Payable missing — liabilities understated.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">Tinker Co. has $200,000 of bonds outstanding at 6% interest, paid every June 30 and Dec 31. At Sep 30 (quarterly close), the accrued interest expense is:</p>
+    <ul class="quiz-options"><li>$0 — payment date is Dec 31</li><li>$1,000</li><li>$3,000</li><li>$6,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> 3 months of interest from Jul 1 to Sep 30 = $200,000 × 6% × 3/12 = <strong>$3,000</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">A company performs $4,000 of services in December but does not invoice until January 5. Failing to make the December 31 adjusting entry results in:</p>
+    <ul class="quiz-options"><li>December's NI overstated by $4,000</li><li>December's liabilities overstated by $4,000</li><li>December's NI correct because cash will arrive eventually</li><li>December's NI understated by $4,000 and December's A/R understated by $4,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Accrued (unbilled) revenue: NI is missed in December — understated; A/R is also missed — assets understated.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">Trial balance & errors</span></button>
+    <button class="nav-link next" onclick="goTo(8)"><span class="dir">Next →</span><span class="ttl">Period-end adjustments — deferrals</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="8">
+  <span class="unit-eyebrow">Unit 08 · A.2 · Bookkeeping Cycle</span>
+  <h1>Period-End Adjustments — Deferrals</h1>
+  <p class="unit-lead">Cash moves first, recognition follows. A deferral records the cash now, holds it on the balance sheet (asset for prepaid expenses, liability for unearned revenue), and releases it to the income statement as time passes or service is delivered.</p>
+
+  <h2><span class="marker">§8.1</span>The two deferral patterns</h2>
+  <table class="fin-table">
+    <thead><tr><th>Pattern</th><th>Initial entry</th><th>Adjustment at period end</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Prepaid expense</strong> — pay first, expense later</td><td>DR Prepaid (asset) · CR Cash</td><td>DR Expense · CR Prepaid</td></tr>
+      <tr><td><strong>Unearned revenue</strong> — receive first, earn later</td><td>DR Cash · CR Unearned Revenue (liability)</td><td>DR Unearned Revenue · CR Revenue</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§8.2</span>Prepaid expenses</h2>
+  <p>Worked example: Sep 1, paid $2,400 for a 12-month insurance policy. Initial: DR Prepaid Insurance 2,400 / CR Cash 2,400. By Dec 31, 4 months elapsed → expense = $2,400 × 4/12 = $800. Adjustment: DR Insurance Expense 800 / CR Prepaid Insurance 800. Prepaid balance = $1,600.</p>
+  <table class="fin-table">
+    <thead><tr><th>Item</th><th>Initial</th><th>Adjusted to expense over</th></tr></thead>
+    <tbody>
+      <tr><td>Insurance — 1 year paid up front</td><td>DR Prepaid Insurance · CR Cash</td><td>1/12 per month</td></tr>
+      <tr><td>Rent — 6 months paid in advance</td><td>DR Prepaid Rent · CR Cash</td><td>1/6 per month</td></tr>
+      <tr><td>Office supplies — purchased in bulk</td><td>DR Office Supplies · CR Cash</td><td>Amount actually used (count)</td></tr>
+      <tr><td>Software subscription — 12 months</td><td>DR Prepaid Subscription · CR Cash</td><td>1/12 per month</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§8.3</span>Unearned revenue</h2>
+  <p>Worked example: Nov 1, customer pays $6,000 for 6 months of consulting. Initial: DR Cash 6,000 / CR Unearned Service Revenue 6,000. By Dec 31, 2 months earned → revenue = $6,000 × 2/6 = $2,000. Adjustment: DR Unearned Service Revenue 2,000 / CR Service Revenue 2,000.</p>
+  <table class="fin-table">
+    <thead><tr><th>Item</th><th>Initial</th><th>Adjustment when service delivered</th></tr></thead>
+    <tbody>
+      <tr><td>Magazine subscription — 12 issues paid in advance</td><td>DR Cash · CR Unearned Subscription Rev</td><td>DR Unearned · CR Subscription Rev (1/12 each issue)</td></tr>
+      <tr><td>Tenant rent paid 6 months ahead</td><td>DR Cash · CR Unearned Rent</td><td>DR Unearned Rent · CR Rent Revenue (1/6 per month)</td></tr>
+      <tr><td>Customer deposit / retainer</td><td>DR Cash · CR Unearned Revenue</td><td>DR Unearned · CR Revenue (when service performed)</td></tr>
+      <tr><td>Gift card sold</td><td>DR Cash · CR Unearned Revenue</td><td>DR Unearned · CR Sales (when redeemed)</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§8.4</span>Two acceptable approaches</h2>
+  <table class="fin-table">
+    <thead><tr><th>Initial approach</th><th>Period-end adjustment</th></tr></thead>
+    <tbody>
+      <tr><td>Capitalise (asset/liability) — DR Prepaid · CR Cash</td><td>Expense the part used: DR Expense · CR Prepaid</td></tr>
+      <tr><td>Expense as paid — DR Expense · CR Cash</td><td>Defer the part not yet used: DR Prepaid · CR Expense</td></tr>
+      <tr><td>Liability — DR Cash · CR Unearned Rev</td><td>Recognise earned: DR Unearned · CR Revenue</td></tr>
+      <tr><td>Revenue when received — DR Cash · CR Revenue</td><td>Defer unearned: DR Revenue · CR Unearned Rev</td></tr>
+    </tbody>
+  </table>
+  <p>Both reach the same period-end balances. The "asset/liability" approach (top of each pair) is cleaner conceptually and the FMAA / CMA exams default to it.</p>
+
+  <h2><span class="marker">§8.5</span>Effect of forgetting a deferral</h2>
+  <table class="fin-table">
+    <thead><tr><th>Forgotten</th><th>NI</th><th>Assets</th><th>Liabilities</th><th>Equity</th></tr></thead>
+    <tbody>
+      <tr><td>Prepaid not amortised</td><td>Overstated</td><td>Overstated</td><td>—</td><td>Overstated</td></tr>
+      <tr><td>Unearned revenue not recognised</td><td>Understated</td><td>—</td><td>Overstated</td><td>Understated</td></tr>
+      <tr><td>Supplies used not expensed</td><td>Overstated</td><td>Overstated</td><td>—</td><td>Overstated</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§8.6</span>Supplies — a special prepaid</h2>
+  <p>Used = Beginning + Purchases − Ending count. Adjustment: DR Supplies Expense (used) / CR Supplies (used).</p>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px;">
+Beg supplies $1,200 + Purchases $3,800 − Ending $1,500 = Used $3,500
+
+DR  Supplies Expense        3,500
+    CR  Supplies                          3,500
+  </pre>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A landlord receives $24,000 cash on Oct 1 for 12 months of rent in advance. By Dec 31, the landlord should have:</p>
+    <ul class="quiz-options"><li>Recognised $24,000 of rent revenue</li><li>Recognised $0 (cash basis)</li><li>Recognised $6,000 of rent revenue and reduced unearned rent to $18,000</li><li>Recognised $2,000 of rent revenue</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Three months earned of twelve = $24,000 × 3/12 = $6,000.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">If a company forgets to record the adjustment for prepaid insurance at year end, the financial statements show:</p>
+    <ul class="quiz-options"><li>No effect</li><li>Overstated liabilities and understated equity</li><li>Understated income and overstated assets</li><li>Overstated income, overstated assets, and overstated equity</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Without the adjustment, expense is missing (NI ↑), prepaid asset is too big (Assets ↑), and equity follows the inflated NI (↑). Three classic over-statements.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">Office Supplies started the year with $400. Purchases of $2,300 were made. A year-end count shows $600 remaining. The adjusting entry is:</p>
+    <ul class="quiz-options"><li>DR Supplies Expense 2,100 / CR Supplies 2,100</li><li>DR Supplies Expense 2,300 / CR Cash 2,300</li><li>DR Supplies 2,300 / CR Cash 2,300</li><li>DR Supplies Expense 600 / CR Supplies 600</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Used = $400 + $2,300 − $600 = $2,100.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">A company sells a $100 gift card. Until the customer redeems it, the card represents:</p>
+    <ul class="quiz-options"><li>Sales revenue</li><li>Unearned revenue (a liability)</li><li>A receivable</li><li>Common stock</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The company has cash but owes future merchandise — that's a liability. Sales revenue is recognised only when the card is redeemed.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">A company that records prepayments using the "income-statement" approach versus the "balance-sheet" approach:</p>
+    <ul class="quiz-options"><li>Will report different net income</li><li>Cannot use both — only one is GAAP</li><li>Will report the same net income and balance sheet after period-end adjustments</li><li>Should never adjust either way</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Both approaches reach the same period-end financial statements after the adjustment.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">A magazine company collects $120 for a 12-issue annual subscription on July 1 and uses the asset/liability approach. By December 31 (six issues delivered), the year-end statements should reflect:</p>
+    <ul class="quiz-options"><li>$60 subscription revenue and $60 unearned subscription liability</li><li>$120 subscription revenue and $0 liability</li><li>$120 unearned subscription liability and $0 revenue</li><li>No effect — wait until all 12 issues are delivered</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Six issues delivered = 6/12 of the subscription earned. Earned $60; unearned $60.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-8">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(7)"><span class="dir">← Previous</span><span class="ttl">Accruals</span></button>
+    <button class="nav-link next" onclick="goTo(9)"><span class="dir">Next →</span><span class="ttl">Depreciation methods</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="9">
+  <span class="unit-eyebrow">Unit 09 · A.2 · Bookkeeping Cycle</span>
+  <h1>Depreciation Methods & Changes in Estimate</h1>
+  <p class="unit-lead">Long-lived assets give up service over time. Depreciation allocates their cost across the periods that benefit, recognised through a recurring adjusting entry. Useful life and salvage are estimates — and estimates can change.</p>
+
+  <h2><span class="marker">§9.1</span>Why depreciate</h2>
+  <p>The matching principle requires that the cost of using a long-lived asset be expensed in the periods in which the asset helps generate revenue. Depreciation is a <em>cost-allocation</em> process, not a valuation process.</p>
+
+  <h2><span class="marker">§9.2</span>Depreciable cost = Cost − Salvage value</h2>
+  <table class="fin-table">
+    <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td>Cost (capitalised basis)</td><td>Purchase price + freight + installation + sales tax + any cost to ready the asset for use</td></tr>
+      <tr><td>Salvage / residual value</td><td>Estimated proceeds at end of useful life</td></tr>
+      <tr><td>Useful life</td><td>Estimated period the asset will be used (years, units, hours)</td></tr>
+      <tr><td>Depreciable base</td><td>Cost − Salvage value</td></tr>
+      <tr><td>Net book value (NBV)</td><td>Cost − Accumulated depreciation</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§9.3</span>Three classic methods</h2>
+  <div class="callout formula">
+    <span class="callout-label">Straight-line</span>
+    <div class="formula-box" style="font-size:14px;">Annual Depreciation = (Cost − Salvage) ÷ Useful life (years)</div>
+  </div>
+  <div class="callout formula">
+    <span class="callout-label">Units-of-production</span>
+    <div class="formula-box" style="font-size:14px;">Per unit = (Cost − Salvage) ÷ Total estimated units · Period = Per unit × Units this period</div>
+  </div>
+  <div class="callout formula">
+    <span class="callout-label">Double-declining balance (DDB)</span>
+    <div class="formula-box" style="font-size:14px;">Annual Depreciation = NBV at start of year × (2 ÷ Useful life)<br/><em>Salvage ignored in calc; cap last year so NBV = Salvage.</em></div>
+  </div>
+
+  <h2><span class="marker">§9.4</span>Worked example — same asset, three methods</h2>
+  <p>Machine $50,000, salvage $5,000, life 5 years (or 90,000 units).</p>
+  <table class="fin-table">
+    <thead><tr><th>Year</th><th>Straight-line</th><th>Units-of-production</th><th>Double-declining (40%)</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>$9,000</td><td>$10,000 (20,000 units)</td><td>$20,000 (50,000 × 40%)</td></tr>
+      <tr><td>2</td><td>$9,000</td><td>$12,500 (25,000 units)</td><td>$12,000</td></tr>
+      <tr><td>3</td><td>$9,000</td><td>$11,000 (22,000 units)</td><td>$7,200</td></tr>
+      <tr><td>4</td><td>$9,000</td><td>$8,000 (16,000 units)</td><td>$4,320</td></tr>
+      <tr><td>5</td><td>$9,000</td><td>$3,500 (7,000 units)</td><td>$1,480 (cap to reach salvage)</td></tr>
+      <tr><th>Total</th><th>$45,000</th><th>$45,000</th><th>$45,000</th></tr>
+    </tbody>
+  </table>
+  <p>Same total depreciation; only the timing differs.</p>
+
+  <h2><span class="marker">§9.5</span>The recurring adjusting entry</h2>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px;">
+DR  Depreciation Expense    9,000
+    CR  Accumulated Depreciation        9,000
+  </pre>
+  <p>The asset itself is never credited (it remains at original cost). Accumulated depreciation, a contra-asset, grows. NBV = Cost − Accumulated Depreciation.</p>
+
+  <h2><span class="marker">§9.6</span>Changes in estimate — prospective only</h2>
+  <ol>
+    <li>Compute current NBV.</li>
+    <li>Compute remaining depreciable base = NBV − new salvage.</li>
+    <li>Allocate over remaining useful life.</li>
+  </ol>
+  <p>Worked: After 3 years SL of $50,000 asset, Acc Dep $27,000, NBV $23,000. Estimate revised to 7 total years and salvage $3,000. Remaining depreciable = $23,000 − $3,000 = $20,000. Remaining life = 4 years. New annual = $5,000.</p>
+  <div class="callout warning">
+    <span class="callout-label">Prospective only</span>
+    <p style="margin-bottom:0">Changes in estimate are NEVER applied retroactively. ASC 250 / IAS 8.</p>
+  </div>
+
+  <h2><span class="marker">§9.7</span>Disposal of an asset</h2>
+  <p>Three steps: (1) update depreciation to disposal date; (2) remove cost and accumulated depreciation; (3) recognise gain/loss = Cash − NBV.</p>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px;">
+Sell machine for $8,000 cash. Cost $50,000, Acc Dep $40,000 → NBV $10,000.
+
+DR  Cash                       8,000
+DR  Accumulated Depreciation  40,000
+DR  Loss on Disposal           2,000
+    CR  Equipment                       50,000
+  </pre>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A truck costs $40,000, has a 4-year life and $4,000 salvage value. First-year DDB depreciation is:</p>
+    <ul class="quiz-options"><li>$20,000</li><li>$10,000</li><li>$9,000</li><li>$18,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Rate = 2/4 = 50%. First-year DDB ignores salvage in the calc: $40,000 × 50% = <strong>$20,000</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">After 4 years of straight-line depreciation on a $30,000 asset (5-year life, $5,000 salvage), management determines the asset will actually last 6 years total. Annual depreciation going forward (years 5 and 6) is:</p>
+    <ul class="quiz-options"><li>$5,000 unchanged</li><li>$3,750</li><li>$2,500 — recompute remaining base over remaining life</li><li>$0</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Original SL = $5,000/yr. After 4 years, NBV = $10,000. Remaining depreciable = $10,000 − $5,000 salvage = $5,000. Remaining life 2 yrs → $2,500/yr.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">"Accumulated depreciation" appears on the balance sheet as:</p>
+    <ul class="quiz-options"><li>An expense</li><li>A liability</li><li>A separate revenue</li><li>A contra-asset reducing the related PP&E</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Accumulated depreciation is a credit-balance contra-asset that nets against the gross asset cost.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">Equipment with NBV $7,000 (Cost $25,000, Acc Dep $18,000) is sold for $5,000 cash. The journal entry includes:</p>
+    <ul class="quiz-options"><li>$2,000 gain on disposal</li><li>$2,000 loss on disposal</li><li>$5,000 gain on disposal</li><li>$0 — no gain or loss</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Loss = NBV − Cash = $7,000 − $5,000 = <strong>$2,000 loss</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">For a delivery truck whose use varies wildly month-to-month, the most appropriate depreciation method is:</p>
+    <ul class="quiz-options"><li>Straight-line</li><li>Double-declining</li><li>Units-of-production — matches expense to actual use</li><li>Group-life method</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Units-of-production aligns the expense with the asset's actual consumption.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">A change in the estimated useful life of an asset is treated:</p>
+    <ul class="quiz-options"><li>Prospectively — recompute remaining base over remaining life; do not restate prior periods</li><li>Retrospectively — restate every prior period</li><li>By writing off the asset entirely</li><li>As a cumulative catch-up adjustment</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ASC 250 / IAS 8 require changes in accounting estimates to be applied prospectively only.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-9">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(8)"><span class="dir">← Previous</span><span class="ttl">Deferrals</span></button>
+    <button class="nav-link next" onclick="goTo(10)"><span class="dir">Next →</span><span class="ttl">Worksheet</span></button>
+  </div>
+</article>
+
 <!-- UNITS_PLACEHOLDER -->
 
 <!-- TESTS_PLACEHOLDER -->
