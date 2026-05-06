@@ -167,6 +167,7 @@
         <li><button onclick="goTo(902)"><strong>T3</strong> — A.2 Assets & Investments · 30 Q · ~54 min</button></li>
         <li><button onclick="goTo(903)"><strong>T4</strong> — Liabilities, Equity & Taxes · 30 Q · ~54 min</button></li>
         <li><button onclick="goTo(904)"><strong>T5</strong> — Revenue & Income · 25 Q · ~45 min</button></li>
+        <li><button onclick="goTo(905)"><strong>T6</strong> — A.2 Comprehensive · 50 Q · ~90 min</button></li>
         <li style="margin-top:8px; padding-top:8px; border-top:1px dashed var(--rule)"><button onclick="goTo(999)"><strong>🎓 Final</strong> — Comprehensive Section A · 40 Q · ~72 min</button></li>
       </ol>
     </div>
@@ -768,11 +769,55 @@
     <strong>Step 3.</strong> Basic EPS = $3,600,000 ÷ 950,000 = <strong>$3.79 per share</strong>.</p>
   </div>
 
-  <p>For <strong>diluted EPS</strong>, you also include the effect of dilutive securities — convertible bonds, convertible preferred, options, warrants — using the <em>treasury stock method</em> (for options) or <em>if-converted method</em> (for convertibles). Anti-dilutive securities are ignored.</p>
+  <p>For <strong>diluted EPS</strong>, you also include the effect of dilutive securities — convertible bonds, convertible preferred, options, warrants — using the <em>treasury stock method</em> (for options/warrants) or <em>if-converted method</em> (for convertibles). Anti-dilutive securities are ignored.</p>
 
-  <div class="formula-box" style="font-size:13px">
-    Treasury stock method: Incremental shares = Options outstanding − (Options × Exercise price ÷ Avg market price)
+  <h3 style="margin-top: 24px;">Treasury stock method — for options & warrants</h3>
+  <p>The intuition: assume all in-the-money options are exercised at the start of the period. The company receives the exercise proceeds; we then assume those proceeds are immediately used to buy back shares at the average market price. The net new shares (issued − bought back) are the incremental dilution.</p>
+
+  <div class="callout formula">
+    <span class="callout-label">Treasury stock method — three steps</span>
+    <div class="formula-box" style="font-size:13.5px; text-align:left;">
+      <strong>1. Hypothetical proceeds</strong> = Options outstanding × Exercise price<br/>
+      <strong>2. Shares hypothetically bought back</strong> = Hypothetical proceeds ÷ Average market price<br/>
+      <strong>3. Incremental dilutive shares</strong> = Options outstanding − Shares bought back<br/><br/>
+      Equivalently:<br/>
+      Incremental shares = Options × <strong>(1 − Exercise price ÷ Avg market price)</strong>
+    </div>
   </div>
+
+  <p>Notice that incremental shares are <em>positive</em> only when Exercise price &lt; Average market price — i.e., the options are in-the-money. If the option is at-the-money or out-of-the-money, the formula yields zero or negative shares. The negative case is <strong>anti-dilutive</strong> — ignored entirely (we never let dilution <em>increase</em> EPS).</p>
+
+  <div class="callout analogy">
+    <span class="callout-label">Worked example — diluted EPS using the treasury stock method</span>
+    <p>A company has Net Income $5M, preferred dividends $1M, and 2M weighted-average common shares. It also has 200,000 employee stock options outstanding with a $30 exercise price. Average market price during the period = $50.</p>
+    <p style="margin-bottom: 4px;"><strong>Step 1 — Hypothetical proceeds</strong> if all options exercised:<br/>
+    200,000 × $30 = <strong>$6,000,000</strong></p>
+    <p style="margin-bottom: 4px;"><strong>Step 2 — Shares the company would buy back</strong> with those proceeds at avg market price:<br/>
+    $6,000,000 ÷ $50 = <strong>120,000 shares</strong></p>
+    <p style="margin-bottom: 4px;"><strong>Step 3 — Incremental dilutive shares</strong>:<br/>
+    200,000 issued − 120,000 bought back = <strong>80,000 net new shares</strong></p>
+    <p style="margin-bottom: 4px;"><strong>Step 4 — Diluted EPS</strong>:<br/>
+    Numerator = $5M − $1M = $4M (same as basic — options don't affect numerator)<br/>
+    Denominator = 2,000,000 + 80,000 = <strong>2,080,000 diluted shares</strong><br/>
+    Diluted EPS = $4,000,000 ÷ 2,080,000 = <strong>$1.92</strong></p>
+    <p style="margin-bottom: 0; font-style: italic; color: var(--ink-soft); font-size: 14px;">Compare to basic EPS = $4M ÷ 2M = $2.00. The dilution dropped EPS by $0.08 — that's the cost of having outstanding options reported on the face of the I/S.</p>
+  </div>
+
+  <h3 style="margin-top: 24px;">If-converted method — for convertible bonds & convertible preferred</h3>
+  <p>For convertibles, assume conversion at the start of the period (or issue date, if later). Two effects:</p>
+  <ul class="plain">
+    <li><strong>Numerator</strong>: add back the after-tax interest expense (for convertible bonds) or pretax preferred dividend (for convertible preferred) — those payments wouldn't exist if the security had been converted.</li>
+    <li><strong>Denominator</strong>: add the new common shares that would be issued on conversion.</li>
+  </ul>
+
+  <div class="callout formula">
+    <span class="callout-label">If-converted (convertible bonds)</span>
+    <div class="formula-box" style="font-size:13.5px;">
+      Diluted EPS = (NI − Pref Div + Interest×(1−tax rate)) ÷ (WAS + new shares from conversion)
+    </div>
+  </div>
+
+  <p>Same anti-dilution check applies: if the calculation would <em>raise</em> EPS, ignore the security and don't include it in diluted EPS.</p>
 
   <h2><span class="marker">§2.6</span>Discontinued operations — when and how</h2>
   <p>A discontinued operation is a component of the entity that has been disposed of (or is held for sale) AND represents a <strong>strategic shift</strong> with major effect on the company's operations and financial results — like exiting a major geographic area, product line, or business unit.</p>
@@ -6390,6 +6435,34 @@
 
   <p><strong>Memory aid:</strong> "PRINCIPLE → restate; ESTIMATE → prospective; ERROR → restate." When an estimate change is "inseparable" from a principle change (e.g., switching depreciation methods), treat as estimate change (prospective).</p>
 
+  <h3 style="margin-top: 24px;">How to apply a change in estimate — the procedure</h3>
+  <p>"Prospective" sounds simple but the math has a specific shape. The four-step procedure:</p>
+  <ol class="steps">
+    <li><strong>Compute the carrying value at the start of the period of change</strong> — using the OLD estimate. Don't restate.</li>
+    <li><strong>Determine the new remaining useful life</strong> from that point — total revised life MINUS years already elapsed.</li>
+    <li><strong>Subtract the (revised) salvage value</strong> from the start-of-period carrying value. (If salvage is also revised, use the new estimate.)</li>
+    <li><strong>Divide by the new remaining life</strong> to get the new annual depreciation. Apply it from the period of change forward — never restate prior years.</li>
+  </ol>
+
+  <div class="callout formula">
+    <span class="callout-label">Formula</span>
+    <div class="formula-box" style="font-size:14px;">
+      New annual depreciation = (CV at start of revision year − Revised salvage) ÷ Revised remaining life
+    </div>
+  </div>
+
+  <div class="callout analogy">
+    <span class="callout-label">Worked example — useful life shortened</span>
+    <p>Equipment purchased Jan 2021 for $600,000. Original life 10 years; salvage $0; straight-line. In 2024 (after 3 years of depreciation), management revises the useful life to 6 years total (3 years already elapsed + 3 more).</p>
+    <ul class="plain" style="margin-bottom:0">
+      <li><strong>Step 1 — CV at start of 2024</strong>: original annual depreciation = $600K ÷ 10 = $60K/year. Three years used = $180K. CV at start of 2024 = $600K − $180K = <strong>$420,000</strong>.</li>
+      <li><strong>Step 2 — New remaining life</strong>: revised total 6 years − 3 elapsed = <strong>3 years</strong>.</li>
+      <li><strong>Step 3 — Salvage</strong>: $0 (unchanged in this example).</li>
+      <li><strong>Step 4 — New annual depreciation</strong>: ($420,000 − $0) ÷ 3 = <strong>$140,000/year</strong> for 2024, 2025, 2026.</li>
+    </ul>
+    <p style="margin-bottom: 0; margin-top: 12px; font-style: italic; color: var(--ink-soft); font-size: 14px;">No restatement of 2021–2023; no journal entries to fix prior years. Just apply the new $140K starting in the period the estimate changes. Same procedure handles a revised salvage value (use the new salvage in Step 3) or a revised method (e.g., switching SL → DDB is treated as an estimate change too).</p>
+  </div>
+
   <h2><span class="marker">§22.6</span>Appropriations of retained earnings</h2>
   <p>An <strong>appropriation</strong> reclassifies a portion of unrestricted RE into "Appropriated RE" — signaling that the board has earmarked it for a specific purpose (planned expansion, contingency reserve, debt covenant compliance). Mechanics:</p>
   <ul class="plain">
@@ -10511,13 +10584,657 @@
 
   <div class="unit-footer">
     <button class="nav-link" onclick="goTo(903)"><span class="dir">← Previous test</span><span class="ttl">Liabilities, Equity & Taxes</span></button>
+    <button class="nav-link next" onclick="goTo(905)"><span class="dir">Next test →</span><span class="ttl">A.2 Comprehensive (50 Q)</span></button>
+  </div>
+</article>
+
+
+<!-- ============================================================
+     TEST 6 — A.2 COMPREHENSIVE (Recognition, Measurement, Valuation)
+     ============================================================ -->
+<article class="unit" data-id="905">
+  <span class="unit-eyebrow">Practice Test 6 · A.2 Comprehensive</span>
+  <h1>Test 6 — A.2 Comprehensive · Recognition, Measurement, Valuation</h1>
+  <p class="unit-lead">Fifty CMA-style questions covering the full breadth of A.2 — receivables, inventory, investments, business combinations, fixed assets, intangibles, leases, taxes, equity, and revenue. Mixed in random-ish order, like the real exam.</p>
+
+  <div class="test-intro">
+    <h2 style="margin-top:0;">Coverage</h2>
+    <p>This is the section-level summary test for <strong>A.2 (Recognition, Measurement, Valuation)</strong> — the largest and most calculation-heavy slice of Section A. It mirrors how the actual CMA exam mixes topics within a section rather than drilling one area at a time. Use Tests 3, 4, and 5 for topic-focused practice; use this one to confirm cross-topic mastery before sitting the real thing.</p>
+    <div class="test-meta">
+      <span>Questions<strong>50</strong></span>
+      <span>Difficulty<strong>Application + Calculation (B–C)</strong></span>
+      <span>Time target<strong>~90 min</strong></span>
+      <span>Pass mark<strong>75% (38/50)</strong></span>
+    </div>
+  </div>
+
+  <div class="test">
+    <div class="test-progress">
+      <span class="answered">0 / 50 answered</span>
+      <div class="score-bar"><div class="score-fill"></div></div>
+      <span class="score-percent">0 correct</span>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="9" data-topic="AR aging method">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">A.2 · AR aging</span></div>
+      <p class="quiz-q">An aging schedule estimates required ending allowance of $35,000. Allowance currently has a $4,000 debit balance (write-offs exceeded prior estimates). What is bad debt expense for the period?</p>
+      <ul class="quiz-options">
+        <li>$31,000</li>
+        <li>$35,000</li>
+        <li>$39,000</li>
+        <li>$4,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Aging targets the ending balance ($35K credit). With a $4K debit balance, you need $35K + $4K = <strong>$39,000</strong> to bring the allowance to the required $35K credit. The trap: if the existing balance had been a credit, you'd add $31K. Read the sign carefully.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="10" data-topic="FIFO COGS">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">A.2 · FIFO</span></div>
+      <p class="quiz-q">Beg inventory 200 units @ $10. Mar purchase 300 @ $12. Aug purchase 400 @ $15. Sold 600 units. FIFO periodic COGS is:</p>
+      <ul class="quiz-options">
+        <li>$6,800</li>
+        <li>$7,500</li>
+        <li>$7,200</li>
+        <li>$9,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> FIFO sells oldest first: 200×$10 = $2,000; 300×$12 = $3,600; remaining 100 from $15 layer = $1,500. Total = <strong>$6,800</strong>. The 300 units left at $15 = $4,500 ending inventory.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="10" data-topic="LIFO COGS">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">A.2 · LIFO</span></div>
+      <p class="quiz-q">Same data as Q2: 200 @ $10, 300 @ $12, 400 @ $15. Sold 600 units. Under LIFO periodic, COGS is:</p>
+      <ul class="quiz-options">
+        <li>$6,800</li>
+        <li>$7,200</li>
+        <li>$7,500</li>
+        <li>$8,400</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> LIFO sells newest first: 400×$15 = $6,000; 200×$12 = $2,400. Total = <strong>$8,400</strong>. Compare to FIFO ($6,800) — LIFO matches recent costs to COGS, leaving older costs in inventory.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="11" data-topic="LCNRV">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">A.2 · LCNRV</span></div>
+      <p class="quiz-q">Inventory item: cost $50/unit, selling price $60, costs to complete & sell $15. Under US GAAP LCNRV (FIFO), the inventory is reported at:</p>
+      <ul class="quiz-options">
+        <li>$60</li>
+        <li>$50</li>
+        <li>$45 — write-down required</li>
+        <li>$15</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> NRV = Selling price − Costs to complete/sell = $60 − $15 = $45. Lower of Cost ($50) and NRV ($45) = <strong>$45</strong>. Write-down of $5/unit; record DR Loss / CR Inventory.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="11" data-topic="Inventory error">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">A.2 · Inv error</span></div>
+      <p class="quiz-q">Year 1 ending inventory was OVERSTATED by $20,000 (uncorrected). The effect on Year 2 net income (assuming no further error in Y2) is:</p>
+      <ul class="quiz-options">
+        <li>Overstated by $20,000</li>
+        <li>Understated by $20,000</li>
+        <li>Unaffected</li>
+        <li>Overstated by $40,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Year 1's overstated ending inventory becomes Year 2's overstated <em>beginning</em> inventory. Higher beg inventory → higher COGS in Y2 → <strong>Y2 NI understated by $20K</strong>. Errors self-correct over two periods, but each year's NI is misstated.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="12" data-topic="AFS unrealised gain">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">A.2 · AFS</span></div>
+      <p class="quiz-q">An AFS debt security purchased for $100,000 has a fair value of $108,000 at year-end. Under US GAAP, the $8,000 unrealised gain (pre-tax) is reported in:</p>
+      <ul class="quiz-options">
+        <li>OCI (and AOCI on the balance sheet)</li>
+        <li>Net income</li>
+        <li>Retained earnings directly</li>
+        <li>Not recognised until sold</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> AFS debt securities → fair value through OCI. Realised gains/losses on sale recycle from OCI to NI. (Trading goes through NI; HTM stays at amortised cost.)</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="13" data-topic="Equity method">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">A.2 · Equity method</span></div>
+      <p class="quiz-q">On Jan 1, Investor buys 25% of Investee for $500,000 (book = fair value). Investee earns $200,000 NI and pays $80,000 dividends. Year-end carrying value:</p>
+      <ul class="quiz-options">
+        <li>$500,000</li>
+        <li>$520,000</li>
+        <li>$530,000</li>
+        <li>$550,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Roll-forward: $500K + (25% × $200K) − (25% × $80K) = $500K + $50K − $20K = <strong>$530,000</strong>. Dividends reduce the investment; %·NI raises it.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="14" data-topic="Goodwill">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">A.2 · Goodwill</span></div>
+      <p class="quiz-q">Acquirer pays $4M for 100% of Target. Target's identifiable assets at FV = $6M; liabilities at FV = $3M. Goodwill recognised:</p>
+      <ul class="quiz-options">
+        <li>$4,000,000</li>
+        <li>$1,000,000</li>
+        <li>$3,000,000</li>
+        <li>$0 — bargain purchase gain $1M</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Net identifiable = $6M − $3M = $3M. Goodwill = Price − Net identifiable = $4M − $3M = <strong>$1M</strong>. If price had been below $3M, the difference would be a bargain purchase gain (recognised in NI).</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="15" data-topic="Capitalised interest">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">A.2 · Cap interest</span></div>
+      <p class="quiz-q">A self-constructed asset took $2M of average accumulated expenditures during construction. Specific construction debt $1.5M at 8%; general debt $3M at 6%. Maximum capitalised interest:</p>
+      <ul class="quiz-options">
+        <li>$120,000</li>
+        <li>$140,000</li>
+        <li>$180,000</li>
+        <li>$150,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Specific debt covers $1.5M × 8% = $120K. Excess expenditure $500K × 6% (general rate) = $30K. Avoidable interest = $150K. Cap to lower of avoidable and total actual interest. Total actual = $1.5M×8% + $3M×6% = $120K + $180K = $300K. Cap the lower = <strong>$150,000</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="16" data-topic="DDB year 2">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">A.2 · Depreciation</span></div>
+      <p class="quiz-q">Asset cost $80,000, salvage $10,000, life 4 years. Year-2 depreciation under double-declining balance:</p>
+      <ul class="quiz-options">
+        <li>$40,000</li>
+        <li>$17,500</li>
+        <li>$20,000</li>
+        <li>$10,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> DDB rate = 2/4 = 50%. Y1 depr = $80K × 50% = $40K. Y1 ending CV = $40K. Y2 depr = $40K × 50% = <strong>$20,000</strong>. Salvage ignored in rate but bounds the floor — don't take CV below $10K. Y3 partial depr applies.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="16" data-topic="Impairment GAAP">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">A.2 · Impairment</span></div>
+      <p class="quiz-q">Equipment carrying value $500K. Undiscounted future cash flows $480K. Fair value $440K. Under US GAAP, the impairment loss recognised is:</p>
+      <ul class="quiz-options">
+        <li>$60,000 — write down to fair value</li>
+        <li>$20,000</li>
+        <li>$0 — recoverable</li>
+        <li>$500,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> US GAAP two-step. Step 1: undiscounted CFs ($480K) &lt; CV ($500K) → impaired. Step 2: write down to FV ($440K). Loss = $500K − $440K = <strong>$60,000</strong>. The trap of $20K uses CFs vs. CV (Step 1 trigger only).</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="17" data-topic="R&D">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">A.2 · R&D</span></div>
+      <p class="quiz-q">A biotech spent $10M on internal R&D for a new drug, plus $200K of legal fees to register the resulting patent. Under US GAAP, the patent is recorded at:</p>
+      <ul class="quiz-options">
+        <li>$10,200,000</li>
+        <li>$10,000,000</li>
+        <li>$200,000</li>
+        <li>$0 — fully expensed</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> US GAAP expenses internal R&D ($10M) as incurred. Only the directly capitalisable legal/registration costs ($200K) form the patent's recorded basis. IFRS would capitalise development costs that meet six criteria — a major GAAP/IFRS divergence.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="18" data-topic="ST debt reclass">
+      <div class="q-num"><span class="num-text">Question 13</span><span class="topic">A.2 · ST debt</span></div>
+      <p class="quiz-q">A note matures Mar 31. On Feb 1, before the FS are issued, the company refinances it with a 5-year loan. Under US GAAP, the year-end (Dec 31) classification is:</p>
+      <ul class="quiz-options">
+        <li>Current — note matures within one year</li>
+        <li>Equity</li>
+        <li>Non-current — refinancing demonstrates intent + ability before issuance</li>
+        <li>Off balance sheet</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> US GAAP allows reclassification to non-current if the refinancing happens (or non-cancellable agreement is in place) before FS issuance. IFRS is stricter: refinancing must be COMPLETED by the balance sheet date.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="19" data-topic="Warranty">
+      <div class="q-num"><span class="num-text">Question 14</span><span class="topic">A.2 · Warranty</span></div>
+      <p class="quiz-q">Year 1 sales $4M with 2.5% estimated warranty rate. Actual Y1 repairs cost $60K. Year-end warranty liability balance:</p>
+      <ul class="quiz-options">
+        <li>$100,000</li>
+        <li>$40,000</li>
+        <li>$60,000</li>
+        <li>$160,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Y1 warranty expense at sale = $4M × 2.5% = $100K (DR Expense / CR Liability). Repairs draw down the liability: $100K − $60K = <strong>$40K</strong>. Future repairs in Y2 will reduce the balance further.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="20" data-topic="Deferred tax — rate change">
+      <div class="q-num"><span class="num-text">Question 15</span><span class="topic">A.2 · Deferred tax</span></div>
+      <p class="quiz-q">A $300,000 temporary difference will reverse next year. Current rate 21%; enacted rate for next year is 25%. Required deferred tax balance:</p>
+      <ul class="quiz-options">
+        <li>$75,000</li>
+        <li>$63,000</li>
+        <li>$12,000</li>
+        <li>$0</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Use the enacted rate that will apply when the difference reverses = 25%. $300K × 25% = <strong>$75,000</strong>. The $63K trap uses the current 21% rate.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="21" data-topic="Lease — initial measurement">
+      <div class="q-num"><span class="num-text">Question 16</span><span class="topic">A.2 · Leases</span></div>
+      <p class="quiz-q">A 4-year lease has annual end-of-year payments of $80,000. Lessee's incremental borrowing rate 5%. PV factor of an ordinary annuity of 4 periods at 5% = 3.5460. Initial lease liability:</p>
+      <ul class="quiz-options">
+        <li>$320,000</li>
+        <li>$300,000</li>
+        <li>$283,680</li>
+        <li>$80,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Lease liability = $80,000 × 3.5460 = <strong>$283,680</strong>. The $320K trap forgets to discount; $80K is just one payment.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="22" data-topic="Stock dividend small">
+      <div class="q-num"><span class="num-text">Question 17</span><span class="topic">A.2 · Stock dividends</span></div>
+      <p class="quiz-q">200,000 shares of $1 par stock outstanding. Market $40. Board declares a 10% stock dividend. Journal entry:</p>
+      <ul class="quiz-options">
+        <li>DR RE $20K / CR Common Stock $20K</li>
+        <li>DR RE $200K / CR Common Stock $20K / CR APIC $180K</li>
+        <li>DR Cash $800K / CR Common Stock $20K / CR APIC $780K</li>
+        <li>DR RE $800K / CR Common Stock $20K / CR APIC $780K</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 10% &lt; 25% = small stock dividend → capitalise at FMV. Shares issued = 20,000. FMV = 20,000 × $40 = $800K. DR RE $800K / CR Common Stock $20K (par) / CR APIC $780K (excess). Large stock dividend (≥25%) capitalises at par only.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="23" data-topic="Stock issued non-cash">
+      <div class="q-num"><span class="num-text">Question 18</span><span class="topic">A.2 · Common stock</span></div>
+      <p class="quiz-q">A company issues 5,000 shares of $1 par stock for legal services. Stock has readily determinable FV of $30/share; the legal services are separately quoted at $140K. The stock is recorded at:</p>
+      <ul class="quiz-options">
+        <li>$5,000</li>
+        <li>$150,000 — use the more reliably measurable FV (publicly-traded stock)</li>
+        <li>$140,000</li>
+        <li>The lower of the two</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Use the more reliably measurable FV. Public stock prices are usually more reliable than service estimates. 5,000 × $30 = <strong>$150K</strong>. DR Legal Services Expense $150K / CR Common Stock $5K / CR APIC $145K.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="25" data-topic="Treasury cost method">
+      <div class="q-num"><span class="num-text">Question 19</span><span class="topic">A.2 · Treasury</span></div>
+      <p class="quiz-q">Company buys back 1,000 shares ($1 par) at $40. Later resells all 1,000 at $30. APIC—Treasury balance was $0 before. The reissue entry includes:</p>
+      <ul class="quiz-options">
+        <li>DR Cash $30K / DR RE $10K / CR Treasury $40K</li>
+        <li>DR Cash $30K / CR Treasury $30K / CR Loss $10K</li>
+        <li>DR Cash $30K / DR Loss $10K / CR Treasury $40K</li>
+        <li>DR Cash $30K / CR Treasury $30K</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Treasury never affects NI — no gain/loss on own stock. With $0 APIC—Treasury, the $10K reissue deficit goes straight to Retained Earnings: DR Cash $30K / DR RE $10K / CR Treasury at cost $40K.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="26" data-topic="ASC 606 5-step">
+      <div class="q-num"><span class="num-text">Question 20</span><span class="topic">A.2 · Revenue rec</span></div>
+      <p class="quiz-q">In the ASC 606 5-step model, allocating the transaction price to performance obligations is BASED on:</p>
+      <ul class="quiz-options">
+        <li>Total contract value divided by number of POs</li>
+        <li>Customer-stated values</li>
+        <li>Standalone selling prices of each PO (estimated if not observable)</li>
+        <li>Historical pricing</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Step 4 allocates based on standalone selling prices. If a price isn't observable, it's estimated (adjusted-market, expected-cost-plus, or residual approach). Step 5 then recognises revenue when (point in time) or as (over time) each PO is satisfied.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="27" data-topic="Right of return">
+      <div class="q-num"><span class="num-text">Question 21</span><span class="topic">A.2 · Right of return</span></div>
+      <p class="quiz-q">Retailer sells 1,500 units at $80 each (cost $50). Expected return rate 10%. Revenue recognised today:</p>
+      <ul class="quiz-options">
+        <li>$120,000</li>
+        <li>$12,000</li>
+        <li>$108,000 — wait, that's $90 × 1,200</li>
+        <li>$108,000 — 1,350 expected kept × $80</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Revenue = (1 − return rate) × Total = (1 − 0.10) × 1,500 × $80 = 0.90 × $120K = <strong>$108K</strong>. Refund liability = 10% × $120K = $12K. Return asset = 150 × $50 = $7.5K.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="28" data-topic="% of completion">
+      <div class="q-num"><span class="num-text">Question 22</span><span class="topic">A.2 · LTC</span></div>
+      <p class="quiz-q">$8M contract, total estimated cost $6M. Costs to date $1.5M. Revenue recognised in prior periods $0. Revenue this year (cost-to-cost):</p>
+      <ul class="quiz-options">
+        <li>$1,500,000</li>
+        <li>$2,000,000</li>
+        <li>$8,000,000</li>
+        <li>$6,000,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> % complete = $1.5M / $6M = 25%. Revenue earned to date = 25% × $8M = $2M. Less prior recognised ($0) = <strong>$2M</strong>. Profit this year = $2M − $1.5M = $500K.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="28" data-topic="Loss contract">
+      <div class="q-num"><span class="num-text">Question 23</span><span class="topic">A.2 · Loss contract</span></div>
+      <p class="quiz-q">Same contract as Q22, but year 2 cost estimate revises to $9M (versus $8M price). Year-2 cumulative recognition: revenue, costs, gross profit. The proper Y2 entry recognises:</p>
+      <ul class="quiz-options">
+        <li>The proportional Y2 revenue minus Y2 costs as a small profit</li>
+        <li>No loss yet — wait until contract ends</li>
+        <li>The entire $1M expected loss in Y2 immediately</li>
+        <li>Half the loss in Y2 and half in remaining periods</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Loss-contract rule: recognise the entire expected loss ($9M − $8M = $1M) in the period it becomes evident. Conservatism — recognise losses immediately, gains as performance progresses.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="29" data-topic="GAAP/IFRS — inventory">
+      <div class="q-num"><span class="num-text">Question 24</span><span class="topic">A.2 · GAAP/IFRS</span></div>
+      <p class="quiz-q">Under IFRS, inventory write-downs are:</p>
+      <ul class="quiz-options">
+        <li>Reversible up to original cost when value recovers</li>
+        <li>Permanent — same as US GAAP</li>
+        <li>Not allowed</li>
+        <li>Reversible without limit</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> IFRS allows reversals capped at original cost. US GAAP does NOT allow reversals — write-downs create a new cost basis. One of the cleanest GAAP/IFRS deltas.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="30" data-topic="Disposal gain">
+      <div class="q-num"><span class="num-text">Question 25</span><span class="topic">A.2 · Disposal</span></div>
+      <p class="quiz-q">Equipment cost $200K, accumulated depreciation $140K. Sold for $80K cash. Gain or loss recognised:</p>
+      <ul class="quiz-options">
+        <li>$80,000 gain</li>
+        <li>$60,000 loss</li>
+        <li>$20,000 gain</li>
+        <li>$0</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Carrying value = $200K − $140K = $60K. Gain = Cash − CV = $80K − $60K = <strong>$20K gain</strong>. The $80K trap ignores CV; $60K loss reverses cash and CV.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="9" data-topic="Allowance write-off">
+      <div class="q-num"><span class="num-text">Question 26</span><span class="topic">A.2 · Write-off</span></div>
+      <p class="quiz-q">A specific $5,000 receivable is written off. Under the allowance method, the impact on net AR (gross AR − allowance) is:</p>
+      <ul class="quiz-options">
+        <li>$0 — both sides drop by $5K</li>
+        <li>Decrease by $5,000</li>
+        <li>Increase by $5,000</li>
+        <li>Decrease by $10,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> DR Allowance / CR AR. Both gross AR and the allowance fall by $5K, leaving net AR unchanged. The expense was already recognised when the allowance was set up — write-off is just a balance-sheet movement.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="11" data-topic="FOB">
+      <div class="q-num"><span class="num-text">Question 27</span><span class="topic">A.2 · FOB</span></div>
+      <p class="quiz-q">$50,000 of goods are in transit at Dec 31, shipped FOB shipping point. The goods belong on the:</p>
+      <ul class="quiz-options">
+        <li>Seller's books only</li>
+        <li>Carrier's books</li>
+        <li>Buyer's books — title passed at shipment</li>
+        <li>Neither's books until delivery</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> FOB shipping point: title passes when shipped (buyer pays freight, owns goods in transit). FOB destination: title passes on arrival (seller pays freight). The Dec 31 inventory count must reflect the title rule.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="13" data-topic="Equity threshold">
+      <div class="q-num"><span class="num-text">Question 28</span><span class="topic">A.2 · Equity invest</span></div>
+      <p class="quiz-q">A 15% investment in a publicly-traded company with no significant influence is measured at:</p>
+      <ul class="quiz-options">
+        <li>Equity method</li>
+        <li>Fair value through net income</li>
+        <li>Cost (no remeasurement)</li>
+        <li>FV through OCI</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Post-2018 (ASU 2016-01), equity securities without significant influence go to FV through NI — even long-term holdings. The old AFS-for-equity treatment was eliminated. Only debt securities can use AFS now.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="14" data-topic="NCI">
+      <div class="q-num"><span class="num-text">Question 29</span><span class="topic">A.2 · NCI</span></div>
+      <p class="quiz-q">Acquirer buys 80% of Target. The 20% non-controlling interest (NCI) under US GAAP can be measured at:</p>
+      <ul class="quiz-options">
+        <li>Cost only</li>
+        <li>Acquisition price × 20%</li>
+        <li>Always at the proportionate share of net identifiable assets</li>
+        <li>Either fair value of NCI (full goodwill) OR proportionate share of net identifiable assets</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> US GAAP permits the choice. IFRS also permits both — picked per acquisition. Full goodwill (NCI at FV) recognises goodwill on the entire entity; partial only on the acquired portion.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="16" data-topic="IFRS impairment reversal">
+      <div class="q-num"><span class="num-text">Question 30</span><span class="topic">A.2 · IFRS impair</span></div>
+      <p class="quiz-q">Under IFRS, a previously-recognised impairment loss on a non-goodwill long-lived asset is:</p>
+      <ul class="quiz-options">
+        <li>Reversible if the recoverable amount recovers — capped at original carrying value (less depreciation)</li>
+        <li>Reversible without limit</li>
+        <li>Never reversible</li>
+        <li>Reversible only on disposal</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> IFRS permits reversal up to original carrying value (less normal depreciation). US GAAP does NOT permit reversal — once impaired, the new lower CV is the basis. Goodwill impairment is non-reversible under both frameworks.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="20" data-topic="ETR">
+      <div class="q-num"><span class="num-text">Question 31</span><span class="topic">A.2 · ETR</span></div>
+      <p class="quiz-q">Pretax book income $2M. Permanent differences: $80K muni interest (non-taxable), $40K fines (non-deductible). Statutory rate 21%. Effective tax rate:</p>
+      <ul class="quiz-options">
+        <li>21.0%</li>
+        <li>20.6%</li>
+        <li>21.4%</li>
+        <li>22.0%</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Taxable = $2M − $80K + $40K = $1.96M. Tax = $1.96M × 21% = $411,600. ETR = $411,600 / $2M = <strong>20.58%</strong> (≈ 20.6%). Permanents move ETR from statutory; temporaries don't (they create DTA/DTL but ETR matches statutory eventually).</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="21" data-topic="Lease classification">
+      <div class="q-num"><span class="num-text">Question 32</span><span class="topic">A.2 · Lease class</span></div>
+      <p class="quiz-q">A 5-year lease on equipment with 6-year economic life. PV of payments = 92% of FV. No transfer of ownership, no bargain purchase, equipment is general-purpose. Under US GAAP (ASC 842), the lessee classifies as:</p>
+      <ul class="quiz-options">
+        <li>Operating</li>
+        <li>Short-term</li>
+        <li>Finance — meets the 75% life test (5/6 = 83%) AND the 90% PV test</li>
+        <li>Either operating or finance, lessee's choice</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Five tests for finance: ownership transfer, bargain purchase, ≥75% life, ≥90% PV, specialised asset. ANY ONE trips finance. 5/6 = 83% &gt; 75% → finance. 92% &gt; 90% → also finance. Multiple tests independently confirm finance.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="22" data-topic="RE rollforward">
+      <div class="q-num"><span class="num-text">Question 33</span><span class="topic">A.2 · RE rollforward</span></div>
+      <p class="quiz-q">Beg RE $400K. NI $180K. Cash dividends declared $50K. Stock dividend (small, FMV $30K, par $5K). End RE:</p>
+      <ul class="quiz-options">
+        <li>$500,000</li>
+        <li>$525,000</li>
+        <li>$555,000</li>
+        <li>$485,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> End RE = Beg + NI − Cash div − Stock div (at FMV for small) = $400K + $180K − $50K − $30K = <strong>$500K</strong>. The $5K par is NOT the charge to RE — small stock dividends capitalise at FMV.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="24" data-topic="Cumulative preferred">
+      <div class="q-num"><span class="num-text">Question 34</span><span class="topic">A.2 · Pref dividend</span></div>
+      <p class="quiz-q">100,000 shares of $100 par cumulative 6% preferred. Two years of dividends are in arrears. To pay any common dividend this year, total preferred dividends required first:</p>
+      <ul class="quiz-options">
+        <li>$600,000 — current year only</li>
+        <li>$1,200,000 — only arrears</li>
+        <li>$600,000 — only one year of arrears + current</li>
+        <li>$1,800,000 — 2 years arrears + current year</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Cumulative preferred: pay all arrears + current year before any common. Annual = 100,000 × $100 × 6% = $600K. 2 years arrears + current = 3 × $600K = <strong>$1.8M</strong>. Non-cumulative would only require the current year's $600K.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="25" data-topic="Treasury voting">
+      <div class="q-num"><span class="num-text">Question 35</span><span class="topic">A.2 · Treasury</span></div>
+      <p class="quiz-q">Authorised 1,000,000 shares; issued 600,000; treasury 80,000. Outstanding shares for EPS denominator:</p>
+      <ul class="quiz-options">
+        <li>1,000,000</li>
+        <li>520,000</li>
+        <li>600,000</li>
+        <li>680,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Outstanding = Issued − Treasury = 600K − 80K = <strong>520K</strong>. Treasury shares don't vote and aren't in EPS denominator.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="26" data-topic="Performance obligation">
+      <div class="q-num"><span class="num-text">Question 36</span><span class="topic">A.2 · POs</span></div>
+      <p class="quiz-q">A bundled software license + 12-month support contract for $120K. Standalone: software $100K, support $40K (combined SSP $140K). Revenue recognised at contract inception (point-in-time license, time-based support):</p>
+      <ul class="quiz-options">
+        <li>~$85,714 (software allocated portion at point in time)</li>
+        <li>$120,000 (entire contract at inception)</li>
+        <li>$60,000 (half)</li>
+        <li>$0 (deferred)</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Allocate $120K by SSP ratio. Software = $120K × ($100/$140) = $85.7K (point-in-time, recognised at delivery). Support = $120K × ($40/$140) = $34.3K (over 12 months). Day-1 revenue ≈ <strong>$85.7K</strong>; the rest unfolds over time.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="27" data-topic="Consignment">
+      <div class="q-num"><span class="num-text">Question 37</span><span class="topic">A.2 · Consignment</span></div>
+      <p class="quiz-q">A consignor ships $50,000 of goods to a consignee. The consignee has not yet sold any. Year-end, on the consignor's books:</p>
+      <ul class="quiz-options">
+        <li>Recognise $50K revenue (delivered)</li>
+        <li>Recognise $50K AR</li>
+        <li>Goods stay in inventory (often as "Inventory on consignment")</li>
+        <li>Goods are derecognised completely</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Title doesn't pass until the consignee sells to an end customer. Consignor keeps the inventory on their books (typically reclassified to a separate "Inventory on consignment" line). No revenue recognised yet.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="9" data-topic="Factoring">
+      <div class="q-num"><span class="num-text">Question 38</span><span class="topic">A.2 · Factoring</span></div>
+      <p class="quiz-q">Factoring AR <strong>without recourse</strong> is most appropriately treated as:</p>
+      <ul class="quiz-options">
+        <li>A loan (with the receivable as collateral)</li>
+        <li>An off-balance-sheet item</li>
+        <li>An equity transaction</li>
+        <li>A sale — the receivable is derecognised; gain/loss on the difference between proceeds and CV</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Without-recourse factoring transfers the credit risk to the factor → derecognition. With-recourse factoring (seller bears credit loss risk) is typically treated as a secured borrowing — AR stays on the books.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="10" data-topic="Inventory equation">
+      <div class="q-num"><span class="num-text">Question 39</span><span class="topic">A.2 · Inv equation</span></div>
+      <p class="quiz-q">Beg inventory $80K. Purchases $300K. End inventory $90K. COGS:</p>
+      <ul class="quiz-options">
+        <li>$290,000</li>
+        <li>$310,000</li>
+        <li>$380,000</li>
+        <li>$220,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Beg + Purchases − End = COGS → $80K + $300K − $90K = <strong>$290K</strong>. The $310K trap reverses ending and beginning inventory.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="12" data-topic="Bond pricing">
+      <div class="q-num"><span class="num-text">Question 40</span><span class="topic">A.2 · Bond price</span></div>
+      <p class="quiz-q">A 5-year bond with $1,000 face value, 6% coupon, market rate 8%. The bond will sell at:</p>
+      <ul class="quiz-options">
+        <li>Premium (above face)</li>
+        <li>Par ($1,000)</li>
+        <li>Discount (below face)</li>
+        <li>Cannot determine</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Coupon (6%) &lt; Market (8%) → bond's cash flows are less attractive than alternatives → priced at a <strong>discount</strong>. Coupon &gt; market = premium. Coupon = market = par.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="13" data-topic="Equity method losses">
+      <div class="q-num"><span class="num-text">Question 41</span><span class="topic">A.2 · Equity method</span></div>
+      <p class="quiz-q">An investor uses the equity method. The investee reports cumulative losses that exceed the investment's carrying value. Without other commitments, the investor:</p>
+      <ul class="quiz-options">
+        <li>Continues recognising losses, taking the investment negative</li>
+        <li>Stops recognising losses once CV reaches zero; resumes when future profits cover the gap</li>
+        <li>Switches to fair-value method</li>
+        <li>Recognises a one-time impairment</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Investment carrying value can't go below zero (without other commitments to fund losses). Stop applying losses; track them off-book. Resume recognising losses only after the investee's profits restore equity, then continue from where you stopped.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="14" data-topic="Bargain purchase">
+      <div class="q-num"><span class="num-text">Question 42</span><span class="topic">A.2 · Bargain purchase</span></div>
+      <p class="quiz-q">Acquirer pays $3M for net identifiable assets at FV of $4M. After re-checking the FV measurement, the $1M difference is:</p>
+      <ul class="quiz-options">
+        <li>Negative goodwill capitalised on B/S</li>
+        <li>Deferred and amortised over 10 years</li>
+        <li>Pushed against goodwill of other acquisitions</li>
+        <li>A bargain purchase gain — recognised in NI immediately (after re-verifying the FV measurement)</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> When price &lt; FV of net identifiable, no negative goodwill is recorded. After confirming FV measurement is correct, the difference is a bargain purchase gain — recognised through NI in the period of acquisition.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="15" data-topic="Asset basket purchase">
+      <div class="q-num"><span class="num-text">Question 43</span><span class="topic">A.2 · Basket purchase</span></div>
+      <p class="quiz-q">$500K paid for land + building + equipment in a single transaction. Appraised FVs: land $200K, building $300K, equipment $100K. Building's recorded cost:</p>
+      <ul class="quiz-options">
+        <li>$300,000</li>
+        <li>$166,667</li>
+        <li>$250,000</li>
+        <li>$500,000</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Allocate by relative FV. Total FV = $600K; building's share = $300K / $600K = 50%. Building cost = 50% × $500K = <strong>$250K</strong>. Land = $166.7K; Equipment = $83.3K. Sum: $500K ✓.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="17" data-topic="Crypto">
+      <div class="q-num"><span class="num-text">Question 44</span><span class="topic">A.2 · Crypto</span></div>
+      <p class="quiz-q">Under ASU 2023-08, qualifying crypto assets (e.g., Bitcoin) are measured at:</p>
+      <ul class="quiz-options">
+        <li>Fair value through net income — both gains and losses</li>
+        <li>Cost less impairment only</li>
+        <li>Lower of cost and fair value</li>
+        <li>Amortised cost</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Pre-2024 GAAP treated crypto as indefinite-lived intangibles (impairment-only, no upward remeasurement) — asymmetric. ASU 2023-08 reversed this for in-scope crypto: FV through NI, both up and down. Effective for fiscal years beginning after Dec 15, 2024.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="18" data-topic="Callable debt">
+      <div class="q-num"><span class="num-text">Question 45</span><span class="topic">A.2 · Callable debt</span></div>
+      <p class="quiz-q">A long-term bond has a covenant that the lender can call (demand immediate repayment). The covenant is violated at year-end. Under US GAAP, classification is:</p>
+      <ul class="quiz-options">
+        <li>Non-current — original maturity &gt; 1 year</li>
+        <li>Equity</li>
+        <li>Current — unless lender waives or grants 12-month grace</li>
+        <li>Off balance sheet</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Covenant violation → lender's call right is active → debt is callable on demand → current. The exception: lender grants a 12-month waiver or grace period before FS issuance. IFRS is similar but with different timing requirements.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="19" data-topic="Service warranty">
+      <div class="q-num"><span class="num-text">Question 46</span><span class="topic">A.2 · Service warranty</span></div>
+      <p class="quiz-q">A 3-year service warranty is sold separately for $300 per item, alongside a $1,000 product sale (with 1-year assurance warranty). Treatment of the $300:</p>
+      <ul class="quiz-options">
+        <li>Recognise as revenue at sale</li>
+        <li>Recognise immediately as warranty liability</li>
+        <li>Net against the product price</li>
+        <li>Defer revenue and recognise over the 3-year service period (it's a separate performance obligation)</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Service-type warranty (separately priced extra) is a distinct performance obligation under ASC 606. Defer revenue and recognise over the service period. Assurance-type (works as promised, included in product) is treated as a loss contingency at sale, not a separate PO.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="20" data-topic="NOL">
+      <div class="q-num"><span class="num-text">Question 47</span><span class="topic">A.2 · NOL</span></div>
+      <p class="quiz-q">Under post-TCJA US tax law, net operating losses (NOLs) generated in 2024 can be:</p>
+      <ul class="quiz-options">
+        <li>Carried back 2 years</li>
+        <li>Carried forward indefinitely without limit</li>
+        <li>Carried forward indefinitely, but offset only 80% of future taxable income</li>
+        <li>Used in the year generated only</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Post-TCJA: most NOLs have indefinite carryforward but are capped at 80% of future taxable income. No general carryback (some narrow exceptions exist). Pre-TCJA was 2-year carryback / 20-year carryforward without the 80% cap.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="21" data-topic="IFRS lessee">
+      <div class="q-num"><span class="num-text">Question 48</span><span class="topic">A.2 · IFRS lease</span></div>
+      <p class="quiz-q">Under IFRS 16, the lessee model for non-short-term leases is:</p>
+      <ul class="quiz-options">
+        <li>Dual model: operating vs. finance, like US GAAP</li>
+        <li>Single model: all leases on B/S, finance-style (interest + depreciation)</li>
+        <li>Off balance sheet for most operating leases</li>
+        <li>Optional based on lease length</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> IFRS 16 has ONE lessee model — all leases (except short-term &lt; 12 months and low-value &lt; ~$5K) on balance sheet, with interest expense + depreciation, front-loaded P&L pattern. US GAAP retains the operating/finance distinction. Affects EBITDA comparability.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="22" data-topic="Stock split">
+      <div class="q-num"><span class="num-text">Question 49</span><span class="topic">A.2 · Stock split</span></div>
+      <p class="quiz-q">A 2-for-1 stock split affects which of the following equity components?</p>
+      <ul class="quiz-options">
+        <li>Par value halves; share count doubles; total equity unchanged</li>
+        <li>Par stays; share count doubles; total equity doubles</li>
+        <li>RE decreases by FMV of new shares</li>
+        <li>APIC increases by FMV of new shares</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Stock split: par halves (from say $1 to $0.50), share count doubles, NO net change to total equity components. It's a memo entry only. Stock dividends, by contrast, capitalise RE into Common Stock and APIC.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="26" data-topic="Variable consideration">
+      <div class="q-num"><span class="num-text">Question 50</span><span class="topic">A.2 · Variable consideration</span></div>
+      <p class="quiz-q">A consultant has a $200K base fee + $50K bonus if the project finishes early (70% probability). Using the most-likely-amount method, the transaction price is:</p>
+      <ul class="quiz-options">
+        <li>$200,000</li>
+        <li>$215,000</li>
+        <li>$235,000 — expected value</li>
+        <li>$250,000 — most likely outcome includes the bonus</li>
+      </ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Most-likely-amount picks the single most probable outcome. 70% &gt; 50% → most likely is bonus paid → <strong>$250K</strong>. Expected-value method (the alternative) would give $200K + 0.70 × $50K = $235K. Both are acceptable per ASC 606; pick whichever better predicts the outcome.</div>
+    </div>
+
+    <div class="test-summary">
+      <h2>Test 6 — A.2 Comprehensive · Results</h2>
+      <div class="score-display">0%</div>
+      <div class="score-meta">—</div>
+      <div class="missed-list"></div>
+      <button class="btn restart-btn">↻ Restart with shuffled order</button>
+    </div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-905">Mark complete</button>
+
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(904)"><span class="dir">← Previous test</span><span class="ttl">Revenue & Income</span></button>
     <button class="nav-link next" onclick="goTo(999)"><span class="dir">Final test →</span><span class="ttl">Comprehensive Section A</span></button>
   </div>
 </article>
 
 
 <!-- ============================================================
-     TEST 6 — COMPREHENSIVE FINAL — SECTION A
+     TEST 7 — COMPREHENSIVE FINAL — SECTION A
      ============================================================ -->
 <article class="unit" data-id="999">
   <span class="unit-eyebrow">Final · Comprehensive Section A</span>
@@ -11055,8 +11772,8 @@ window.SECTION_CONFIG = {
   sectionTitle: "External Financial Reporting",
   storageKey: "cma-section-a-progress-v1",
   annotationKey: "cma-ann-v2",
-  totalUnits: 41,
-  trackedUnits: 40,
+  totalUnits: 42,
+  trackedUnits: 41,
   navStructure: [
   { group: "Welcome", units: [
     { id: 0, num: "—", title: "Cover & Map" }
@@ -11111,6 +11828,7 @@ window.SECTION_CONFIG = {
     { id: 902, num: "T3", title: "Test 3 — A.2 Assets & Investments" },
     { id: 903, num: "T4", title: "Test 4 — Liabilities, Equity & Taxes" },
     { id: 904, num: "T5", title: "Test 5 — Revenue & Income" },
+    { id: 905, num: "T6", title: "Test 6 — A.2 Comprehensive (50 Q)" },
     { id: 999, num: "🎓", title: "Final · Comprehensive Section A" },
   ]}
 ],
