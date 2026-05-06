@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found — CMA Part 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Lora:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --paper:  #f6f1e8;
+  --ink:    #1d1a16;
+  --soft:   #4b463e;
+  --faint:  #8a8377;
+  --rule:   #d6cdb8;
+  --accent: #b8451f;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Lora", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.wrap { max-width: 620px; text-align: center; }
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.code {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-size: 144px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+  margin: 0;
+}
+h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  margin: 16px 0 12px;
+}
+p { color: var(--soft); margin: 0 0 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  margin-top: 28px;
+}
+a.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Fraunces", serif;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: background .15s;
+}
+a.btn:hover { background: var(--accent); border-color: var(--accent); }
+a.btn.ghost { background: transparent; color: var(--ink); }
+a.btn.ghost:hover { background: var(--ink); color: var(--paper); }
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 36px 0 20px;
+}
+.tiny {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">CMA Part 1 · Visual Field Guide</div>
+  <p class="code">404</p>
+  <h1>Lost in the chart of accounts.</h1>
+  <p>The page you're looking for isn't here. Maybe a stale link, maybe a typo. Head back to the cover and pick a section.</p>
+  <div class="actions">
+    <a class="btn" href="index.html">← Back to landing</a>
+    <a class="btn ghost" href="cma-section-a.html">Section A</a>
+    <a class="btn ghost" href="cma-section-b.html">Section B</a>
+    <a class="btn ghost" href="cma-section-c.html">Section C</a>
+  </div>
+  <hr />
+  <p class="tiny">If you reached this by following a link from outside, please file an issue.</p>
+</div>
+</body>
+</html>
