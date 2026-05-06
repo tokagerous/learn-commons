@@ -588,31 +588,182 @@
     });
   }
 
-  // ===== SIDEBAR SEARCH =====
+  // ===== SIDEBAR SEARCH (titles + content) =====
   function initSidebarSearch() {
     const input = document.getElementById("nav-search");
     const clearBtn = document.getElementById("nav-search-clear");
     if (!input) return;
+
+    // Build a content index from each unit's text-bearing block elements.
+    // Lazy: first build deferred until user actually types — keeps initial
+    // load fast on long sections (Section A is ~12K lines).
+    let searchIndex = null;
+    function buildIndex() {
+      searchIndex = [];
+      document.querySelectorAll(".unit[data-id]").forEach(unitEl => {
+        const id = parseInt(unitEl.dataset.id, 10);
+        const title = (unitEl.querySelector("h1")?.textContent || "").trim();
+        let currentHeading = "";
+        const blocks = unitEl.querySelectorAll("h2, h3, p, li, td, .formula-box, .quiz-prompt, .quiz-q, .callout-label");
+        blocks.forEach(el => {
+          if (el.closest("script, .unit-footer, .quiz-controls, .summary-actions, button")) return;
+          const tag = el.tagName.toLowerCase();
+          const text = (el.textContent || "").replace(/\s+/g, " ").trim();
+          if (tag === "h2" || tag === "h3") {
+            currentHeading = text;
+            return; // Headings provide context; don't list them as separate hits
+          }
+          if (text.length < 12) return;
+          searchIndex.push({
+            unitId: id,
+            unitTitle: title,
+            heading: currentHeading,
+            text: text,
+            element: el
+          });
+        });
+      });
+    }
+
+    // Results panel goes below the nav.
+    const navEl = document.getElementById("nav");
+    const resultsEl = document.createElement("div");
+    resultsEl.className = "search-results";
+    resultsEl.style.display = "none";
+    if (navEl && navEl.parentNode) navEl.parentNode.insertBefore(resultsEl, navEl.nextSibling);
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      })[c]);
+    }
+    function escapeRegex(s) { return s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&"); }
+
+    function makeSnippet(text, query, maxLen) {
+      maxLen = maxLen || 130;
+      const lc = text.toLowerCase();
+      const idx = lc.indexOf(query.toLowerCase());
+      let start = 0, end = Math.min(text.length, maxLen);
+      if (idx >= 0) {
+        start = Math.max(0, idx - Math.floor((maxLen - query.length) / 2));
+        end = Math.min(text.length, start + maxLen);
+      }
+      const snippet = text.slice(start, end);
+      const safe = escapeHtml(snippet);
+      const re = new RegExp(escapeRegex(query), "gi");
+      const highlighted = safe.replace(re, m => "<mark>" + m + "</mark>");
+      return (start > 0 ? "…" : "") + highlighted + (end < text.length ? "…" : "");
+    }
+
     function applyFilter() {
-      const q = input.value.trim().toLowerCase();
+      const q = input.value.trim();
       clearBtn.classList.toggle("show", q.length > 0);
+
+      // Title filter — keeps the nav usable (existing behaviour)
+      const ql = q.toLowerCase();
+      let titleMatchCount = 0;
       document.querySelectorAll(".nav-group").forEach(group => {
         let visibleInGroup = 0;
         group.querySelectorAll(".nav-item").forEach(item => {
           const text = item.textContent.toLowerCase();
-          const match = q === "" || text.includes(q);
+          const match = ql === "" || text.includes(ql);
           item.classList.toggle("hidden", !match);
-          if (match) visibleInGroup++;
+          if (match) { visibleInGroup++; titleMatchCount++; }
         });
-        group.classList.toggle("hidden", visibleInGroup === 0 && q.length > 0);
+        group.classList.toggle("hidden", visibleInGroup === 0 && ql.length > 0);
+      });
+
+      // Content search results
+      if (ql.length < 2) {
+        resultsEl.style.display = "none";
+        resultsEl.innerHTML = "";
+        return;
+      }
+      if (searchIndex === null) buildIndex();
+
+      const allHits = [];
+      const HIT_CAP = 200;
+      for (let i = 0; i < searchIndex.length && allHits.length < HIT_CAP; i++) {
+        const e = searchIndex[i];
+        if (e.text.toLowerCase().includes(ql)) allHits.push(e);
+      }
+
+      // Group by unit, max 3 hits per unit, max 12 units shown
+      const grouped = new Map();
+      for (const h of allHits) {
+        if (!grouped.has(h.unitId)) grouped.set(h.unitId, []);
+        const arr = grouped.get(h.unitId);
+        if (arr.length < 3) arr.push(h);
+      }
+      const unitGroups = [...grouped.entries()].slice(0, 12);
+
+      let html = `<div class="search-results-header">
+        Content matches · <strong>${allHits.length}</strong> hit${allHits.length === 1 ? "" : "s"} in <strong>${grouped.size}</strong> unit${grouped.size === 1 ? "" : "s"}${grouped.size > 12 ? " (showing 12)" : ""}
+      </div>`;
+
+      if (unitGroups.length === 0) {
+        if (titleMatchCount === 0) {
+          html += `<div class="search-result-empty">No matches for "${escapeHtml(q)}".</div>`;
+        } else {
+          // Title matched but no content hits — keep panel hidden
+          resultsEl.style.display = "none";
+          resultsEl.innerHTML = "";
+          return;
+        }
+      } else {
+        for (const [unitId, items] of unitGroups) {
+          const u = items[0];
+          html += `<div class="search-result-unit-block">
+            <button class="search-result-unit-title" data-unit="${unitId}">${escapeHtml(u.unitTitle || ("Unit " + unitId))}</button>`;
+          for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            const idx = searchIndex.indexOf(item);
+            html += `<button class="search-result-snippet-btn" data-unit="${unitId}" data-target="${idx}">
+              ${item.heading ? `<div class="search-result-heading">${escapeHtml(item.heading)}</div>` : ""}
+              <div class="search-result-snippet">${makeSnippet(item.text, q)}</div>
+            </button>`;
+          }
+          html += `</div>`;
+        }
+      }
+      resultsEl.innerHTML = html;
+      resultsEl.style.display = "block";
+
+      resultsEl.querySelectorAll(".search-result-unit-title, .search-result-snippet-btn").forEach(el => {
+        el.addEventListener("click", () => {
+          const unitId = parseInt(el.dataset.unit, 10);
+          const targetIdx = el.dataset.target ? parseInt(el.dataset.target, 10) : -1;
+          goTo(unitId);
+          if (targetIdx >= 0) {
+            const target = searchIndex[targetIdx];
+            if (target && target.element) {
+              setTimeout(() => {
+                target.element.scrollIntoView({ behavior: "smooth", block: "center" });
+                target.element.classList.add("search-flash");
+                setTimeout(() => target.element.classList.remove("search-flash"), 2400);
+              }, 250);
+            }
+          }
+        });
       });
     }
-    input.addEventListener("input", applyFilter);
+
+    let debounceTimer = null;
+    input.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(applyFilter, 80);
+    });
     input.addEventListener("keydown", e => {
-      if (e.key === "Escape") { input.value = ""; applyFilter(); input.blur(); }
-      if (e.key === "Enter") {
-        const first = document.querySelector(".nav-item:not(.hidden)");
-        if (first) first.click();
+      if (e.key === "Escape") {
+        input.value = ""; applyFilter(); input.blur();
+      } else if (e.key === "Enter") {
+        // Prefer first content match; else first nav match
+        const firstResult = resultsEl.querySelector(".search-result-snippet-btn");
+        if (firstResult) firstResult.click();
+        else {
+          const firstNav = document.querySelector(".nav-item:not(.hidden)");
+          if (firstNav) firstNav.click();
+        }
       }
     });
     clearBtn.addEventListener("click", () => { input.value = ""; applyFilter(); input.focus(); });
