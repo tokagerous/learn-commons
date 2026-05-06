@@ -353,13 +353,21 @@
             const topicHtml = m.unitId
               ? `<span class="topic-link" onclick="goTo(${m.unitId})">→ ${ulbl}</span>`
               : '';
+            const yourPick = m.userPickText
+              ? `<div class="miss-pick"><span class="lbl">You picked</span>${escapeHtml(m.userPickText)}</div>`
+              : '';
             const correctText = m.correctText
               ? `<div class="miss-ans"><span class="lbl">Correct</span>${escapeHtml(m.correctText)}</div>`
+              : '';
+            const why = m.explanationText
+              ? `<div class="miss-why"><span class="lbl">Why</span>${escapeHtml(m.explanationText)}</div>`
               : '';
             return `<div class="missed-item">
               <div><strong>Q${m.num}.</strong> <span style="color:var(--ink-soft)">${escapeHtml(m.topic)}</span> ${topicHtml}</div>
               <div class="miss-q">${escapeHtml(m.questionText)}</div>
+              ${yourPick}
               ${correctText}
+              ${why}
             </div>`;
           }).join("");
           missedList.innerHTML = `<h4>Review (${missed.length} missed)</h4>${items}`;
@@ -407,6 +415,7 @@
       const opts = qEl.querySelectorAll(".quiz-options li");
       const expl = qEl.querySelector(".quiz-explanation");
       const correctText = opts[correctIdx] ? opts[correctIdx].textContent.trim() : "";
+      const explanationText = expl ? expl.textContent.trim().replace(/^Why:\s*/i, "") : "";
 
       opts.forEach((o, i) => {
         o.onclick = () => {
@@ -414,6 +423,7 @@
           if (!timerStarted) startTimer();
           opts.forEach(x => x.classList.add("disabled"));
           const isRight = (i === correctIdx);
+          const userPickText = o.textContent.trim();
           if (isRight) {
             o.classList.add("correct");
             qEl.classList.add("answered-correct");
@@ -422,8 +432,9 @@
             o.classList.add("wrong");
             opts[correctIdx].classList.add("correct");
             qEl.classList.add("answered-wrong");
-            missed.push({ num: idx + 1, topic: topicLabel, unitId, questionText, correctText });
+            missed.push({ num: idx + 1, topic: topicLabel, unitId, questionText, correctText, userPickText, explanationText });
           }
+          // Reveal the explanation regardless of right/wrong outcome.
           if (expl) expl.classList.add("show");
           answered++;
           updateProgress();
