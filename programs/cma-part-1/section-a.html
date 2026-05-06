@@ -584,14 +584,14 @@
     <div class="quiz-explanation"><strong>Why:</strong> Working capital = Current Assets − Current Liabilities = $480K − $310K = <strong>$170,000</strong>. Long-term debt is irrelevant to working capital. The ratio version is current ÷ current = $480K/$310K = 1.55.</div>
   </div>
 
-  <div class="quiz" data-correct="3">
+  <div class="quiz" data-correct="2">
     <h3>Practice 5 — Quick ratio</h3>
     <p class="quiz-prompt">Cash $50K; AR (net) $90K; Inventory $120K; Prepaid expenses $20K; Marketable securities $40K; Current liabilities $200K. Quick (acid-test) ratio is closest to:</p>
     <ul class="quiz-options">
       <li>1.60</li>
       <li>1.50</li>
       <li>0.90</li>
-      <li>0.90 — (Cash + AR + Mkt Sec) / Current Liab = ($50K + $90K + $40K) / $200K</li>
+      <li data-rationale="(Cash + AR) / CL = ($50K + $90K) / $200K = 0.70 — but you forgot to include Marketable securities, which are explicitly part of the quick-ratio numerator.">0.70</li>
     </ul>
     <div class="quiz-explanation"><strong>Why:</strong> Quick ratio = (Cash + Marketable securities + Net AR) ÷ Current liabilities = ($50K + $40K + $90K) ÷ $200K = $180K ÷ $200K = <strong>0.90</strong>. Inventory and prepaid are excluded — they're harder to convert to cash quickly. Current ratio (1.60) includes those.</div>
   </div>
@@ -1175,7 +1175,7 @@
       <li>$5.00</li>
       <li>$4.00</li>
       <li>$4.23</li>
-      <li>$4.23 — (NI + after-tax interest add-back) / (WAS + conversion shares) = ($4M + $225K) / 1M = $4.225 ≈ $4.23</li>
+      <li data-rationale="$4.30 uses the PRE-tax interest add-back: ($4M + $300K) / 1M. The if-converted method requires the AFTER-tax interest add-back ($225K), giving $4.23.">$4.30</li>
     </ul>
     <div class="quiz-explanation"><strong>Why:</strong> If-converted method: assume bonds converted at year-start. Numerator: add back AFTER-TAX interest = $5M × 6% × (1 − 25%) = $225K. Denominator: add the new shares from conversion (200,000). Diluted EPS = ($4M + $0.225M) ÷ (800K + 200K) = $4.225M ÷ 1M = <strong>$4.23</strong>. Anti-dilution check: this is below basic EPS ($4M/800K = $5.00) so it's dilutive — include. If diluted &gt; basic, it's anti-dilutive — ignore.</div>
   </div>
@@ -1192,14 +1192,14 @@
     <div class="quiz-explanation"><strong>Why:</strong> Diluted EPS is meant to show worst-case dilution. Securities that RAISE EPS upon conversion are anti-dilutive and ignored. The order of testing matters: rank by individual dilutive effect (most dilutive first), include sequentially, stop when adding the next one would raise EPS.</div>
   </div>
 
-  <div class="quiz" data-correct="3">
+  <div class="quiz" data-correct="2">
     <h3>Practice 13 — Comprehensive income</h3>
     <p class="quiz-prompt">A company reports NI of $300K and unrealized AFS gains (pre-tax) of $40K. Tax rate 25%. Comprehensive income is:</p>
     <ul class="quiz-options">
       <li>$340,000</li>
       <li>$310,000</li>
       <li>$330,000</li>
-      <li>$330,000 — NI + OCI net of tax = $300K + ($40K × 75%)</li>
+      <li data-rationale="$300,000 reports only NI. Comprehensive income = NI + OCI (net of tax), so unrealized AFS gains of $30K (after tax) must be added.">$300,000</li>
     </ul>
     <div class="quiz-explanation"><strong>Why:</strong> CI = NI + OCI (NET of tax). After-tax OCI = $40K × (1 − 25%) = $30K. CI = $300K + $30K = <strong>$330K</strong>. The $340K trap forgets the tax effect on OCI. The $310K trap subtracts (treating gain as loss).</div>
   </div>
