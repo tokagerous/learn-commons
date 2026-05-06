@@ -2711,7 +2711,252 @@ Annual carrying cost = (632/2) × $2 = $632   ← always equal at EOQ
 </main>
 </div>
 
-<!-- CONFIG_PLACEHOLDER -->
+<script>
+window.SECTION_CONFIG = {
+  sectionId: "FMAA-A",
+  sectionTitle: "FMAA · Section A — Foundations & The Accounting Cycle",
+  storageKey: "fmaa-a-progress-v1",
+  annotationKey: "fmaa-a-ann-v1",
+  totalUnits: 25,
+  trackedUnits: 20,
+  navStructure: [
+    { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
+    { group: "A.1 · Language of Accounting", units: [
+      { id: 1, num: "01", title: "The language of accounting" },
+    ]},
+    { group: "A.2 · The Bookkeeping Cycle", units: [
+      { id: 2, num: "02", title: "Equation & double-entry" },
+      { id: 3, num: "03", title: "Source documents" },
+      { id: 4, num: "04", title: "Journal entries" },
+      { id: 5, num: "05", title: "Posting (T-accounts)" },
+      { id: 6, num: "06", title: "Trial balance & errors" },
+      { id: 7, num: "07", title: "Adjustments — accruals" },
+      { id: 8, num: "08", title: "Adjustments — deferrals" },
+      { id: 9, num: "09", title: "Depreciation" },
+      { id: 10, num: "10", title: "Worksheet" },
+      { id: 11, num: "11", title: "Closing entries" },
+      { id: 12, num: "12", title: "Post-closing trial balance" },
+      { id: 13, num: "13", title: "Reversing entries" },
+    ]},
+    { group: "A.3 · Building the Statements", units: [
+      { id: 14, num: "14", title: "The four statements" },
+    ]},
+    { group: "A.4 · Cash Flows & Controls", units: [
+      { id: 15, num: "15", title: "Statement of cash flows" },
+      { id: 16, num: "16", title: "Internal controls (COSO)" },
+    ]},
+    { group: "A.5 · Operating-Cycle Cash Mgmt", units: [
+      { id: 17, num: "17", title: "Working capital & CCC" },
+      { id: 18, num: "18", title: "Accounts receivable" },
+      { id: 19, num: "19", title: "A/P & short-term financing" },
+      { id: 20, num: "20", title: "Inventory & EOQ" },
+    ]},
+    { group: "📝 Practice Tests", units: [
+      { id: 900, num: "T1", title: "Recording transactions" },
+      { id: 901, num: "T2", title: "Statements & SCF" },
+      { id: 902, num: "T3", title: "Working capital" },
+      { id: 999, num: "🎓", title: "Final · Comprehensive A" },
+    ]},
+  ],
+  keyTakeaways: {
+    1: ["Accounting is recording + communicating economic events. Branches: financial, managerial, tax, audit.", "Five foundational assumptions: economic entity, going concern, monetary unit, periodicity, accrual basis.", "Accrual ≠ cash basis. Recognise revenue when earned, expense when incurred.", "FASB sets U.S. GAAP under SEC oversight; IASB sets IFRS."],
+    2: ["A = L + E. The equation must balance after every transaction.", "DEAD CLER: Debits ↑ Expenses, Assets, Dividends; Credits ↑ Liabilities, Equity, Revenues.", "Every transaction touches ≥2 accounts; Σ DR = Σ CR.", "Contra accounts (acc dep, allowance) reduce a companion balance."],
+    3: ["Source documents establish the audit trail and supply the data for entries.", "An accounting transaction must change A, L, E, R, or X — and be measurable.", "Three steps: identify accounts, decide direction, translate to DR/CR.", "Internal transactions (depreciation, supplies used) are captured at period end."],
+    4: ["Journal entries record date, accounts, amounts, explanation. DR on left, CR indented below.", "Compound entries have multiple debits/credits. Σ DR = Σ CR.", "Special journals batch routine entries; GJ holds adjusting/closing/unusual.", "Errors: reversed direction, transposition, slide, wrong account."],
+    5: ["Journal first (chronological); ledger second (by account).", "T-account: DR left, CR right. Balance is the difference, on the larger side.", "Subsidiary ledgers track customer/vendor/SKU detail; control account balances to total.", "Account with abnormal balance signals an error."],
+    6: ["Trial balance: Σ DR = Σ CR. Three uses: unadjusted, adjusted, post-closing.", "TB catches imbalanced totals; doesn't catch full omission, double entry, wrong-account.", "Difference ÷ 9 = transposition or slide. Difference ÷ 2 = wrong-side post.", "Use the adjusted TB to prepare the financial statements."],
+    7: ["Accrued revenue: DR Receivable / CR Revenue (earned, unbilled).", "Accrued expense: DR Expense / CR Payable (incurred, unpaid).", "Forgot accrued expense: NI overstated, liabilities understated, equity overstated.", "Forgot accrued revenue: NI understated, assets understated, equity understated."],
+    8: ["Prepaid expense: cash before consumption. Initial DR Prepaid; period end DR Expense / CR Prepaid.", "Unearned revenue: cash before delivery. Initial CR Liability; period end DR Liability / CR Revenue.", "Asset/liability and income-statement approaches both reach the same period-end statements.", "Supplies used = Beg + Purchases − Ending count."],
+    9: ["Depreciation = (Cost − Salvage) / Life. Cost-allocation, not valuation.", "SL flat; UoP follows actual usage; DDB front-loads (rate = 2/life × NBV).", "Adjustment: DR Depreciation Expense / CR Accumulated Depreciation. Asset stays at cost.", "Changes in estimate: prospective only — recompute remaining base over remaining life."],
+    10: ["10-column worksheet: Unadj TB / Adjustments / Adj TB / IS / BS.", "NI from IS columns flows into BS credit column to balance. Loss → IS credit, BS debit.", "Adjustments column DR must equal CR.", "Worksheet is informal — adjustments must still be journalised and posted."],
+    11: ["Temporary accounts (R, X, Dividends) close to zero. Permanent accounts (BS) carry forward.", "Four closing entries: revenues, expenses, IS to RE, dividends to RE.", "Income Summary is a transit; closing directly to RE is also acceptable.", "Dividends are NOT an expense — close directly to RE."],
+    12: ["Post-closing TB has only permanent accounts; Σ DR = Σ CR.", "Cycle: analyse → journalise → post → unadj TB → adjust → adj TB → statements → close.", "Permanent balances become opening balances for the next period.", "Forgetting to close Dividends carries a non-zero balance into the new period."],
+    13: ["Reversing entries on day 1 of new period undo the prior period's accruals.", "Optional — both methods produce identical net income.", "Reverse accrued items only; don't reverse depreciation, prepaid amortisations, or bad-debt allowance.", "Simplifies recording of future cash receipts/payments — book the full amount, no split."],
+    14: ["Four primary statements: IS, SRE, BS, SCF, plus required notes.", "IS is for a period; BS is at a point in time.", "Classified BS separates current (≤12 months) from long-term.", "Order of preparation: IS → SRE → BS → SCF."],
+    15: ["SCF reconciles change in cash by three activities: operating, investing, financing.", "Indirect operating: NI + non-cash + working-capital adjustments.", "CA ↑ → cash ↓; CL ↑ → cash ↑.", "Investing = long-term assets; Financing = stock & debt with owners/lenders."],
+    16: ["COSO 5: Control environment, Risk assessment, Information, Monitoring, control activitiEs.", "Segregation of duties: Authorisation, Recording, Custody (ARC).", "Bank rec: outstanding checks reduce bank; service charges reduce books (with JE).", "Inherent limitations: cost-benefit, error, collusion, management override."],
+    17: ["Working capital = CA − CL. Current ratio = CA ÷ CL.", "CCC = DIO + DSO − DPO. Lower = less working capital tied up.", "Aggressive WC: minimal CA, ST debt — higher return, higher risk.", "Float: disbursement helps the company; collection hurts."],
+    18: ["Forgoing 2/10, n/30 = ~37% APR — almost always cheaper to borrow.", "Allowance method (GAAP): estimate at period end, write-off hits allowance not expense.", "Direct write-off violates matching — only acceptable for tax / immaterial cases.", "Aging schedule = balance-sheet approach; % of credit sales = income-statement approach."],
+    19: ["Discount loan effective = stated ÷ (1 − stated). Comp balance: stated ÷ (1 − comp %).", "Take cash discounts when offered; pay on the net day otherwise.", "Net method exposes 'Purchase Discounts Lost' as an explicit expense.", "Commercial paper: unsecured, ≤270 days, investment-grade only."],
+    20: ["EOQ = √(2DO/C). Ordering cost = carrying cost at EOQ.", "ROP = lead-time × daily demand (+ safety stock if applicable).", "FIFO: high NI, high inventory in rising prices. LIFO: opposite (U.S. GAAP only).", "LCNRV: write down to NRV when below cost. ABC analysis: focus management on high-value items."]
+  },
+  flashcardDecks: {
+    "equation-and-debits-credits": {
+      title: "Equation & DR/CR rules",
+      eyebrow: "A.2 Foundations",
+      cards: [
+        ["Accounting equation", "Assets = Liabilities + Owners' Equity"],
+        ["Expanded equation", "A = L + Contributed Capital + RE + (Revenues − Expenses) − Dividends"],
+        ["DEAD", "Debits increase Expenses, Assets, Dividends"],
+        ["CLER", "Credits increase Liabilities, Equity, Revenues"],
+        ["Σ DR vs. Σ CR", "Equal for every entry"],
+        ["Normal balance — Asset", "Debit"],
+        ["Normal balance — Liability", "Credit"],
+        ["Normal balance — Equity (incl. RE)", "Credit"],
+        ["Normal balance — Revenue", "Credit"],
+        ["Normal balance — Expense", "Debit"],
+      ]
+    },
+    "adjusting-entries": {
+      title: "Adjusting entries — at a glance",
+      eyebrow: "A.2 Period-End",
+      cards: [
+        ["Accrued revenue", "DR Receivable / CR Revenue"],
+        ["Accrued expense", "DR Expense / CR Payable"],
+        ["Prepaid expense — period end", "DR Expense / CR Prepaid"],
+        ["Unearned revenue — period end", "DR Liability / CR Revenue"],
+        ["Depreciation", "DR Depreciation Expense / CR Accumulated Depreciation"],
+        ["Supplies expense", "Used = Beg + Purchases − Ending. DR Supplies Exp / CR Supplies"],
+        ["Bad debt — allowance method", "DR Bad Debt Exp / CR Allowance for Doubtful Accounts"],
+        ["Forgot accrued expense → effect", "NI ↑, Liabilities ↓, Equity ↑"],
+        ["Forgot prepaid amortization → effect", "NI ↑, Assets ↑, Equity ↑"],
+        ["Change in estimate", "Prospective only; recompute remaining base over remaining life"]
+      ]
+    },
+    "closing-and-cycle": {
+      title: "Closing the books",
+      eyebrow: "A.2 Closing & Cycle",
+      cards: [
+        ["Step 1 — close revenues", "DR each Revenue / CR Income Summary"],
+        ["Step 2 — close expenses", "DR Income Summary / CR each Expense"],
+        ["Step 3 — close IS to RE", "DR Income Summary / CR Retained Earnings (NI)"],
+        ["Step 4 — close Dividends", "DR Retained Earnings / CR Dividends"],
+        ["Permanent accounts", "Cash, A/R, Inventory, PP&E, A/P, N/P, Common Stock, RE"],
+        ["Temporary accounts", "All Revenues, Expenses, Dividends, Income Summary"],
+        ["Post-closing TB content", "Only permanent accounts; Σ DR = Σ CR"],
+        ["Reversing entry candidates", "Accrued items only — not depreciation, not prepaid amortizations"],
+        ["Cycle steps", "Analyse → journalise → post → adj → statements → close"],
+        ["RE roll-forward", "Beg RE + NI − Dividends = End RE"],
+      ]
+    },
+    "statements-and-scf": {
+      title: "Financial statements & SCF",
+      eyebrow: "A.3 / A.4",
+      cards: [
+        ["Income statement reports", "Revenues − Expenses + Gains − Losses = NI for a period"],
+        ["Balance sheet reports", "Assets, Liabilities, Equity at a point in time"],
+        ["SRE", "Beg RE + NI − Dividends = End RE"],
+        ["SCF — operating (indirect)", "NI ± non-cash items ± WC changes"],
+        ["SCF — investing", "Buy/sell long-term assets (PP&E, investments)"],
+        ["SCF — financing", "Stock issuance/repurchase, debt issued/repaid, dividends paid"],
+        ["A/R increase under indirect", "Subtract — revenue exceeded collection"],
+        ["A/P increase under indirect", "Add — expense exceeded payment"],
+        ["Depreciation under indirect", "Add back — non-cash"],
+        ["SCF total", "Σ Operating + Investing + Financing = Change in cash"],
+      ]
+    },
+    "internal-controls": {
+      title: "Internal controls (COSO)",
+      eyebrow: "A.4 Controls",
+      cards: [
+        ["Five COSO components", "Control Environment, Risk Assessment, Control Activities, Information & Communication, Monitoring"],
+        ["Segregation of duties", "Authorisation, Recording, Custody (ARC)"],
+        ["Five control activities", "Authorisation, segregation, documentation, physical, reconciliation"],
+        ["Bank rec — outstanding checks", "Subtract from bank balance"],
+        ["Bank rec — deposits in transit", "Add to bank balance"],
+        ["Bank rec — service charges", "Subtract from books + journal entry"],
+        ["Bank rec — NSF check", "Subtract from books; restore A/R"],
+        ["Imprest petty cash", "Replenished to a fixed total each cycle"],
+        ["Inherent limitations", "Cost-benefit, human error, collusion, management override"],
+        ["Tone at the top", "Control environment — sets the culture"],
+      ]
+    },
+    "working-capital": {
+      title: "Working-capital management",
+      eyebrow: "A.5 Working Capital",
+      cards: [
+        ["Working capital", "CA − CL"],
+        ["Current ratio", "CA ÷ CL"],
+        ["Cash conversion cycle", "DIO + DSO − DPO"],
+        ["DSO", "A/R ÷ (Sales / 365)"],
+        ["DIO", "Inventory ÷ (COGS / 365)"],
+        ["DPO", "A/P ÷ (COGS / 365)"],
+        ["2/10, n/30 cost of forgoing", "(2/98) × (365/20) ≈ 37%"],
+        ["Effective rate — comp balance", "Stated ÷ (1 − comp %)"],
+        ["Effective rate — discount loan", "Stated ÷ (1 − stated %)"],
+        ["Aggressive WC strategy", "Minimal CA + short-term debt"],
+      ]
+    },
+    "ar-and-bad-debt": {
+      title: "A/R & bad debt",
+      eyebrow: "A.5 Receivables",
+      cards: [
+        ["5 Cs of credit", "Character, Capacity, Capital, Collateral, Conditions"],
+        ["Allowance method — period-end", "DR Bad Debt Exp / CR Allowance"],
+        ["Specific write-off", "DR Allowance / CR A/R (no NI impact)"],
+        ["Recovery", "DR A/R / CR Allowance, then DR Cash / CR A/R"],
+        ["Aging-method target", "Bring allowance to estimated uncollectible balance"],
+        ["% of credit sales method", "Add to existing allowance balance"],
+        ["Direct write-off violates", "Matching principle — not GAAP"],
+        ["Factoring without recourse", "Sale; A/R derecognised"],
+        ["Pledging A/R", "Loan collateral; A/R stays on books"],
+        ["Allowance is", "Contra-asset; credit balance"],
+      ]
+    },
+    "inventory-and-eoq": {
+      title: "Inventory & EOQ",
+      eyebrow: "A.5 Inventory",
+      cards: [
+        ["EOQ formula", "√(2 × D × O ÷ C)"],
+        ["At EOQ", "Annual ordering cost = annual carrying cost"],
+        ["Reorder point (no safety stock)", "Lead time × daily demand"],
+        ["FIFO in rising prices", "Higher NI, higher inventory"],
+        ["LIFO in rising prices", "Lower NI, lower inventory (U.S. GAAP only)"],
+        ["LCNRV rule", "Write down to NRV when NRV < cost"],
+        ["Perpetual vs. periodic", "Perpetual = real-time; periodic = period-end count"],
+        ["JIT", "Minimise inventory; tight supplier coordination"],
+        ["ABC analysis", "Pareto split — manage A items tightly"],
+        ["Carrying cost includes", "Storage, insurance, obsolescence, opportunity cost"],
+      ]
+    }
+  },
+  formulaReference: [
+    { section: "Foundation", items: [
+      { label: "Accounting equation", formula: "Assets = Liabilities + Equity", unitId: 2 },
+      { label: "Expanded equation", formula: "A = L + Contributed Capital + RE + (Rev − Exp) − Dividends", unitId: 2 },
+      { label: "Retained earnings roll-forward", formula: "Beg RE + Net Income − Dividends = End RE", unitId: 11 },
+    ]},
+    { section: "Adjusting entries", items: [
+      { label: "Accrued revenue", formula: "DR Receivable / CR Revenue", unitId: 7 },
+      { label: "Accrued expense", formula: "DR Expense / CR Payable", unitId: 7 },
+      { label: "Prepaid amortization", formula: "DR Expense / CR Prepaid (asset)", unitId: 8 },
+      { label: "Unearned revenue earned", formula: "DR Liability / CR Revenue", unitId: 8 },
+      { label: "Depreciation", formula: "DR Depreciation Exp / CR Accumulated Depreciation", unitId: 9 },
+      { label: "Supplies used", formula: "Used = Beg + Purchases − Ending", unitId: 8 },
+    ]},
+    { section: "Depreciation methods", items: [
+      { label: "Straight-line", formula: "(Cost − Salvage) ÷ Useful life", unitId: 9 },
+      { label: "Units-of-production", formula: "((Cost − Salvage) ÷ Total units) × Period units", unitId: 9 },
+      { label: "Double-declining balance", formula: "NBV at start × (2 ÷ Life)", unitId: 9 },
+      { label: "Change in estimate", formula: "Remaining depreciable base ÷ remaining life (prospective)", unitId: 9 },
+    ]},
+    { section: "Statements & cash flows", items: [
+      { label: "Net income (multi-step)", formula: "Sales − COGS − OpEx − Other ± Tax", unitId: 14 },
+      { label: "SCF total reconciles to", formula: "Operating + Investing + Financing = Change in cash", unitId: 15 },
+      { label: "Indirect CFO", formula: "NI ± non-cash items ± working-capital changes", unitId: 15 },
+    ]},
+    { section: "Working capital", items: [
+      { label: "Working capital", formula: "Current Assets − Current Liabilities", unitId: 17 },
+      { label: "Current ratio", formula: "CA ÷ CL", unitId: 17 },
+      { label: "Cash conversion cycle", formula: "DIO + DSO − DPO", unitId: 17 },
+      { label: "DSO", formula: "A/R ÷ (Sales / 365)", unitId: 17 },
+      { label: "DIO", formula: "Inventory ÷ (COGS / 365)", unitId: 17 },
+      { label: "DPO", formula: "A/P ÷ (COGS / 365)", unitId: 17 },
+    ]},
+    { section: "Cost of credit & financing", items: [
+      { label: "Annual cost of forgoing cash discount", formula: "(Discount% ÷ (100% − Discount%)) × (365 ÷ (Net days − Discount days))", unitId: 18 },
+      { label: "Effective rate — discount loan", formula: "Stated ÷ (1 − Stated)", unitId: 19 },
+      { label: "Effective rate — comp balance", formula: "Stated ÷ (1 − Comp%)", unitId: 19 },
+    ]},
+    { section: "Inventory & EOQ", items: [
+      { label: "EOQ", formula: "√(2 × D × O ÷ C)", unitId: 20 },
+      { label: "Reorder point (no safety stock)", formula: "Lead-time × Daily demand", unitId: 20 },
+      { label: "Periodic COGS", formula: "Beg Inv + Purchases − End Inv", unitId: 20 },
+      { label: "LCNRV rule", formula: "If NRV < cost, write down to NRV", unitId: 20 },
+    ]},
+  ],
+};
+</script>
 
 <script src="../../assets/engine.js?v=2"></script>
 <script>CMA.init(window.SECTION_CONFIG);</script>
