@@ -2084,6 +2084,464 @@ Adjusted book balance                     $Y   ← must equal adjusted bank bala
   </div>
 </article>
 
+<article class="unit" data-id="17">
+  <span class="unit-eyebrow">Unit 17 · A.5 · Operating-Cycle Cash Management</span>
+  <h1>Working Capital & the Cash Cycle</h1>
+  <p class="unit-lead">Working capital is the short-term liquidity buffer between assets that turn into cash and liabilities that consume it. The cash conversion cycle measures how fast that loop spins — buy inventory, sell on credit, collect cash, pay suppliers. Faster is cheaper.</p>
+
+  <h2><span class="marker">§17.1</span>Definitions</h2>
+  <div class="callout formula">
+    <span class="callout-label">Two key formulas</span>
+    <div class="formula-box" style="font-size:14px; text-align:left;">
+      Working Capital = Current Assets − Current Liabilities<br/>
+      Current Ratio = Current Assets ÷ Current Liabilities
+    </div>
+  </div>
+  <p>Working capital is the dollar buffer; the current ratio scales it. Both signal short-term solvency.</p>
+
+  <h2><span class="marker">§17.2</span>The cash conversion cycle (CCC)</h2>
+  <div class="callout formula">
+    <span class="callout-label">Cash conversion cycle</span>
+    <div class="formula-box" style="font-size:14px; text-align:left;">
+      CCC = Days Inventory Outstanding (DIO) + Days Sales Outstanding (DSO) − Days Payable Outstanding (DPO)
+    </div>
+  </div>
+  <table class="fin-table">
+    <thead><tr><th>Component</th><th>Formula</th><th>Question it answers</th></tr></thead>
+    <tbody>
+      <tr><td>DIO (or DSI)</td><td>Inventory ÷ (COGS / 365)</td><td>How many days does inventory sit before sale?</td></tr>
+      <tr><td>DSO</td><td>A/R ÷ (Sales / 365)</td><td>How many days from sale to cash collection?</td></tr>
+      <tr><td>DPO</td><td>A/P ÷ (COGS / 365)</td><td>How many days from purchase to payment?</td></tr>
+    </tbody>
+  </table>
+  <p>Lower CCC = less working-capital tied up = less financing cost. Negative CCC is best (Amazon, Walmart) — you collect from customers before paying suppliers.</p>
+
+  <h2><span class="marker">§17.3</span>Working-capital strategies</h2>
+  <table class="fin-table">
+    <thead><tr><th>Strategy</th><th>Approach</th><th>Trade-off</th></tr></thead>
+    <tbody>
+      <tr><td>Aggressive</td><td>Minimise current assets; finance with short-term debt</td><td>Higher return, higher liquidity risk</td></tr>
+      <tr><td>Conservative</td><td>Hold extra current assets; finance with long-term debt</td><td>Lower return, lower risk</td></tr>
+      <tr><td>Moderate (matching)</td><td>Match asset life to financing maturity</td><td>Balanced</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§17.4</span>Cash management — Baumol model (intuition)</h2>
+  <p>The Baumol model treats cash like inventory: how much should you transfer from investments into the operating account? Trade-off between transaction cost (high if many small transfers) and opportunity cost (high if too much idle cash). Optimal cash transfer:</p>
+  <div class="callout formula">
+    <div class="formula-box" style="font-size:13.5px; text-align:left;">C* = √(2 × T × F ÷ k)<br/>
+    where T = total annual cash demand, F = fixed cost per transfer, k = annual interest rate forgone on cash</div>
+  </div>
+
+  <h2><span class="marker">§17.5</span>Float</h2>
+  <ul class="plain">
+    <li><strong>Disbursement float</strong> — the time between writing a check and the bank clearing it. Increases your cash for that interval.</li>
+    <li><strong>Collection float</strong> — time from customer mailing payment to bank credit. Decreases your cash. Reduce with lockbox systems, electronic payments, ACH.</li>
+    <li><strong>Net float</strong> = Disbursement float − Collection float.</li>
+  </ul>
+
+  <h2><span class="marker">§17.6</span>Worked example — CCC</h2>
+  <p>Annual sales $1,800,000; COGS $1,200,000. Average inventory $200,000; A/R $300,000; A/P $150,000.</p>
+  <table class="fin-table">
+    <thead><tr><th>Metric</th><th>Calc</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>DIO</td><td>$200,000 ÷ ($1,200,000/365)</td><td>60.8 days</td></tr>
+      <tr><td>DSO</td><td>$300,000 ÷ ($1,800,000/365)</td><td>60.8 days</td></tr>
+      <tr><td>DPO</td><td>$150,000 ÷ ($1,200,000/365)</td><td>45.6 days</td></tr>
+      <tr><th>CCC</th><th>60.8 + 60.8 − 45.6</th><th>76 days</th></tr>
+    </tbody>
+  </table>
+  <p>Cash is tied up in the operating cycle for ~76 days. Reducing DSO or DIO, or extending DPO (without souring supplier terms), shortens it.</p>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">Working capital equals:</p>
+    <ul class="quiz-options"><li>Total assets − Total liabilities</li><li>Current assets − Current liabilities</li><li>Cash + A/R</li><li>Stockholders' equity</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Working capital is the short-term liquidity buffer.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">A company's CCC = 90 days. To shorten it, the company could:</p>
+    <ul class="quiz-options"><li>Increase inventory levels</li><li>Slow customer collections</li><li>Negotiate longer payment terms with suppliers (extend DPO)</li><li>Pay suppliers sooner</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Higher DPO subtracts more days. Lower DIO and DSO also help. Slower collections (higher DSO) lengthens CCC.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">Days Sales Outstanding is calculated as:</p>
+    <ul class="quiz-options"><li>Sales ÷ A/R</li><li>A/R ÷ Sales × 100</li><li>365 ÷ A/R turnover, where turnover = COGS / A/R</li><li>A/R ÷ (Sales / 365)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> DSO = average A/R divided by daily sales. (Equivalent: 365 / A/R turnover where turnover = Sales / A/R.)</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">An aggressive working-capital strategy typically involves:</p>
+    <ul class="quiz-options"><li>Minimising current assets and using short-term financing</li><li>Holding excess cash</li><li>Lengthening DSO</li><li>Issuing 30-year bonds</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Aggressive strategies trim working capital aggressively and lean on cheap short-term debt — higher return, higher liquidity risk.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">A negative cash conversion cycle means:</p>
+    <ul class="quiz-options"><li>The company is losing money</li><li>The company has negative cash flow</li><li>The company collects from customers before paying suppliers — operations effectively self-finance</li><li>The accounting is wrong</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> When DPO > DIO + DSO, suppliers finance the operating cycle for free. Common for high-velocity retailers (Amazon, Walmart).</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">Disbursement float refers to:</p>
+    <ul class="quiz-options"><li>The time customer checks take to clear into the company's bank account</li><li>The time between writing a check and the bank clearing it (cash temporarily still in the company's account)</li><li>The interest earned on idle cash</li><li>The amount of cash held in the petty cash fund</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Disbursement float is the company's friend — your check is "out" but bank cash is still there. Collection float is the customer-side equivalent (your enemy).</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-17">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(16)"><span class="dir">← Previous</span><span class="ttl">Internal controls</span></button>
+    <button class="nav-link next" onclick="goTo(18)"><span class="dir">Next →</span><span class="ttl">Managing accounts receivable</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="18">
+  <span class="unit-eyebrow">Unit 18 · A.5 · Operating-Cycle Cash Management</span>
+  <h1>Managing Accounts Receivable</h1>
+  <p class="unit-lead">A/R is the working-capital line item that grows fastest with the business and is most vulnerable to bad debt. Credit policy, aging analysis, and the allowance method govern both how much credit to extend and how to estimate the inevitable losses.</p>
+
+  <h2><span class="marker">§18.1</span>Credit policy — the four levers</h2>
+  <ul class="plain">
+    <li><strong>Credit standards</strong> — minimum acceptable borrower (the "5 Cs": Character, Capacity, Capital, Collateral, Conditions).</li>
+    <li><strong>Credit terms</strong> — discount and net period, e.g., 2/10, n/30.</li>
+    <li><strong>Credit limits</strong> — maximum exposure per customer.</li>
+    <li><strong>Collection policy</strong> — dunning letters, calls, suspension, write-off, sale to a collection agency.</li>
+  </ul>
+
+  <h2><span class="marker">§18.2</span>Discount terms — the cost of NOT taking 2/10, n/30</h2>
+  <p>"2/10, n/30" means 2% discount if paid within 10 days; otherwise net 30. Forgoing the discount means borrowing for 20 days at:</p>
+  <div class="callout formula">
+    <div class="formula-box" style="font-size:13.5px;">Effective annual rate = (Discount % ÷ (100% − Discount %)) × (365 ÷ (Net days − Discount days))</div>
+  </div>
+  <p>For 2/10, n/30: (2% ÷ 98%) × (365 ÷ 20) = 0.0204 × 18.25 = ~37.2% APR. Almost any borrowing is cheaper.</p>
+
+  <h2><span class="marker">§18.3</span>Aging schedule</h2>
+  <table class="fin-table">
+    <thead><tr><th>Days outstanding</th><th>Balance</th><th>Estimated uncollectible %</th><th>Allowance needed</th></tr></thead>
+    <tbody>
+      <tr><td>0–30</td><td>$80,000</td><td>1%</td><td>$800</td></tr>
+      <tr><td>31–60</td><td>$25,000</td><td>4%</td><td>$1,000</td></tr>
+      <tr><td>61–90</td><td>$10,000</td><td>15%</td><td>$1,500</td></tr>
+      <tr><td>&gt;90</td><td>$5,000</td><td>40%</td><td>$2,000</td></tr>
+      <tr><th>Total</th><th>$120,000</th><th></th><th>$5,300</th></tr>
+    </tbody>
+  </table>
+  <p>The aging analysis tells the bookkeeper to bring the Allowance for Doubtful Accounts to $5,300 at year end (not to add $5,300; balance the existing balance to that target).</p>
+
+  <h2><span class="marker">§18.4</span>Allowance method vs. direct write-off</h2>
+  <table class="fin-table">
+    <thead><tr><th>Approach</th><th>How it works</th><th>GAAP?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Allowance method</strong></td><td>Estimate bad-debt expense at period end; create Allowance for Doubtful Accounts. Write-offs hit the allowance, not expense.</td><td>Required (matches expense to revenue period)</td></tr>
+      <tr><td><strong>Direct write-off</strong></td><td>Recognise bad-debt expense only when a specific account is written off.</td><td>Permitted only for tax / immaterial cases — violates matching</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§18.5</span>The allowance entries</h2>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px; line-height:1.6;">
+1) Year-end estimate (existing allowance balance $1,200; target $5,300):
+DR  Bad Debt Expense        4,100
+    CR  Allowance for Doubtful Accounts   4,100
+
+2) Specific write-off of $1,400 from Customer X:
+DR  Allowance for Doubtful Accounts  1,400
+    CR  Accounts Receivable             1,400
+   (No P&L impact — already expensed via the allowance.)
+
+3) Recovery — Customer X later pays $400:
+DR  Accounts Receivable               400
+    CR  Allowance for Doubtful Accounts    400
+DR  Cash                              400
+    CR  Accounts Receivable               400
+  </pre>
+
+  <h2><span class="marker">§18.6</span>Two estimation approaches</h2>
+  <ul class="plain">
+    <li><strong>Income-statement approach</strong> — estimate bad-debt expense as a % of credit sales. Adds to existing allowance balance. Better matching.</li>
+    <li><strong>Balance-sheet approach (aging)</strong> — set allowance balance to target estimated by aging. Better receivable valuation.</li>
+  </ul>
+
+  <h2><span class="marker">§18.7</span>Factoring and pledging</h2>
+  <ul class="plain">
+    <li><strong>Pledging A/R</strong> — A/R used as collateral for a loan. Stays on company books.</li>
+    <li><strong>Factoring without recourse</strong> — A/R sold to a factor; factor takes credit risk. A/R removed from books; gain/loss recognised.</li>
+    <li><strong>Factoring with recourse</strong> — company retains some credit risk. May or may not qualify for sale treatment under ASC 860.</li>
+  </ul>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">Forgoing a "2/10, n/30" cash discount and paying on day 30 implies an approximate annual cost of:</p>
+    <ul class="quiz-options"><li>2%</li><li>24%</li><li>~37%</li><li>~73%</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> (2/98) × (365/20) ≈ 37.2%. Borrowing at almost any rate beats that.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">Existing allowance balance $500 CR. Aging analysis estimates $3,800 uncollectible. The bad-debt expense for the period is:</p>
+    <ul class="quiz-options"><li>$3,300 — bring allowance from $500 to $3,800</li><li>$3,800 — total estimated uncollectibles</li><li>$500</li><li>$0</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Aging-method targets the ending allowance balance. Need to add $3,300 to get from $500 to $3,800.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">A specific write-off under the allowance method:</p>
+    <ul class="quiz-options"><li>Adds to bad-debt expense</li><li>Increases the allowance balance</li><li>Reduces net income</li><li>Has no effect on net income — debit the allowance, credit the receivable</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Bad-debt expense was already recorded when the allowance was estimated. The write-off just removes the dead receivable and reduces the allowance.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">An aging schedule on Dec 31 shows estimated uncollectibles of $7,500. Allowance for Doubtful Accounts has a $400 DR balance (after write-offs exceeded prior-year allowance). The adjusting entry debits Bad Debt Expense for:</p>
+    <ul class="quiz-options"><li>$7,100</li><li>$7,500</li><li>$7,900</li><li>$400</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Allowance starts at $400 DR; needs to end at $7,500 CR. Adjustment = $400 + $7,500 = <strong>$7,900</strong> CR (DR Bad Debt Exp $7,900 / CR Allowance $7,900).</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">Factoring A/R "without recourse" means:</p>
+    <ul class="quiz-options"><li>The factor will pay only if customers pay</li><li>The company stays on the hook for bad debts</li><li>The factor accepts the credit risk; A/R is removed from the company's books</li><li>It is the same as pledging</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Without recourse = sold outright; credit risk transferred to factor. A/R is derecognised; gain/loss recognised. With recourse retains credit risk.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">The direct write-off method is generally NOT GAAP-compliant because it:</p>
+    <ul class="quiz-options"><li>Violates the matching principle by recognising bad-debt expense in a different period from the related sale</li><li>Always overstates net income</li><li>Is not allowed for tax purposes</li><li>Cannot be applied consistently</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Bad-debt expense should match the period of the credit sale, not the period of the eventual write-off.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-18">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(17)"><span class="dir">← Previous</span><span class="ttl">Working capital & cash cycle</span></button>
+    <button class="nav-link next" onclick="goTo(19)"><span class="dir">Next →</span><span class="ttl">A/P & short-term financing</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="19">
+  <span class="unit-eyebrow">Unit 19 · A.5 · Operating-Cycle Cash Management</span>
+  <h1>Accounts Payable & Short-Term Financing</h1>
+  <p class="unit-lead">A/P is free supplier credit — until you forgo the discount, after which it becomes some of the most expensive money the company can borrow. Layer in lines of credit, commercial paper, and asset-based lending and you have the toolkit for funding the operating cycle.</p>
+
+  <h2><span class="marker">§19.1</span>Trade credit — terms, recording, and discounts</h2>
+  <p>Vendor terms like "2/10, n/30" appear constantly. Two recording approaches:</p>
+  <table class="fin-table">
+    <thead><tr><th>Approach</th><th>Initial entry</th><th>Pay within discount?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Gross method</strong></td><td>DR Inventory $10,000 · CR A/P $10,000</td><td>If yes: DR A/P 10,000 / CR Cash 9,800 + CR Purchase Discount 200<br/>If no: DR A/P 10,000 / CR Cash 10,000</td></tr>
+      <tr><td><strong>Net method</strong></td><td>DR Inventory $9,800 · CR A/P $9,800</td><td>If yes: DR A/P 9,800 / CR Cash 9,800<br/>If no: DR A/P 9,800 + DR Purchase Discount Lost 200 / CR Cash 10,000</td></tr>
+    </tbody>
+  </table>
+  <p>The net method highlights discounts forgone as a separate expense, which is informative for management.</p>
+
+  <h2><span class="marker">§19.2</span>Short-term financing alternatives</h2>
+  <table class="fin-table">
+    <thead><tr><th>Source</th><th>Cost</th><th>When it fits</th></tr></thead>
+    <tbody>
+      <tr><td>Trade credit (don't take discount)</td><td>~37% APR for 2/10, n/30</td><td>Avoid unless cheaper sources are exhausted</td></tr>
+      <tr><td>Trade credit (take discount)</td><td>~0% — pay early to capture 2%</td><td>Always when liquidity allows</td></tr>
+      <tr><td>Bank line of credit</td><td>Prime + spread; commitment fee on unused capacity</td><td>Working-capital seasonality</td></tr>
+      <tr><td>Revolving credit</td><td>Similar to LOC, formal commitment</td><td>Predictable working-capital needs</td></tr>
+      <tr><td>Commercial paper</td><td>Below prime for top-tier issuers; 270 days max maturity</td><td>Large investment-grade companies</td></tr>
+      <tr><td>A/R financing (factoring or pledging)</td><td>Higher; A/R is the collateral</td><td>Companies with strong receivables but weak balance sheets</td></tr>
+      <tr><td>Inventory loan</td><td>Higher; inventory is the collateral</td><td>Seasonal businesses with high stock levels</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§19.3</span>Effective rates on bank loans</h2>
+  <p>Stated rate ≠ effective rate. Common adjustments:</p>
+  <ul class="plain">
+    <li><strong>Discount loan</strong> — bank deducts interest up front. Effective rate = stated rate ÷ (1 − stated rate). On a 1-year, 10% discount loan, you receive 90¢ per $1 borrowed → effective rate = 10% ÷ 90% = 11.1%.</li>
+    <li><strong>Compensating balance</strong> — a fraction of the loan must stay in the bank account. Effective rate = stated rate ÷ (1 − comp balance %). At 10% with 20% comp balance, effective = 10% ÷ 80% = 12.5%.</li>
+    <li><strong>Combined</strong> — Effective rate = stated ÷ (1 − discount % − comp balance %).</li>
+  </ul>
+
+  <h2><span class="marker">§19.4</span>Other current liabilities (overview)</h2>
+  <ul class="plain">
+    <li><strong>Notes payable</strong> — formal short-term debt at a stated interest rate.</li>
+    <li><strong>Accrued liabilities</strong> — wages, interest, taxes (Unit 7).</li>
+    <li><strong>Unearned revenue</strong> — cash received before delivery (Unit 8).</li>
+    <li><strong>Current maturities of long-term debt</strong> — the portion of LTD due within 12 months.</li>
+    <li><strong>Estimated warranty liability</strong> — accrue at sale based on warranty experience.</li>
+  </ul>
+
+  <h2><span class="marker">§19.5</span>Worked example — effective rate</h2>
+  <p>$100,000 1-year loan at 9% stated, 15% compensating balance, interest deducted up front. Effective rate?</p>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px;">
+Stated interest = $9,000 (paid up front via discount)
+Compensating balance = $15,000 (must stay in account)
+Cash actually usable = $100,000 − $9,000 − $15,000 = $76,000
+Effective rate = $9,000 ÷ $76,000 = <strong>11.84%</strong>
+  </pre>
+
+  <h2><span class="marker">§19.6</span>Stretching A/P — the cost-benefit decision</h2>
+  <p>"Stretching" A/P (paying late) saves cash but damages supplier relationships and the credit rating. The net cost is the implicit financing cost vs. the relationship cost. Generally, take the discount when offered; otherwise, pay on the net day — neither earlier nor later.</p>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">Terms 1/15, n/45. Approximate annual cost of forgoing the discount:</p>
+    <ul class="quiz-options"><li>1%</li><li>~6%</li><li>~10%</li><li>~12.3%</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> (1/99) × (365/30) ≈ 12.3%. Borrow on a LOC if cheaper than 12.3%.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">Under the net method of recording purchases, "Purchase Discounts Lost" represents:</p>
+    <ul class="quiz-options"><li>A revenue</li><li>An asset</li><li>An expense — the cost of failing to take the discount</li><li>A liability</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Net method exposes discounts forgone as an explicit expense — encourages prompt payment.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">A $50,000 1-year loan at 8% stated rate with a 25% compensating balance has an effective rate of:</p>
+    <ul class="quiz-options"><li>8.0%</li><li>10.67%</li><li>33%</li><li>20%</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Effective = 8% ÷ (1 − 0.25) = 8% ÷ 0.75 = <strong>10.67%</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">Commercial paper:</p>
+    <ul class="quiz-options"><li>Is unsecured short-term debt issued by large investment-grade companies; max 270 days maturity</li><li>Is a long-term bond</li><li>Is government-issued</li><li>Is convertible into stock</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Commercial paper is short-term unsecured corporate paper, typically issued at a discount to face. The 270-day cap avoids SEC registration.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">A discount loan of $100,000 at 12% stated rate (interest deducted up front, 1 year). The effective rate is:</p>
+    <ul class="quiz-options"><li>12%</li><li>10.71%</li><li>14.4%</li><li>13.64%</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Cash received = $88,000. Interest paid = $12,000. Effective = $12,000 / $88,000 = <strong>13.64%</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">Which strategy minimizes financing cost while maintaining good supplier relationships?</p>
+    <ul class="quiz-options"><li>Stretch A/P aggressively (pay late)</li><li>Pay every invoice on the day of receipt</li><li>Take cash discounts when offered; otherwise pay on the net day</li><li>Always issue commercial paper</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Discount-or-net-day rule. Discounts are cheap money; paying earlier than necessary forfeits float; paying later than necessary risks supplier ill-will and credit downgrades.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-19">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(18)"><span class="dir">← Previous</span><span class="ttl">Accounts receivable</span></button>
+    <button class="nav-link next" onclick="goTo(20)"><span class="dir">Next →</span><span class="ttl">Inventory management & EOQ</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="20">
+  <span class="unit-eyebrow">Unit 20 · A.5 · Operating-Cycle Cash Management</span>
+  <h1>Inventory Management & the EOQ Model</h1>
+  <p class="unit-lead">Inventory ties up cash and risks obsolescence; running out of stock loses sales. The economic order quantity (EOQ) balances ordering cost against carrying cost. Just-in-time, ABC analysis, and safety stock fine-tune the policy.</p>
+
+  <h2><span class="marker">§20.1</span>Two costs to balance</h2>
+  <ul class="plain">
+    <li><strong>Carrying cost</strong> per unit per year — storage, insurance, obsolescence, opportunity cost of capital.</li>
+    <li><strong>Ordering cost</strong> per order — purchase-order processing, shipping, receiving, inspection.</li>
+  </ul>
+  <p>Order more units less often → high carrying, low ordering. Order less more often → low carrying, high ordering. EOQ is the sweet spot.</p>
+
+  <h2><span class="marker">§20.2</span>The EOQ formula</h2>
+  <div class="callout formula">
+    <span class="callout-label">Economic order quantity</span>
+    <div class="formula-box" style="font-size:14px;">EOQ = √(2 × D × O ÷ C)</div>
+    <p style="margin-top:6px; margin-bottom:0; font-size:13px;">D = annual demand (units), O = ordering cost per order, C = carrying cost per unit per year</p>
+  </div>
+  <p>Worked example: D = 10,000 units, O = $40 per order, C = $2 per unit per year.</p>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px;">
+EOQ = √(2 × 10,000 × $40 / $2) = √400,000 = <strong>~632 units</strong> per order
+Number of orders / year = 10,000 / 632 ≈ 15.8
+Annual ordering cost = 15.8 × $40 = $632
+Annual carrying cost = (632/2) × $2 = $632   ← always equal at EOQ
+  </pre>
+
+  <h2><span class="marker">§20.3</span>Reorder point and safety stock</h2>
+  <ul class="plain">
+    <li><strong>Reorder point (ROP)</strong> = Lead time × Daily demand. Order EOQ when stock falls to ROP.</li>
+    <li><strong>Safety stock</strong> — extra inventory to cover lead-time and demand variability. Increases service level at the cost of higher carrying.</li>
+    <li>ROP with safety stock = Lead-time demand + Safety stock.</li>
+  </ul>
+
+  <h2><span class="marker">§20.4</span>Inventory costing methods</h2>
+  <table class="fin-table">
+    <thead><tr><th>Method</th><th>How it works</th><th>Effect in rising prices</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FIFO</strong> (First-In, First-Out)</td><td>Oldest costs hit COGS; newest stay in inventory</td><td>Higher NI, higher inventory, higher tax</td></tr>
+      <tr><td><strong>LIFO</strong> (Last-In, First-Out)</td><td>Newest costs hit COGS; oldest stay in inventory</td><td>Lower NI, lower inventory, lower tax (U.S. only — not allowed under IFRS)</td></tr>
+      <tr><td><strong>Weighted-average</strong></td><td>Cost = total cost ÷ total units, applied uniformly</td><td>Smoothed result between FIFO and LIFO</td></tr>
+      <tr><td><strong>Specific identification</strong></td><td>Match each unit's actual cost</td><td>Required for unique items (cars, art)</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Lower-of-cost-or-net-realizable-value (LCNRV)</strong> rule: if NRV (selling price − completion & disposal costs) is below cost, write down to NRV.</p>
+
+  <h2><span class="marker">§20.5</span>Perpetual vs. periodic inventory</h2>
+  <table class="fin-table">
+    <thead><tr><th>System</th><th>How inventory and COGS are tracked</th><th>Used by</th></tr></thead>
+    <tbody>
+      <tr><td>Perpetual</td><td>Inventory and COGS updated with every transaction</td><td>Most modern retailers (POS / barcode)</td></tr>
+      <tr><td>Periodic</td><td>Inventory tracked by physical count at period end; COGS computed as Beg Inv + Purchases − End Inv</td><td>Smaller, low-volume businesses</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§20.6</span>JIT, ABC, and just-in-time fundamentals</h2>
+  <ul class="plain">
+    <li><strong>Just-in-time (JIT)</strong> — minimise inventory; rely on tight supplier relationships, kanban signals, and short setup times. Risk: supply disruption.</li>
+    <li><strong>ABC analysis</strong> — Pareto split: A items (top ~10% of items, ~70% of value) get tight management; C items (~70% of items, ~10% of value) get loose management.</li>
+    <li><strong>Quantity discounts</strong> — when supplier offers volume discount, EOQ may shift; compare total cost (purchase + carry + order) at EOQ vs. discount-eligible quantities.</li>
+  </ul>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">Annual demand 5,000 units, ordering cost $50, carrying cost $4 per unit per year. EOQ is:</p>
+    <ul class="quiz-options"><li>~354 units</li><li>1,250 units</li><li>500 units</li><li>250 units</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> EOQ = √(2 × 5,000 × 50 / 4) = √125,000 ≈ <strong>353.55</strong> ≈ 354 units.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">In a period of rising prices, FIFO produces (vs. LIFO):</p>
+    <ul class="quiz-options"><li>Lower net income and lower inventory</li><li>Higher COGS and lower net income</li><li>Higher net income and higher inventory</li><li>The same results</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> FIFO sends old (cheaper) costs to COGS and leaves newer (higher) costs in inventory → higher NI and higher BS inventory.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">The reorder point under deterministic demand equals:</p>
+    <ul class="quiz-options"><li>EOQ ÷ 2</li><li>Lead-time × Daily demand</li><li>Annual demand</li><li>Safety stock</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ROP signals when to place the next order so it arrives just as inventory hits zero (no safety stock).</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">At EOQ, total annual ordering cost is:</p>
+    <ul class="quiz-options"><li>Higher than carrying cost</li><li>Lower than carrying cost</li><li>Always $0</li><li>Equal to total annual carrying cost</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The mathematical optimum where the two costs cross. Below EOQ, ordering cost dominates; above EOQ, carrying cost dominates.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">ABC inventory analysis classifies items by:</p>
+    <ul class="quiz-options"><li>Alphabetical order</li><li>Color code</li><li>Annual dollar volume — top items (A) get tight management; low items (C) get loose management</li><li>Days of supply on hand</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Pareto principle applied to inventory: focus management on the items that drive most value.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">Inventory has cost of $50, NRV of $42. Under LCNRV:</p>
+    <ul class="quiz-options"><li>Write inventory down to $42 and recognise an $8 loss</li><li>Carry at $50 because NRV will recover</li><li>Carry at $42 only after sale</li><li>Use $46 (the average)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> When NRV < cost, U.S. GAAP requires writing inventory down to NRV. Loss is recognised this period.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-20">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(19)"><span class="dir">← Previous</span><span class="ttl">A/P & short-term financing</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice Test T1</span></button>
+  </div>
+</article>
+
 <!-- UNITS_PLACEHOLDER -->
 
 <!-- TESTS_PLACEHOLDER -->
