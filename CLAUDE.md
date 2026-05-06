@@ -170,6 +170,14 @@ The engine auto-injects: timer (1.8 min/q target), per-question flag button, "Re
 
 This platform currently covers A, B, and C. D, E, F could be added later as `cma-section-d.html` etc., reusing `assets/engine.js` and `assets/style.css`.
 
+## 404 page recovery links
+
+`404.html` lives at the site root. GitHub Pages serves it for any unmatched path under the project, so a request to `/learn-commons/foo/bar/baz` shows the 404 with `location.pathname = "/learn-commons/foo/bar/baz"`. Plain relative `<a href="index.html">` would resolve against the failing URL's base (`/learn-commons/foo/bar/`), keeping users stuck in 404 loops.
+
+The fix uses two layers:
+1. **Static fallback**: each recovery link's `href` is an absolute root-relative path with the GitHub Pages project prefix (`/learn-commons/index.html`). Works without JS.
+2. **Runtime rewrite**: a small inline script detects the actual project base from `location.pathname` and rewrites each link's `href` accordingly. Falls back to `/` for root-domain or custom-domain deployments. The repo name is hardcoded in the `REPO_NAMES` array — **forks should update this constant**.
+
 ## Conventions
 
 - **Don't add emojis** to user-facing content unless asked. The current cover and section headers use a few, mirroring Section A's existing style — keep it minimal.
