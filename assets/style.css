@@ -11,6 +11,8 @@
   --accent-4:     #b88a1f;        /* gold */
   --warn:         #a02a2a;
   --good:         #2f6b4f;
+  --accent-1:     #a02a2a;        /* alias used by older rules — same as --warn */
+  --paper-warm:   #efe7d7;        /* alias used by older rules — same as --paper-2 */
   --shadow:       0 1px 0 rgba(29,26,22,.06), 0 8px 24px -12px rgba(29,26,22,.18);
   --radius:       4px;
   --maxw:         860px;
@@ -348,13 +350,44 @@ ul.plain li::before {
 .quiz-options li.disabled { cursor: default; }
 .quiz-explanation {
   display: none;
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px dashed var(--rule);
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--ink-faint);
+  background: rgba(29, 26, 22, .05);
   font-size: 15px;
-  color: var(--ink-soft);
+  line-height: 1.55;
+  color: var(--ink);
 }
-.quiz-explanation.show { display: block; }
+.quiz-explanation.show { display: block; animation: fadeIn .25s ease-out; }
+.quiz-explanation::before {
+  content: "Explanation";
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+/* Outcome-tinted explanations make it impossible to miss the why */
+.test-question.answered-correct .quiz-explanation {
+  border-left-color: var(--good);
+  background: rgba(47, 107, 79, .09);
+}
+.test-question.answered-correct .quiz-explanation::before {
+  content: "✓ Correct — why";
+  color: var(--good);
+}
+.test-question.answered-wrong .quiz-explanation {
+  border-left-color: var(--warn);
+  background: rgba(160, 42, 42, .08);
+}
+.test-question.answered-wrong .quiz-explanation::before {
+  content: "✗ Not quite — here's why the right answer is right";
+  color: var(--warn);
+}
 
 /* ============ TESTS / EXAMS ============ */
 .test-intro {
@@ -1178,20 +1211,35 @@ mark.ann-hl.has-note::after {
   margin: 4px 0;
   line-height: 1.5;
 }
-.test-summary .missed-item .miss-ans {
-  font-size: 12px;
+.test-summary .missed-item .miss-pick,
+.test-summary .missed-item .miss-ans,
+.test-summary .missed-item .miss-why {
+  font-size: 12.5px;
   color: var(--ink-soft);
-  font-style: italic;
+  margin-top: 4px;
+  line-height: 1.5;
 }
-.test-summary .missed-item .miss-ans .lbl {
+.test-summary .missed-item .miss-pick { color: var(--ink-soft); }
+.test-summary .missed-item .miss-ans  { color: var(--ink); font-style: italic; }
+.test-summary .missed-item .miss-why  {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--rule);
+  color: var(--ink);
+  line-height: 1.55;
+}
+.test-summary .missed-item .lbl {
   font-family: "JetBrains Mono", monospace;
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 10px;
-  color: var(--good);
-  margin-right: 4px;
+  margin-right: 6px;
+  font-weight: 600;
 }
+.test-summary .missed-item .miss-pick .lbl { color: var(--warn); }
+.test-summary .missed-item .miss-ans  .lbl { color: var(--good); }
+.test-summary .missed-item .miss-why  .lbl { color: var(--accent-3); }
 .test-summary .summary-actions {
   display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;
 }
