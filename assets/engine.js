@@ -80,17 +80,28 @@
   // Expose to inline onclick="goTo(N)" handlers used in unit-footer markup
   window.goTo = goTo;
 
-  function markDone(id) {
-    if (!progress.done.includes(id)) {
-      progress.done.push(id);
-      saveProgress();
-      buildNav();
-    }
-    const btn = document.querySelector(`#mark-done-${id}`);
-    if (btn) {
-      btn.textContent = "✓ Marked complete";
+  function setMarkDoneButton(btn, isDone) {
+    if (isDone) {
+      btn.textContent = "✓ Marked complete — click to unmark";
       btn.classList.add("done");
+    } else {
+      btn.textContent = "Mark this unit complete";
+      btn.classList.remove("done");
     }
+  }
+  // Toggle: clicking marks done; clicking again unmarks. Lets users
+  // correct an accidental mark, redo a unit, or reset progress per-unit.
+  function markDone(id) {
+    const wasDone = progress.done.includes(id);
+    if (wasDone) {
+      progress.done = progress.done.filter(x => x !== id);
+    } else {
+      progress.done.push(id);
+    }
+    saveProgress();
+    buildNav();
+    const btn = document.querySelector(`#mark-done-${id}`);
+    if (btn) setMarkDoneButton(btn, !wasDone);
   }
   window.markDone = markDone;
 
@@ -1584,10 +1595,7 @@
     document.querySelectorAll(".bucket-sort").forEach(b => setupBucketSort(b));
     document.querySelectorAll("[id^='mark-done-']").forEach(btn => {
       const id = parseInt(btn.id.replace("mark-done-", ""), 10);
-      if (progress.done.includes(id)) {
-        btn.textContent = "✓ Marked complete";
-        btn.classList.add("done");
-      }
+      setMarkDoneButton(btn, progress.done.includes(id));
       btn.addEventListener("click", () => markDone(id));
     });
     initSidebarSearch();
