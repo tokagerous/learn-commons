@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FMAA — Visual Field Guide · Learn Commons</title>
+<meta name="description" content="A visual, interactive study guide for the IMA's Financial and Managerial Accounting Associate (FMAA) certification — entry-level financial and managerial accounting." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --paper:        #f6f1e8;
+  --paper-2:      #efe7d7;
+  --ink:          #1d1a16;
+  --ink-soft:     #4b463e;
+  --ink-faint:    #8a8377;
+  --rule:         #d6cdb8;
+  --accent:       #b8451f;
+  --accent-2:     #2f6b4f;
+  --accent-3:     #355081;
+  --accent-4:     #b88a1f;
+  --shadow:       0 1px 0 rgba(29,26,22,.06), 0 8px 24px -12px rgba(29,26,22,.18);
+  --radius:       4px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Lora", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.wrap { max-width: 920px; margin: 0 auto; padding: 60px 32px 100px; }
+h1, h2, h3 { font-family: "Fraunces", serif; letter-spacing: -0.015em; font-weight: 600; }
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent-3);
+  display: block; margin-bottom: 14px;
+}
+h1.title {
+  font-family: "Fraunces", serif;
+  font-size: 60px; line-height: 0.95;
+  font-weight: 900; letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  font-variation-settings: "opsz" 144;
+}
+.lead {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 22px; color: var(--ink-soft);
+  margin: 0 0 36px;
+  max-width: 720px; line-height: 1.45;
+}
+.meta-strip {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-faint);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 12px 0; margin: 32px 0 56px;
+}
+.meta-strip span strong {
+  color: var(--ink); display: block; font-family: "Fraunces", serif;
+  font-size: 16px; text-transform: none; letter-spacing: 0; margin-top: 2px;
+}
+
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 48px;
+}
+.domain-card {
+  display: block;
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px 24px 22px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+  position: relative;
+  overflow: hidden;
+}
+.domain-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent-3);
+}
+.domain-card.future::before { background: var(--rule); }
+.domain-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.domain-card .card-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-3); margin-bottom: 6px;
+}
+.domain-card.future .card-eyebrow { color: var(--ink-faint); }
+.domain-card h2 {
+  font-size: 22px;
+  margin: 4px 0 10px;
+  letter-spacing: -0.01em;
+}
+.domain-card .card-meta {
+  font-size: 14px; color: var(--ink-soft); margin-bottom: 12px;
+  line-height: 1.5;
+}
+.domain-card .card-stats {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 0.06em;
+  border-top: 1px dashed var(--rule);
+  padding-top: 10px; margin-top: 12px;
+}
+.domain-card .card-status {
+  position: absolute; top: 14px; right: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px; border-radius: 99px;
+  background: var(--paper-2); color: var(--ink-soft);
+}
+.domain-card.future { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
+.domain-card.future .card-status { background: var(--rule); color: var(--ink-faint); }
+
+.howto {
+  background: white; border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px 28px; margin: 32px 0;
+}
+.howto h3 { margin: 0 0 12px; font-size: 18px; }
+.howto ul { list-style: none; padding: 0; margin: 0; }
+.howto ul li {
+  padding: 6px 0 6px 22px; position: relative; font-size: 15px;
+}
+.howto ul li::before {
+  content: "→";
+  position: absolute; left: 0;
+  color: var(--accent-3);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.exam-summary {
+  background: var(--paper-2);
+  border-left: 4px solid var(--accent-3);
+  padding: 18px 22px;
+  margin: 32px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.exam-summary h3 { margin: 0 0 8px; font-size: 16px; }
+.exam-summary p { margin: 4px 0; font-size: 14.5px; line-height: 1.6; }
+.exam-summary .stat {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--accent-3);
+  font-weight: 700;
+}
+
+.footer-note {
+  font-size: 13px; font-style: italic;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--rule);
+  padding-top: 24px; margin-top: 48px;
+}
+@media (max-width: 600px) {
+  h1.title { font-size: 42px; }
+  .lead { font-size: 18px; }
+  .wrap { padding: 36px 20px 60px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="../../index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; display: inline-block; margin-bottom: 24px;">← All programs</a>
+  <span class="eyebrow">IMA · Financial &amp; Managerial Accounting Associate</span>
+  <h1 class="title">FMAA — visual field guide.</h1>
+  <p class="lead">An entry-level credential from the IMA for students and early-career professionals. Half the depth of the CMA, but it covers the same conceptual ground — financial-statement basics, cost concepts, planning and budgeting fundamentals, and performance analysis. This guide walks you through all four domains with diagrams, practice questions, and exam-pace tests.</p>
+
+  <div class="exam-summary">
+    <h3>About the FMAA exam</h3>
+    <p><span class="stat">80 multiple-choice questions</span> · <span class="stat">2 hours</span> · <span class="stat">computer-based</span> at Prometric centers worldwide.</p>
+    <p>Four domains, equally weighted at <span class="stat">25%</span> each. Pass mark and exact CSO weights are set by the IMA — check the current FMAA Content Specification Outline for the most up-to-date rules before sitting the exam.</p>
+    <p>Eligibility: open to anyone — no degree or experience prerequisite. Designed as a stepping-stone to the CMA. Once you pass, you can list "FMAA" after your name and use it on your resume immediately.</p>
+  </div>
+
+  <div class="meta-strip">
+    <span>Domains<strong>4</strong></span>
+    <span>Format<strong>80 MCQ in 2 hours</strong></span>
+    <span>Style<strong>Visual + interactive</strong></span>
+    <span>CMA mapping<strong>Mirrors A, D + parts of B, C</strong></span>
+  </div>
+
+  <h2 style="font-size: 26px; margin: 0 0 18px;">The four domains</h2>
+
+  <div class="domain-grid">
+    <a class="domain-card" href="domain-1.html">
+      <span class="card-status">In progress</span>
+      <div class="card-eyebrow">Domain 1 · 25% weight</div>
+      <h2>Financial Statements</h2>
+      <div class="card-meta">The four statements (BS, IS, SCF, equity), the accounting equation, accrual vs. cash, debits and credits, the accounting cycle, and basic financial-statement analysis ratios.</div>
+      <div class="card-stats">~8 units · scaffolded</div>
+    </a>
+
+    <a class="domain-card" href="domain-2.html">
+      <span class="card-status">In progress</span>
+      <div class="card-eyebrow">Domain 2 · 25% weight</div>
+      <h2>Cost Management</h2>
+      <div class="card-meta">Cost classifications, cost-volume-profit (CVP), break-even analysis, contribution margin, job-order vs. process costing, and basic activity-based costing.</div>
+      <div class="card-stats">~8 units · scaffolded</div>
+    </a>
+
+    <a class="domain-card" href="domain-3.html">
+      <span class="card-status">In progress</span>
+      <div class="card-eyebrow">Domain 3 · 25% weight</div>
+      <h2>Planning &amp; Budgeting</h2>
+      <div class="card-meta">The master budget structure, operating vs. financial budgets, static vs. flexible budgets, and basic forecasting techniques.</div>
+      <div class="card-stats">~6 units · scaffolded</div>
+    </a>
+
+    <a class="domain-card" href="domain-4.html">
+      <span class="card-status">In progress</span>
+      <div class="card-eyebrow">Domain 4 · 25% weight</div>
+      <h2>Performance Management</h2>
+      <div class="card-meta">Variance analysis (DM, DL, OH), responsibility centers, basic KPIs, and the introduction to ROI / RI as performance measures.</div>
+      <div class="card-stats">~6 units · scaffolded</div>
+    </a>
+  </div>
+
+  <div class="howto">
+    <h3>How this guide works</h3>
+    <ul>
+      <li>Each domain is its own page with a sidebar nav of units. Click a unit to read the explanation, run the interactives, and try the practice questions.</li>
+      <li>FMAA is intro-depth, so units are shorter than CMA equivalents. Many topics will feel familiar if you've already touched accounting in school or work.</li>
+      <li>Same engine as the CMA Part 1 platform: highlight-and-note, bookmarks, formula reference, keyboard shortcuts (<code>/</code> search, <code>F</code> formulas, <code>?</code> help).</li>
+      <li>Progress is saved in your browser per domain.</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    FMAA content is being built progressively. The four domain pages are scaffolded with the same engine as the CMA Part 1 platform; depth and breadth of practice questions will grow over time. Track progress on the GitHub repo.
+  </div>
+</div>
+</body>
+</html>

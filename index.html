@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CMA Part 1 — Visual Field Guide</title>
-<meta name="description" content="A free, browser-based study platform for the IMA's Certified Management Accountant (CMA) Part 1 exam. Visual, interactive, with practice tests and flashcards." />
+<title>Learn Commons — Free, browser-based study platforms</title>
+<meta name="description" content="Free, browser-based study platforms for professional certifications and standardized exams. CMA Part 1, FMAA, and more — visual, interactive, with practice tests, flashcards, and progress tracking." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-.wrap { max-width: 920px; margin: 0 auto; padding: 60px 32px 100px; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 60px 32px 100px; }
 h1, h2, h3 { font-family: "Fraunces", serif; letter-spacing: -0.015em; font-weight: 600; }
 .eyebrow {
   font-family: "JetBrains Mono", monospace;
@@ -54,7 +54,7 @@ h1.title {
   font-style: italic;
   font-size: 22px; color: var(--ink-soft);
   margin: 0 0 36px;
-  max-width: 720px; line-height: 1.45;
+  max-width: 780px; line-height: 1.45;
 }
 .meta-strip {
   display: flex; gap: 32px; flex-wrap: wrap;
@@ -70,90 +70,111 @@ h1.title {
   font-size: 16px; text-transform: none; letter-spacing: 0; margin-top: 2px;
 }
 
-.section-grid {
+h2.section-h {
+  font-size: 22px;
+  margin: 48px 0 18px;
+  font-variant: all-small-caps;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+}
+
+.program-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 18px;
   margin-bottom: 48px;
 }
-.section-card {
+.program-card {
   display: block;
   background: white;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  padding: 24px 24px 22px;
+  padding: 28px 26px 24px;
   text-decoration: none;
   color: var(--ink);
   transition: transform .15s, border-color .15s, box-shadow .15s;
   position: relative;
   overflow: hidden;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
 }
-.section-card::before {
+.program-card::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 4px; height: 100%;
 }
-.section-card.a::before { background: var(--accent); }
-.section-card.b::before { background: var(--accent-3); }
-.section-card.c::before { background: var(--accent-2); }
-.section-card:hover {
+.program-card.cma::before { background: var(--accent); }
+.program-card.fmaa::before { background: var(--accent-3); }
+.program-card.future::before { background: var(--rule); }
+.program-card:hover {
   transform: translateY(-3px);
   border-color: var(--ink);
   box-shadow: var(--shadow);
 }
-.section-card .card-eyebrow {
+.program-card .card-issuer {
   font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink-faint); margin-bottom: 6px;
+  font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: 8px;
 }
-.section-card.a .card-eyebrow { color: var(--accent); }
-.section-card.b .card-eyebrow { color: var(--accent-3); }
-.section-card.c .card-eyebrow { color: var(--accent-2); }
-.section-card h2 {
-  font-size: 24px;
-  margin: 4px 0 10px;
-  letter-spacing: -0.01em;
+.program-card.cma .card-issuer { color: var(--accent); }
+.program-card.fmaa .card-issuer { color: var(--accent-3); }
+.program-card h3 {
+  font-size: 26px;
+  margin: 4px 0 4px;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
 }
-.section-card .card-meta {
-  font-size: 14px; color: var(--ink-soft); margin-bottom: 12px;
-  line-height: 1.5;
+.program-card .card-tagline {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  margin: 6px 0 14px;
+  line-height: 1.4;
 }
-.section-card .card-stats {
+.program-card .card-meta {
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.program-card .card-stats {
   font-family: "JetBrains Mono", monospace;
   font-size: 11px; color: var(--ink-faint);
   letter-spacing: 0.06em;
   border-top: 1px dashed var(--rule);
-  padding-top: 10px; margin-top: 12px;
+  padding-top: 10px; margin-top: auto;
 }
-.section-card .card-status {
-  position: absolute; top: 14px; right: 14px;
+.program-card .card-status {
+  position: absolute; top: 18px; right: 18px;
   font-family: "JetBrains Mono", monospace;
   font-size: 10px; letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 2px 8px; border-radius: 99px;
+  padding: 3px 9px; border-radius: 99px;
   background: var(--paper-2); color: var(--ink-soft);
 }
-.section-card.coming-soon { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
-.section-card.coming-soon .card-status { background: var(--rule); color: var(--ink-faint); }
+.program-card.future .card-status { background: var(--rule); color: var(--ink-faint); }
+.program-card.future { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
 
-.howto {
+.about {
   background: white; border: 1px solid var(--rule);
   border-radius: var(--radius);
-  padding: 24px 28px; margin: 32px 0;
+  padding: 28px 32px; margin: 32px 0;
 }
-.howto h3 {
-  margin: 0 0 12px;
-  font-size: 18px;
+.about h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
 }
-.howto ul {
-  list-style: none; padding: 0; margin: 0;
+.about p { font-size: 15.5px; line-height: 1.65; margin: 0 0 12px; max-width: 780px; }
+.about ul { list-style: none; padding: 0; margin: 0; }
+.about ul li {
+  padding: 6px 0 6px 22px; position: relative; font-size: 15px; line-height: 1.55;
 }
-.howto ul li {
-  padding: 6px 0 6px 22px; position: relative; font-size: 15px;
-}
-.howto ul li::before {
+.about ul li::before {
   content: "→";
   position: absolute; left: 0;
   color: var(--accent);
@@ -182,83 +203,70 @@ h1.title {
 </head>
 <body>
 <div class="wrap">
-  <span class="eyebrow">CMA Part 1 · Financial Planning, Performance & Analytics</span>
-  <h1 class="title">A visual, interactive<br/>guide to the CMA Part 1 exam.</h1>
-  <p class="lead">Three full sections of the IMA's Certified Management Accountant Part 1 syllabus — built around diagrams, drag-drop interactives, calculation playgrounds, hundreds of practice questions, exam timers, flashcards, and a formula reference panel. Free, runs entirely in your browser, progress saved locally.</p>
+  <span class="eyebrow">Learn Commons · Open study platforms for professional exams</span>
+  <h1 class="title">Visual, interactive<br/>study platforms<br/>for professional exams.</h1>
+  <p class="lead">A growing collection of free, browser-based study guides for management-accounting and finance certifications. Each program is built around diagrams, drag-drop interactives, calculation playgrounds, hundreds of practice questions, exam timers, flashcards, and a searchable formula reference panel. Runs entirely in your browser, progress saved locally.</p>
 
   <div class="meta-strip">
-    <span>Sections covered<strong>A · B · C</strong></span>
-    <span>Study units<strong>~75</strong></span>
-    <span>Practice questions<strong>500+</strong></span>
-    <span>Flashcards<strong>23 decks</strong></span>
+    <span>Programs available<strong>2 (CMA Part 1, FMAA)</strong></span>
     <span>Build<strong>Static · No backend</strong></span>
+    <span>Cost<strong>Free · No tracking</strong></span>
+    <span>License<strong>Open material</strong></span>
   </div>
 
-  <h2 style="font-size: 26px; margin: 0 0 18px;">Pick a section</h2>
+  <h2 class="section-h">Available programs</h2>
 
-  <div class="section-grid">
-    <a class="section-card a" href="cma-section-a.html">
-      <span class="card-status">Complete</span>
-      <div class="card-eyebrow">Section A · 15% of Part 1</div>
-      <h2>External Financial Reporting</h2>
-      <div class="card-meta">Balance sheet, income statement, cash flows, OCI, equity, integrated reporting. The four foundation units cover accrual mechanics, debits & credits, and the conceptual framework.</div>
-      <div class="card-stats">34 units · 6 tests · 102 inline quizzes · 180 test Qs · 8 flashcard decks</div>
+  <div class="program-grid">
+    <a class="program-card cma" href="programs/cma-part-1/index.html">
+      <span class="card-status">Live</span>
+      <div class="card-issuer">IMA · Certified Management Accountant</div>
+      <h3>CMA Part 1</h3>
+      <div class="card-tagline">Financial Planning, Performance & Analytics</div>
+      <div class="card-meta">Three full sections covering external financial reporting, planning &amp; budgeting, and performance management — with hundreds of CMA-style practice questions and section tests at exam pace.</div>
+      <div class="card-stats">3 sections · ~75 units · 400+ practice questions · 23 flashcard decks</div>
     </a>
 
-    <a class="section-card b" href="cma-section-b.html">
-      <span class="card-status">Complete</span>
-      <div class="card-eyebrow">Section B · 20% of Part 1</div>
-      <h2>Planning, Budgeting & Forecasting</h2>
-      <div class="card-meta">Strategic planning, environmental analysis, budgeting concepts, regression and forecasting, learning curves, master budget mechanics, and pro forma financials.</div>
-      <div class="card-stats">16 units · 3 tests · ~50 inline quizzes · ~80 test Qs · 8 flashcard decks</div>
+    <a class="program-card fmaa" href="programs/fmaa/index.html">
+      <span class="card-status">In progress</span>
+      <div class="card-issuer">IMA · Financial &amp; Managerial Accounting Associate</div>
+      <h3>FMAA</h3>
+      <div class="card-tagline">Entry-level financial &amp; managerial accounting</div>
+      <div class="card-meta">IMA's two-hour, 80-question entry credential for students and professionals new to accounting. Covers financial-statement basics, cost concepts, planning and budgeting fundamentals, and performance analysis at intro depth.</div>
+      <div class="card-stats">4 domains · scaffold + first units in place · expanding</div>
     </a>
 
-    <a class="section-card c" href="cma-section-c.html">
-      <span class="card-status">Complete</span>
-      <div class="card-eyebrow">Section C · 20% of Part 1</div>
-      <h2>Performance Management</h2>
-      <div class="card-meta">Variance analysis (DM, DL, OH, sales, market), responsibility centers, transfer pricing, ROI / RI / EVA, balanced scorecard, and customer / product profitability analysis.</div>
-      <div class="card-stats">12 units · 3 tests · ~36 inline quizzes · ~75 test Qs · 7 flashcard decks</div>
-    </a>
-
-    <div class="section-card coming-soon">
+    <div class="program-card future">
       <span class="card-status">Future</span>
-      <div class="card-eyebrow">Section D · 15% of Part 1</div>
-      <h2>Cost Management</h2>
-      <div class="card-meta">Job-order, process, ABC, joint products, by-products, supply-chain costing, business process improvement.</div>
-      <div class="card-stats">Not built yet</div>
+      <div class="card-issuer">IMA · CMA Part 2</div>
+      <h3>CMA Part 2</h3>
+      <div class="card-tagline">Strategic Financial Management</div>
+      <div class="card-meta">Financial-statement analysis, corporate finance, decision analysis, risk management, investment decisions, professional ethics. Same engine and design as Part 1 once started.</div>
+      <div class="card-stats">Not yet started</div>
     </div>
 
-    <div class="section-card coming-soon">
+    <div class="program-card future">
       <span class="card-status">Future</span>
-      <div class="card-eyebrow">Section E · 15% of Part 1</div>
-      <h2>Internal Controls</h2>
-      <div class="card-meta">Governance, risk, COSO, internal audit, systems controls.</div>
-      <div class="card-stats">Not built yet</div>
-    </div>
-
-    <div class="section-card coming-soon">
-      <span class="card-status">Future</span>
-      <div class="card-eyebrow">Section F · 15% of Part 1</div>
-      <h2>Technology & Analytics</h2>
-      <div class="card-meta">Information systems, data governance, data analytics, business intelligence.</div>
-      <div class="card-stats">Not built yet</div>
+      <div class="card-issuer">AICPA · Certified Public Accountant</div>
+      <h3>CPA — FAR</h3>
+      <div class="card-tagline">Financial Accounting &amp; Reporting</div>
+      <div class="card-meta">U.S. GAAP-based financial reporting at greater depth than CMA, plus governmental and not-for-profit accounting. Many topics overlap with CMA Part 1 Section A.</div>
+      <div class="card-stats">Not yet started</div>
     </div>
   </div>
 
-  <div class="howto">
-    <h3>How each section works</h3>
+  <div class="about">
+    <h3>How each program works</h3>
     <ul>
-      <li>Each unit has a plain-language explanation, a visual diagram or table, an interactive (drag-drop or calculator), and 2-3 inline quizzes with try-again and per-distractor explanations.</li>
-      <li>Inline quizzes don't penalise — wrong clicks eliminate that option and reveal a rationale; you can keep trying.</li>
+      <li>Each program is a small set of HTML pages — no install, no signup, no tracking.</li>
+      <li>Click any unit on the left sidebar to jump in. Each unit has plain-language explanations, visual diagrams, hands-on interactives (drag-drop, sliders, calculators), and 15+ "Check your understanding" questions with try-again and per-distractor explanations.</li>
       <li>Section tests run a CMA-pace timer (1.8 min/question), let you flag questions, and offer "Replay missed only" or "Replay flagged only" after grading.</li>
-      <li>Highlight any text to mark it (4 colours), attach notes, and bookmark units. All saved per-browser.</li>
-      <li>Press <span class="kbd">/</span> to search, <span class="kbd">F</span> for the formula panel, <span class="kbd">?</span> for keyboard help.</li>
+      <li>Highlight any text to mark it (4 colours), attach notes, and bookmark units. All saved per-browser, per-program.</li>
+      <li>Press <span class="kbd">/</span> to search content, <span class="kbd">F</span> for the formula reference, <span class="kbd">?</span> for keyboard help.</li>
     </ul>
   </div>
 
   <div class="footer-note">
-    Open-source, no tracking, no signup. Progress and annotations live in your browser's <code>localStorage</code>. Switch devices and you'll start fresh on that device.
+    Open-source, no tracking, no signup. Progress and annotations live in each browser's <code>localStorage</code>, scoped per program. Switch devices and you'll start fresh on that device. Run locally by cloning the repo and opening <code>index.html</code>, or visit the deployed site.
   </div>
 </div>
 </body>

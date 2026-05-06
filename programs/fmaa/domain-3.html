@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FMAA · Domain 3 — Planning & Budgeting</title>
+<meta name="description" content="FMAA Domain 3: The master budget structure, operating vs. financial budgets, static vs. flexible budgets, and basic forecasting techniques." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/style.css?v=2" />
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><span class="ornament"></span>FMAA · Domain 3</div>
+  <div class="brand-sub">Planning & Budgeting · IMA FMAA · A visual field guide</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text" id="progress-text">0 of 1 units complete</div>
+  <div class="sidebar-search" style="margin-top:18px">
+    <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
+    <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
+  </div>
+  <nav id="nav" style="margin-top:8px"></nav>
+  <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); display:flex; gap:8px; flex-wrap:wrap;">
+    <a href="index.html" class="btn ghost small" style="text-decoration:none;">← All domains</a>
+    <a href="../../index.html" class="btn ghost small" style="text-decoration:none;">All programs</a>
+    <button class="btn ghost small" id="reset-progress">Reset progress</button>
+    <button class="btn ghost small" id="show-shortcuts" title="Keyboard shortcuts (?)">⌨ Shortcuts</button>
+  </div>
+</aside>
+
+<div id="kbd-help" role="dialog" aria-modal="true">
+  <div class="kbd-box">
+    <h3>Keyboard shortcuts</h3>
+    <div class="kbd-row"><span>Next unit</span><span class="keys"><span class="kbd">→</span> <span class="kbd">J</span></span></div>
+    <div class="kbd-row"><span>Previous unit</span><span class="keys"><span class="kbd">←</span> <span class="kbd">K</span></span></div>
+    <div class="kbd-row"><span>Focus search</span><span class="kbd">/</span></div>
+    <div class="kbd-row"><span>Bookmark this unit</span><span class="kbd">B</span></div>
+    <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
+    <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
+    <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
+    <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
+    <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
+  </div>
+</div>
+
+<button id="formula-toggle-btn" title="Formula reference (F)" aria-label="Open formula reference">ƒx</button>
+<aside id="formula-panel" aria-label="Formula reference">
+  <div class="fp-header">
+    <h3>Formula reference</h3>
+    <button class="ann-panel-close" id="formula-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="fp-search"><input type="text" id="formula-search" placeholder="Search formulas…" /></div>
+  <div class="fp-list" id="formula-list"></div>
+</aside>
+
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+<aside id="ann-panel">
+  <div class="ann-panel-header">
+    <h3>Notes & highlights</h3>
+    <button class="ann-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
+
+<main class="content" id="content">
+
+<article class="unit active" data-id="0">
+  <div class="cover">
+    <span class="unit-eyebrow">FMAA · Domain 3 · 25% weight</span>
+    <h1 class="cover-title">Planning & Budgeting.</h1>
+    <p class="cover-sub">The master budget structure, operating vs. financial budgets, static vs. flexible budgets, and basic forecasting techniques.</p>
+
+    <div class="cover-meta">
+      <span>Units<strong>1 starter unit</strong></span>
+      <span>FMAA weight<strong>25% (~20 questions)</strong></span>
+      <span>Status<strong>Scaffolded · expanding</strong></span>
+      <span>CMA mapping<strong>Subset of CMA Part 1</strong></span>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">D3</span>Domain 3 units</h2>
+    <div class="toc-card">
+      <ol>
+        <li><button onclick="goTo(1)">The master budget — overview</button></li>
+      </ol>
+    </div>
+
+    <div class="callout warning" style="margin-top:32px;">
+      <span class="callout-label">Scaffolded for now</span>
+      <p style="margin-bottom: 0">More units coming as the platform expands. The current scaffold establishes the structure and shows the question style; full breadth (all CSO topics) lands in subsequent batches.</p>
+    </div>
+  </div>
+</article>
+
+<article class="unit" data-id="1">
+  <span class="unit-eyebrow">Unit 01 · Domain 3</span>
+  <h1>The master budget — overview</h1>
+  <p class="unit-lead">What it is and how its pieces fit together</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Master budget driver</h3>
+    <p class="quiz-prompt">Which schedule is built FIRST in the master budget?</p>
+    <ul class="quiz-options">
+      <li>Production budget</li>
+      <li>Cash budget</li>
+      <li>Sales budget</li>
+      <li>Income statement</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Sales budget drives every other operating budget. Production depends on sales (and inventory policy); DM/DL/MOH depend on production. Cash and budgeted statements are aggregations near the end.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Static vs. flexible</h3>
+    <p class="quiz-prompt">For evaluating a manager's performance, the BEST budget tool is:</p>
+    <ul class="quiz-options">
+      <li>Static budget set at year-start</li>
+      <li>Master budget income statement</li>
+      <li>Flexible budget recast at actual production volume</li>
+      <li>Capital budget</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Static budgets fix volume in advance — comparing actual to static mixes volume effect with price/efficiency. Flexible budgets recast at actual volume, isolating the variances the manager actually controlled. Always evaluate against flexible.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Production budget</h3>
+    <p class="quiz-prompt">Sales 10,000 units. Beginning FG 800; desired ending FG 1,200. Production required:</p>
+    <ul class="quiz-options">
+      <li>9,600</li>
+      <li>10,000</li>
+      <li>10,400</li>
+      <li>12,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Production = Sales + Desired Ending FG − Beginning FG = 10,000 + 1,200 − 800 = <strong>10,400</strong>. The 9,600 trap reverses ending and beginning. Don't confuse direction.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-1">Mark this unit complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Domain 3 overview</span></button>
+    <button class="nav-link next" onclick="goTo(0)"><span class="dir">Cover →</span><span class="ttl">Domain 3 overview</span></button>
+  </div>
+</article>
+
+</main>
+</div>
+
+<script>
+window.SECTION_CONFIG = {
+  sectionId: "FMAA-D3",
+  sectionTitle: "FMAA · Domain 3 — Planning & Budgeting",
+  storageKey: "fmaa-d3-progress-v1",
+  annotationKey: "fmaa-d3-ann-v1",
+  totalUnits: 2,
+  trackedUnits: 1,
+  navStructure: [
+    { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
+    { group: "Domain 3 · Planning & Budgeting", units: [
+      { id: 1, num: "01", title: "The master budget — overview" },
+    ]},
+  ],
+  keyTakeaways: {},
+  flashcardDecks: {},
+  formulaReference: [],
+};
+</script>
+<script src="../../assets/engine.js?v=2"></script>
+<script>CMA.init(window.SECTION_CONFIG);</script>
+</body>
+</html>

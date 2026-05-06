@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FMAA · Domain 1 — Financial Statements</title>
+<meta name="description" content="FMAA Domain 1: financial statements, the accounting equation, accrual basis, debits and credits, and the accounting cycle." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/style.css?v=2" />
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><span class="ornament"></span>FMAA · Domain 1</div>
+  <div class="brand-sub">Financial Statements · IMA FMAA · A visual field guide</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text" id="progress-text">0 of 4 units complete</div>
+  <div class="sidebar-search" style="margin-top:18px">
+    <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
+    <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
+  </div>
+  <nav id="nav" style="margin-top:8px"></nav>
+  <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); display:flex; gap:8px; flex-wrap:wrap;">
+    <a href="index.html" class="btn ghost small" style="text-decoration:none;">← All domains</a>
+    <a href="../../index.html" class="btn ghost small" style="text-decoration:none;">All programs</a>
+    <button class="btn ghost small" id="reset-progress">Reset progress</button>
+    <button class="btn ghost small" id="show-shortcuts" title="Keyboard shortcuts (?)">⌨ Shortcuts</button>
+  </div>
+</aside>
+
+<div id="kbd-help" role="dialog" aria-modal="true">
+  <div class="kbd-box">
+    <h3>Keyboard shortcuts</h3>
+    <div class="kbd-row"><span>Next unit</span><span class="keys"><span class="kbd">→</span> <span class="kbd">J</span></span></div>
+    <div class="kbd-row"><span>Previous unit</span><span class="keys"><span class="kbd">←</span> <span class="kbd">K</span></span></div>
+    <div class="kbd-row"><span>Focus search</span><span class="kbd">/</span></div>
+    <div class="kbd-row"><span>Bookmark this unit</span><span class="kbd">B</span></div>
+    <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
+    <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
+    <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
+    <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
+    <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
+  </div>
+</div>
+
+<button id="formula-toggle-btn" title="Formula reference (F)" aria-label="Open formula reference">ƒx</button>
+<aside id="formula-panel" aria-label="Formula reference">
+  <div class="fp-header">
+    <h3>Formula reference</h3>
+    <button class="ann-panel-close" id="formula-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="fp-search"><input type="text" id="formula-search" placeholder="Search formulas…" /></div>
+  <div class="fp-list" id="formula-list"></div>
+</aside>
+
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+<aside id="ann-panel">
+  <div class="ann-panel-header">
+    <h3>Notes & highlights</h3>
+    <button class="ann-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
+
+<main class="content" id="content">
+
+<article class="unit active" data-id="0">
+  <div class="cover">
+    <span class="unit-eyebrow">FMAA · Domain 1 · 25% weight</span>
+    <h1 class="cover-title">Financial<br/>Statements.</h1>
+    <p class="cover-sub">The four reports that summarize a business's financial position and performance — and the basic mechanics (debits, credits, the accounting cycle) that produce them. Intro depth, designed for the FMAA exam.</p>
+
+    <div class="cover-meta">
+      <span>Units<strong>4 covered</strong></span>
+      <span>FMAA weight<strong>25% (~20 questions)</strong></span>
+      <span>Approach<strong>Visual + intro-depth</strong></span>
+      <span>Prerequisites<strong>None</strong></span>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">D1</span>Domain 1 units</h2>
+    <div class="toc-card">
+      <ol>
+        <li><button onclick="goTo(1)">The four financial statements — what each one tells you</button></li>
+        <li><button onclick="goTo(2)">The accounting equation: A = L + E</button></li>
+        <li><button onclick="goTo(3)">Accrual vs. cash basis</button></li>
+        <li><button onclick="goTo(4)">Debits, credits, and the accounting cycle</button></li>
+      </ol>
+    </div>
+
+    <div class="callout analogy" style="margin-top:32px;">
+      <span class="callout-label">FMAA vs. CMA depth</span>
+      <p style="margin-bottom: 0">The FMAA is conceptual; the CMA is computational. Most FMAA Domain 1 questions test definitions, classifications, and which-statement-is-which. The CMA Part 1 takes the same topics deeper — diluted EPS, OCI recycling, capitalised interest. If you've already covered CMA Section A material, FMAA Domain 1 is review.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================
+     UNIT 1 — THE FOUR STATEMENTS
+     ============================================================ -->
+<article class="unit" data-id="1">
+  <span class="unit-eyebrow">Unit 01 · Domain 1</span>
+  <h1>The Four Financial Statements</h1>
+  <p class="unit-lead">Every business produces four primary financial statements. Each answers a different question about the company.</p>
+
+  <h2><span class="marker">§1.1</span>The four reports</h2>
+  <div class="diagram">
+    <table class="fin-table">
+      <thead><tr><th>Statement</th><th>Question it answers</th><th>Time view</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Balance Sheet</strong></td><td>What does the company own and owe right now?</td><td>Snapshot at a point in time (e.g., Dec 31)</td></tr>
+        <tr><td><strong>Income Statement</strong></td><td>How much profit did the company earn over the period?</td><td>Period (e.g., year, quarter)</td></tr>
+        <tr><td><strong>Statement of Cash Flows</strong></td><td>Where did cash come from and where did it go?</td><td>Period</td></tr>
+        <tr><td><strong>Statement of Equity</strong></td><td>How did the owners' stake in the company change?</td><td>Period</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Together, the four reports articulate — they tell a connected story:</p>
+  <ul class="plain">
+    <li>The income statement's net income flows into the equity statement (retained earnings).</li>
+    <li>The cash flow statement's ending cash ties to the balance sheet's cash account.</li>
+    <li>Equity changes in the equity statement land in the balance sheet's equity section.</li>
+  </ul>
+
+  <h2><span class="marker">§1.2</span>The balance sheet — three sections</h2>
+  <table class="fin-table">
+    <thead><tr><th>Section</th><th>What's there</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Assets</strong></td><td>What the company owns or controls (cash, AR, inventory, equipment, buildings, intangibles)</td></tr>
+      <tr><td><strong>Liabilities</strong></td><td>What the company owes (AP, wages payable, debt)</td></tr>
+      <tr><td><strong>Equity</strong></td><td>The owners' residual claim (common stock, APIC, retained earnings)</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§1.3</span>The income statement — three subtotals</h2>
+  <p>Multi-step format, common for exam questions:</p>
+  <ul class="plain">
+    <li><strong>Sales − COGS = Gross Profit</strong> — how much was left after the cost of producing/buying what was sold</li>
+    <li><strong>Gross Profit − Operating Expenses = Operating Income</strong> — recurring profit from operations</li>
+    <li><strong>Operating Income ± Other Items − Tax = Net Income</strong> — bottom line</li>
+  </ul>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">Which financial statement reports the company's financial position at a SPECIFIC POINT IN TIME (a snapshot)?</p>
+    <ul class="quiz-options">
+      <li>Income statement</li>
+      <li>Statement of cash flows</li>
+      <li>Balance sheet</li>
+      <li>Statement of equity</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The balance sheet is dated AS OF a specific date (e.g., "December 31, 2026"). The income statement, SCF, and equity statement cover a PERIOD (e.g., "for the year ended December 31, 2026"). Snapshot vs. period is the most-tested distinction.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">Sales $400K; COGS $250K; Operating expenses $80K; Interest $10K; Tax $20K. What is OPERATING income?</p>
+    <ul class="quiz-options">
+      <li>$150,000</li>
+      <li>$70,000</li>
+      <li>$60,000</li>
+      <li>$40,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Gross profit = Sales − COGS = $400K − $250K = $150K. Operating income = Gross profit − Operating expenses = $150K − $80K = <strong>$70K</strong>. Interest and tax sit BELOW operating income (non-operating). Net income = $70K − $10K − $20K = $40K.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">The four financial statements articulate. Which connection is correct?</p>
+    <ul class="quiz-options">
+      <li>Sales on the income statement equals cash on the balance sheet</li>
+      <li>Operating expenses on the income statement equals dividends declared</li>
+      <li>Cost of goods sold equals total liabilities</li>
+      <li>Net income on the income statement flows into retained earnings on the balance sheet (via the statement of equity)</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The income statement's bottom line (net income) flows to retained earnings: Beginning RE + NI − Dividends = Ending RE. Ending RE then appears on the balance sheet as part of equity. Articulation is the principle that the four statements are interconnected, not independent.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-1">Mark this unit complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Domain 1 overview</span></button>
+    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Accounting equation</span></button>
+  </div>
+</article>
+
+
+<!-- ============================================================
+     UNIT 2 — ACCOUNTING EQUATION
+     ============================================================ -->
+<article class="unit" data-id="2">
+  <span class="unit-eyebrow">Unit 02 · Domain 1</span>
+  <h1>The Accounting Equation: A = L + E</h1>
+  <p class="unit-lead">Every business activity preserves one fundamental identity. Once you internalise it, debits and credits become almost automatic.</p>
+
+  <h2><span class="marker">§2.1</span>The equation</h2>
+  <div class="callout formula">
+    <span class="callout-label">The fundamental equation</span>
+    <div class="formula-box" style="font-size:18px;">
+      Assets = Liabilities + Equity
+    </div>
+  </div>
+
+  <p>This is a balance-sheet identity that ALWAYS holds. Total resources (assets) equal claims on those resources (liabilities + equity). Every transaction either:</p>
+  <ul class="plain">
+    <li>Changes both sides equally (e.g., borrow cash: assets up, liabilities up by the same amount), OR</li>
+    <li>Reshuffles within one side (e.g., buy inventory with cash: cash down, inventory up — total assets unchanged)</li>
+  </ul>
+
+  <h2><span class="marker">§2.2</span>The expanded equation</h2>
+  <p>Equity itself can be expanded:</p>
+  <div class="callout formula">
+    <div class="formula-box" style="font-size:14px; text-align:left;">
+      Assets = Liabilities + (Contributed Capital + Retained Earnings)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;= Liabilities + (Contributed Capital + Net Income − Dividends)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;= Liabilities + (Contributed Capital + Revenues − Expenses − Dividends)
+    </div>
+  </div>
+
+  <p>This shows how revenues (which increase NI, which increases RE, which increases equity) and expenses/dividends (which decrease equity) all flow through one identity.</p>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A company has total assets of $800K and total liabilities of $300K. Total equity is:</p>
+    <ul class="quiz-options">
+      <li>$1,100,000</li>
+      <li>$500,000</li>
+      <li>$300,000</li>
+      <li>Cannot be determined without more info</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A = L + E → E = A − L = $800K − $300K = <strong>$500K</strong>. The equation is a definitional identity; no extra information needed.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">A company purchases $50,000 of inventory on credit (account payable). The immediate impact on the accounting equation is:</p>
+    <ul class="quiz-options">
+      <li>Assets up $50K; Equity up $50K</li>
+      <li>Assets unchanged</li>
+      <li>Assets up $50K (inventory); Liabilities up $50K (AP); Equity unchanged</li>
+      <li>Liabilities up $50K; Equity down $50K</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Inventory increases by $50K (asset up); AP increases by $50K (liability up). Equity unchanged because no income or owner-related event happened. Both sides of the equation move by $50K, preserving the identity.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">The board declares a $20,000 cash dividend. The immediate impact on the accounting equation is:</p>
+    <ul class="quiz-options">
+      <li>Liabilities up $20K (dividends payable); Equity down $20K (RE)</li>
+      <li>Cash down $20K immediately</li>
+      <li>No change until dividend is paid</li>
+      <li>Equity up $20K</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Declaration creates an obligation (Dividends Payable, a current liability) and reduces RE (equity). Cash doesn't move until the actual payment date. The DECLARATION date triggers the entry; the payment date just moves cash and clears the payable. Three dividend dates: declaration, record (who gets paid), payment.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-2">Mark this unit complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">The four statements</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Accrual vs. cash basis</span></button>
+  </div>
+</article>
+
+
+<!-- ============================================================
+     UNIT 3 — ACCRUAL VS CASH
+     ============================================================ -->
+<article class="unit" data-id="3">
+  <span class="unit-eyebrow">Unit 03 · Domain 1</span>
+  <h1>Accrual vs. Cash Basis</h1>
+  <p class="unit-lead">When do you recognise revenue — when you do the work, or when the cash hits the bank? The answer depends on which basis your accounting uses, and the answer matters a lot.</p>
+
+  <h2><span class="marker">§3.1</span>The split</h2>
+  <table class="fin-table">
+    <thead><tr><th></th><th>Cash basis</th><th>Accrual basis</th></tr></thead>
+    <tbody>
+      <tr><td>Revenue recognised when</td><td>Cash is received</td><td>Earned (work performed, goods delivered)</td></tr>
+      <tr><td>Expense recognised when</td><td>Cash is paid</td><td>Incurred (matched to revenue)</td></tr>
+      <tr><td>Required by GAAP/IFRS?</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Used by</td><td>Some small businesses, individuals</td><td>All real companies (per GAAP/IFRS)</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>The intuition:</strong> accrual matches the economic activity to the period it occurred. Cash basis can mislead — a company that delivers $10M in December but doesn't collect until February would look broke under cash basis but profitable under accrual.</p>
+
+  <h2><span class="marker">§3.2</span>The matching principle</h2>
+  <p>Accrual's central rule: match expenses to the revenue they helped generate. If a sale generates $1M in December, the corresponding COGS is also recognised in December — even if the supplier wasn't paid until February.</p>
+
+  <h2><span class="marker">§3.3</span>Conversions you should be able to do</h2>
+  <div class="callout formula">
+    <div class="formula-box" style="font-size:13.5px; text-align:left;">
+      Revenue (accrual) = Cash collected + Δ AR − Δ Unearned Revenue<br/>
+      Expense (accrual) = Cash paid + Δ Accrued Expenses − Δ Prepaid Expenses
+    </div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A consulting firm finishes a $50,000 project in December but doesn't get paid until February. Under ACCRUAL basis, when is the $50K revenue recognised?</p>
+    <ul class="quiz-options">
+      <li>February (when cash is received)</li>
+      <li>December (when the work is completed and earned)</li>
+      <li>Allocated half to each year</li>
+      <li>Whenever the company chooses</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Accrual recognises revenue when EARNED — when the performance obligation is satisfied — not when cash arrives. December (work completed) is the right answer. The unpaid amount sits in Accounts Receivable until February when cash arrives.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">A magazine publisher collects $1,200 cash on October 1 for a 12-month subscription. By December 31, what amount of REVENUE has been earned?</p>
+    <ul class="quiz-options">
+      <li>$300 (3 months: Oct, Nov, Dec)</li>
+      <li>$1,200 (full amount on receipt)</li>
+      <li>$900 (the unearned portion)</li>
+      <li>$0 (until subscription ends)</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $1,200 ÷ 12 = $100/month. Revenue earned for Oct, Nov, Dec = $300. Remaining $900 sits as Unearned Revenue (a current liability) until earned in subsequent months. Cash basis would recognise the full $1,200 on October 1 — wrong under GAAP.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">Cash collected from customers $400K. Beginning AR $50K. Ending AR $70K. What is REVENUE under accrual basis?</p>
+    <ul class="quiz-options">
+      <li>$380K</li>
+      <li>$400K</li>
+      <li>$420K — Cash + Δ AR</li>
+      <li>$450K</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Revenue (accrual) = Cash collected + Δ AR = $400K + ($70K − $50K) = $420K. AR went up $20K, meaning $20K of additional sales were made but not yet collected. Recognise them as revenue under accrual.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-3">Mark this unit complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Accounting equation</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Debits and credits</span></button>
+  </div>
+</article>
+
+
+<!-- ============================================================
+     UNIT 4 — DEBITS AND CREDITS
+     ============================================================ -->
+<article class="unit" data-id="4">
+  <span class="unit-eyebrow">Unit 04 · Domain 1</span>
+  <h1>Debits, Credits, and the Accounting Cycle</h1>
+  <p class="unit-lead">The bookkeeping language. Debit and credit aren't "good" and "bad" — they're directions in a two-sided entry system that keeps the books balanced.</p>
+
+  <h2><span class="marker">§4.1</span>The DEAD CLIC mnemonic</h2>
+  <p>Every account has a "normal balance" — the side it usually sits on:</p>
+  <table class="fin-table">
+    <thead><tr><th>DEAD (Debit normal)</th><th>CLIC (Credit normal)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>D</strong>ividends</td><td><strong>C</strong>apital (Equity)</td></tr>
+      <tr><td><strong>E</strong>xpenses</td><td><strong>L</strong>iabilities</td></tr>
+      <tr><td><strong>A</strong>ssets</td><td><strong>I</strong>ncome (Revenue)</td></tr>
+    </tbody>
+  </table>
+
+  <p>To increase a DEAD account → debit it. To increase a CLIC account → credit it. To decrease either, do the opposite. Every transaction has equal total debits and credits.</p>
+
+  <h2><span class="marker">§4.2</span>Walkthrough — buying inventory on credit</h2>
+  <p>$50,000 of inventory purchased on credit (account payable):</p>
+  <div class="formula-box" style="font-size:14px; text-align:left;">
+    DR Inventory (asset) &nbsp;&nbsp;&nbsp;&nbsp;50,000<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;CR Accounts Payable (liability) &nbsp;&nbsp;50,000
+  </div>
+
+  <p>Inventory is an asset (DEAD) — increased by debit. AP is a liability (CLIC) — increased by credit. Both sides equal $50,000. Books balance.</p>
+
+  <h2><span class="marker">§4.3</span>The accounting cycle</h2>
+  <ol class="steps">
+    <li><strong>Identify transactions</strong> — what happened?</li>
+    <li><strong>Journal entries</strong> — record in the journal (debits and credits)</li>
+    <li><strong>Post to ledger</strong> — accumulate amounts in each account</li>
+    <li><strong>Trial balance</strong> — sanity check that DR = CR</li>
+    <li><strong>Adjusting entries</strong> — accruals, deferrals, depreciation, allowances</li>
+    <li><strong>Adjusted trial balance</strong></li>
+    <li><strong>Financial statements</strong></li>
+    <li><strong>Closing entries</strong> — zero out temporary accounts (revenues, expenses, dividends) into RE</li>
+    <li><strong>Post-closing trial balance</strong> — only permanent accounts remain</li>
+  </ol>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A company pays $24,000 cash for two years of insurance coverage. The journal entry on the date of payment is:</p>
+    <ul class="quiz-options">
+      <li>DR Prepaid Insurance $24,000 / CR Cash $24,000</li>
+      <li>DR Insurance Expense $24,000 / CR Cash $24,000</li>
+      <li>DR Cash $24,000 / CR Prepaid Insurance $24,000</li>
+      <li>DR Insurance Expense $12,000 / DR Prepaid Insurance $12,000 / CR Cash $24,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The coverage hasn't been used yet — it's a future benefit, an asset called Prepaid Insurance. Each month after, an adjusting entry (DR Insurance Expense / CR Prepaid Insurance) gradually moves the asset to expense.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">Which of the following accounts has a CREDIT normal balance?</p>
+    <ul class="quiz-options">
+      <li>Inventory</li>
+      <li>Salaries Expense</li>
+      <li>Common Stock</li>
+      <li>Cash</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Common Stock is equity (CLIC: <strong>C</strong>apital) → credit normal balance. Inventory and Cash are assets (DEAD: <strong>A</strong>ssets) → debit. Salaries Expense is an expense (DEAD: <strong>E</strong>xpenses) → debit.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">Closing entries in the accounting cycle are made to:</p>
+    <ul class="quiz-options">
+      <li>Adjust accruals at year-end</li>
+      <li>Discover errors in the trial balance</li>
+      <li>Zero out temporary accounts (revenues, expenses, dividends) into Retained Earnings</li>
+      <li>Roll forward inventory to next year</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Closing entries reset temporary accounts to zero so the next period starts fresh. Revenues and gains close into RE (credit RE). Expenses and losses close out of RE (debit RE). Dividends close out of RE. Permanent accounts (assets, liabilities, equity components other than the temporary ones) carry forward.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-4">Mark this unit complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Accrual vs. cash</span></button>
+    <button class="nav-link next" onclick="goTo(0)"><span class="dir">Cover →</span><span class="ttl">Domain 1 overview</span></button>
+  </div>
+</article>
+
+</main>
+</div>
+
+<script>
+window.SECTION_CONFIG = {
+  sectionId: "FMAA-D1",
+  sectionTitle: "FMAA · Domain 1 — Financial Statements",
+  storageKey: "fmaa-d1-progress-v1",
+  annotationKey: "fmaa-d1-ann-v1",
+  totalUnits: 5,
+  trackedUnits: 4,
+  navStructure: [
+    { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
+    { group: "Domain 1 · Financial Statements", units: [
+      { id: 1, num: "01", title: "The Four Financial Statements" },
+      { id: 2, num: "02", title: "Accounting Equation: A = L + E" },
+      { id: 3, num: "03", title: "Accrual vs. Cash Basis" },
+      { id: 4, num: "04", title: "Debits, Credits & Cycle" },
+    ]},
+  ],
+  keyTakeaways: {
+    1: [
+      "Four statements: <strong>BS</strong> (snapshot), <strong>IS</strong> (period), <strong>SCF</strong> (period), <strong>Statement of Equity</strong> (period).",
+      "Articulation: NI flows from IS → equity statement → BS retained earnings; ending cash on SCF ties to BS cash.",
+      "Multi-step IS subtotals: Sales − COGS = Gross Profit; − Operating Expenses = Operating Income; ± Other ± Tax = NI.",
+      "Balance sheet has three sections: Assets, Liabilities, Equity. A = L + E always."
+    ],
+    2: [
+      "<strong>A = L + E</strong> — the fundamental identity. Every transaction preserves it.",
+      "Two transaction patterns: (a) both sides change by equal amount, OR (b) reshuffling within one side (totals unchanged).",
+      "Expanded equation: A = L + (Contributed Capital + Revenues − Expenses − Dividends).",
+      "Dividend declaration creates a liability and reduces RE; payment moves cash. Two events, two dates."
+    ],
+    3: [
+      "Accrual basis: revenue when EARNED, expense when INCURRED. Required by GAAP/IFRS.",
+      "Cash basis: revenue when cash arrives, expense when cash leaves. Used by some small entities and individuals.",
+      "Matching principle: pair expenses with the revenue they helped generate.",
+      "Conversions: Revenue (accrual) = Cash + Δ AR − Δ Unearned. Expense (accrual) = Cash + Δ Accrued − Δ Prepaid."
+    ],
+    4: [
+      "<strong>DEAD CLIC</strong>: Debit-normal accounts are <strong>D</strong>ividends, <strong>E</strong>xpenses, <strong>A</strong>ssets. Credit-normal are <strong>L</strong>iabilities, <strong>I</strong>ncome (Revenue), <strong>C</strong>apital (Equity).",
+      "To increase a DEAD account → debit. To increase a CLIC account → credit. Decrease = opposite.",
+      "Accounting cycle: identify → journal → ledger → trial balance → adjustments → financials → close → post-closing TB.",
+      "Closing entries zero out temporary accounts (revenue, expense, dividends) into Retained Earnings. Permanent accounts (assets, liabilities, equity capital) carry forward."
+    ]
+  },
+  flashcardDecks: {
+    "fmaa-d1-statements": {
+      title: "FMAA Domain 1 — Financial statements",
+      eyebrow: "Domain 1",
+      cards: [
+        ["Balance Sheet — answers what?", "What does the company own and owe at a specific point in time? (snapshot)"],
+        ["Income Statement — answers what?", "How much profit did the company earn over a period?"],
+        ["SCF — answers what?", "Where did cash come from and where did it go over a period?"],
+        ["Statement of Equity — answers what?", "How did the owners' stake change over a period?"],
+        ["Articulation", "The four statements connect: NI → equity → BS RE; ending cash on SCF ties to BS cash."],
+        ["Accounting equation", "A = L + E. Always holds. Equity is the residual claim of owners."],
+        ["Accrual vs. cash basis", "Accrual = recognise when EARNED/INCURRED. Cash = when cash moves. GAAP requires accrual."],
+        ["Matching principle", "Pair expenses with the revenues they helped produce — accrual's central rule."],
+        ["DEAD CLIC", "<strong>D</strong>ividends, <strong>E</strong>xpenses, <strong>A</strong>ssets = debit normal. <strong>L</strong>iabilities, <strong>I</strong>ncome (Revenue), <strong>C</strong>apital (Equity) = credit normal."],
+        ["Closing entries", "Zero out temporary accounts (revenue, expense, dividends) into Retained Earnings. Permanent accounts carry forward."]
+      ]
+    }
+  },
+  formulaReference: [
+    { section: "Fundamentals", items: [
+      { label: "Accounting equation", formula: "Assets = Liabilities + Equity", unitId: 2 },
+      { label: "Expanded equation", formula: "A = L + (Contributed Capital + Revenues − Expenses − Dividends)", unitId: 2 },
+    ]},
+    { section: "Income statement subtotals", items: [
+      { label: "Gross Profit", formula: "Sales − COGS", unitId: 1 },
+      { label: "Operating Income", formula: "Gross Profit − Operating Expenses", unitId: 1 },
+      { label: "Net Income", formula: "Operating Income ± Other Items − Tax", unitId: 1 },
+    ]},
+    { section: "Accrual conversions", items: [
+      { label: "Revenue (accrual)", formula: "Cash collected + Δ AR − Δ Unearned Revenue", unitId: 3 },
+      { label: "Expense (accrual)", formula: "Cash paid + Δ Accrued Expenses − Δ Prepaid Expenses", unitId: 3 },
+    ]},
+  ],
+};
+</script>
+<script src="../../assets/engine.js?v=2"></script>
+<script>CMA.init(window.SECTION_CONFIG);</script>
+</body>
+</html>
