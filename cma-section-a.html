@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/style.css" />
+<link rel="stylesheet" href="assets/style.css?v=2" />
 </head>
 <body>
 <div class="app">
@@ -64,6 +64,46 @@
   </div>
   <div class="fp-list" id="formula-list"></div>
 </aside>
+
+<!-- ============ ANNOTATION TOOLBAR & PANEL ============ -->
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+
+<aside id="ann-panel">
+  <div class="ann-panel-header">
+    <h3>Notes & highlights</h3>
+    <button class="ann-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
 
 <!-- ============ MAIN CONTENT ============ -->
 <main class="content" id="content">
@@ -12253,7 +12293,7 @@ window.SECTION_CONFIG = {
 ],
 };
 </script>
-<script src="assets/engine.js"></script>
+<script src="assets/engine.js?v=2"></script>
 <script>CMA.init(window.SECTION_CONFIG);</script>
 </body>
 </html>
