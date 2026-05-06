@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CMA Part 1 · Section D — Cost Management</title>
+<meta name="description" content="A visual, interactive field guide for CMA Part 1 Section D: cost behavior, absorption vs variable costing, job-order and activity-based costing, overhead allocation, supply chain, value chain, and cost of quality." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/style.css?v=2" />
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><span class="ornament"></span>Section D</div>
+  <div class="brand-sub">Cost Management · CMA Part 1 · A visual field guide</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text" id="progress-text">0 of 12 units complete</div>
+  <div class="sidebar-search" style="margin-top:18px">
+    <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
+    <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
+  </div>
+  <nav id="nav" style="margin-top:8px"></nav>
+  <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); display:flex; gap:8px; flex-wrap:wrap;">
+    <a href="index.html" class="btn ghost small" style="text-decoration:none;">← All sections</a>
+    <a href="../../index.html" class="btn ghost small" style="text-decoration:none;">All programs</a>
+    <button class="btn ghost small" id="reset-progress">Reset progress</button>
+    <button class="btn ghost small" id="show-shortcuts" title="Keyboard shortcuts (?)">⌨ Shortcuts</button>
+  </div>
+</aside>
+
+<div id="kbd-help" role="dialog" aria-modal="true">
+  <div class="kbd-box">
+    <h3>Keyboard shortcuts</h3>
+    <div class="kbd-row"><span>Next unit</span><span class="keys"><span class="kbd">→</span> <span class="kbd">J</span></span></div>
+    <div class="kbd-row"><span>Previous unit</span><span class="keys"><span class="kbd">←</span> <span class="kbd">K</span></span></div>
+    <div class="kbd-row"><span>Focus search</span><span class="kbd">/</span></div>
+    <div class="kbd-row"><span>Bookmark this unit</span><span class="kbd">B</span></div>
+    <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
+    <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
+    <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
+    <div class="kbd-row"><span>Undo annotation</span><span class="keys"><span class="kbd">⌘/Ctrl</span><span class="kbd">Z</span></span></div>
+    <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
+    <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
+  </div>
+</div>
+
+<button id="formula-toggle-btn" title="Formula reference (F)" aria-label="Open formula reference">ƒx</button>
+<aside id="formula-panel" aria-label="Formula reference">
+  <div class="fp-header">
+    <h3>Formula reference</h3>
+    <button class="ann-panel-close" id="formula-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="fp-search"><input type="text" id="formula-search" placeholder="Search formulas, ratios, rules…" /></div>
+  <div class="fp-list" id="formula-list"></div>
+</aside>
+
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+<aside id="ann-panel">
+  <div class="ann-panel-header">
+    <h3>Notes & highlights</h3>
+    <button class="ann-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
+
+<main class="content" id="content">
+
+<article class="unit active" data-id="0">
+  <div class="cover">
+    <span class="unit-eyebrow">CMA Part 1 · Section D · 15% weight · Level C</span>
+    <h1 class="cover-title">Cost<br/>Management.</h1>
+    <p class="cover-sub">How costs behave, how they flow through products and services, and how to allocate the indirect ones intelligently. Then: lean operations, value-chain thinking, and the cost of quality. The vocabulary you'll use everywhere else in management accounting.</p>
+    <div class="cover-meta">
+      <span>Units<strong>12 covered</strong></span>
+      <span>Practice questions<strong>~50</strong></span>
+      <span>CMA weight<strong>15% of Part 1</strong></span>
+      <span>Cognitive level<strong>A · B · C</strong></span>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">D.1</span>Measurement Concepts</h2>
+    <div class="toc-card">
+      <h3>D.1 — Cost types, behavior, and absorption costing (Units 1–4)</h3>
+      <ol>
+        <li><button onclick="goTo(1)">Cost behavior & objects — variable, fixed, mixed; high-low; relevant range</button></li>
+        <li><button onclick="goTo(2)">Actual, normal, and standard costing</button></li>
+        <li><button onclick="goTo(3)">Absorption vs variable costing — NI reconciliation</button></li>
+        <li><button onclick="goTo(4)">Joint costs & by-products — split-off, NRV, physical-unit allocation</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">D.2</span>Costing Systems</h2>
+    <div class="toc-card">
+      <h3>D.2 — Job order, ABC, life-cycle (Units 5–7)</h3>
+      <ol start="5">
+        <li><button onclick="goTo(5)">Job-order costing — flow, applied OH, over/under-applied</button></li>
+        <li><button onclick="goTo(6)">Activity-based costing — cost drivers, two-stage allocation</button></li>
+        <li><button onclick="goTo(7)">Life-cycle & target costing</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">D.3</span>Overhead Costs</h2>
+    <div class="toc-card">
+      <h3>D.3 — Allocation, departments, services (Units 8–9)</h3>
+      <ol start="8">
+        <li><button onclick="goTo(8)">Overhead behavior & allocation bases</button></li>
+        <li><button onclick="goTo(9)">Service department allocation — direct, step, reciprocal</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">D.4</span>Supply Chain Management</h2>
+    <div class="toc-card">
+      <h3>D.4 — Lean, ERP, capacity (Unit 10)</h3>
+      <ol start="10">
+        <li><button onclick="goTo(10)">Lean, JIT, ERP, theory of constraints</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">D.5</span>Business Process Improvement</h2>
+    <div class="toc-card">
+      <h3>D.5 — Value chain, BPR, quality (Units 11–12)</h3>
+      <ol start="11">
+        <li><button onclick="goTo(11)">Value chain analysis & continuous improvement</button></li>
+        <li><button onclick="goTo(12)">Cost of quality (PAF) & benchmarking</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Test</h2>
+    <div class="toc-card">
+      <ol class="plain" style="list-style:none; padding-left:0">
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Section D mixed · 15 Q · ~27 min</button></li>
+      </ol>
+    </div>
+  </div>
+  <button class="btn done-btn" id="mark-done-0">Mark complete</button>
+</article>
+
+<article class="unit" data-id="1">
+  <span class="unit-eyebrow">Unit 1 · D.1 Measurement Concepts</span>
+  <h1>Cost behavior & cost objects</h1>
+  <p class="unit-lead">Before you can manage cost, you need a vocabulary for it. A <em>cost object</em> is anything we want to measure cost for — a unit, a job, a customer, a department. Costs <em>behave</em> in patterns: variable scales with activity, fixed doesn't, mixed has both.</p>
+
+  <h2><span class="marker">§1.1</span>Cost objects, cost drivers, and assignment</h2>
+  <p>A cost <strong>object</strong> is the thing being costed. A cost <strong>driver</strong> is what causes the cost to vary. A cost is <em>direct</em> if it can be traced to the object economically; otherwise it is <em>indirect</em> (overhead) and must be allocated.</p>
+
+  <div class="callout analogy"><span class="callout-label">Analogy</span><p>Think of a restaurant. The cost object is one meal. Direct costs: the steak, the sauce. Indirect: rent, electricity, the manager's salary — real costs, but you can't trace them to one meal without an allocation rule.</p></div>
+
+  <h2><span class="marker">§1.2</span>Variable, fixed, and mixed costs</h2>
+  <p><strong>Variable</strong>: total scales with activity, per-unit constant (e.g. raw materials). <strong>Fixed</strong>: total constant, per-unit decreases as activity rises (e.g. factory rent). <strong>Mixed</strong> (semi-variable): a fixed component plus a variable rate (e.g. utility with a base fee + per-kWh charge).</p>
+
+  <div class="formula-box">Total cost (mixed) = Fixed component + (Variable rate × Activity)</div>
+
+  <h2><span class="marker">§1.3</span>Relevant range and the high-low method</h2>
+  <p>The <strong>relevant range</strong> is the activity span over which cost-behavior assumptions hold. Outside it, fixed costs may step (need a second machine, second supervisor), and variable rates may change (volume discounts kick in).</p>
+
+  <p>The <strong>high-low method</strong> separates a mixed cost into fixed + variable using only two data points: the highest and lowest activity levels.</p>
+
+  <div class="formula-box">Variable rate = (Cost<sub>high</sub> − Cost<sub>low</sub>) ÷ (Activity<sub>high</sub> − Activity<sub>low</sub>)<br/>Fixed = Total cost − (Variable rate × Activity) [at either point]</div>
+
+  <div class="callout warning"><span class="callout-label">Watch out</span><p>High-low uses only the extremes — outliers (a one-off shutdown month, a crash month) distort the result. Regression analysis is more robust because it uses all observations.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Cost classification</h3>
+    <p class="quiz-prompt">A factory pays $5,000/month rent regardless of output, plus $1.20 per unit for direct materials. The combined cost for one month is best classified as:</p>
+    <ul class="quiz-options">
+      <li>Variable</li>
+      <li>Fixed</li>
+      <li>Mixed (semi-variable)</li>
+      <li>Step-fixed</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Rent is fixed within the relevant range; materials are variable. The aggregate has a fixed component + variable rate, which is the definition of a <strong>mixed cost</strong>. Step-fixed would mean the fixed portion jumps at thresholds (e.g. needing a second supervisor at 10K units).</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2 — High-low method</h3>
+    <p class="quiz-prompt">Activity high: 20,000 units, total cost $48,000. Activity low: 8,000 units, total cost $24,000. Variable cost per unit and total fixed cost are:</p>
+    <ul class="quiz-options">
+      <li>$3.00 per unit; $0 fixed</li>
+      <li>$2.00 per unit; $8,000 fixed</li>
+      <li>$1.50 per unit; $12,000 fixed</li>
+      <li>$2.40 per unit; $0 fixed</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Variable rate = ($48K − $24K) ÷ (20K − 8K) = $24K ÷ 12K = <strong>$2.00/unit</strong>. Fixed = $48K − ($2 × 20K) = $48K − $40K = <strong>$8,000</strong>. Verify with low: $24K − ($2 × 8K) = $24K − $16K = $8K ✓.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Per-unit fixed cost</h3>
+    <p class="quiz-prompt">As production volume increases (within the relevant range), the per-unit fixed cost:</p>
+    <ul class="quiz-options">
+      <li>Increases</li>
+      <li>Stays the same</li>
+      <li>Becomes variable</li>
+      <li>Decreases</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Total fixed cost is constant; spreading it over more units means each unit absorbs less. This is why high-volume operations enjoy lower per-unit fixed cost — a key driver of operating leverage. The <em>total</em> fixed cost doesn't change inside the relevant range — only per-unit does.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 4 — Direct vs indirect</h3>
+    <p class="quiz-prompt">The salary of a factory supervisor who oversees three product lines is, with respect to one of those product lines, BEST classified as:</p>
+    <ul class="quiz-options">
+      <li>Indirect cost (overhead)</li>
+      <li>Direct cost</li>
+      <li>Variable cost</li>
+      <li>Period cost</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Tracing the supervisor's time to one specific product line isn't economical, so the salary is allocated as overhead — an <strong>indirect cost</strong>. It's also fixed (one supervisor, fixed salary). With respect to <em>the factory</em> it's a direct factory cost, but with respect to one product line it's indirect.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-1">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Map of Section D</span></button>
+    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Actual / normal / standard</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="2">
+  <span class="unit-eyebrow">Unit 2 · D.1 Measurement Concepts</span>
+  <h1>Actual, normal, and standard costing</h1>
+  <p class="unit-lead">Three philosophies for how to charge production with overhead and direct costs. They differ in <em>when</em> a cost rate is set (actual vs predetermined) and <em>what</em> that rate represents (last-period actual, this-period budgeted, or an engineered ideal).</p>
+
+  <h2><span class="marker">§2.1</span>Three approaches</h2>
+  <table class="fin-table">
+    <thead><tr><th>Method</th><th>Direct materials</th><th>Direct labor</th><th>Manufacturing overhead</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Actual</strong></td><td>Actual cost</td><td>Actual cost</td><td>Actual cost</td></tr>
+      <tr><td><strong>Normal</strong></td><td>Actual cost</td><td>Actual cost</td><td>Predetermined rate × actual activity</td></tr>
+      <tr><td><strong>Standard</strong></td><td>Standard rate × standard quantity</td><td>Standard rate × standard hours</td><td>Standard rate × standard hours</td></tr>
+    </tbody>
+  </table>
+
+  <p>Actual costing is timely (you wait for invoices) but volatile — months with idle capacity show high per-unit cost. Normal costing smooths overhead with a budgeted rate. Standard costing benchmarks every input — variances surface deviations for performance review (the engine of Section C).</p>
+
+  <h2><span class="marker">§2.2</span>The predetermined overhead rate</h2>
+  <div class="formula-box">Predetermined rate = Budgeted total OH ÷ Budgeted activity (e.g. DLH, MH, $)</div>
+  <p>Applied OH = Predetermined rate × <em>actual</em> activity. The difference between applied OH and actual OH at year-end is the <strong>over- or under-applied overhead</strong>, which is closed to COGS (or prorated).</p>
+
+  <div class="callout tip"><span class="callout-label">Pattern</span><p>Under-applied OH ⇒ DR COGS / CR Manufacturing OH (raises COGS). Over-applied ⇒ reverse (lowers COGS). Material amounts can be prorated across WIP, FG, and COGS based on relative balances.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Predetermined rate</h3>
+    <p class="quiz-prompt">Budgeted overhead $600,000; budgeted direct labor hours 40,000; actual DLH 38,500; actual overhead $585,000. Applied overhead is:</p>
+    <ul class="quiz-options">
+      <li>$600,000</li>
+      <li>$577,500</li>
+      <li>$585,000</li>
+      <li>$562,500</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Predetermined rate = $600K ÷ 40K = $15/DLH. Applied OH = $15 × <em>actual</em> 38,500 DLH = <strong>$577,500</strong>. The actual rate ($585K ÷ 38.5K = $15.19) isn't used; that's the whole point of normal costing.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Over- vs under-applied</h3>
+    <p class="quiz-prompt">Using the data above, manufacturing overhead is:</p>
+    <ul class="quiz-options">
+      <li>Under-applied by $7,500</li>
+      <li>Over-applied by $7,500</li>
+      <li>Under-applied by $15,000</li>
+      <li>Over-applied by $15,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Actual $585K − Applied $577.5K = <strong>$7,500 under-applied</strong>. Mnemonic: <em>"AAU"</em> — Actual &gt; Applied = Under (we didn't apply enough). Closing entry: DR COGS $7.5K / CR Manufacturing OH $7.5K.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Standard cost philosophy</h3>
+    <p class="quiz-prompt">Standard costs are best described as:</p>
+    <ul class="quiz-options">
+      <li>Last period's actual costs adjusted for inflation</li>
+      <li>The lowest possible cost ever achieved</li>
+      <li>Carefully engineered, achievable benchmarks for inputs and rates</li>
+      <li>Industry averages collected from competitors</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A standard is an engineered, attainable target — neither historical nor "ideal/perfect". Two flavors: <em>currently attainable</em> (allows for normal waste; most common) and <em>theoretical/ideal</em> (zero waste, only used as a stretch target). The variances Section C decomposes are differences between actual and these standards.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-2">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Cost behavior</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Absorption vs variable</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="3">
+  <span class="unit-eyebrow">Unit 3 · D.1 Measurement Concepts</span>
+  <h1>Absorption vs variable costing</h1>
+  <p class="unit-lead">Two ways to treat fixed manufacturing overhead. <strong>Absorption</strong> (full) costing assigns FMOH to each unit — required for U.S. GAAP and tax. <strong>Variable</strong> (direct) costing expenses FMOH as a period cost — used internally for decision-making and CVP analysis.</p>
+
+  <h2><span class="marker">§3.1</span>What goes into product cost</h2>
+  <table class="fin-table">
+    <thead><tr><th>Cost</th><th>Absorption</th><th>Variable</th></tr></thead>
+    <tbody>
+      <tr><td>Direct materials</td><td>Product</td><td>Product</td></tr>
+      <tr><td>Direct labor</td><td>Product</td><td>Product</td></tr>
+      <tr><td>Variable MOH</td><td>Product</td><td>Product</td></tr>
+      <tr><td><strong>Fixed MOH</strong></td><td><strong>Product</strong></td><td><strong>Period</strong></td></tr>
+      <tr><td>SG&A (variable & fixed)</td><td>Period</td><td>Period</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§3.2</span>NI reconciliation</h2>
+  <p>The two methods produce the same NI when production = sales. They diverge when inventory changes:</p>
+
+  <div class="formula-box">NI<sub>absorption</sub> − NI<sub>variable</sub> = ΔInventory units × Fixed MOH per unit</div>
+
+  <ul>
+    <li><strong>Production &gt; Sales</strong> (inventory ↑): absorption NI is HIGHER — more FMOH defers to inventory rather than expense.</li>
+    <li><strong>Production &lt; Sales</strong> (inventory ↓): absorption NI is LOWER — prior-period FMOH releases through COGS.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Manager incentive</span><p>Absorption costing rewards over-production: build extra inventory and you push fixed cost into the balance sheet, raising current-period NI. This is one reason JIT and lean operations correlate with variable-costing internal reporting.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Method definition</h3>
+    <p class="quiz-prompt">Variable costing differs from absorption costing by treating fixed manufacturing overhead as:</p>
+    <ul class="quiz-options">
+      <li>A product cost</li>
+      <li>A direct cost</li>
+      <li>A period cost</li>
+      <li>A non-manufacturing cost</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Variable costing expenses FMOH in the period incurred (a <strong>period cost</strong>) rather than capitalizing it into inventory. The other three terms aren't right: it's still a manufacturing cost, can be indirect, and is fixed by definition.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Reconciliation</h3>
+    <p class="quiz-prompt">Production 10,000 units; sales 8,000 units; FMOH $5/unit. NI under absorption is $40,000. NI under variable costing is:</p>
+    <ul class="quiz-options">
+      <li>$30,000</li>
+      <li>$40,000</li>
+      <li>$50,000</li>
+      <li>$45,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ΔInventory = 10K − 8K = +2K units. Absorption NI exceeds variable NI by 2K × $5 = $10K. So Variable NI = $40K − $10K = <strong>$30,000</strong>. Intuition: absorption deferred $10K of FMOH into the 2K units sitting in ending inventory; variable expensed all of it.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — When NI matches</h3>
+    <p class="quiz-prompt">Absorption and variable costing produce the same NI when:</p>
+    <ul class="quiz-options">
+      <li>FMOH is zero</li>
+      <li>Beginning inventory equals zero</li>
+      <li>The company uses standard costs</li>
+      <li>Production volume equals sales volume</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> When units produced = units sold, no FMOH is deferred to or released from inventory. NI is identical. (FMOH = 0 also makes them equal but isn't realistic.) On the CMA, this is a conceptual gimme — make sure you can recite it.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-3">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Costing approaches</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Joint costs</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="4">
+  <span class="unit-eyebrow">Unit 4 · D.1 Measurement Concepts</span>
+  <h1>Joint costs & by-products</h1>
+  <p class="unit-lead">When a single process yields multiple products at a <strong>split-off point</strong> (e.g. cracking crude oil into gasoline, diesel, jet fuel), the shared cost up to split-off is the <em>joint cost</em>. After split-off, each product can be sold or further processed separately.</p>
+
+  <h2><span class="marker">§4.1</span>Three allocation methods</h2>
+  <ul>
+    <li><strong>Sales value at split-off</strong>: allocate by each product's market value at the split-off point. Most common; requires reliable market prices at split-off.</li>
+    <li><strong>NRV (net realizable value)</strong>: when products require further processing before sale, allocate by (final sales − separable costs). Use when no market exists at split-off.</li>
+    <li><strong>Physical units</strong>: allocate by quantity (gallons, pounds). Simple but ignores value differences — gasoline and bottled water by the gallon would absorb the same cost.</li>
+  </ul>
+
+  <h2><span class="marker">§4.2</span>By-products and decision-making</h2>
+  <p>A <strong>by-product</strong> has minor sales value relative to the main products. Two acceptable accountings: (1) credit COGS or joint-cost pool with by-product's sales value (reduces main-product cost), or (2) treat by-product revenue as other income.</p>
+
+  <div class="callout warning"><span class="callout-label">Decision rule</span><p>Joint costs are <em>sunk</em> the moment they're incurred. The decision to <em>process further</em> or sell at split-off depends ONLY on incremental revenue vs incremental separable cost — never on allocated joint cost.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Sales value at split-off</h3>
+    <p class="quiz-prompt">Joint cost $90,000 yields Product A (sales value at split-off $80,000) and Product B (sales value at split-off $40,000). Joint cost allocated to A using sales-value-at-split-off is:</p>
+    <ul class="quiz-options">
+      <li>$45,000</li>
+      <li>$60,000</li>
+      <li>$80,000</li>
+      <li>$30,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A's share = $80K ÷ ($80K + $40K) = 2/3. Joint cost to A = $90K × 2/3 = <strong>$60,000</strong>. To B = $90K × 1/3 = $30K. Total $90K ✓.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Process further</h3>
+    <p class="quiz-prompt">Product B can be sold at split-off for $40,000 or processed further at incremental cost of $15,000 and sold for $60,000. The company should:</p>
+    <ul class="quiz-options">
+      <li>Process further — incremental margin is $5,000</li>
+      <li>Sell at split-off — joint cost already allocated</li>
+      <li>Process further only if joint cost &lt; $5,000</li>
+      <li>Sell at split-off — separable cost too high</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Incremental analysis: ($60K − $40K) − $15K = <strong>+$5K</strong>. Process further. Joint cost is sunk and irrelevant. The trap is letting the allocated joint cost color the decision; CMA tests this aggressively.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — When NRV is needed</h3>
+    <p class="quiz-prompt">NRV (net realizable value) allocation is preferable to sales-value-at-split-off when:</p>
+    <ul class="quiz-options">
+      <li>The products are sold in equal physical quantities</li>
+      <li>The joint cost is large relative to total revenue</li>
+      <li>There is no reliable market price at split-off</li>
+      <li>The company wants to discourage further processing</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> If a product can't be sold at split-off (no market, e.g. crude pulp for paper mills), there's no split-off price to use. NRV imputes a value: (final sales − separable costs). Both methods produce the same allocation when separable costs are zero.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-4">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Absorption vs variable</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">Job-order costing</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="5">
+  <span class="unit-eyebrow">Unit 5 · D.2 Costing Systems</span>
+  <h1>Job-order costing</h1>
+  <p class="unit-lead">When products are unique or batched (custom homes, audit engagements, ad campaigns), each job carries its own cost record. The job-cost sheet accumulates direct materials, direct labor, and applied overhead until the job is complete and sold.</p>
+
+  <h2><span class="marker">§5.1</span>Cost flow through the accounts</h2>
+  <p>Three inventory accounts track the journey: <strong>Raw Materials</strong> → <strong>Work in Process</strong> → <strong>Finished Goods</strong> → <strong>COGS</strong>.</p>
+
+  <div class="formula-box">DM used = Beg RM + Purchases − End RM<br/>COGM = Beg WIP + DM + DL + Applied OH − End WIP<br/>COGS = Beg FG + COGM − End FG</div>
+
+  <p>Direct materials and labor trace to specific jobs. Overhead is applied using a <strong>predetermined rate</strong> (Unit 2). At year-end, any over- or under-applied OH is closed to COGS (or prorated if material).</p>
+
+  <h2><span class="marker">§5.2</span>Vs. process costing</h2>
+  <p><strong>Process costing</strong> is for high-volume, homogeneous output (paint, soft drinks, gasoline). Costs accumulate by department and divide by equivalent units of production. Use job-order when units are distinguishable; use process when they're interchangeable.</p>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Cost of goods manufactured</h3>
+    <p class="quiz-prompt">Beginning WIP $20,000; DM used $80,000; DL $50,000; applied OH $60,000; ending WIP $25,000. COGM is:</p>
+    <ul class="quiz-options">
+      <li>$190,000</li>
+      <li>$185,000</li>
+      <li>$210,000</li>
+      <li>$165,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> COGM = $20K (Beg WIP) + $80K + $50K + $60K (current cost added) − $25K (End WIP) = <strong>$185,000</strong>. The "T-account" view: opening WIP + costs added − ending WIP = costs of jobs that finished and moved to FG.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Job-order vs process</h3>
+    <p class="quiz-prompt">Which firm is most likely to use process costing rather than job-order?</p>
+    <ul class="quiz-options">
+      <li>Custom home builder</li>
+      <li>Public accounting firm</li>
+      <li>Soft-drink bottler</li>
+      <li>Movie production studio</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A bottling plant produces millions of identical cans through continuous processes — a perfect fit for process costing (cost per equivalent unit, by department). The other three produce distinguishable jobs/projects.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — COGS adjustment</h3>
+    <p class="quiz-prompt">Applied overhead $200,000; actual overhead $215,000. The under-applied overhead is closed to COGS. The journal entry is:</p>
+    <ul class="quiz-options">
+      <li>DR Manufacturing OH $15,000 / CR COGS $15,000</li>
+      <li>DR Applied OH $15,000 / CR COGS $15,000</li>
+      <li>DR COGS $200,000 / CR Manufacturing OH $200,000</li>
+      <li>DR COGS $15,000 / CR Manufacturing OH $15,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Actual &gt; Applied → under-applied $15K. We didn't charge enough OH to product cost; closing it raises COGS: <strong>DR COGS $15K / CR Manufacturing OH $15K</strong>. If material, prorate across WIP, FG, and COGS by relative balances instead.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">Joint costs</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Activity-based costing</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="6">
+  <span class="unit-eyebrow">Unit 6 · D.2 Costing Systems</span>
+  <h1>Activity-based costing (ABC)</h1>
+  <p class="unit-lead">Traditional costing pools all overhead and applies one rate (often DLH-based). When products differ in complexity — small batches, special setups, custom packaging — that single rate distorts product cost. ABC traces overhead to <em>activities</em>, then to products by each activity's <em>driver</em>.</p>
+
+  <h2><span class="marker">§6.1</span>Two-stage allocation</h2>
+  <p>Stage 1: assign indirect resource costs to <strong>activity cost pools</strong> (e.g. machine setup, quality inspection, order processing). Stage 2: assign each pool to products using its <strong>cost driver</strong> (setups, inspections, orders).</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Activity</th><th>Driver</th><th>Hierarchy</th></tr></thead>
+    <tbody>
+      <tr><td>Machine setup</td><td>Number of setups</td><td>Batch-level</td></tr>
+      <tr><td>Quality inspection</td><td>Inspections</td><td>Batch-level</td></tr>
+      <tr><td>Direct labor</td><td>Labor hours</td><td>Unit-level</td></tr>
+      <tr><td>Engineering changes</td><td>Engineering hours</td><td>Product-level</td></tr>
+      <tr><td>Plant security</td><td>(can't drive)</td><td>Facility-level</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§6.2</span>When ABC matters</h2>
+  <p>ABC pays off when (1) overhead is large vs DM/DL, (2) products differ widely in volume, batch size, or complexity, and (3) the company makes pricing or mix decisions on full cost. Low-volume specialty products under traditional costing usually appear cheaper than they really are; ABC reveals the truth.</p>
+
+  <div class="callout tip"><span class="callout-label">CMA cue</span><p>Phrases like "the company wants more accurate product costs," "complex/customized products consume disproportionate support," or "pricing decisions" point to ABC as the recommended fix.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — When ABC helps most</h3>
+    <p class="quiz-prompt">ABC provides the GREATEST improvement in product-cost accuracy when:</p>
+    <ul class="quiz-options">
+      <li>Overhead is large and product complexity varies widely</li>
+      <li>All products are made in identical batches</li>
+      <li>Direct labor is the largest cost component</li>
+      <li>The company sells a single product</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Traditional costing distorts when overhead is high AND products differ in how much overhead they truly consume. If everything is identical or DL dominates, traditional costing is fine — and cheaper to operate.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Cost hierarchy</h3>
+    <p class="quiz-prompt">"Engineering changes specific to one product line" is a:</p>
+    <ul class="quiz-options">
+      <li>Unit-level activity</li>
+      <li>Batch-level activity</li>
+      <li>Product-level activity</li>
+      <li>Facility-level activity</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The four levels (Cooper & Kaplan): unit (per-unit, e.g. machine time), batch (per-batch, e.g. setup), <strong>product/sustaining</strong> (per-product-line, e.g. engineering, advertising), facility (whole plant, e.g. building security). Product-level cost gets allocated based on which products they support, not units produced.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Effect on low-volume products</h3>
+    <p class="quiz-prompt">Compared with traditional volume-based costing, ABC typically:</p>
+    <ul class="quiz-options">
+      <li>Lowers the cost of low-volume specialty products</li>
+      <li>Raises the cost of high-volume standard products</li>
+      <li>Has no effect on individual product costs</li>
+      <li>Raises the cost of low-volume specialty products and lowers the cost of high-volume products</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Specialty products consume disproportionate setup, engineering, and inspection — but traditional costing spreads overhead by labor or volume, masking those costs. ABC reveals them. The result: specialty products often look more expensive (and high-volume staples cheaper) under ABC than under volume-based costing.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">Job-order</span></button>
+    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">Life-cycle & target costing</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="7">
+  <span class="unit-eyebrow">Unit 7 · D.2 Costing Systems</span>
+  <h1>Life-cycle costing & target costing</h1>
+  <p class="unit-lead"><strong>Life-cycle costing</strong> tracks all costs of a product across R&amp;D, design, production, marketing, distribution, and customer service — not just manufacturing. <strong>Target costing</strong> works backward from a market-determined price: subtract a required margin, and the remainder is what the product can cost.</p>
+
+  <h2><span class="marker">§7.1</span>Why look across the whole life cycle</h2>
+  <p>Up to 90% of total life-cycle cost is locked in by design decisions made before manufacturing starts. Optimizing only manufacturing leaves most of the cost lever on the table. Life-cycle costing forces upstream decisions (R&amp;D, design) and downstream costs (warranty, disposal) onto the same scoreboard.</p>
+
+  <div class="formula-box">Target cost = Target price − Required profit margin</div>
+
+  <h2><span class="marker">§7.2</span>Target costing in practice</h2>
+  <p>Used heavily in Japanese manufacturing (Toyota, Sony). The product team works to <em>fit</em> cost to a price the market will accept — value engineering removes features or processes that cost more than they add to customer-perceived value. Iterate until target cost is met.</p>
+
+  <div class="callout analogy"><span class="callout-label">Contrast</span><p>Cost-plus pricing: build it, calculate the cost, add a margin, hope the market accepts the price. Target costing: lock the price first, then design the product to fit.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Where costs are locked</h3>
+    <p class="quiz-prompt">In life-cycle costing, the largest portion of a product's total cost is typically committed:</p>
+    <ul class="quiz-options">
+      <li>During production</li>
+      <li>During design and development</li>
+      <li>During customer service and warranty support</li>
+      <li>Equally across all stages</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Studies (notably by Robin Cooper) suggest 80–90% of life-cycle cost is committed during R&amp;D and design — material choice, parts count, manufacturability, ease of repair, energy consumption. Cutting cost after launch is far harder and far cheaper to prevent than to fix.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Target cost calculation</h3>
+    <p class="quiz-prompt">Market price $400; required ROS 25%. Target cost is:</p>
+    <ul class="quiz-options">
+      <li>$400</li>
+      <li>$320</li>
+      <li>$300</li>
+      <li>$500</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Target cost = Target price − Required margin = $400 − ($400 × 25%) = $400 − $100 = <strong>$300</strong>. ROS (return on sales) is calculated as a % of revenue, not cost. If the target margin were 25% on cost (markup), it'd be $400 / 1.25 = $320 — read carefully.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Tool that supports target costing</h3>
+    <p class="quiz-prompt">When target cost cannot be met by current designs, the most common tool used to bridge the gap is:</p>
+    <ul class="quiz-options">
+      <li>Value engineering</li>
+      <li>Variance analysis</li>
+      <li>Standard costing</li>
+      <li>Life-cycle costing</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Value engineering systematically reviews each function of a product, asking whether it adds customer-perceived value commensurate with its cost. Costly features that don't add proportional value are simplified or removed. Variance analysis is downstream (after the fact); life-cycle costing tracks costs but doesn't reduce them.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">ABC</span></button>
+    <button class="nav-link next" onclick="goTo(8)"><span class="dir">Next →</span><span class="ttl">Overhead allocation</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="8">
+  <span class="unit-eyebrow">Unit 8 · D.3 Overhead Costs</span>
+  <h1>Overhead behavior & allocation bases</h1>
+  <p class="unit-lead">Overhead is everything in production cost that isn't direct materials or direct labor. Some of it scales with output (variable OH: indirect materials, utilities for machines); some doesn't (fixed OH: rent, supervision, depreciation). Allocating it to products requires picking a <em>base</em> that approximates how products consume the resource.</p>
+
+  <h2><span class="marker">§8.1</span>Plantwide vs departmental rates</h2>
+  <p>A <strong>plantwide rate</strong> uses one base for the whole plant — simple but inaccurate when departments differ in resource intensity. A <strong>departmental rate</strong> sets a separate rate for each department (machining vs assembly), each with its own base (machine hours vs labor hours).</p>
+
+  <p>Choosing the base: machine-intensive departments → machine hours; labor-intensive → labor hours; high-cost-of-material → material dollars. The base should <em>cause</em> overhead to be incurred, not just correlate.</p>
+
+  <h2><span class="marker">§8.2</span>Capacity definitions for the denominator</h2>
+  <ul>
+    <li><strong>Theoretical capacity</strong>: 100% of the time, no breaks. Unrealistic; rarely used.</li>
+    <li><strong>Practical capacity</strong>: theoretical minus normal downtime (maintenance, holidays). Best for cost-management decisions.</li>
+    <li><strong>Normal/expected capacity</strong>: average over several years. Smooths out cyclical demand.</li>
+    <li><strong>Master-budget capacity</strong>: this year's expected volume. Common for setting predetermined rates.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Trap</span><p>Using master-budget capacity in a downturn raises the predetermined OH rate (less volume to absorb fixed OH), making products look more expensive — which can drive misguided price increases that further reduce demand. Practical capacity isolates the unused-capacity cost as a separate variance.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Plantwide vs departmental</h3>
+    <p class="quiz-prompt">A plantwide overhead rate is most likely to distort product cost when:</p>
+    <ul class="quiz-options">
+      <li>All products use the same proportion of resources in each department</li>
+      <li>Products differ in how much they use machine-intensive vs labor-intensive departments</li>
+      <li>Overhead is small compared to direct materials</li>
+      <li>The plant has only one department</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A plantwide rate spreads ALL overhead by ONE base. If product X is 90% machined and product Y is 90% assembled, but the rate is set on labor hours, X is undercosted and Y overcosted. Departmental rates fix this. ABC takes it further — at the activity level.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Best base for a labor-light, machine-heavy department</h3>
+    <p class="quiz-prompt">The CNC machining department runs nearly autonomously with minimal labor. The most appropriate allocation base for its overhead is:</p>
+    <ul class="quiz-options">
+      <li>Direct labor hours</li>
+      <li>Direct labor cost</li>
+      <li>Machine hours</li>
+      <li>Direct material cost</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The base should cause the overhead. In a CNC department, the machine drives utility, depreciation, and maintenance — overhead correlates with machine hours, not labor. Material cost is a poor proxy unless overhead is procurement-driven.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Capacity choice</h3>
+    <p class="quiz-prompt">A company in a cyclical industry wants product costs that don't swing with the cycle. The most appropriate denominator for the predetermined OH rate is:</p>
+    <ul class="quiz-options">
+      <li>Theoretical capacity</li>
+      <li>Master-budget capacity for the current year</li>
+      <li>Practical capacity</li>
+      <li>Normal (expected long-run) capacity</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Normal capacity averages activity across the cycle, producing a stable per-unit OH. Master-budget swings with the cycle; theoretical is unrealistic; practical isolates idle-capacity cost (also good but doesn't smooth cycles by itself).</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-8">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(7)"><span class="dir">← Previous</span><span class="ttl">Life-cycle & target</span></button>
+    <button class="nav-link next" onclick="goTo(9)"><span class="dir">Next →</span><span class="ttl">Service department allocation</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="9">
+  <span class="unit-eyebrow">Unit 9 · D.3 Overhead Costs</span>
+  <h1>Service department allocation</h1>
+  <p class="unit-lead">Service departments (maintenance, IT, HR, cafeteria) don't produce sellable output but support the production departments that do. Their cost has to flow through to products via an allocation. Three methods, in increasing accuracy: <strong>direct</strong>, <strong>step</strong>, and <strong>reciprocal</strong>.</p>
+
+  <h2><span class="marker">§9.1</span>The three methods</h2>
+  <ul>
+    <li><strong>Direct</strong>: allocate each service-dept cost directly to production departments only. Ignores any service rendered between service depts.</li>
+    <li><strong>Step (sequential)</strong>: rank service departments (often by cost or by % of services rendered to others). Allocate first one to ALL remaining departments. Continue down the list. Once allocated, no costs return.</li>
+    <li><strong>Reciprocal (algebraic)</strong>: solve simultaneous equations to fully recognize mutual services. Most accurate; used by sophisticated firms.</li>
+  </ul>
+
+  <h2><span class="marker">§9.2</span>Single vs dual rates</h2>
+  <p>Service-dept cost has variable and fixed components. A <strong>dual rate</strong> separates them: variable cost charged on actual usage, fixed cost charged based on long-term capacity reserved. This penalizes a department for over-using a variable service while keeping the fixed-cost charge predictable.</p>
+
+  <div class="callout tip"><span class="callout-label">Why CMA tests this</span><p>Allocation choice changes which production department appears profitable. Bad allocation creates bad performance signals — and bad performance signals create bad decisions. The CMA wants you to read the allocation method and predict its effects.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Direct method</h3>
+    <p class="quiz-prompt">Maintenance ($60K) serves Assembly (60%), Painting (30%), and HR (10%). Under the <em>direct</em> method, the cost allocated to Assembly is:</p>
+    <ul class="quiz-options">
+      <li>$40,000</li>
+      <li>$36,000</li>
+      <li>$30,000</li>
+      <li>$60,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Direct method ignores the 10% serving HR. Re-prorate Assembly + Painting only: 60 / (60+30) = 2/3. $60K × 2/3 = <strong>$40,000</strong>. The 10% HR portion is forced onto the production departments rather than charged to HR.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Most accurate method</h3>
+    <p class="quiz-prompt">Which service-dept allocation method most accurately reflects the cross-services among service departments?</p>
+    <ul class="quiz-options">
+      <li>Direct</li>
+      <li>Step (sequential)</li>
+      <li>Reciprocal</li>
+      <li>Plantwide</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Reciprocal solves simultaneous equations: HR's full cost (including its share of Maintenance) is allocated, AND Maintenance's full cost (including its share of HR) is allocated. Direct ignores all cross-service; step recognizes one direction.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Dual rate</h3>
+    <p class="quiz-prompt">A dual-rate allocation system most directly addresses the issue that:</p>
+    <ul class="quiz-options">
+      <li>Variable costs are easier to estimate than fixed costs</li>
+      <li>Fixed and variable cost components respond to different drivers</li>
+      <li>Reciprocal services exist among departments</li>
+      <li>Some departments have no usage at all</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Dual rate keeps variable cost on actual usage (penalizing waste) and fixed cost on reserved capacity (penalizing over-budgeted demand). Lumping them together creates incentives to under-use the service to dodge variable, or under-budget to dodge fixed.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-9">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(8)"><span class="dir">← Previous</span><span class="ttl">Allocation bases</span></button>
+    <button class="nav-link next" onclick="goTo(10)"><span class="dir">Next →</span><span class="ttl">Lean & supply chain</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="10">
+  <span class="unit-eyebrow">Unit 10 · D.4 Supply Chain Management</span>
+  <h1>Lean, JIT, ERP, and capacity</h1>
+  <p class="unit-lead">Production-philosophy questions on the CMA test vocabulary recognition more than calculation. Know what each term means, what it eliminates, and how it interacts with capacity.</p>
+
+  <h2><span class="marker">§10.1</span>Lean and JIT</h2>
+  <p><strong>Lean</strong> targets the seven wastes (Toyota Production System): defects, overproduction, waiting, non-utilized talent, transportation, inventory, motion, extra-processing. <strong>Just-in-time (JIT)</strong> is a key lean technique: produce or order only what the next stage needs, when it needs it.</p>
+  <p>JIT shrinks WIP and finished-goods inventory dramatically — but exposes the firm to supplier failures and demand spikes. JIT works best with reliable suppliers (often single-sourced with long-term contracts) and stable demand patterns.</p>
+
+  <h2><span class="marker">§10.2</span>ERP and theory of constraints</h2>
+  <p><strong>Enterprise resource planning (ERP)</strong> integrates finance, inventory, HR, manufacturing, and sales into a single system (SAP, Oracle, NetSuite). The benefit is one consistent view; the risk is implementation cost, organizational disruption, and over-customization.</p>
+  <p><strong>Theory of constraints (TOC)</strong> (Goldratt): every process has a single bottleneck. Throughput is set by the bottleneck. The five focusing steps: identify the constraint, exploit it (run flat-out), subordinate everything else, elevate it, then repeat.</p>
+
+  <div class="formula-box">Throughput contribution = Sales − DM cost (NOT the same as contribution margin)</div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — JIT prerequisite</h3>
+    <p class="quiz-prompt">A successful JIT inventory system most depends on:</p>
+    <ul class="quiz-options">
+      <li>High inventory levels to absorb supplier disruptions</li>
+      <li>Reliable suppliers and predictable demand</li>
+      <li>A diverse pool of low-cost suppliers</li>
+      <li>Long lead times for raw material orders</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> JIT works only when raw materials arrive on time, every time, and demand doesn't spike unpredictably. Disruption immediately stops production because there's no buffer. Tighter inventory = less margin for error = more discipline required from suppliers.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 2 — TOC throughput</h3>
+    <p class="quiz-prompt">Theory of constraints defines <em>throughput</em> as:</p>
+    <ul class="quiz-options">
+      <li>Total revenue</li>
+      <li>Sales minus all variable costs</li>
+      <li>Sales minus full manufacturing cost</li>
+      <li>Sales minus direct material cost</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> TOC's <em>throughput contribution</em> = Sales − Direct material. Goldratt argues that in the short run, only DM truly varies with output; labor and overhead behave more like fixed operating expense. Don't conflate this with traditional contribution margin.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Lean waste</h3>
+    <p class="quiz-prompt">Producing 500 units when only 350 will be sold this period is an example of which lean waste?</p>
+    <ul class="quiz-options">
+      <li>Overproduction</li>
+      <li>Waiting</li>
+      <li>Defects</li>
+      <li>Motion</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Overproduction is considered the worst waste because it triggers others — extra inventory, extra movement, extra storage, hidden defects. Lean preaches "produce to demand" as the only safe rule.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-10">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(9)"><span class="dir">← Previous</span><span class="ttl">Service depts</span></button>
+    <button class="nav-link next" onclick="goTo(11)"><span class="dir">Next →</span><span class="ttl">Value chain</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="11">
+  <span class="unit-eyebrow">Unit 11 · D.5 Business Process Improvement</span>
+  <h1>Value chain & continuous improvement</h1>
+  <p class="unit-lead">Porter's <strong>value chain</strong> decomposes a firm into primary activities (inbound logistics, operations, outbound logistics, marketing, service) and support activities (firm infrastructure, HR, technology, procurement). Each activity adds value — or wastes it.</p>
+
+  <h2><span class="marker">§11.1</span>Value-added vs non-value-added</h2>
+  <p>A <strong>value-added</strong> activity contributes to customer-perceived value (assembly, painting). A <strong>non-value-added</strong> activity doesn't (storage, rework, waiting, inspection of poor-quality output). Eliminate the second category as far as practical.</p>
+  <p>Manufacturing cycle efficiency: <span class="formula-box">MCE = Processing time ÷ (Processing + Inspection + Move + Wait time)</span></p>
+
+  <h2><span class="marker">§11.2</span>Continuous improvement (kaizen)</h2>
+  <p><strong>Kaizen</strong> means small, continuous improvements driven by everyone in the organization. <strong>Business process reengineering (BPR)</strong> is a one-shot ground-up redesign — bigger swings, bigger risk. <strong>Six Sigma</strong> targets defect reduction (3.4 defects per million opportunities) using DMAIC: Define, Measure, Analyze, Improve, Control.</p>
+
+  <div class="callout tip"><span class="callout-label">Pattern</span><p>Kaizen is incremental and bottom-up; BPR is transformative and top-down; Six Sigma is data-driven and process-specific. CMA questions often ask which fits a given situation.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Non-value-added</h3>
+    <p class="quiz-prompt">All of the following are typically non-value-added activities EXCEPT:</p>
+    <ul class="quiz-options">
+      <li>Inventory storage</li>
+      <li>Rework of defective products</li>
+      <li>Final assembly</li>
+      <li>Inspection of incoming materials</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Final assembly transforms parts into the finished product the customer pays for — value-added. Storage, rework, and inspection don't change the product itself; the customer wouldn't pay for them. Lean operations target their elimination, not their reduction.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — MCE</h3>
+    <p class="quiz-prompt">Processing 4 hours; inspection 1 hour; move 1 hour; wait 4 hours. Manufacturing cycle efficiency is:</p>
+    <ul class="quiz-options">
+      <li>40%</li>
+      <li>50%</li>
+      <li>80%</li>
+      <li>100%</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> MCE = Processing ÷ (P + I + M + W) = 4 ÷ (4+1+1+4) = 4 ÷ 10 = <strong>40%</strong>. World-class operations target 60%+. Improvement comes from cutting non-value-added time (move, wait, inspection).</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — BPR vs kaizen</h3>
+    <p class="quiz-prompt">A company is replacing its 30-year-old order-processing system, redesigning workflows from scratch and retraining all staff. This is best described as:</p>
+    <ul class="quiz-options">
+      <li>Kaizen</li>
+      <li>Continuous improvement</li>
+      <li>Total quality management</li>
+      <li>Business process reengineering (BPR)</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> BPR is the radical, ground-up redesign — fits a wholesale system replacement. Kaizen is small, frequent, incremental. Six Sigma focuses on defect rate. TQM is a broader culture, not a one-time redesign.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-11">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(10)"><span class="dir">← Previous</span><span class="ttl">Lean & supply chain</span></button>
+    <button class="nav-link next" onclick="goTo(12)"><span class="dir">Next →</span><span class="ttl">Cost of quality</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="12">
+  <span class="unit-eyebrow">Unit 12 · D.5 Business Process Improvement</span>
+  <h1>Cost of quality (PAF) & benchmarking</h1>
+  <p class="unit-lead">Quality is rarely free. The <strong>Cost of Quality (CoQ)</strong> framework groups quality-related costs into four categories. The first two prevent or detect; the last two are failures already incurred.</p>
+
+  <h2><span class="marker">§12.1</span>The PAF framework</h2>
+  <table class="fin-table">
+    <thead><tr><th>Category</th><th>What it is</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Prevention</strong></td><td>Stop defects before they happen</td><td>Training, supplier qualification, design reviews, process control</td></tr>
+      <tr><td><strong>Appraisal</strong></td><td>Detect defects after creation</td><td>Inspection, testing, audits</td></tr>
+      <tr><td><strong>Internal failure</strong></td><td>Defects caught before shipping</td><td>Scrap, rework, downtime, retesting</td></tr>
+      <tr><td><strong>External failure</strong></td><td>Defects caught by customers</td><td>Warranty, returns, recalls, lost reputation, lost sales</td></tr>
+    </tbody>
+  </table>
+
+  <p>The classic insight: investing in <em>prevention</em> reduces internal AND external failure spending — by far. External failure carries hidden costs (lost trust, lost future sales) that don't show up in the books.</p>
+
+  <h2><span class="marker">§12.2</span>Benchmarking</h2>
+  <p>Compare a metric against best-in-class. Three flavors:</p>
+  <ul>
+    <li><strong>Internal</strong>: best-performing unit within the company. Cheapest, easiest, narrowest.</li>
+    <li><strong>Competitive</strong>: against direct competitors. Hard to access data; legal/ethical guardrails.</li>
+    <li><strong>Functional/best-practice</strong>: against best-in-class anywhere (e.g., Walmart studied UPS for logistics, not another retailer). Often most useful.</li>
+  </ul>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Quality cost classification</h3>
+    <p class="quiz-prompt">Costs of customer warranty claims belong in which CoQ category?</p>
+    <ul class="quiz-options">
+      <li>External failure</li>
+      <li>Internal failure</li>
+      <li>Appraisal</li>
+      <li>Prevention</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The defect reached the customer; that's <strong>external failure</strong> by definition. Customer-facing failure is the most expensive of the four — it includes both the warranty cost AND the unmeasurable cost of lost trust and word-of-mouth.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 2 — Investment trade-off</h3>
+    <p class="quiz-prompt">Increasing prevention spending by $200K causes external-failure cost to drop by $350K. The company should:</p>
+    <ul class="quiz-options">
+      <li>Decline — prevention isn't a value-added activity</li>
+      <li>Decline — only revenue increases create value</li>
+      <li>Accept only if internal-failure cost also drops</li>
+      <li>Accept — net cost decreases by $150K plus unbooked reputational benefit</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Direct savings of $150K AND an additional unbooked benefit (reputation, retained customers). Prevention is the highest-ROI category in PAF analysis. The "law of 1-10-100" rule of thumb: a defect costs $1 to prevent, $10 to detect internally, $100 to fix externally.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Best benchmarking type</h3>
+    <p class="quiz-prompt">A regional bank wants to dramatically improve its call-center customer experience. The most useful benchmarking type is:</p>
+    <ul class="quiz-options">
+      <li>Internal — best-performing branch</li>
+      <li>Competitive — other regional banks</li>
+      <li>Functional — best-in-class call centers in any industry (e.g. Zappos, Amazon)</li>
+      <li>Strategic — overall industry trends</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Functional/best-practice benchmarking finds the absolute best, regardless of industry. A bank wanting world-class CX should learn from world-class CX operators (Zappos, Ritz-Carlton). Internal/competitive benchmarks stay within current industry norms — limited upside.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-12">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(11)"><span class="dir">← Previous</span><span class="ttl">Value chain</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="900">
+  <span class="unit-eyebrow">Practice Test 1 · Section D — Cost Management</span>
+  <h1>Test 1 — Section D mixed</h1>
+  <p class="unit-lead">15 mixed multiple-choice questions covering D.1–D.5. Aim for 75% correct.</p>
+
+  <div class="test-intro">
+    <h2>Coverage</h2>
+    <p>Cost behavior, costing systems, overhead allocation, supply chain, value chain, quality. Drawn evenly from the five sub-topics.</p>
+    <div class="test-meta">
+      <span>Questions<strong>15</strong></span>
+      <span>Time target<strong>~27 min</strong></span>
+      <span>Pass mark<strong>75%</strong></span>
+    </div>
+  </div>
+
+  <div class="test">
+    <div class="test-progress">
+      <span class="answered">0 / 15 answered</span>
+      <div class="score-bar"><div class="score-fill"></div></div>
+      <span class="score-percent">0 correct</span>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="1" data-topic="Cost behavior">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Cost behavior</span></div>
+      <p class="quiz-q">A cost that increases in steps as activity rises (e.g. one supervisor per 10 line workers) is classified as:</p>
+      <ul class="quiz-options"><li>Variable</li><li>Mixed</li><li>Step-fixed</li><li>Curvilinear</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Step-fixed costs jump at activity thresholds and stay flat between jumps. Inside one step, behavior is fixed; across multiple steps, it appears variable. Common for supervision, equipment capacity.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="1" data-topic="High-low">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">High-low</span></div>
+      <p class="quiz-q">High activity 30,000 units, total cost $130,000; low activity 10,000 units, total cost $70,000. Variable rate is:</p>
+      <ul class="quiz-options"><li>$3.00 per unit</li><li>$4.33 per unit</li><li>$2.00 per unit</li><li>$6.00 per unit</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ($130K − $70K) ÷ (30K − 10K) = $60K ÷ 20K = <strong>$3.00/unit</strong>. Fixed = $130K − ($3 × 30K) = $40K.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="2" data-topic="Normal costing">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Normal costing</span></div>
+      <p class="quiz-q">Under normal costing, manufacturing overhead is applied to production using:</p>
+      <ul class="quiz-options"><li>Actual rate × actual activity</li><li>Actual rate × budgeted activity</li><li>Budgeted rate × budgeted activity</li><li>Budgeted (predetermined) rate × actual activity</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Normal costing's whole point: lock the rate at the start of the year (predetermined) but multiply by ACTUAL activity. Fluctuations in OH per unit are smoothed; idle-capacity months don't inflate per-unit cost.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="3" data-topic="Variable costing">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Variable costing</span></div>
+      <p class="quiz-q">If production exceeds sales, NI under absorption costing will be:</p>
+      <ul class="quiz-options"><li>Lower than under variable costing</li><li>Equal to variable costing</li><li>Higher than under variable costing</li><li>Unrelated to variable costing</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Production &gt; Sales → inventory rises → absorption defers FMOH into inventory → less FMOH expensed → higher NI. Variable costing expenses all FMOH immediately, producing lower NI when inventory grows.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="4" data-topic="Joint costs">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Joint costs</span></div>
+      <p class="quiz-q">A by-product can be sold for $4,000 net. Under the cost-reduction approach, this $4,000 is:</p>
+      <ul class="quiz-options"><li>Recorded as other revenue</li><li>Credited against joint cost of main products</li><li>Ignored as immaterial</li><li>Allocated using NRV across all products</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> The cost-reduction approach reduces the joint-cost pool charged to main products by the by-product's net realizable value. Alternative: treat as other revenue (income approach). Both are GAAP-acceptable; the question specifies cost-reduction.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="4" data-topic="Process further">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Process further</span></div>
+      <p class="quiz-q">A joint product sells at split-off for $20,000 and after further processing for $30,000 with separable cost of $7,000. The decision:</p>
+      <ul class="quiz-options"><li>Process further — incremental margin $3,000</li><li>Sell at split-off — separable cost too high</li><li>Process further only if joint cost &lt; $3,000</li><li>Sell at split-off — joint cost is sunk</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Incremental analysis ignores joint cost (sunk). ($30K − $20K) − $7K = +$3K margin from further processing. Accept it.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="5" data-topic="COGM">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">COGM</span></div>
+      <p class="quiz-q">Beg WIP $15K; DM used $40K; DL $30K; applied OH $20K; End WIP $10K. COGM is:</p>
+      <ul class="quiz-options"><li>$100,000</li><li>$95,000</li><li>$105,000</li><li>$90,000</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> COGM = $15K + $40K + $30K + $20K − $10K = <strong>$95,000</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="5" data-topic="Over-applied OH">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Over-applied OH</span></div>
+      <p class="quiz-q">Applied OH $250K; actual OH $235K. Closing entry to COGS:</p>
+      <ul class="quiz-options"><li>DR COGS $15K / CR Manufacturing OH $15K</li><li>DR Manufacturing OH $250K / CR COGS $250K</li><li>DR Manufacturing OH $15K / CR COGS $15K</li><li>No entry — applied = budget</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Applied &gt; Actual → over-applied $15K (we charged too much OH to product). Reduce COGS: <strong>DR Manufacturing OH $15K / CR COGS $15K</strong>. Mnemonic AAU/AAO: Applied &gt; Actual = Over.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="6" data-topic="ABC">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">ABC</span></div>
+      <p class="quiz-q">ABC is most appropriate when:</p>
+      <ul class="quiz-options"><li>The company has a single product</li><li>Direct labor is the largest cost</li><li>All products are produced in equal batches</li><li>Overhead is large and product diversity is high</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ABC pays off when overhead is high AND products vary widely in resource consumption. Otherwise the cost of operating ABC exceeds the accuracy benefit.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="7" data-topic="Target costing">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Target costing</span></div>
+      <p class="quiz-q">Market price $250; required ROS 30%. Target cost:</p>
+      <ul class="quiz-options"><li>$250</li><li>$192</li><li>$175</li><li>$325</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Target cost = $250 − ($250 × 30%) = $250 − $75 = <strong>$175</strong>. ROS is on revenue, not cost.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="8" data-topic="Plantwide rate">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">Plantwide rate</span></div>
+      <p class="quiz-q">A plantwide overhead rate is acceptable when:</p>
+      <ul class="quiz-options"><li>Overhead is large and product mix is diverse</li><li>Products consume departmental resources in similar proportions</li><li>The plant has many specialized departments</li><li>Customers demand granular cost transparency</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> If every product passes through every department in roughly the same proportion, a plantwide rate produces the same allocation as departmental rates — for free. The simpler system wins.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="9" data-topic="Step method">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Step method</span></div>
+      <p class="quiz-q">In the step method of service-dept allocation:</p>
+      <ul class="quiz-options"><li>All cross-services are recognized via simultaneous equations</li><li>No service-to-service allocations occur</li><li>Once a service dept's costs are allocated, none flow back to it</li><li>Only fixed costs are allocated</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Step is sequential: order the depts (often by % serving others), allocate the first to all remaining, the second to those after it, and so on. Costs flow forward only. The reciprocal method recognizes mutual services through simultaneous equations.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="10" data-topic="JIT">
+      <div class="q-num"><span class="num-text">Question 13</span><span class="topic">JIT</span></div>
+      <p class="quiz-q">A successful JIT system reduces:</p>
+      <ul class="quiz-options"><li>Inventory holding costs</li><li>Need for supplier reliability</li><li>Importance of quality control</li><li>Coordination requirements</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> JIT's chief benefit is dramatically lower inventory at every stage (raw, WIP, finished). It REQUIRES (not reduces) supplier reliability, quality, and coordination — the buffer that inventory used to provide is gone.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="11" data-topic="MCE">
+      <div class="q-num"><span class="num-text">Question 14</span><span class="topic">MCE</span></div>
+      <p class="quiz-q">Total throughput time 20 hours, of which processing is 5, inspection 3, move 2, wait 10. MCE:</p>
+      <ul class="quiz-options"><li>15%</li><li>20%</li><li>25%</li><li>50%</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> MCE = Processing ÷ Total = 5 ÷ 20 = <strong>25%</strong>. Pulling waiting time down is usually the biggest lever.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="12" data-topic="Cost of quality">
+      <div class="q-num"><span class="num-text">Question 15</span><span class="topic">Cost of quality</span></div>
+      <p class="quiz-q">Training a new operator on quality procedures is BEST classified as:</p>
+      <ul class="quiz-options"><li>Appraisal</li><li>Prevention</li><li>Internal failure</li><li>External failure</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Training prevents defects from being created in the first place — pure <strong>prevention</strong>. Appraisal would be inspection or testing. Spending on prevention typically reduces both internal and external failure spending several-fold.</div>
+    </div>
+
+    <div class="test-summary">
+      <h2>Test 1 · Results</h2>
+      <div class="score-display">0%</div>
+      <div class="score-meta">—</div>
+      <div class="missed-list"></div>
+      <button class="btn restart-btn">↻ Restart with shuffled order</button>
+    </div>
+  </div>
+  <button class="btn done-btn" id="mark-done-900">Mark complete</button>
+</article>
+
+<article class="unit" data-id="950">
+  <span class="unit-eyebrow">Flashcards · Section D</span>
+  <h1>Flashcard hub</h1>
+  <p class="unit-lead">Quick recall of the cost-management vocabulary. Click a deck to study.</p>
+  <div class="flashcard-hub" id="flashcard-hub"></div>
+  <button class="btn done-btn" id="mark-done-950">Mark complete</button>
+</article>
+
+</main>
+</div>
+
+<script src="../../assets/engine.js?v=2"></script>
+<script>
+window.SECTION_CONFIG = {
+  sectionId: "D",
+  sectionTitle: "Section D — Cost Management",
+  storageKey: "cma-section-d-progress-v1",
+  annotationKey: "cma-section-d-ann-v1",
+  totalUnits: 14,
+  trackedUnits: 12,
+  navStructure: [
+    { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
+    { group: "D.1 · Measurement Concepts", units: [
+      { id: 1, num: "01", title: "Cost behavior & objects" },
+      { id: 2, num: "02", title: "Actual / normal / standard" },
+      { id: 3, num: "03", title: "Absorption vs variable" },
+      { id: 4, num: "04", title: "Joint costs & by-products" },
+    ]},
+    { group: "D.2 · Costing Systems", units: [
+      { id: 5, num: "05", title: "Job-order costing" },
+      { id: 6, num: "06", title: "Activity-based costing" },
+      { id: 7, num: "07", title: "Life-cycle & target costing" },
+    ]},
+    { group: "D.3 · Overhead Costs", units: [
+      { id: 8, num: "08", title: "Allocation bases" },
+      { id: 9, num: "09", title: "Service department allocation" },
+    ]},
+    { group: "D.4 · Supply Chain Mgmt", units: [
+      { id: 10, num: "10", title: "Lean, JIT, ERP, TOC" },
+    ]},
+    { group: "D.5 · Process Improvement", units: [
+      { id: 11, num: "11", title: "Value chain & kaizen" },
+      { id: 12, num: "12", title: "Cost of quality (PAF)" },
+    ]},
+    { group: "📝 Practice Test", units: [
+      { id: 900, num: "T1", title: "Section D mixed (15Q)" },
+    ]},
+    { group: "🃏 Flashcards", units: [
+      { id: 950, num: "FC", title: "All decks" },
+    ]},
+  ],
+  keyTakeaways: {
+    1: ["Cost object = thing being costed; cost driver = what causes the cost to vary.", "Direct cost traces to the object; indirect (overhead) requires allocation.", "Variable: total scales with activity, per-unit constant. Fixed: total constant, per-unit decreases as activity rises. Mixed: both.", "High-low method: variable rate = ΔCost/ΔActivity; outliers can distort it."],
+    2: ["Actual / normal / standard differ in WHEN the rate is set and WHAT it represents.", "Predetermined rate = Budget OH ÷ Budget activity; applied OH uses ACTUAL activity.", "Under-applied (Actual > Applied): DR COGS / CR Mfg OH. Over-applied: reverse.", "Standards are engineered, attainable benchmarks — not historical, not theoretical."],
+    3: ["Absorption: FMOH is product cost (GAAP). Variable: FMOH is period cost (internal).", "NI difference = ΔInventory units × FMOH per unit.", "Production > Sales: absorption NI > variable NI (FMOH defers).", "When production = sales, both methods give the same NI."],
+    4: ["Joint cost is sunk at split-off; allocation is for inventory valuation, not decisions.", "Allocate by sales-value-at-split-off when prices exist; NRV when products need further processing.", "Process-further decision: incremental revenue vs incremental separable cost only — ignore joint cost.", "By-products: cost-reduction (credit joint pool) or other-revenue approach."],
+    5: ["Inventory flow: RM → WIP → FG → COGS.", "COGM = Beg WIP + DM + DL + applied OH − End WIP.", "Job-order suits unique/batched output; process costing suits homogeneous mass production.", "Year-end OH variance: close to COGS (small) or prorate (material)."],
+    6: ["Two-stage allocation: resources → activities → products via cost drivers.", "Cost hierarchy: unit, batch, product, facility levels.", "ABC pays off when overhead is large and products vary widely in resource consumption.", "ABC typically raises low-volume specialty costs and lowers high-volume product costs."],
+    7: ["Up to 90% of life-cycle cost is committed at the design stage.", "Target cost = Target price − Required margin (margin is on revenue for ROS).", "Value engineering systematically removes features that cost more than they add.", "Contrast cost-plus pricing (build then add margin) with target costing (lock price then design)."],
+    8: ["Plantwide rate: simple but inaccurate when departments differ in resource intensity.", "Departmental rate: separate base per dept (machine hrs vs labor hrs).", "The base should CAUSE the overhead, not just correlate.", "Capacity choice (theoretical / practical / normal / master-budget) shapes the rate's stability."],
+    9: ["Direct method: ignores cross-services among service depts; simplest, least accurate.", "Step method: sequential allocation, no costs flow back.", "Reciprocal method: simultaneous equations, fully recognizes cross-services.", "Dual rate: variable cost on actual usage, fixed cost on reserved capacity."],
+    10: ["Lean targets seven wastes (DOWNTIME or TIM WOOD); JIT is a key technique.", "JIT requires reliable suppliers and predictable demand — buffer inventory disappears.", "TOC: throughput is set by the bottleneck; throughput contribution = Sales − DM.", "ERP integrates business functions; benefit is one consistent view."],
+    11: ["Value-added activities contribute to customer-perceived value; non-value-added don't.", "MCE = Processing ÷ Total throughput time. World-class > 60%.", "Kaizen: incremental, bottom-up. BPR: radical, top-down. Six Sigma: defect-rate-driven (DMAIC).", "Eliminate waiting and movement — usually the biggest non-value-added components."],
+    12: ["Cost of Quality categories: Prevention, Appraisal, Internal failure, External failure (PAF).", "Prevention spending typically reduces both internal AND external failure costs.", "Law of 1-10-100: prevent ($1) < detect internally ($10) < fix externally ($100).", "Benchmarking: internal (own units), competitive (rivals), functional (best-in-class anywhere)."],
+  },
+  flashcardDecks: {
+    "cost-behavior": {
+      title: "Cost behavior & costing methods",
+      eyebrow: "D.1 Foundations",
+      cards: [
+        ["Cost object", "The thing being costed (unit, job, customer, dept)"],
+        ["Cost driver", "What causes the cost to vary"],
+        ["Direct cost", "Traced to the object economically"],
+        ["Indirect cost (overhead)", "Allocated, not traced"],
+        ["Variable cost", "Total scales with activity; per-unit constant"],
+        ["Fixed cost", "Total constant; per-unit decreases as activity rises"],
+        ["Mixed cost", "Fixed component + variable rate"],
+        ["Step-fixed cost", "Jumps at activity thresholds, flat between"],
+        ["Relevant range", "Activity span over which behavior assumptions hold"],
+        ["High-low rate", "(High cost − Low cost) / (High activity − Low activity)"],
+        ["Predetermined OH rate", "Budgeted OH ÷ Budgeted activity"],
+        ["Applied OH", "Predetermined rate × ACTUAL activity"],
+        ["Under-applied OH (entry)", "DR COGS / CR Manufacturing OH"],
+        ["Over-applied OH (entry)", "DR Manufacturing OH / CR COGS"],
+        ["Absorption vs variable diff", "ΔInventory units × FMOH per unit"],
+      ]
+    },
+    "costing-systems": {
+      title: "Costing systems & overhead",
+      eyebrow: "D.2-D.3",
+      cards: [
+        ["Job-order costing", "Unique or batched output; cost per job"],
+        ["Process costing", "Homogeneous mass output; cost per equivalent unit"],
+        ["COGM", "Beg WIP + DM + DL + Applied OH − End WIP"],
+        ["COGS (manufacturer)", "Beg FG + COGM − End FG"],
+        ["ABC", "Activities → cost pools → products via drivers"],
+        ["Cost hierarchy", "Unit, Batch, Product, Facility"],
+        ["When ABC helps most", "High overhead + diverse products"],
+        ["Target cost formula", "Target price − Required profit margin"],
+        ["Value engineering", "Systematic feature/function review to cut cost"],
+        ["Direct allocation method", "Service dept costs → production depts only"],
+        ["Step (sequential) method", "Rank, allocate forward only — no costs flow back"],
+        ["Reciprocal method", "Simultaneous equations, fully cross-allocate"],
+        ["Dual rate purpose", "Variable on usage, fixed on reserved capacity"],
+        ["Joint cost relevance", "Sunk after split-off; ignore in process-further"],
+        ["By-product treatment", "Reduce joint pool OR record other revenue"],
+      ]
+    },
+    "lean-and-quality": {
+      title: "Lean, value chain, and quality",
+      eyebrow: "D.4-D.5",
+      cards: [
+        ["JIT requires", "Reliable suppliers + predictable demand"],
+        ["Seven wastes", "Defects, Overproduction, Waiting, Non-utilized talent, Transport, Inventory, Motion (extra)"],
+        ["TOC throughput", "Sales − Direct material"],
+        ["Five focusing steps (TOC)", "Identify, Exploit, Subordinate, Elevate, Repeat"],
+        ["MCE", "Processing time ÷ Total throughput time"],
+        ["Value-added activity", "Adds customer-perceived value (assembly)"],
+        ["Non-value-added", "Storage, rework, inspection, waiting, moving"],
+        ["Kaizen", "Continuous, incremental, bottom-up improvement"],
+        ["BPR", "Radical, ground-up redesign of a process"],
+        ["Six Sigma", "Data-driven defect reduction (DMAIC, 3.4 DPMO)"],
+        ["Prevention costs", "Stop defects before creation (training, design, process control)"],
+        ["Appraisal costs", "Detect defects after creation (inspection, testing)"],
+        ["Internal failure", "Defects caught before shipping (scrap, rework)"],
+        ["External failure", "Defects caught by customers (warranty, returns, lost reputation)"],
+        ["Best benchmarking type", "Functional/best-practice — across industries"],
+      ]
+    },
+  },
+  formulaReference: [
+    { section: "Cost behavior", items: [
+      { label: "Variable rate (high-low)", formula: "(High cost − Low cost) / (High activity − Low activity)", unitId: 1 },
+      { label: "Total cost (mixed)", formula: "Fixed + (Variable rate × Activity)", unitId: 1 },
+    ]},
+    { section: "Overhead", items: [
+      { label: "Predetermined OH rate", formula: "Budgeted OH ÷ Budgeted activity", unitId: 2 },
+      { label: "Applied OH", formula: "Predetermined rate × ACTUAL activity", unitId: 2 },
+      { label: "Under/over-applied", formula: "Actual OH − Applied OH (positive = under-applied)", unitId: 2 },
+    ]},
+    { section: "Inventory & COGM", items: [
+      { label: "DM used", formula: "Beg RM + Purchases − End RM", unitId: 5 },
+      { label: "COGM", formula: "Beg WIP + DM + DL + Applied OH − End WIP", unitId: 5 },
+      { label: "COGS (manufacturer)", formula: "Beg FG + COGM − End FG", unitId: 5 },
+    ]},
+    { section: "Absorption / variable", items: [
+      { label: "NI difference", formula: "(Production − Sales units) × FMOH per unit", unitId: 3 },
+    ]},
+    { section: "Decision rules", items: [
+      { label: "Target cost", formula: "Target price − Required profit", unitId: 7 },
+      { label: "Process further", formula: "(Final − Split-off) − Separable cost; accept if positive", unitId: 4 },
+    ]},
+    { section: "Lean & quality", items: [
+      { label: "MCE", formula: "Processing time ÷ Total throughput time", unitId: 11 },
+      { label: "TOC throughput contribution", formula: "Sales − Direct material", unitId: 10 },
+    ]},
+  ],
+};
+</script>
+<script>CMA.init(window.SECTION_CONFIG);</script>
+</body>
+</html>

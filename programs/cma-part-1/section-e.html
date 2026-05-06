@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CMA Part 1 · Section E — Internal Controls</title>
+<meta name="description" content="A field guide for CMA Part 1 Section E: governance, risk, and compliance; internal control structure (COSO); IT general and application controls; backup and business continuity; corporate governance and external audit." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/style.css?v=2" />
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><span class="ornament"></span>Section E</div>
+  <div class="brand-sub">Internal Controls · CMA Part 1 · A visual field guide</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text" id="progress-text">0 of 8 units complete</div>
+  <div class="sidebar-search" style="margin-top:18px">
+    <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
+    <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
+  </div>
+  <nav id="nav" style="margin-top:8px"></nav>
+  <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); display:flex; gap:8px; flex-wrap:wrap;">
+    <a href="index.html" class="btn ghost small" style="text-decoration:none;">← All sections</a>
+    <a href="../../index.html" class="btn ghost small" style="text-decoration:none;">All programs</a>
+    <button class="btn ghost small" id="reset-progress">Reset progress</button>
+    <button class="btn ghost small" id="show-shortcuts" title="Keyboard shortcuts (?)">⌨ Shortcuts</button>
+  </div>
+</aside>
+
+<div id="kbd-help" role="dialog" aria-modal="true">
+  <div class="kbd-box">
+    <h3>Keyboard shortcuts</h3>
+    <div class="kbd-row"><span>Next unit</span><span class="keys"><span class="kbd">→</span> <span class="kbd">J</span></span></div>
+    <div class="kbd-row"><span>Previous unit</span><span class="keys"><span class="kbd">←</span> <span class="kbd">K</span></span></div>
+    <div class="kbd-row"><span>Focus search</span><span class="kbd">/</span></div>
+    <div class="kbd-row"><span>Bookmark this unit</span><span class="kbd">B</span></div>
+    <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
+    <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
+    <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
+    <div class="kbd-row"><span>Undo annotation</span><span class="keys"><span class="kbd">⌘/Ctrl</span><span class="kbd">Z</span></span></div>
+    <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
+    <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
+  </div>
+</div>
+
+<button id="formula-toggle-btn" title="Formula reference (F)" aria-label="Open formula reference">ƒx</button>
+<aside id="formula-panel" aria-label="Formula reference">
+  <div class="fp-header">
+    <h3>Formula reference</h3>
+    <button class="ann-panel-close" id="formula-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="fp-search"><input type="text" id="formula-search" placeholder="Search formulas, ratios, rules…" /></div>
+  <div class="fp-list" id="formula-list"></div>
+</aside>
+
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+<aside id="ann-panel">
+  <div class="ann-panel-header">
+    <h3>Notes & highlights</h3>
+    <button class="ann-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
+
+<main class="content" id="content">
+
+<article class="unit active" data-id="0">
+  <div class="cover">
+    <span class="unit-eyebrow">CMA Part 1 · Section E · 15% weight · Level C</span>
+    <h1 class="cover-title">Internal<br/>Controls.</h1>
+    <p class="cover-sub">Governance, risk, compliance, and the system of checks that makes financial reporting reliable. The vocabulary is COSO; the spine is segregation of duties; the modern wrinkle is IT general controls. SOX 404 made this section everyone's problem.</p>
+    <div class="cover-meta">
+      <span>Units<strong>8 covered</strong></span>
+      <span>Practice questions<strong>~30</strong></span>
+      <span>CMA weight<strong>15% of Part 1</strong></span>
+      <span>Cognitive level<strong>A · B · C</strong></span>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">E.1</span>Governance, Risk & Compliance</h2>
+    <div class="toc-card">
+      <h3>E.1 — GRC framework, COSO, audit (Units 1–4)</h3>
+      <ol>
+        <li><button onclick="goTo(1)">Internal control objectives & COSO</button></li>
+        <li><button onclick="goTo(2)">Control activities & segregation of duties</button></li>
+        <li><button onclick="goTo(3)">Risk assessment & deficiency remediation</button></li>
+        <li><button onclick="goTo(4)">Corporate governance, SOX, and external audit</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">E.2</span>System Controls & Security</h2>
+    <div class="toc-card">
+      <h3>E.2 — IT controls and continuity (Units 5–8)</h3>
+      <ol start="5">
+        <li><button onclick="goTo(5)">General accounting system controls</button></li>
+        <li><button onclick="goTo(6)">Application & transaction controls</button></li>
+        <li><button onclick="goTo(7)">Technology, data, and cyber controls</button></li>
+        <li><button onclick="goTo(8)">Backup, recovery, and business continuity</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Test</h2>
+    <div class="toc-card">
+      <ol class="plain" style="list-style:none; padding-left:0">
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Section E mixed · 12 Q · ~22 min</button></li>
+      </ol>
+    </div>
+  </div>
+  <button class="btn done-btn" id="mark-done-0">Mark complete</button>
+</article>
+
+<article class="unit" data-id="1">
+  <span class="unit-eyebrow">Unit 1 · E.1 GRC</span>
+  <h1>Internal control objectives & COSO</h1>
+  <p class="unit-lead">Internal control is "a process, effected by an entity's board, management, and other personnel, designed to provide reasonable assurance regarding the achievement of objectives" — the COSO definition. Three categories of objectives, five components, seventeen principles.</p>
+
+  <h2><span class="marker">§1.1</span>Three categories of objectives</h2>
+  <ul>
+    <li><strong>Operations</strong> — effectiveness and efficiency of operations, safeguarding of assets.</li>
+    <li><strong>Reporting</strong> — reliability of internal and external (financial and non-financial) reporting.</li>
+    <li><strong>Compliance</strong> — adherence to laws and regulations.</li>
+  </ul>
+
+  <h2><span class="marker">§1.2</span>The five COSO components (CRIME)</h2>
+  <p>A common mnemonic is <strong>CRIME</strong>: <strong>C</strong>ontrol environment, <strong>R</strong>isk assessment, <strong>I</strong>nformation &amp; communication, <strong>M</strong>onitoring, control activiti<strong>E</strong>s.</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Component</th><th>What it covers</th></tr></thead>
+    <tbody>
+      <tr><td>Control environment</td><td>Tone at the top, ethics, board oversight, structure</td></tr>
+      <tr><td>Risk assessment</td><td>Identify and analyze risks to objectives</td></tr>
+      <tr><td>Control activities</td><td>Policies and procedures (segregation, authorization, reconciliation, IT controls)</td></tr>
+      <tr><td>Information & communication</td><td>Capture, processing, and reporting of relevant information</td></tr>
+      <tr><td>Monitoring</td><td>Ongoing and periodic evaluations of the control system</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning"><span class="callout-label">Limitation</span><p>Even well-designed controls only provide REASONABLE — never absolute — assurance. Inherent limits: human error, collusion, management override, cost-benefit constraints.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — COSO categories</h3>
+    <p class="quiz-prompt">Which is NOT one of COSO's three categories of objectives?</p>
+    <ul class="quiz-options">
+      <li>Operations</li>
+      <li>Reporting</li>
+      <li>Profitability</li>
+      <li>Compliance</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Profitability is an operational outcome, not a control-objective category. The three categories are <strong>Operations, Reporting, and Compliance</strong> — sometimes abbreviated ORC. Don't confuse them with the five COSO components (CRIME).</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Inherent limitations</h3>
+    <p class="quiz-prompt">Which is an INHERENT limitation of internal control?</p>
+    <ul class="quiz-options">
+      <li>Management override of controls</li>
+      <li>Insufficient training of new staff</li>
+      <li>Outdated accounting software</li>
+      <li>Lack of monitoring procedures</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Inherent limitations exist regardless of design quality: human error, collusion, management override, cost-benefit. Insufficient training, outdated software, and missing monitoring are <em>design or operating</em> deficiencies — fixable.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Tone at the top</h3>
+    <p class="quiz-prompt">"Tone at the top" most closely relates to which COSO component?</p>
+    <ul class="quiz-options">
+      <li>Risk assessment</li>
+      <li>Control activities</li>
+      <li>Monitoring</li>
+      <li>Control environment</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Control environment encompasses board oversight, ethics, integrity, and management's commitment to control — the foundation everything else rests on. Without strong tone at the top, no amount of control activities prevents fraud.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-1">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Map</span></button>
+    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Segregation of duties</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="2">
+  <span class="unit-eyebrow">Unit 2 · E.1 GRC</span>
+  <h1>Control activities & segregation of duties</h1>
+  <p class="unit-lead">Control activities are the day-to-day mechanisms — authorizations, reconciliations, reviews, IT controls. The single most important is <strong>segregation of duties</strong> (SoD): split incompatible functions among different people so no one person can both perpetrate and conceal a fraud.</p>
+
+  <h2><span class="marker">§2.1</span>The ARC framework</h2>
+  <p>Segregate three duties: <strong>A</strong>uthorization (approving the transaction), <strong>R</strong>ecording (the bookkeeping), and <strong>C</strong>ustody (physical control of the asset). One person doing two of three creates fraud opportunity.</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Risk if combined</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td>Custody + Recording</td><td>Steal asset, hide via book entry</td></tr>
+      <tr><td>Authorization + Custody</td><td>Authorize disbursement to self, take cash</td></tr>
+      <tr><td>Authorization + Recording</td><td>Approve fictitious transactions, record at will</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§2.2</span>Other key control activities</h2>
+  <ul>
+    <li><strong>Authorization</strong> — general (policies) or specific (transaction-by-transaction).</li>
+    <li><strong>Documentation</strong> — pre-numbered, complete, accurate.</li>
+    <li><strong>Reconciliations</strong> — bank, subledger to GL, physical count to perpetual.</li>
+    <li><strong>Independent verification</strong> — second person reviews.</li>
+    <li><strong>Physical safeguards</strong> — locks, vaults, access cards.</li>
+  </ul>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — SoD</h3>
+    <p class="quiz-prompt">Which combination violates segregation of duties?</p>
+    <ul class="quiz-options">
+      <li>Sales clerk takes orders; warehouse ships</li>
+      <li>Cashier receives checks AND posts to AR ledger</li>
+      <li>Storeroom counts inventory; perpetual is maintained by accounting</li>
+      <li>Accounts payable matches invoice to PO</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Receiving cash (custody) AND posting AR (recording) lets the cashier steal cash and record a fictitious credit (lapping). Other options keep ARC roles separate.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Compensating control</h3>
+    <p class="quiz-prompt">A small office has only two accounting employees, making perfect SoD impossible. The BEST compensating control is:</p>
+    <ul class="quiz-options">
+      <li>Hire more staff (or outsource bookkeeping)</li>
+      <li>Trust both employees</li>
+      <li>Active owner review of bank reconciliations and key journal entries</li>
+      <li>Disable the accounting software's edit logs</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> When SoD is structurally impossible (small business), strong oversight by an independent party (the owner) compensates. Insist on personal bank-statement review and signature on disbursements above a threshold.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Authorization type</h3>
+    <p class="quiz-prompt">"All purchases above $10,000 require CFO sign-off" is an example of:</p>
+    <ul class="quiz-options">
+      <li>Specific authorization</li>
+      <li>General authorization</li>
+      <li>Pre-authorization</li>
+      <li>Custodial authorization</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Specific authorization requires individual approval per transaction (above the threshold). General authorization sets policy ranges within which staff act on their own (e.g. "discounts up to 10% are pre-approved").</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-2">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">COSO</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Risk assessment</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="3">
+  <span class="unit-eyebrow">Unit 3 · E.1 GRC</span>
+  <h1>Risk assessment & deficiency remediation</h1>
+  <p class="unit-lead">Identify risks to control objectives, evaluate likelihood × impact, and design controls to address them. When a control fails or doesn't exist, classify the deficiency: control deficiency, significant deficiency, or material weakness.</p>
+
+  <h2><span class="marker">§3.1</span>Severity ladder</h2>
+  <table class="fin-table">
+    <thead><tr><th>Term</th><th>Definition (PCAOB AS 5)</th><th>Reporting</th></tr></thead>
+    <tbody>
+      <tr><td>Control deficiency</td><td>Design or operation does not allow controls to prevent/detect a misstatement on a timely basis</td><td>Internal only</td></tr>
+      <tr><td>Significant deficiency</td><td>Less severe than material weakness, but important enough to merit attention by those charged with governance</td><td>Audit committee</td></tr>
+      <tr><td>Material weakness</td><td>Reasonable possibility of material misstatement</td><td>Public disclosure (10-K, SOX 404)</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§3.2</span>Testing methods</h2>
+  <ul>
+    <li><strong>Inquiry</strong> — ask staff. Cheapest, weakest evidence.</li>
+    <li><strong>Observation</strong> — watch the control in action.</li>
+    <li><strong>Inspection</strong> — examine evidence (signed forms, system logs).</li>
+    <li><strong>Reperformance</strong> — auditor re-runs the control. Strongest, most expensive.</li>
+  </ul>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 1 — Severity</h3>
+    <p class="quiz-prompt">A deficiency that creates a reasonable possibility of a material misstatement going undetected is:</p>
+    <ul class="quiz-options">
+      <li>An immaterial issue</li>
+      <li>A control deficiency</li>
+      <li>A significant deficiency</li>
+      <li>A material weakness</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Material weakness = reasonable possibility of material misstatement. Public companies must disclose material weaknesses in their 10-K under SOX 404. Below that severity: significant deficiency (governance only) or control deficiency (internal only).</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Testing strength</h3>
+    <p class="quiz-prompt">Which testing method provides the STRONGEST evidence about control operating effectiveness?</p>
+    <ul class="quiz-options">
+      <li>Reperformance</li>
+      <li>Observation</li>
+      <li>Inquiry</li>
+      <li>Inspection of documentation</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Reperformance — the auditor independently re-executes the control — gives direct evidence the control works as designed. Inquiry is weakest (people lie or misremember); observation captures only the moment observed; inspection requires reliable documentation.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Risk response</h3>
+    <p class="quiz-prompt">A risk with both low likelihood and low impact is best:</p>
+    <ul class="quiz-options">
+      <li>Mitigated through detailed control activities</li>
+      <li>Accepted (no control investment beyond monitoring)</li>
+      <li>Transferred via insurance</li>
+      <li>Avoided by exiting the activity</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The four risk responses are accept, mitigate, transfer, avoid. Low/low risks rarely justify the cost of dedicated controls — accept and monitor. Reserve mitigation for high-impact or high-likelihood risks.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-3">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">SoD</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">SOX & audit</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="4">
+  <span class="unit-eyebrow">Unit 4 · E.1 GRC</span>
+  <h1>Corporate governance, SOX, and external audit</h1>
+  <p class="unit-lead">After Enron and WorldCom, the Sarbanes-Oxley Act (SOX, 2002) overhauled public-company governance. Section 302 makes the CEO and CFO certify financial statements. Section 404 requires management's assertion on ICFR (internal control over financial reporting) and an external-auditor attestation.</p>
+
+  <h2><span class="marker">§4.1</span>Key SOX provisions</h2>
+  <ul>
+    <li><strong>§302</strong> — CEO/CFO certify accuracy of FS and disclosure controls each quarter.</li>
+    <li><strong>§404(a)</strong> — Management's annual ICFR assessment.</li>
+    <li><strong>§404(b)</strong> — Auditor attestation on ICFR (only large accelerated filers).</li>
+    <li><strong>§802</strong> — Penalties for document destruction; 7-year audit-records retention.</li>
+    <li><strong>§906</strong> — Criminal certification of FS by CEO/CFO ($5M / 20 years).</li>
+  </ul>
+
+  <p>SOX created the <strong>PCAOB</strong> (Public Company Accounting Oversight Board) to oversee public-company auditors, displacing prior self-regulation by the AICPA.</p>
+
+  <h2><span class="marker">§4.2</span>Audit committee independence</h2>
+  <p>SOX requires audit committees be composed of <em>independent</em> directors. They — not management — hire, fire, and compensate the external auditor. At least one member must be a "financial expert" (or the company must explain why not).</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — SOX 404</h3>
+    <p class="quiz-prompt">Which SOX section requires management's annual assessment of internal control over financial reporting?</p>
+    <ul class="quiz-options">
+      <li>Section 302</li>
+      <li>Section 802</li>
+      <li>Section 404</li>
+      <li>Section 906</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> §404(a): management's annual ICFR assertion. §404(b): auditor's attestation (large accelerated filers). §302: quarterly CEO/CFO certifications. §906: criminal-liability certification. §802: document retention.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Audit committee</h3>
+    <p class="quiz-prompt">Under SOX, the external auditor is hired by:</p>
+    <ul class="quiz-options">
+      <li>The audit committee of the board</li>
+      <li>The CFO</li>
+      <li>The CEO with shareholder ratification</li>
+      <li>The PCAOB</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Pre-SOX, management hired the auditor — creating a direct conflict (the auditee paying the auditor's bills). SOX moves auditor engagement to the audit committee, which must be entirely independent directors. PCAOB regulates auditors but doesn't engage them for individual audits.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — PCAOB</h3>
+    <p class="quiz-prompt">The PCAOB is responsible for:</p>
+    <ul class="quiz-options">
+      <li>Setting U.S. GAAP</li>
+      <li>Setting auditing standards for public-company audits</li>
+      <li>Auditing public companies directly</li>
+      <li>Enforcing SEC reporting requirements</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> PCAOB sets auditing standards (AS 1, AS 5, etc.), inspects registered firms, and disciplines auditors. GAAP is set by FASB. The SEC enforces reporting; PCAOB enforces audit quality.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-4">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Risk assessment</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">IT general controls</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="5">
+  <span class="unit-eyebrow">Unit 5 · E.2 System Controls</span>
+  <h1>General accounting system controls (ITGC)</h1>
+  <p class="unit-lead">IT general controls are the foundation that lets all other application controls work. They cover access, change management, operations, and the broader IT environment. Without sound ITGCs, application controls can be bypassed.</p>
+
+  <h2><span class="marker">§5.1</span>Four ITGC domains</h2>
+  <ul>
+    <li><strong>Access controls</strong> — who can see/edit what; user provisioning, password policy, role-based access, privileged-account review.</li>
+    <li><strong>Change management</strong> — segregation between developers and production; testing; documented approvals; emergency-change protocols.</li>
+    <li><strong>Computer operations</strong> — job scheduling, monitoring, incident handling, backup execution.</li>
+    <li><strong>Program development</strong> — SDLC discipline; user acceptance testing.</li>
+  </ul>
+
+  <h2><span class="marker">§5.2</span>Access principles</h2>
+  <p><strong>Least privilege</strong>: each user gets only the access they need to do their job — nothing more. <strong>Separation of duties in IT</strong>: developers don't deploy to production; admins don't run business transactions.</p>
+
+  <div class="callout warning"><span class="callout-label">Common finding</span><p>Excessive access to "super-user" or admin accounts is the #1 ITGC issue auditors find. Quarterly access reviews are the standard remediation.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — ITGC purpose</h3>
+    <p class="quiz-prompt">IT general controls primarily exist to:</p>
+    <ul class="quiz-options">
+      <li>Replace application controls</li>
+      <li>Test transaction accuracy</li>
+      <li>Provide a reliable foundation under which application controls can operate</li>
+      <li>Encrypt customer data only</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ITGCs (access, change, operations) don't test transactions directly — they ensure the environment in which application controls run is trustworthy. If anyone can modify production code, no application control can be relied upon.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Least privilege</h3>
+    <p class="quiz-prompt">The principle of least privilege requires that users:</p>
+    <ul class="quiz-options">
+      <li>Have only the access needed for their role</li>
+      <li>Have full access to all systems for flexibility</li>
+      <li>Share credentials within a department</li>
+      <li>Use the same password across applications</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Least privilege confines damage from compromise or insider threat. The opposites all violate access discipline. Modern implementation: role-based access control (RBAC) with periodic recertification.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Change management</h3>
+    <p class="quiz-prompt">Allowing the same person to develop AND deploy production code most directly violates:</p>
+    <ul class="quiz-options">
+      <li>Backup and recovery</li>
+      <li>Data encryption</li>
+      <li>Physical security</li>
+      <li>Segregation of duties in change management</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Developer-to-production segregation prevents unauthorized code (malicious or accidental) from reaching live systems. Auditors expect a separate release/operations role to own deployment.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">SOX & audit</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Application controls</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="6">
+  <span class="unit-eyebrow">Unit 6 · E.2 System Controls</span>
+  <h1>Application & transaction controls</h1>
+  <p class="unit-lead">Within an application, controls validate that data is complete, accurate, valid, and authorized. Three control points: input, processing, output.</p>
+
+  <h2><span class="marker">§6.1</span>Input controls</h2>
+  <ul>
+    <li><strong>Edit checks</strong>: range (age 0-120), format (email pattern), validity (vendor on master).</li>
+    <li><strong>Check digits</strong>: detect transposition errors in account numbers.</li>
+    <li><strong>Field requirements</strong>: mandatory fields prevent incomplete entry.</li>
+    <li><strong>Limit/reasonableness</strong>: invoice amount &lt; 3× moving average flagged.</li>
+  </ul>
+
+  <h2><span class="marker">§6.2</span>Processing & output controls</h2>
+  <p><strong>Processing</strong>: hash totals, run-to-run controls, sequence checks, audit logs of changes. <strong>Output</strong>: distribution lists, watermarks, reconciliation totals to source documents.</p>
+
+  <div class="callout tip"><span class="callout-label">Cue</span><p>Preventive controls stop errors before entry (input edits). Detective controls identify them after the fact (reconciliations). Corrective controls remediate (auto-resubmit, error-queue review).</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Edit check type</h3>
+    <p class="quiz-prompt">A field rejecting "MM/DD/YYYY" input that doesn't match a valid calendar date is a:</p>
+    <ul class="quiz-options">
+      <li>Sequence check</li>
+      <li>Validity (format) check</li>
+      <li>Limit check</li>
+      <li>Reasonableness check</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Validity tests whether the value is structurally valid (a real date, an existing customer ID). Limit checks numeric bounds; reasonableness compares against typical patterns.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Preventive vs detective</h3>
+    <p class="quiz-prompt">A monthly reconciliation between subsidiary ledger and general ledger is a:</p>
+    <ul class="quiz-options">
+      <li>Detective control</li>
+      <li>Preventive control</li>
+      <li>Corrective control</li>
+      <li>Steering control</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Reconciliations find errors after they occur — that's detection. Preventive examples: input edits, authorization, segregation. Corrective: error-handling routines that fix or resubmit.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Hash total</h3>
+    <p class="quiz-prompt">A "hash total" verifies:</p>
+    <ul class="quiz-options">
+      <li>Each transaction is profitable</li>
+      <li>Sales tax is computed correctly</li>
+      <li>The same data was processed end-to-end without loss or change</li>
+      <li>Customer addresses are valid</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A hash total is the sum of a non-meaningful field (e.g. all customer IDs) computed at input and re-checked at processing. If they don't match, records were lost or modified. Hash totals don't have business meaning — that's the point.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">ITGC</span></button>
+    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">Cyber & data controls</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="7">
+  <span class="unit-eyebrow">Unit 7 · E.2 System Controls</span>
+  <h1>Technology, data, and cyber controls</h1>
+  <p class="unit-lead">Beyond the accounting system: encryption, network security, identity management, data classification, and incident response. The CMA tests vocabulary; you need to recognize each control's purpose.</p>
+
+  <h2><span class="marker">§7.1</span>Technical safeguards</h2>
+  <ul>
+    <li><strong>Encryption at rest</strong> (database/disk) and <strong>in transit</strong> (TLS).</li>
+    <li><strong>Firewalls</strong> & <strong>intrusion detection/prevention</strong> (IDS/IPS).</li>
+    <li><strong>Multi-factor authentication (MFA)</strong> — something you know + have/are.</li>
+    <li><strong>VPN / zero-trust</strong> network access.</li>
+    <li><strong>Data loss prevention (DLP)</strong> tools.</li>
+  </ul>
+
+  <h2><span class="marker">§7.2</span>Data classification</h2>
+  <p>Public, internal, confidential, restricted. Each tier triggers different controls (encryption strength, access reviews, retention).</p>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — MFA</h3>
+    <p class="quiz-prompt">Multi-factor authentication strengthens access control by combining:</p>
+    <ul class="quiz-options">
+      <li>Two or more independent credential types (know / have / are)</li>
+      <li>Two passwords from the same user</li>
+      <li>Two different applications using the same login</li>
+      <li>Username and email confirmation only</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> MFA requires factors from different categories — something you KNOW (password), something you HAVE (token, phone), something you ARE (biometric). Two passwords or two prompts of the same kind aren't multi-factor.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Encryption purpose</h3>
+    <p class="quiz-prompt">Encryption "at rest" specifically protects data when:</p>
+    <ul class="quiz-options">
+      <li>Being entered by a user</li>
+      <li>Being transmitted across a network</li>
+      <li>Stored in databases or files</li>
+      <li>Being processed in memory</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> "At rest" = stored. "In transit" = moving across networks. Both are necessary; neither protects data being processed in memory (a separate problem solved by trusted execution environments). A laptop disk encryption is at-rest protection.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — DLP</h3>
+    <p class="quiz-prompt">A data loss prevention (DLP) tool primarily aims to:</p>
+    <ul class="quiz-options">
+      <li>Encrypt all incoming email</li>
+      <li>Restore lost backup files</li>
+      <li>Replace antivirus software</li>
+      <li>Detect and block unauthorized exfiltration of sensitive data</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> DLP scans outbound channels (email, USB, web uploads) for content matching sensitive-data patterns (SSN, account numbers) and blocks or alerts on attempted leaks. It's a complement to, not a replacement for, encryption and antivirus.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">Application controls</span></button>
+    <button class="nav-link next" onclick="goTo(8)"><span class="dir">Next →</span><span class="ttl">Backup & continuity</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="8">
+  <span class="unit-eyebrow">Unit 8 · E.2 System Controls</span>
+  <h1>Backup, recovery, and business continuity</h1>
+  <p class="unit-lead">Backups protect against data loss; disaster recovery (DR) and business continuity planning (BCP) protect against operations loss. The two acronyms you must know cold: <strong>RTO</strong> (recovery time objective — how long you can be down) and <strong>RPO</strong> (recovery point objective — how much data you can afford to lose).</p>
+
+  <h2><span class="marker">§8.1</span>Backup strategy</h2>
+  <ul>
+    <li><strong>Full</strong>: complete copy. Slow, large, easy to restore.</li>
+    <li><strong>Incremental</strong>: only what changed since last backup. Fast, small, slow to restore (chain).</li>
+    <li><strong>Differential</strong>: everything since last full. Middle ground.</li>
+    <li><strong>3-2-1 rule</strong>: 3 copies, 2 different media, 1 offsite.</li>
+  </ul>
+
+  <h2><span class="marker">§8.2</span>RTO, RPO, and DR site types</h2>
+  <table class="fin-table">
+    <thead><tr><th>Site</th><th>State</th><th>RTO</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>Hot</td><td>Fully running, data replicated</td><td>Minutes</td><td>Highest</td></tr>
+      <tr><td>Warm</td><td>Hardware ready, partial data</td><td>Hours</td><td>Medium</td></tr>
+      <tr><td>Cold</td><td>Empty space, hardware to install</td><td>Days–Weeks</td><td>Lowest</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning"><span class="callout-label">Untested = unproven</span><p>Backup tapes that have never been restored may be corrupt. DR sites that have never been failed-over may not work. Periodic disaster simulations are part of the control, not optional.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — RPO</h3>
+    <p class="quiz-prompt">A 1-hour RPO means:</p>
+    <ul class="quiz-options">
+      <li>The system can be down up to 1 hour</li>
+      <li>The maximum acceptable data loss is 1 hour of transactions</li>
+      <li>Recovery must complete within 1 hour</li>
+      <li>The DR test runs every hour</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> RPO defines the data-loss tolerance — the point in time to which we recover. RTO defines how fast we recover. A 1-hour RPO requires hourly (or more frequent) backups or replication. Stricter RPO = more expensive infrastructure.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Site choice</h3>
+    <p class="quiz-prompt">A bank requiring sub-minute failover for its core trading system needs a:</p>
+    <ul class="quiz-options">
+      <li>Hot site</li>
+      <li>Warm site</li>
+      <li>Cold site</li>
+      <li>Mobile site</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Hot site is fully running with replicated data — failover is essentially instant. Warm site requires loading recent backups (hours). Cold site requires hardware installation (days/weeks). Cost matches RTO requirements.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — 3-2-1</h3>
+    <p class="quiz-prompt">The 3-2-1 backup rule requires:</p>
+    <ul class="quiz-options">
+      <li>3 daily, 2 weekly, 1 monthly backup</li>
+      <li>3 RAID disks, 2 controllers, 1 replication target</li>
+      <li>3 copies on 2 different media with 1 stored offsite</li>
+      <li>3-day RTO, 2-day RPO, 1 DR site</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Three copies (so a primary + two backups), two media types (e.g. disk + cloud, or disk + tape — protects against media-specific failure), one stored geographically separate (protects against site disaster, fire, flood). A simple, durable rule of thumb.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-8">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(7)"><span class="dir">← Previous</span><span class="ttl">Cyber controls</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="900">
+  <span class="unit-eyebrow">Practice Test 1 · Section E — Internal Controls</span>
+  <h1>Test 1 — Section E mixed</h1>
+  <p class="unit-lead">12 mixed multiple-choice questions across E.1–E.2.</p>
+
+  <div class="test-intro">
+    <h2>Coverage</h2>
+    <p>COSO, segregation of duties, SOX, ITGC, application controls, cyber, backup/DR.</p>
+    <div class="test-meta">
+      <span>Questions<strong>12</strong></span>
+      <span>Time target<strong>~22 min</strong></span>
+      <span>Pass mark<strong>75%</strong></span>
+    </div>
+  </div>
+
+  <div class="test">
+    <div class="test-progress">
+      <span class="answered">0 / 12 answered</span>
+      <div class="score-bar"><div class="score-fill"></div></div>
+      <span class="score-percent">0 correct</span>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="1" data-topic="COSO components">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">COSO</span></div>
+      <p class="quiz-q">Which is NOT one of the five COSO components?</p>
+      <ul class="quiz-options"><li>Control environment</li><li>Risk assessment</li><li>Monitoring</li><li>Tone at the top</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> The five components are Control environment, Risk assessment, Information & communication, Monitoring, control activities (CRIME). "Tone at the top" is an aspect of control environment, not a separate component.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="1" data-topic="Inherent limitations">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">Inherent limitations</span></div>
+      <p class="quiz-q">All of the following are inherent limitations of internal control EXCEPT:</p>
+      <ul class="quiz-options"><li>Collusion</li><li>Management override</li><li>Insufficient documentation</li><li>Cost-benefit constraints</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Insufficient documentation is a design or operating deficiency — fixable. Inherent limitations exist regardless of design quality: human error, collusion, override, cost-benefit.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="2" data-topic="ARC SoD">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">SoD</span></div>
+      <p class="quiz-q">The "ARC" framework segregates which three duties?</p>
+      <ul class="quiz-options"><li>Authorization, Recording, Custody</li><li>Approval, Reconciliation, Confirmation</li><li>Audit, Risk, Compliance</li><li>Access, Restriction, Coverage</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Authorization (approving), Recording (bookkeeping), Custody (handling the asset). Combining any two creates fraud opportunity. ARC.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="3" data-topic="Severity">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Deficiency severity</span></div>
+      <p class="quiz-q">Public companies must DISCLOSE in their 10-K under SOX 404:</p>
+      <ul class="quiz-options"><li>All control deficiencies</li><li>Significant deficiencies</li><li>Inquiry findings</li><li>Material weaknesses</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Material weaknesses (reasonable possibility of material misstatement) trigger public disclosure. Lower-severity deficiencies stay internal or with the audit committee only.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="3" data-topic="Testing">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Audit testing</span></div>
+      <p class="quiz-q">The strongest audit evidence about control operating effectiveness comes from:</p>
+      <ul class="quiz-options"><li>Reperformance</li><li>Inquiry</li><li>Observation</li><li>Walkthroughs</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Reperformance — auditor independently re-runs the control. Inquiry is weakest; observation and walkthroughs are stronger but still limited to the moments observed.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="4" data-topic="SOX 302">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">SOX 302</span></div>
+      <p class="quiz-q">SOX §302 requires:</p>
+      <ul class="quiz-options"><li>Management's annual ICFR assertion</li><li>Quarterly CEO/CFO certification of FS and disclosure controls</li><li>External auditor attestation on ICFR</li><li>7-year audit-records retention</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> §302 = quarterly CEO/CFO certs. §404(a) = annual ICFR assertion. §404(b) = auditor attestation. §802 = records retention. Memorize the section numbers — they recur on the exam.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="4" data-topic="Audit committee">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Audit committee</span></div>
+      <p class="quiz-q">Under SOX, the audit committee must:</p>
+      <ul class="quiz-options"><li>Be composed entirely of independent directors and engage the external auditor</li><li>Be chaired by the CEO</li><li>Include the CFO as a permanent member</li><li>Include at least one PCAOB member</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Audit committee must be 100% independent (no management). It engages and oversees the external auditor — moving that authority away from management was a core SOX reform.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="5" data-topic="ITGC">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">ITGC</span></div>
+      <p class="quiz-q">Which is an IT general control (NOT an application control)?</p>
+      <ul class="quiz-options"><li>Edit check on a date field</li><li>Reconciliation of subledger to GL</li><li>Quarterly review of privileged user access</li><li>Hash total comparison</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Privileged-access review is an ITGC (access control). The other three are application/process-level controls. ITGCs cover the environment; application controls cover specific transactions.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="6" data-topic="Edit check">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">Edit checks</span></div>
+      <p class="quiz-q">A field that rejects ages above 120 is a:</p>
+      <ul class="quiz-options"><li>Sequence check</li><li>Limit/reasonableness check</li><li>Validity check</li><li>Hash total</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Limit checks numeric bounds. Reasonableness compares against typical patterns. Validity tests whether the value is structurally valid (a real date, an existing customer ID).</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="7" data-topic="MFA">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Authentication</span></div>
+      <p class="quiz-q">Combining a password with a fingerprint scan is an example of:</p>
+      <ul class="quiz-options"><li>Multi-factor authentication (something you know + something you are)</li><li>Single-factor authentication</li><li>Federated identity</li><li>Single sign-on</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> MFA combines factors from different categories: KNOW (password), HAVE (token/phone), ARE (biometric). Two passwords would still be one factor.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="8" data-topic="RTO/RPO">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">RTO/RPO</span></div>
+      <p class="quiz-q">A 4-hour RTO means:</p>
+      <ul class="quiz-options"><li>Backup runs every 4 hours</li><li>Maximum 4 hours of data loss is acceptable</li><li>Operations must resume within 4 hours of an outage</li><li>The DR test is performed every 4 hours</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> RTO = recovery TIME objective = how fast operations resume. RPO = recovery POINT = how much data we can lose. Don't swap them.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="8" data-topic="DR site">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">DR site</span></div>
+      <p class="quiz-q">A "warm site" differs from a "hot site" by:</p>
+      <ul class="quiz-options"><li>Having hardware ready but not fully synced data</li><li>Being a fully replicated mirror with sub-minute failover</li><li>Being only a contracted office space</li><li>Being a mobile data center</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Warm = hardware ready, partial data, hours-to-recover. Hot = fully running, replicated, minutes. Cold = empty space, days/weeks.</div>
+    </div>
+
+    <div class="test-summary">
+      <h2>Test 1 · Results</h2>
+      <div class="score-display">0%</div>
+      <div class="score-meta">—</div>
+      <div class="missed-list"></div>
+      <button class="btn restart-btn">↻ Restart with shuffled order</button>
+    </div>
+  </div>
+  <button class="btn done-btn" id="mark-done-900">Mark complete</button>
+</article>
+
+<article class="unit" data-id="950">
+  <span class="unit-eyebrow">Flashcards · Section E</span>
+  <h1>Flashcard hub</h1>
+  <p class="unit-lead">Drill the COSO/SOX/IT-control vocabulary.</p>
+  <div class="flashcard-hub" id="flashcard-hub"></div>
+  <button class="btn done-btn" id="mark-done-950">Mark complete</button>
+</article>
+
+</main>
+</div>
+
+<script src="../../assets/engine.js?v=2"></script>
+<script>
+window.SECTION_CONFIG = {
+  sectionId: "E",
+  sectionTitle: "Section E — Internal Controls",
+  storageKey: "cma-section-e-progress-v1",
+  annotationKey: "cma-section-e-ann-v1",
+  totalUnits: 10,
+  trackedUnits: 8,
+  navStructure: [
+    { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
+    { group: "E.1 · Governance, Risk & Compliance", units: [
+      { id: 1, num: "01", title: "Internal control & COSO" },
+      { id: 2, num: "02", title: "Control activities & SoD" },
+      { id: 3, num: "03", title: "Risk assessment & deficiencies" },
+      { id: 4, num: "04", title: "SOX, governance, audit" },
+    ]},
+    { group: "E.2 · System Controls & Security", units: [
+      { id: 5, num: "05", title: "ITGC — access, change, ops" },
+      { id: 6, num: "06", title: "Application & transaction" },
+      { id: 7, num: "07", title: "Cyber & data controls" },
+      { id: 8, num: "08", title: "Backup, RTO/RPO, BCP" },
+    ]},
+    { group: "📝 Practice Test", units: [
+      { id: 900, num: "T1", title: "Section E mixed (12Q)" },
+    ]},
+    { group: "🃏 Flashcards", units: [
+      { id: 950, num: "FC", title: "All decks" },
+    ]},
+  ],
+  keyTakeaways: {
+    1: ["Internal control objectives: Operations, Reporting, Compliance (ORC).", "Five components (CRIME): Control environment, Risk, Information, Monitoring, control Environment activities.", "Inherent limitations: human error, collusion, management override, cost-benefit. Reasonable not absolute assurance.", "Tone at the top is part of Control environment — the foundation."],
+    2: ["Segregate Authorization, Recording, Custody (ARC). Combining any two creates fraud risk.", "Compensating controls (e.g. owner review) substitute when SoD is structurally impossible.", "General authorization sets policies; specific authorization needs per-transaction approval.", "Reconciliation, independent verification, physical safeguards round out control activities."],
+    3: ["Severity: control deficiency < significant deficiency < material weakness.", "Material weaknesses must be disclosed in 10-K (SOX 404).", "Test methods, weakest to strongest: Inquiry, Observation, Inspection, Reperformance.", "Risk responses: accept, mitigate, transfer, avoid."],
+    4: ["SOX §302: quarterly CEO/CFO certification. §404: ICFR assertion + audit attestation. §802: records retention. §906: criminal certification.", "PCAOB sets public-company auditing standards and inspects firms; FASB sets GAAP.", "Audit committee must be entirely independent and engages the external auditor.", "Auditor independence rules: certain non-audit services barred; rotation of lead/concurring partners."],
+    5: ["IT general controls cover Access, Change Management, Operations, Program Development.", "Least privilege: grant only necessary access. Review quarterly.", "Developers must not deploy to production — segregation of duties in IT.", "Excessive privileged-account access is the most common ITGC audit finding."],
+    6: ["Input controls: edit checks, validity, limit, reasonableness, check digits, mandatory fields.", "Processing controls: hash totals, run-to-run, audit logs.", "Output controls: distribution lists, reconciliations to source.", "Preventive vs detective vs corrective — know which is which."],
+    7: ["Encryption at rest (storage) and in transit (network) — both required.", "Multi-factor authentication: combine know / have / are categories.", "Data classification (public/internal/confidential/restricted) drives control rigor.", "DLP detects and blocks sensitive-data exfiltration."],
+    8: ["RTO = recovery time (downtime tolerance). RPO = recovery point (data-loss tolerance).", "Backup types: full, incremental, differential. 3-2-1 rule: 3 copies, 2 media, 1 offsite.", "DR sites: hot (minutes RTO), warm (hours), cold (days/weeks). Cost matches RTO requirement.", "Untested backups and untested DR plans are unproven — periodic drills are part of the control."],
+  },
+  flashcardDecks: {
+    "coso-and-sox": {
+      title: "COSO, SOX, and governance",
+      eyebrow: "E.1 GRC",
+      cards: [
+        ["COSO 5 components", "Control environment, Risk assessment, Info & comms, Monitoring, Control activities"],
+        ["COSO objectives", "Operations, Reporting, Compliance"],
+        ["ARC framework", "Authorization, Recording, Custody — segregate"],
+        ["Material weakness", "Reasonable possibility of material misstatement (10-K disclosure)"],
+        ["Significant deficiency", "Important enough for governance, less than material weakness"],
+        ["Strongest test", "Reperformance"],
+        ["Weakest test", "Inquiry"],
+        ["SOX §302", "Quarterly CEO/CFO certification"],
+        ["SOX §404(a)", "Management's ICFR assertion"],
+        ["SOX §404(b)", "Auditor attestation on ICFR"],
+        ["SOX §802", "7-year audit-records retention"],
+        ["PCAOB", "Sets public-company auditing standards; inspects firms"],
+        ["Audit committee", "Independent directors only; engages external auditor"],
+        ["Risk response options", "Accept, Mitigate, Transfer, Avoid"],
+        ["Reasonable assurance", "Internal control's ceiling — never absolute"],
+      ]
+    },
+    "it-controls": {
+      title: "IT controls and continuity",
+      eyebrow: "E.2 Systems",
+      cards: [
+        ["ITGC domains", "Access, Change management, Operations, Program development"],
+        ["Least privilege", "Only the access needed for the role"],
+        ["Application input controls", "Edit checks, validity, limit, reasonableness, check digits"],
+        ["Hash total", "Sum of non-meaningful field; verifies completeness"],
+        ["Preventive control", "Stops error before occurrence (input edit, authorization)"],
+        ["Detective control", "Identifies after the fact (reconciliation)"],
+        ["Corrective control", "Remediates (error queue, auto-resubmit)"],
+        ["Encryption at rest", "Protects stored data (disk/database)"],
+        ["Encryption in transit", "Protects data moving across network (TLS)"],
+        ["MFA factors", "KNOW (password), HAVE (token), ARE (biometric)"],
+        ["DLP", "Data Loss Prevention — blocks unauthorized exfiltration"],
+        ["RTO", "Recovery TIME — how fast we restore operations"],
+        ["RPO", "Recovery POINT — how much data we can lose"],
+        ["Hot site", "Fully running, replicated, minutes RTO"],
+        ["Cold site", "Empty space, days/weeks RTO, lowest cost"],
+        ["3-2-1 rule", "3 copies, 2 media, 1 offsite"],
+      ]
+    },
+  },
+  formulaReference: [
+    { section: "Severity ladder", items: [
+      { label: "Material weakness", formula: "Reasonable possibility of MATERIAL misstatement", unitId: 3 },
+      { label: "Significant deficiency", formula: "Important to governance; less than material weakness", unitId: 3 },
+      { label: "Control deficiency", formula: "Design/operation doesn't allow timely prevention/detection", unitId: 3 },
+    ]},
+    { section: "Audit testing strength", items: [
+      { label: "Strongest", formula: "Reperformance", unitId: 3 },
+      { label: "Strong", formula: "Inspection of evidence", unitId: 3 },
+      { label: "Moderate", formula: "Observation", unitId: 3 },
+      { label: "Weakest", formula: "Inquiry", unitId: 3 },
+    ]},
+    { section: "Continuity", items: [
+      { label: "RTO", formula: "Recovery TIME objective — downtime tolerance", unitId: 8 },
+      { label: "RPO", formula: "Recovery POINT objective — data-loss tolerance", unitId: 8 },
+      { label: "3-2-1 rule", formula: "3 copies / 2 media / 1 offsite", unitId: 8 },
+    ]},
+  ],
+};
+</script>
+<script>CMA.init(window.SECTION_CONFIG);</script>
+</body>
+</html>

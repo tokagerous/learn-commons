@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FMAA · Section C — Planning & Budgeting</title>
+<meta name="description" content="A field guide for FMAA Section C: budgeting concepts and characteristics; master, flexible, rolling, and zero-based budgets; annual operating plan with operational, financial, and capital budgets." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/style.css?v=2" />
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><span class="ornament"></span>FMAA · C</div>
+  <div class="brand-sub">Planning & budgeting · A visual field guide</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text" id="progress-text">0 of 6 units complete</div>
+  <div class="sidebar-search" style="margin-top:18px">
+    <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
+    <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
+  </div>
+  <nav id="nav" style="margin-top:8px"></nav>
+  <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); display:flex; gap:8px; flex-wrap:wrap;">
+    <a href="index.html" class="btn ghost small" style="text-decoration:none;">← FMAA home</a>
+    <a href="../../index.html" class="btn ghost small" style="text-decoration:none;">All programs</a>
+    <button class="btn ghost small" id="reset-progress">Reset progress</button>
+    <button class="btn ghost small" id="show-shortcuts" title="Keyboard shortcuts (?)">⌨ Shortcuts</button>
+  </div>
+</aside>
+
+<div id="kbd-help" role="dialog" aria-modal="true">
+  <div class="kbd-box">
+    <h3>Keyboard shortcuts</h3>
+    <div class="kbd-row"><span>Next unit</span><span class="keys"><span class="kbd">→</span> <span class="kbd">J</span></span></div>
+    <div class="kbd-row"><span>Previous unit</span><span class="keys"><span class="kbd">←</span> <span class="kbd">K</span></span></div>
+    <div class="kbd-row"><span>Focus search</span><span class="kbd">/</span></div>
+    <div class="kbd-row"><span>Bookmark this unit</span><span class="kbd">B</span></div>
+    <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
+    <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
+    <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
+    <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
+    <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
+  </div>
+</div>
+
+<button id="formula-toggle-btn" title="Formula reference (F)" aria-label="Open formula reference">ƒx</button>
+<aside id="formula-panel" aria-label="Formula reference">
+  <div class="fp-header"><h3>Formula reference</h3><button class="ann-panel-close" id="formula-panel-close" aria-label="Close">×</button></div>
+  <div class="fp-search"><input type="text" id="formula-search" placeholder="Search formulas, ratios, rules…" /></div>
+  <div class="fp-list" id="formula-list"></div>
+</aside>
+
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+<aside id="ann-panel">
+  <div class="ann-panel-header"><h3>Notes & highlights</h3><button class="ann-panel-close" aria-label="Close">×</button></div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
+
+<main class="content" id="content">
+
+<article class="unit active" data-id="0">
+  <div class="cover">
+    <span class="unit-eyebrow">FMAA · Section C · 20% weight · Levels A & B</span>
+    <h1 class="cover-title">Planning<br/>& Budgeting.</h1>
+    <p class="cover-sub">A budget is a plan expressed in numbers. Done well, it aligns the organization, allocates resources, and creates a benchmark against which performance can be measured. Done badly, it hardens last year's mistakes into this year's targets.</p>
+    <div class="cover-meta">
+      <span>Units<strong>6 covered</strong></span>
+      <span>Practice questions<strong>~25</strong></span>
+      <span>FMAA weight<strong>20% of exam</strong></span>
+      <span>Levels<strong>A · B</strong></span>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">C.1</span>Budgeting Concepts</h2>
+    <div class="toc-card"><h3>C.1 — Goals & process (Unit 1)</h3>
+      <ol><li><button onclick="goTo(1)">Why budget — performance goals & process characteristics</button></li></ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">C.2</span>Budgeting Methodologies</h2>
+    <div class="toc-card"><h3>C.2 — Master, flexible, rolling, zero-based (Units 2–4)</h3>
+      <ol start="2">
+        <li><button onclick="goTo(2)">Master budget — the integrated annual plan</button></li>
+        <li><button onclick="goTo(3)">Flexible budget — adjust to actual volume</button></li>
+        <li><button onclick="goTo(4)">Rolling budget & zero-based budget</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">C.3</span>Annual Operating Plan</h2>
+    <div class="toc-card"><h3>C.3 — Operational, financial, capex (Units 5–6)</h3>
+      <ol start="5">
+        <li><button onclick="goTo(5)">Operational budgets — sales, production, materials, labor</button></li>
+        <li><button onclick="goTo(6)">Financial & capital budgets</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Test</h2>
+    <div class="toc-card">
+      <ol class="plain" style="list-style:none; padding-left:0">
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Section C mixed · 10 Q · ~18 min</button></li>
+      </ol>
+    </div>
+  </div>
+  <button class="btn done-btn" id="mark-done-0">Mark complete</button>
+</article>
+
+<article class="unit" data-id="1">
+  <span class="unit-eyebrow">Unit 1 · C.1 Budgeting Concepts</span>
+  <h1>Why budget — performance goals & process characteristics</h1>
+  <p class="unit-lead">Budgets serve four purposes: <strong>plan</strong> (set direction), <strong>coordinate</strong> (align functions), <strong>communicate</strong> (translate strategy into operating numbers), and <strong>control</strong> (provide a benchmark for variance analysis).</p>
+
+  <h2><span class="marker">§1.1</span>Goals: stretch but achievable</h2>
+  <p>Targets too easy = no motivation. Too hard = demoralization or gaming. Effective targets are challenging but attainable — typically requiring above-average effort but reachable by competent execution.</p>
+
+  <h2><span class="marker">§1.2</span>Top-down vs bottom-up</h2>
+  <ul>
+    <li><strong>Top-down (imposed)</strong>: management sets targets, departments execute. Fast, aligned with strategy, but risks unrealistic numbers and low buy-in.</li>
+    <li><strong>Bottom-up (participative)</strong>: each manager builds their numbers, rolled up. Higher buy-in, better local information, but slow and prone to <em>budget slack</em>.</li>
+    <li><strong>Hybrid</strong>: management sets targets and capital allocation; teams build operational details to fit. Most common.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Slack</span><p>Budget slack = padding — managers who set their own numbers tend to under-promise, building in a cushion. Detect it via benchmarking, peer review, and zero-based questioning of base assumptions.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Budget purposes</h3>
+    <p class="quiz-prompt">Which is NOT a primary purpose of a budget?</p>
+    <ul class="quiz-options">
+      <li>Planning</li>
+      <li>Coordination</li>
+      <li>Tax minimization</li>
+      <li>Performance evaluation</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Tax minimization is a separate exercise. The four canonical budget purposes: plan, coordinate, communicate, control (evaluate). Budgets influence decisions that have tax effects, but tax planning isn't their main job.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Top-down vs bottom-up</h3>
+    <p class="quiz-prompt">A primary disadvantage of bottom-up (participative) budgeting is:</p>
+    <ul class="quiz-options">
+      <li>Risk of budget slack from managers padding their numbers</li>
+      <li>Lack of coordination across departments</li>
+      <li>Slow strategic alignment</li>
+      <li>All of these</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Slack (sandbagging) is the classic bottom-up problem. The other downsides also exist (slower process, harder coordination), but slack is the singular issue most often cited. Hybrid approaches mitigate it.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Effective targets</h3>
+    <p class="quiz-prompt">A budget target should be:</p>
+    <ul class="quiz-options">
+      <li>Easily achievable to maintain morale</li>
+      <li>Challenging but attainable with competent effort</li>
+      <li>Theoretically optimal regardless of feasibility</li>
+      <li>Set by accounting independent of operations</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Stretch-but-attainable maximizes motivational pull. Easy targets create complacency; impossible targets get gamed. Operations input is essential — accounting can't set realistic operational targets alone.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-1">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Map</span></button>
+    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Master budget</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="2">
+  <span class="unit-eyebrow">Unit 2 · C.2 Methodologies</span>
+  <h1>Master budget — the integrated annual plan</h1>
+  <p class="unit-lead">The master budget is the comprehensive annual plan: a sequence of interlocking budgets feeding from the sales forecast through to projected financial statements. The pieces connect — change the sales forecast and every downstream budget shifts.</p>
+
+  <h2><span class="marker">§2.1</span>The flow</h2>
+  <ol>
+    <li><strong>Sales budget</strong> (the starting driver) — units × price.</li>
+    <li><strong>Production budget</strong> — sales + ending inventory − beginning inventory.</li>
+    <li><strong>Direct materials budget</strong> — production × per-unit need + ending RM − beginning RM.</li>
+    <li><strong>Direct labor budget</strong> — production × per-unit hours × rate.</li>
+    <li><strong>Manufacturing overhead budget</strong> — variable per-unit + fixed.</li>
+    <li><strong>Selling & admin budget</strong>.</li>
+    <li><strong>Cash budget</strong> — receipts − disbursements.</li>
+    <li><strong>Pro-forma IS &amp; BS</strong>.</li>
+  </ol>
+
+  <div class="formula-box">Production = Sales units + Desired End FG − Beg FG<br/>RM purchases = (Production × per-unit need) + Desired End RM − Beg RM</div>
+
+  <h2><span class="marker">§2.2</span>Why sales is the keystone</h2>
+  <p>The sales forecast is the most uncertain input — and it drives everything else. A small forecasting error compounds through production, materials, labor, and cash. Most variance analyses begin by asking how much of the gap traces back to a sales-volume miss.</p>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Production budget</h3>
+    <p class="quiz-prompt">Sales forecast 12,000 units; desired ending FG 1,500; beginning FG 1,000. Production budget:</p>
+    <ul class="quiz-options">
+      <li>12,500 units</li>
+      <li>14,500 units</li>
+      <li>11,500 units</li>
+      <li>10,500 units</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Production = Sales + End FG − Beg FG = 12,000 + 1,500 − 1,000 = <strong>12,500</strong>. Build for what you'll sell PLUS the inventory you want to end with, MINUS what's already on hand.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — RM purchases</h3>
+    <p class="quiz-prompt">Production needs 50,000 lbs of material this period. Desired end RM 8,000 lbs; beginning RM 5,000 lbs. Required purchases:</p>
+    <ul class="quiz-options">
+      <li>50,000 lbs</li>
+      <li>47,000 lbs</li>
+      <li>53,000 lbs</li>
+      <li>63,000 lbs</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Purchases = Need + End RM − Beg RM = 50K + 8K − 5K = <strong>53,000 lbs</strong>. Same equation pattern as production: cover usage + desired ending − beginning.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Master-budget keystone</h3>
+    <p class="quiz-prompt">The first (driving) budget in a master budget is typically the:</p>
+    <ul class="quiz-options">
+      <li>Production budget</li>
+      <li>Cash budget</li>
+      <li>Capital budget</li>
+      <li>Sales budget</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Sales drives everything downstream. Production is built to support sales; materials and labor are built to support production; cash is built from receipts and disbursements driven by all the above.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-2">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Concepts</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Flexible budget</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="3">
+  <span class="unit-eyebrow">Unit 3 · C.2 Methodologies</span>
+  <h1>Flexible budget — adjust to actual volume</h1>
+  <p class="unit-lead">A static budget is locked at one expected volume. A flexible budget adjusts variable costs to the volume that actually occurred — separating <em>volume effects</em> from <em>spending efficiency</em>.</p>
+
+  <h2><span class="marker">§3.1</span>The mechanic</h2>
+  <p>Flexible-budget formula for each line: <code>Fixed cost + (Variable rate × Actual volume)</code>. Comparing actual to flexible budget reveals spending/efficiency variances; comparing flexible to static reveals volume variance.</p>
+
+  <table class="fin-table">
+    <thead><tr><th></th><th>Static budget</th><th>Flexible budget</th><th>Actual</th></tr></thead>
+    <tbody>
+      <tr><td>Volume</td><td>10,000 units</td><td>9,500 units</td><td>9,500 units</td></tr>
+      <tr><td>Variable cost ($3/unit)</td><td>$30,000</td><td>$28,500</td><td>$29,000</td></tr>
+      <tr><td>Fixed cost</td><td>$50,000</td><td>$50,000</td><td>$51,000</td></tr>
+    </tbody>
+  </table>
+
+  <p>Flex-vs-actual variance: $500 unfavorable spending (variable) + $1,000 unfavorable spending (fixed) = $1,500 U. Static-vs-flex: $1,500 favorable volume variance for variable costs.</p>
+
+  <div class="callout tip"><span class="callout-label">Why both</span><p>Comparing actual to STATIC mixes volume and efficiency effects. The flexible budget cleanly separates them — fundamental to fair performance evaluation.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Flex calculation</h3>
+    <p class="quiz-prompt">Variable cost rate $4/unit; fixed $20K. Flex budget at 5,000 units:</p>
+    <ul class="quiz-options">
+      <li>$20,000</li>
+      <li>$40,000</li>
+      <li>$25,000</li>
+      <li>$45,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $20K fixed + ($4 × 5,000) = $20K + $20K = <strong>$40,000</strong>. The variable component flexes; fixed doesn't.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Variance attribution</h3>
+    <p class="quiz-prompt">Comparing the flexible budget to actual results isolates:</p>
+    <ul class="quiz-options">
+      <li>Spending and efficiency variances</li>
+      <li>Volume variance only</li>
+      <li>Strategic variances</li>
+      <li>Pricing variances only</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Flex-to-actual = spending/efficiency (volume already matches). Static-to-flex = pure volume effect. The "two-step" (static → flex → actual) split is the foundation of CMA Section C variance analysis.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Fixed cost in flex</h3>
+    <p class="quiz-prompt">In a flexible budget, fixed costs:</p>
+    <ul class="quiz-options">
+      <li>Increase proportionally with volume</li>
+      <li>Vary linearly with sales dollars</li>
+      <li>Stay constant within the relevant range</li>
+      <li>Are excluded</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Fixed = fixed by definition. The flex budget keeps fixed costs unchanged and adjusts only the variable portion to actual volume.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-3">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Master budget</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Rolling & ZBB</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="4">
+  <span class="unit-eyebrow">Unit 4 · C.2 Methodologies</span>
+  <h1>Rolling budget & zero-based budget</h1>
+  <p class="unit-lead">Two alternatives to the traditional once-a-year process. <strong>Rolling (continuous) budgets</strong> always look 12 months ahead; <strong>zero-based budgets (ZBB)</strong> rebuild every line from scratch each cycle.</p>
+
+  <h2><span class="marker">§4.1</span>Rolling budget</h2>
+  <p>As each month closes, drop it and add a new month at the end of the horizon. Always 12 months of forward visibility. Pros: continuously fresh, encourages ongoing planning. Cons: more work; requires good systems.</p>
+
+  <h2><span class="marker">§4.2</span>Zero-based budget</h2>
+  <p>Each manager justifies every line from $0 — no historical baseline accepted. Reveals slack, surfaces unjustified spending, but is expensive to operate and exhausting if done annually. Often run on a 3-5 year cycle, with incremental budgeting in between.</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Approach</th><th>Best when</th></tr></thead>
+    <tbody>
+      <tr><td>Traditional (incremental)</td><td>Stable environment; budgets refined annually from prior year</td></tr>
+      <tr><td>Rolling</td><td>Volatile environment; need continuous re-forecast</td></tr>
+      <tr><td>Zero-based</td><td>Cost reduction needed; suspect of accumulated slack</td></tr>
+      <tr><td>Activity-based</td><td>Want budgets tied to drivers, not historical accounts</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Rolling budget feature</h3>
+    <p class="quiz-prompt">A rolling (continuous) budget:</p>
+    <ul class="quiz-options">
+      <li>Is rebuilt from $0 each year</li>
+      <li>Covers a 5-year horizon</li>
+      <li>Always maintains a fixed forward horizon (e.g. 12 months)</li>
+      <li>Is used only by non-profits</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The defining feature: as a period closes, a new period is added at the end of the horizon, so the forward view stays constant. ZBB rebuilds; rolling re-extends.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2 — ZBB advantage</h3>
+    <p class="quiz-prompt">A primary advantage of zero-based budgeting is:</p>
+    <ul class="quiz-options">
+      <li>Speed and simplicity</li>
+      <li>Forces justification of every spending line, surfacing slack</li>
+      <li>Eliminates need for management review</li>
+      <li>Lower preparation cost than incremental budgeting</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ZBB starts from a blank slate — every dollar must be justified. Cost reduction efforts often deploy ZBB precisely for this reason. The trade-off: it's labor-intensive and tiring.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Activity-based budgeting</h3>
+    <p class="quiz-prompt">Activity-based budgeting differs from traditional budgeting by:</p>
+    <ul class="quiz-options">
+      <li>Eliminating fixed-cost categories</li>
+      <li>Building budgets only from prior-year actuals</li>
+      <li>Using a rolling horizon</li>
+      <li>Tying budgets to activity drivers (orders, setups, customers) rather than GL accounts</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Activity-based budgeting mirrors ABC: budget by activity volume × cost per activity. More closely linked to operational reality than account-by-account incrementing. Often paired with ABC for end-to-end activity-driven costing/budgeting.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-4">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Flexible budget</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">Operational budgets</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="5">
+  <span class="unit-eyebrow">Unit 5 · C.3 Annual Plan</span>
+  <h1>Operational budgets — sales, production, materials, labor</h1>
+  <p class="unit-lead">Operational budgets translate the sales forecast into action: how many units to produce, how much material to buy, how much labor to hire, how much overhead to apply.</p>
+
+  <h2><span class="marker">§5.1</span>The cascade</h2>
+  <p>We saw the equations in Unit 2; here's how they fit together as <em>policy</em>:</p>
+  <ul>
+    <li><strong>Production budget</strong> reflects an inventory policy (e.g. "carry 1 month of forward sales as ending FG").</li>
+    <li><strong>Materials budget</strong> reflects a vendor relationship and lead time (e.g. "order to maintain 2 weeks of safety stock").</li>
+    <li><strong>Labor budget</strong> reflects hiring/firing constraints, union agreements, training cycles.</li>
+    <li><strong>OH budget</strong> reflects predetermined rates from Section D — variable rate × planned activity + budgeted fixed.</li>
+  </ul>
+
+  <h2><span class="marker">§5.2</span>Stable production with seasonal sales</h2>
+  <p>If sales are seasonal but production must be steady (capital-intensive plant, skilled labor), the production budget produces evenly and inventory absorbs the swing — building before peak and drawing down during peak. The trade-off: carrying-cost vs scaling-cost.</p>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Inventory policy effect</h3>
+    <p class="quiz-prompt">A company decides to RAISE its desired ending FG inventory from 500 to 1,500 units. Holding sales forecast constant, the production budget will:</p>
+    <ul class="quiz-options">
+      <li>Increase by 1,000 units</li>
+      <li>Decrease by 1,000 units</li>
+      <li>Stay the same</li>
+      <li>Decrease to half</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Production = Sales + End FG − Beg FG. Raising End FG by 1,000 raises production by 1,000. Carrying more inventory has cost — usually justified by smoother production or uncertainty buffers.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Direct labor budget</h3>
+    <p class="quiz-prompt">Production budget 8,000 units; standard labor 0.5 hours/unit; rate $20/hr. Direct labor budget:</p>
+    <ul class="quiz-options">
+      <li>$160,000</li>
+      <li>$40,000</li>
+      <li>$80,000</li>
+      <li>$320,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Hours = 8,000 × 0.5 = 4,000. Cost = 4,000 × $20 = <strong>$80,000</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Stable production</h3>
+    <p class="quiz-prompt">A toy maker with strong Q4 holiday sales but year-round labor force most likely uses:</p>
+    <ul class="quiz-options">
+      <li>Just-in-time production with no inventory</li>
+      <li>Seasonal layoffs and re-hiring</li>
+      <li>Production that exactly matches monthly sales</li>
+      <li>Stable production with inventory build before Q4</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Stable production + inventory absorbs the seasonality. Seasonal layoffs are expensive and damage workforce morale; matching monthly production needs surge capacity. Most large seasonal manufacturers smooth production this way.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">Rolling & ZBB</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Financial & capital</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="6">
+  <span class="unit-eyebrow">Unit 6 · C.3 Annual Plan</span>
+  <h1>Financial & capital budgets</h1>
+  <p class="unit-lead">After operations are budgeted, two more layers complete the master plan: the <strong>financial budget</strong> (cash budget + pro-forma BS) and the <strong>capital budget</strong> (long-term asset additions, deeper than the annual cycle).</p>
+
+  <h2><span class="marker">§6.1</span>Cash budget</h2>
+  <p>Receipts (collections from sales given AR aging) − Disbursements (payments for materials given AP aging, labor, overhead, S&amp;A, taxes, capex). A negative running balance triggers borrowing; surpluses can be invested or used to reduce debt.</p>
+
+  <div class="formula-box">Ending cash = Beginning cash + Receipts − Disbursements ± Financing<br/>Minimum cash balance often required (e.g. compensating balance, working-capital cushion)</div>
+
+  <h2><span class="marker">§6.2</span>Capital budget</h2>
+  <p>Long-term decisions — equipment purchases, facility expansion, acquisitions. Evaluated separately because they cross multiple periods and use NPV / IRR / payback (CMA Part 2 territory in depth). The annual capital budget reflects which approved projects spend cash this year.</p>
+
+  <div class="callout tip"><span class="callout-label">Connection</span><p>Capital decisions feed the master plan multiple ways: depreciation hits the IS, interest on financing debt hits the IS, asset additions hit the BS, and cash outlays hit the cash budget.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Cash budget components</h3>
+    <p class="quiz-prompt">A cash budget primarily includes:</p>
+    <ul class="quiz-options">
+      <li>Net income from the income statement</li>
+      <li>Cash receipts and disbursements based on AR/AP aging and other timing</li>
+      <li>Depreciation expense</li>
+      <li>Equity issuances at fair value</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Cash budget tracks actual cash movement, not accrual-basis NI. Depreciation never appears (non-cash). Equity issuances appear at the cash received, not at FV of shares (which equals cash for new issuances).</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 2 — Receipt timing</h3>
+    <p class="quiz-prompt">Sales of $100K in March, of which 20% collected in March, 60% in April, 20% in May. April cash receipt from March sales:</p>
+    <ul class="quiz-options">
+      <li>$20,000</li>
+      <li>$80,000</li>
+      <li>$100,000</li>
+      <li>$60,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> 60% of $100K = <strong>$60,000</strong>. Cash budgets translate sales (the IS recognition month) into cash receipts spread across collection months per the AR aging policy.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Capital vs operating</h3>
+    <p class="quiz-prompt">A capital budget primarily addresses:</p>
+    <ul class="quiz-options">
+      <li>Multi-period investments in long-term assets</li>
+      <li>Daily working-capital management</li>
+      <li>Annual income forecasting</li>
+      <li>Marketing campaign allocation</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Capital = capex / long-lived asset additions evaluated over multiple periods (NPV, IRR, payback). Annual operating budgets handle the year-by-year cash effects of approved capital projects.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">Operational</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="900">
+  <span class="unit-eyebrow">Practice Test 1 · FMAA Section C</span>
+  <h1>Test 1 — Section C mixed</h1>
+  <p class="unit-lead">10 mixed multiple-choice questions covering C.1–C.3.</p>
+  <div class="test-intro"><h2>Coverage</h2><p>Concepts, master budget, flexible, rolling/ZBB, operational, financial/capital.</p>
+    <div class="test-meta"><span>Questions<strong>10</strong></span><span>Time target<strong>~18 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
+
+  <div class="test">
+    <div class="test-progress"><span class="answered">0 / 10 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
+
+    <div class="test-question" data-correct="2" data-unit="1" data-topic="Slack">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Budget slack</span></div>
+      <p class="quiz-q">Budget slack is most associated with:</p>
+      <ul class="quiz-options"><li>Top-down budgeting</li><li>Zero-based budgeting</li><li>Bottom-up (participative) budgeting</li><li>Activity-based budgeting</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Managers setting their own targets tend to under-promise. Top-down avoids slack but risks unrealistic targets and low buy-in. ZBB and ABB rebuild and challenge incrementalism.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="2" data-topic="Production">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">Production</span></div>
+      <p class="quiz-q">Sales forecast 25,000; desired End FG 4,000; Beg FG 5,000. Production:</p>
+      <ul class="quiz-options"><li>24,000</li><li>26,000</li><li>34,000</li><li>21,000</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 25,000 + 4,000 − 5,000 = <strong>24,000</strong>. Inventory drawdown reduces required production.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="2" data-topic="Materials">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Materials</span></div>
+      <p class="quiz-q">Production 10,000 units × 2 lbs/unit = 20,000 lbs needed. End RM 3,000; Beg RM 4,000. Purchases:</p>
+      <ul class="quiz-options"><li>20,000 lbs</li><li>23,000 lbs</li><li>17,000 lbs</li><li>19,000 lbs</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 20,000 + 3,000 − 4,000 = <strong>19,000</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="3" data-topic="Flex budget">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Flexible budget</span></div>
+      <p class="quiz-q">Variable $5/unit; fixed $30K. Flex budget at 6,000 units:</p>
+      <ul class="quiz-options"><li>$30,000</li><li>$60,000</li><li>$45,000</li><li>$36,000</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> $30K + ($5 × 6K) = $30K + $30K = <strong>$60,000</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="3" data-topic="Variance attribution">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Variance attribution</span></div>
+      <p class="quiz-q">Comparing static budget to flexible budget isolates:</p>
+      <ul class="quiz-options"><li>Spending variance</li><li>Efficiency variance</li><li>Volume variance</li><li>Price variance</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Static-to-flex = volume only. Flex-to-actual = spending and efficiency.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="4" data-topic="Rolling">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Rolling budget</span></div>
+      <p class="quiz-q">A 12-month rolling budget:</p>
+      <ul class="quiz-options"><li>Always maintains a 12-month forward horizon by adding a new month as one closes</li><li>Is rebuilt from zero every year</li><li>Skips quarterly updates</li><li>Locks in fixed-cost lines for 12 months</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Rolling = always look forward 12 months. Continuous freshness; more work than annual.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="4" data-topic="ZBB">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Zero-based</span></div>
+      <p class="quiz-q">ZBB is most often used when:</p>
+      <ul class="quiz-options"><li>Operations are stable and well-understood</li><li>Speed of preparation is critical</li><li>Cost reduction or rooting out slack is a priority</li><li>Activity-based costing is unavailable</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ZBB's value proposition is forcing fresh justification — best deployed when there's reason to suspect accumulated slack or for cost-reduction initiatives.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="5" data-topic="Stable production">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Production smoothing</span></div>
+      <p class="quiz-q">A toy manufacturer with peak sales in November-December most likely:</p>
+      <ul class="quiz-options"><li>Builds inventory steadily through Q1-Q3 to absorb peak demand</li><li>Hires seasonal workers and lays them off post-peak</li><li>Produces only in November and December</li><li>Outsources all production</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Stable production through the year + inventory build is the standard pattern. Trades carrying cost for steady employment and capacity utilization.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="6" data-topic="Cash budget">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">Cash budget</span></div>
+      <p class="quiz-q">Which item does NOT appear in the cash budget?</p>
+      <ul class="quiz-options"><li>Customer cash receipts</li><li>Tax payments</li><li>Depreciation</li><li>Capital expenditures</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Depreciation is non-cash — it never appears in a cash budget. Receipts, tax payments, and capex outlays all do.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="6" data-topic="Receipt timing">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Cash collection</span></div>
+      <p class="quiz-q">Sales $200K in May; collection 30% in May, 50% in June, 20% in July. June receipts from May sales:</p>
+      <ul class="quiz-options"><li>$60,000</li><li>$100,000</li><li>$140,000</li><li>$200,000</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 50% × $200K = <strong>$100,000</strong>.</div>
+    </div>
+
+    <div class="test-summary"><h2>Test 1 · Results</h2><div class="score-display">0%</div><div class="score-meta">—</div><div class="missed-list"></div><button class="btn restart-btn">↻ Restart with shuffled order</button></div>
+  </div>
+  <button class="btn done-btn" id="mark-done-900">Mark complete</button>
+</article>
+
+<article class="unit" data-id="950">
+  <span class="unit-eyebrow">Flashcards · Section C</span>
+  <h1>Flashcard hub</h1>
+  <p class="unit-lead">Drill the budgeting equations and methodology vocabulary.</p>
+  <div class="flashcard-hub" id="flashcard-hub"></div>
+  <button class="btn done-btn" id="mark-done-950">Mark complete</button>
+</article>
+
+</main>
+</div>
+
+<script src="../../assets/engine.js?v=2"></script>
+<script>
+window.SECTION_CONFIG = {
+  sectionId: "FMAA-C",
+  sectionTitle: "FMAA · Section C — Planning & Budgeting",
+  storageKey: "fmaa-c-progress-v1",
+  annotationKey: "fmaa-c-ann-v1",
+  totalUnits: 8,
+  trackedUnits: 6,
+  navStructure: [
+    { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
+    { group: "C.1 · Budgeting Concepts", units: [
+      { id: 1, num: "01", title: "Goals & process" },
+    ]},
+    { group: "C.2 · Methodologies", units: [
+      { id: 2, num: "02", title: "Master budget" },
+      { id: 3, num: "03", title: "Flexible budget" },
+      { id: 4, num: "04", title: "Rolling & ZBB" },
+    ]},
+    { group: "C.3 · Annual Plan", units: [
+      { id: 5, num: "05", title: "Operational budgets" },
+      { id: 6, num: "06", title: "Financial & capital" },
+    ]},
+    { group: "📝 Practice Test", units: [
+      { id: 900, num: "T1", title: "Section C mixed (10Q)" },
+    ]},
+    { group: "🃏 Flashcards", units: [
+      { id: 950, num: "FC", title: "All decks" },
+    ]},
+  ],
+  keyTakeaways: {
+    1: ["Budgets serve four purposes: plan, coordinate, communicate, control.", "Top-down: fast, aligned with strategy, but risks low buy-in. Bottom-up: high buy-in but risks slack.", "Best targets are challenging but attainable.", "Hybrid (top-down financial, bottom-up operational) is most common."],
+    2: ["Sales is the keystone — drives everything downstream.", "Production = Sales + End FG − Beg FG.", "RM purchases = (Production × per-unit need) + End RM − Beg RM.", "Master budget integrates: sales → production → materials → labor → OH → S&A → cash → pro-forma FS."],
+    3: ["Flex budget = Fixed + Variable rate × ACTUAL volume.", "Static-to-flex = volume variance. Flex-to-actual = spending/efficiency variance.", "Comparing actual to a STATIC budget mixes volume and efficiency effects — unfair.", "Fixed costs do NOT flex within the relevant range."],
+    4: ["Rolling budget: always maintain a fixed forward horizon (e.g. 12 months).", "ZBB: rebuild every line from $0; surfaces slack but expensive to operate.", "Activity-based budgeting: tie budgets to drivers, not GL accounts.", "Choose method by environment: stable→incremental, volatile→rolling, cost-reduction→ZBB."],
+    5: ["Operational budgets: sales, production, materials, labor, overhead, S&A.", "Inventory policy in production budget; safety stock in materials budget.", "Stable production + seasonal inventory absorbs demand swings without layoffs.", "Direct labor budget = Production × per-unit hours × rate."],
+    6: ["Cash budget = Beg cash + Receipts − Disbursements ± Financing.", "Depreciation NEVER appears in cash budget (non-cash).", "Cash receipts depend on AR aging policy applied to sales budget.", "Capital budget covers multi-period asset additions; CMA Part 2 evaluation methods (NPV, IRR, payback)."],
+  },
+  flashcardDecks: {
+    "budget-formulas": {
+      title: "Budget formulas",
+      eyebrow: "C.2-C.3",
+      cards: [
+        ["Production budget", "Sales + End FG − Beg FG"],
+        ["RM purchases", "(Production × need/unit) + End RM − Beg RM"],
+        ["Direct labor cost", "Production × hrs/unit × rate"],
+        ["Flexible budget", "Fixed + Variable rate × ACTUAL volume"],
+        ["Cash budget", "Beg cash + Receipts − Disbursements ± Financing"],
+        ["Rolling budget", "Always maintain fixed forward horizon (e.g. 12 mo)"],
+        ["Zero-based budget", "Rebuild every line from $0 each cycle"],
+        ["Activity-based budget", "Budget by driver × cost per activity"],
+        ["Master budget keystone", "Sales budget — drives everything downstream"],
+        ["Static-to-flex variance", "Volume variance"],
+        ["Flex-to-actual variance", "Spending/efficiency variance"],
+        ["Items NOT in cash budget", "Depreciation, amortization, accruals (non-cash)"],
+      ]
+    },
+  },
+  formulaReference: [
+    { section: "Master budget chains", items: [
+      { label: "Production budget", formula: "Sales units + End FG − Beg FG", unitId: 2 },
+      { label: "RM purchases", formula: "(Production × need/unit) + End RM − Beg RM", unitId: 2 },
+      { label: "Direct labor", formula: "Production × hrs/unit × rate", unitId: 5 },
+    ]},
+    { section: "Flexible budget", items: [
+      { label: "Flex budget formula", formula: "Fixed + Variable rate × ACTUAL volume", unitId: 3 },
+      { label: "Static-to-flex", formula: "Isolates volume variance", unitId: 3 },
+      { label: "Flex-to-actual", formula: "Isolates spending/efficiency", unitId: 3 },
+    ]},
+    { section: "Cash budget", items: [
+      { label: "Ending cash", formula: "Beg cash + Receipts − Disbursements ± Financing", unitId: 6 },
+      { label: "Excludes", formula: "Depreciation, amortization, other non-cash", unitId: 6 },
+    ]},
+  ],
+};
+</script>
+<script>CMA.init(window.SECTION_CONFIG);</script>
+</body>
+</html>

@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CMA Part 1 · Section F — Technology and Analytics</title>
+<meta name="description" content="A field guide for CMA Part 1 Section F: information systems (AIS, ERP, EPM); data governance; technology-enabled finance transformation (SDLC, RPA, AI); data analytics, BI, mining, visualization." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/style.css?v=2" />
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="brand"><span class="ornament"></span>Section F</div>
+  <div class="brand-sub">Technology & Analytics · CMA Part 1 · A visual field guide</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text" id="progress-text">0 of 8 units complete</div>
+  <div class="sidebar-search" style="margin-top:18px">
+    <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
+    <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
+  </div>
+  <nav id="nav" style="margin-top:8px"></nav>
+  <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); display:flex; gap:8px; flex-wrap:wrap;">
+    <a href="index.html" class="btn ghost small" style="text-decoration:none;">← All sections</a>
+    <a href="../../index.html" class="btn ghost small" style="text-decoration:none;">All programs</a>
+    <button class="btn ghost small" id="reset-progress">Reset progress</button>
+    <button class="btn ghost small" id="show-shortcuts" title="Keyboard shortcuts (?)">⌨ Shortcuts</button>
+  </div>
+</aside>
+
+<div id="kbd-help" role="dialog" aria-modal="true">
+  <div class="kbd-box">
+    <h3>Keyboard shortcuts</h3>
+    <div class="kbd-row"><span>Next unit</span><span class="keys"><span class="kbd">→</span> <span class="kbd">J</span></span></div>
+    <div class="kbd-row"><span>Previous unit</span><span class="keys"><span class="kbd">←</span> <span class="kbd">K</span></span></div>
+    <div class="kbd-row"><span>Focus search</span><span class="kbd">/</span></div>
+    <div class="kbd-row"><span>Bookmark this unit</span><span class="kbd">B</span></div>
+    <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
+    <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
+    <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
+    <div class="kbd-row"><span>Undo annotation</span><span class="keys"><span class="kbd">⌘/Ctrl</span><span class="kbd">Z</span></span></div>
+    <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
+    <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
+  </div>
+</div>
+
+<button id="formula-toggle-btn" title="Formula reference (F)" aria-label="Open formula reference">ƒx</button>
+<aside id="formula-panel" aria-label="Formula reference">
+  <div class="fp-header">
+    <h3>Formula reference</h3>
+    <button class="ann-panel-close" id="formula-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="fp-search"><input type="text" id="formula-search" placeholder="Search formulas, ratios, rules…" /></div>
+  <div class="fp-list" id="formula-list"></div>
+</aside>
+
+<div id="ann-toolbar">
+  <span class="ann-tb-swatch" data-color="yellow"></span>
+  <span class="ann-tb-swatch" data-color="green"></span>
+  <span class="ann-tb-swatch" data-color="blue"></span>
+  <span class="ann-tb-swatch" data-color="pink"></span>
+  <span class="ann-tb-divider"></span>
+  <button class="ann-tb-btn" id="ann-tb-note">✎ Note</button>
+  <button class="ann-tb-btn danger" id="ann-tb-delete">× Delete</button>
+</div>
+<aside id="ann-panel">
+  <div class="ann-panel-header">
+    <h3>Notes & highlights</h3>
+    <button class="ann-panel-close" aria-label="Close">×</button>
+  </div>
+  <div class="ann-tabs">
+    <button class="ann-tab active" data-tab="bookmarks">Bookmarks</button>
+    <button class="ann-tab" data-tab="highlights">Highlights</button>
+    <button class="ann-tab" data-tab="notes">Notes</button>
+  </div>
+  <div class="ann-tab-pane active" data-tab="bookmarks"></div>
+  <div class="ann-tab-pane" data-tab="highlights"></div>
+  <div class="ann-tab-pane" data-tab="notes"></div>
+</aside>
+<button id="ann-toggle-btn" title="Notes & bookmarks (A)" aria-label="Open annotations panel">📝<span class="badge"></span></button>
+<div id="ann-note-modal">
+  <div class="ann-note-box">
+    <h4>Add note to highlight</h4>
+    <div class="ann-note-preview" id="ann-note-preview"></div>
+    <textarea id="ann-note-input" placeholder="Type a note…"></textarea>
+    <div class="ann-note-actions">
+      <button class="ann-note-cancel">Cancel</button>
+      <button class="ann-note-save">Save note</button>
+    </div>
+  </div>
+</div>
+
+<main class="content" id="content">
+
+<article class="unit active" data-id="0">
+  <div class="cover">
+    <span class="unit-eyebrow">CMA Part 1 · Section F · 15% weight · Level C</span>
+    <h1 class="cover-title">Technology<br/>& Analytics.</h1>
+    <p class="cover-sub">The systems and analytics that turn finance from a record-keeper into a decision partner. AIS, ERP, EPM up front; data governance and the lifecycle of data; the SDLC, RPA, and AI in finance; and the four types of analytics (descriptive → prescriptive) plus visualization.</p>
+    <div class="cover-meta">
+      <span>Units<strong>8 covered</strong></span>
+      <span>Practice questions<strong>~30</strong></span>
+      <span>CMA weight<strong>15% of Part 1</strong></span>
+      <span>Cognitive level<strong>A · B · C</strong></span>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">F.1</span>Information Systems</h2>
+    <div class="toc-card">
+      <h3>F.1 — AIS, ERP, EPM (Units 1–2)</h3>
+      <ol>
+        <li><button onclick="goTo(1)">Accounting information systems & ERP</button></li>
+        <li><button onclick="goTo(2)">Enterprise performance management (EPM)</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">F.2</span>Data Governance</h2>
+    <div class="toc-card">
+      <h3>F.2 — Policies, lifecycle, security (Unit 3)</h3>
+      <ol start="3">
+        <li><button onclick="goTo(3)">Data governance, lifecycle, and security</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">F.3</span>Finance Transformation</h2>
+    <div class="toc-card">
+      <h3>F.3 — SDLC, RPA, innovative apps (Units 4–5)</h3>
+      <ol start="4">
+        <li><button onclick="goTo(4)">System development life cycle (SDLC)</button></li>
+        <li><button onclick="goTo(5)">RPA, AI, blockchain, cloud — innovative finance apps</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">F.4</span>Data Analytics</h2>
+    <div class="toc-card">
+      <h3>F.4 — BI, mining, types, viz (Units 6–8)</h3>
+      <ol start="6">
+        <li><button onclick="goTo(6)">Business intelligence & data mining</button></li>
+        <li><button onclick="goTo(7)">Four types of analytics</button></li>
+        <li><button onclick="goTo(8)">Data visualization</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Test</h2>
+    <div class="toc-card">
+      <ol class="plain" style="list-style:none; padding-left:0">
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Section F mixed · 12 Q · ~22 min</button></li>
+      </ol>
+    </div>
+  </div>
+  <button class="btn done-btn" id="mark-done-0">Mark complete</button>
+</article>
+
+<article class="unit" data-id="1">
+  <span class="unit-eyebrow">Unit 1 · F.1 Information Systems</span>
+  <h1>Accounting information systems & ERP</h1>
+  <p class="unit-lead">An <strong>AIS</strong> captures, processes, and reports accounting transactions. An <strong>ERP</strong> system extends that capability across the whole enterprise — finance, inventory, manufacturing, HR, sales — running on a single integrated database.</p>
+
+  <h2><span class="marker">§1.1</span>Cycles inside an AIS</h2>
+  <ul>
+    <li><strong>Revenue cycle</strong> — order, ship, bill, collect.</li>
+    <li><strong>Expenditure cycle</strong> — request, approve, receive, pay.</li>
+    <li><strong>Production cycle</strong> — plan, manufacture, account.</li>
+    <li><strong>HR/payroll</strong> — hire, time, compensate.</li>
+    <li><strong>Financing</strong> — capital structure, equity, debt.</li>
+    <li><strong>General ledger / reporting</strong> — close, consolidate, report.</li>
+  </ul>
+
+  <h2><span class="marker">§1.2</span>ERP — promises and pitfalls</h2>
+  <p><strong>Benefits</strong>: single source of truth, real-time visibility, standardized processes, lower IT footprint long-term. <strong>Costs</strong>: large up-front license + implementation, organizational disruption, customization risk, vendor lock-in.</p>
+
+  <div class="callout warning"><span class="callout-label">Implementation rule</span><p>Customize the ERP as little as possible. Adapt your processes to the system, not the other way around — every customization is a future upgrade tax.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — ERP advantage</h3>
+    <p class="quiz-prompt">A primary benefit of ERP over disconnected functional systems is:</p>
+    <ul class="quiz-options">
+      <li>Single source of truth across business functions</li>
+      <li>Lower implementation cost</li>
+      <li>Easier customization</li>
+      <li>Reduced training requirements</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> One database means inventory, finance, sales all see the same data in real time. The downsides — implementation cost, training, customization complexity — are well-known. ERP wins on integration, not on simplicity or cost.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Cycle classification</h3>
+    <p class="quiz-prompt">Receiving goods, matching the receipt to a PO, and recording the payable belongs to the:</p>
+    <ul class="quiz-options">
+      <li>Revenue cycle</li>
+      <li>Production cycle</li>
+      <li>Expenditure cycle</li>
+      <li>Financing cycle</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Expenditure (procure-to-pay): request → PO → receipt → 3-way match → payable → payment. Revenue is order-to-cash. Don't confuse "expenditure" (everyday operating spend) with "financing" (capital raises).</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — ERP customization</h3>
+    <p class="quiz-prompt">A widely cited rule of ERP implementation is:</p>
+    <ul class="quiz-options">
+      <li>Customize the system to mirror current processes exactly</li>
+      <li>Adapt processes to the system; minimize customization</li>
+      <li>Buy multiple ERPs to mitigate vendor lock-in</li>
+      <li>Skip user training to reduce cost</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Heavy customization fights every future upgrade and tightens vendor lock-in. Best practice: change processes to fit configurable ERP options where possible. Reserve customization for true competitive differentiators.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-1">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Map</span></button>
+    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">EPM</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="2">
+  <span class="unit-eyebrow">Unit 2 · F.1 Information Systems</span>
+  <h1>Enterprise performance management (EPM)</h1>
+  <p class="unit-lead">EPM (also called CPM or BPM) extends the ERP transactional layer with planning, budgeting, forecasting, consolidation, and management reporting. Examples: Oracle EPM Cloud, SAP BPC, Anaplan, Workday Adaptive Planning.</p>
+
+  <h2><span class="marker">§2.1</span>What EPM does that ERP doesn't</h2>
+  <ul>
+    <li><strong>Driver-based planning</strong> — model revenue and cost from operational drivers, not just GL accounts.</li>
+    <li><strong>Multi-scenario forecasting</strong> — base/upside/downside, sensitivity, what-if.</li>
+    <li><strong>Consolidation & close</strong> — multi-entity, multi-currency, intercompany eliminations.</li>
+    <li><strong>Management reporting</strong> — profitability by product/customer/segment, beyond GAAP-required reports.</li>
+  </ul>
+
+  <h2><span class="marker">§2.2</span>Why it sits separately from ERP</h2>
+  <p>ERP is optimized for transactional speed and accuracy; EPM for analytical flexibility. Trying to do both in one system usually compromises one or the other. Most large enterprises run both, with the EPM consuming actuals from the ERP.</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — EPM scope</h3>
+    <p class="quiz-prompt">EPM systems primarily support:</p>
+    <ul class="quiz-options">
+      <li>Daily transaction processing</li>
+      <li>Customer order management</li>
+      <li>Planning, budgeting, forecasting, and consolidation</li>
+      <li>Cyber-security operations</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> EPM = the management-accounting layer above the GL. ERP runs the transactions; EPM runs the planning and decision-support analytics on top of them.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Driver-based planning</h3>
+    <p class="quiz-prompt">"Driver-based planning" means:</p>
+    <ul class="quiz-options">
+      <li>Modeling revenue and cost from operational drivers (units, customers, headcount)</li>
+      <li>Setting budgets equal to last year × inflation</li>
+      <li>Letting top management drive every line item</li>
+      <li>Building plans only from historical GL trends</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Driver-based plans tie financial outcomes to operational levers (units sold, headcount, square feet). When a driver changes, the plan recalculates. This is far more responsive than line-by-line GL incrementing.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Consolidation features</h3>
+    <p class="quiz-prompt">Multi-entity, multi-currency consolidation with intercompany elimination is a core feature of:</p>
+    <ul class="quiz-options">
+      <li>An accounting information system (AIS)</li>
+      <li>A point-of-sale system</li>
+      <li>A CRM</li>
+      <li>An EPM (or specialized consolidation) system</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Consolidation tools are EPM territory (Oracle HFM, SAP BPC, OneStream). The base AIS/ERP records each entity's transactions, but rolling them up into group statements with translation and elimination is an EPM-class function.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-2">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">AIS & ERP</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Data governance</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="3">
+  <span class="unit-eyebrow">Unit 3 · F.2 Data Governance</span>
+  <h1>Data governance, lifecycle, and security</h1>
+  <p class="unit-lead">Data governance is the framework — people, processes, and policies — that makes data a managed asset. It covers ownership, quality, lifecycle, access, classification, and retention.</p>
+
+  <h2><span class="marker">§3.1</span>Data lifecycle</h2>
+  <p><strong>Create / capture → Store → Use → Share → Archive → Destroy</strong>. Each stage has its own controls (validation at capture, encryption at storage, role-based access at use, etc.).</p>
+
+  <h2><span class="marker">§3.2</span>Quality dimensions</h2>
+  <ul>
+    <li><strong>Accuracy</strong> — values match reality.</li>
+    <li><strong>Completeness</strong> — required values present.</li>
+    <li><strong>Consistency</strong> — same value across systems.</li>
+    <li><strong>Timeliness</strong> — current enough to be useful.</li>
+    <li><strong>Validity</strong> — conforms to business rules.</li>
+    <li><strong>Uniqueness</strong> — no duplicates.</li>
+  </ul>
+
+  <h2><span class="marker">§3.3</span>Data ethics & privacy</h2>
+  <p><strong>GDPR</strong> (Europe), <strong>CCPA</strong> (California), <strong>HIPAA</strong> (US healthcare) — major privacy regulations with extraterritorial reach. Penalties scale with revenue. Beyond compliance: ethical use of data (avoiding biased models, respecting consent, transparency in algorithmic decisions).</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Quality dimension</h3>
+    <p class="quiz-prompt">A customer record showing "addr: 123 Main St" in CRM but "address: 123 Main Street" in billing fails which data quality dimension?</p>
+    <ul class="quiz-options">
+      <li>Accuracy</li>
+      <li>Completeness</li>
+      <li>Consistency</li>
+      <li>Timeliness</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Both values are accurate (same street); both are complete; neither is stale. They differ across systems — that's <strong>consistency</strong>. Master data management (MDM) addresses this by maintaining a single canonical record.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Lifecycle stage</h3>
+    <p class="quiz-prompt">A retention policy that says "transaction records must be destroyed 7 years after creation" addresses which lifecycle stage?</p>
+    <ul class="quiz-options">
+      <li>Destruction / disposal</li>
+      <li>Capture</li>
+      <li>Use</li>
+      <li>Share</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Retention dictates how long data is kept and when/how it's destroyed. Beyond compliance (e.g. SOX 7-year rule), retention reduces breach exposure — data you don't have can't be stolen.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Privacy regulation</h3>
+    <p class="quiz-prompt">GDPR's "right to be forgotten" requires:</p>
+    <ul class="quiz-options">
+      <li>Encrypting all stored data</li>
+      <li>Two-factor authentication for users</li>
+      <li>30-day notice before any data sharing</li>
+      <li>Erasing personal data on a data-subject's request, where no other lawful basis applies</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Article 17 of GDPR creates the right of erasure. Data subjects can demand deletion of personal data; companies must comply unless retention is required by law (e.g. tax records). Implementation requires knowing where every personal-data copy lives — a major data-governance challenge.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-3">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">EPM</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">SDLC</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="4">
+  <span class="unit-eyebrow">Unit 4 · F.3 Finance Transformation</span>
+  <h1>System development life cycle (SDLC)</h1>
+  <p class="unit-lead">A disciplined sequence — analysis, design, development, testing, implementation, maintenance — for building or buying systems. Two flavors dominate: <strong>waterfall</strong> (sequential, phase-gated) and <strong>agile</strong> (iterative, sprint-based).</p>
+
+  <h2><span class="marker">§4.1</span>The phases</h2>
+  <ol>
+    <li><strong>Analysis</strong> — define requirements with users.</li>
+    <li><strong>Design</strong> — translate requirements into system architecture.</li>
+    <li><strong>Development</strong> — build (or configure for COTS).</li>
+    <li><strong>Testing</strong> — unit, integration, UAT.</li>
+    <li><strong>Implementation</strong> — deploy. Strategies: parallel, pilot, phased, big-bang.</li>
+    <li><strong>Maintenance</strong> — fix, enhance, decommission.</li>
+  </ol>
+
+  <h2><span class="marker">§4.2</span>Conversion strategies</h2>
+  <table class="fin-table">
+    <thead><tr><th>Strategy</th><th>How</th><th>Risk</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>Parallel</td><td>Old + new run side-by-side</td><td>Low</td><td>High</td></tr>
+      <tr><td>Pilot</td><td>One unit/site converts first</td><td>Low</td><td>Medium</td></tr>
+      <tr><td>Phased</td><td>Module by module</td><td>Medium</td><td>Medium</td></tr>
+      <tr><td>Big bang</td><td>Cut over all at once</td><td>High</td><td>Low</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip"><span class="callout-label">Choosing</span><p>Mission-critical systems with downtime intolerance get parallel. Limited-risk apps with budget constraints can big-bang. Most large ERP migrations are phased.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Lowest-risk strategy</h3>
+    <p class="quiz-prompt">The implementation strategy with the LOWEST risk and HIGHEST cost is:</p>
+    <ul class="quiz-options">
+      <li>Big bang</li>
+      <li>Parallel</li>
+      <li>Pilot</li>
+      <li>Phased</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Parallel runs both systems together until the new one is proven, then retires the old. Lowest risk (always have a fallback) but highest cost (running two systems). Big bang is the opposite trade-off.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Agile distinguishing feature</h3>
+    <p class="quiz-prompt">Agile development differs from waterfall primarily by:</p>
+    <ul class="quiz-options">
+      <li>Skipping the testing phase</li>
+      <li>Eliminating documentation</li>
+      <li>Delivering working software in short iterations with continuous user feedback</li>
+      <li>Avoiding user involvement until launch</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Agile = short iterations (sprints), working software at the end of each, continuous user feedback. Waterfall locks requirements upfront and delivers the whole system at the end. Agile doesn't eliminate testing or documentation — it integrates them throughout.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — UAT</h3>
+    <p class="quiz-prompt">User acceptance testing (UAT) primarily verifies:</p>
+    <ul class="quiz-options">
+      <li>The system meets business requirements as defined by users</li>
+      <li>Code passes unit tests</li>
+      <li>The infrastructure scales under load</li>
+      <li>Security vulnerabilities have been remediated</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> UAT is the final go/no-go test before launch — done by actual end users, against actual business scenarios. Unit, integration, and security tests are earlier and technical. UAT failure means the system works as built but doesn't fit how the business operates.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-4">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Data governance</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">RPA, AI, blockchain</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="5">
+  <span class="unit-eyebrow">Unit 5 · F.3 Finance Transformation</span>
+  <h1>RPA, AI, blockchain — innovative finance applications</h1>
+  <p class="unit-lead">The CMA tests vocabulary and use-case fit, not deep technical detail. Know what each technology is, what finance problem it solves, and what it can't do.</p>
+
+  <h2><span class="marker">§5.1</span>Robotic process automation (RPA)</h2>
+  <p><strong>RPA</strong> = software bots that mimic human GUI actions across applications (open ERP, copy field, paste into spreadsheet, save, email). Best for high-volume, rule-based, repetitive tasks. Fast to deploy, cheap relative to humans, but brittle when underlying screens change.</p>
+
+  <p><strong>Common finance uses</strong>: invoice processing, journal entries, account reconciliation, tax-form prep, regulatory filings.</p>
+
+  <h2><span class="marker">§5.2</span>AI / machine learning</h2>
+  <p><strong>AI</strong> goes beyond rules — pattern recognition, prediction, generation. <strong>ML</strong> learns from data; you don't program rules, you train models.</p>
+  <ul>
+    <li><strong>Anomaly detection</strong> — flag unusual transactions (fraud, errors).</li>
+    <li><strong>Forecasting</strong> — demand, cash flow, churn.</li>
+    <li><strong>NLP / GenAI</strong> — extract data from contracts, draft narratives, summarize variances.</li>
+  </ul>
+
+  <h2><span class="marker">§5.3</span>Blockchain</h2>
+  <p><strong>Distributed ledger</strong> with cryptographic chaining and consensus. No single party controls; entries are tamper-evident. Use cases: supply-chain provenance, cross-border payments, smart contracts, tokenized assets. Often overhyped; not every problem needs decentralization.</p>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — RPA fit</h3>
+    <p class="quiz-prompt">RPA is BEST suited to which type of task?</p>
+    <ul class="quiz-options">
+      <li>High-volume, rule-based, repetitive (e.g. invoice posting)</li>
+      <li>Low-volume, judgment-intensive (e.g. M&amp;A negotiation)</li>
+      <li>Pure pattern recognition with no rules</li>
+      <li>Tasks requiring physical robotics</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> RPA shines on structured, repetitive work. Judgment tasks need humans (or AI). Pattern recognition is ML/AI territory. RPA is purely software — no physical robots involved despite the name.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Finance AI use</h3>
+    <p class="quiz-prompt">A bank uses ML to flag transactions that look unusual versus a customer's history. This is:</p>
+    <ul class="quiz-options">
+      <li>RPA</li>
+      <li>Blockchain</li>
+      <li>Anomaly detection</li>
+      <li>Process mining</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Anomaly-detection models learn baseline behavior and surface deviations — the workhorse of fraud detection and audit analytics. RPA performs predefined actions; blockchain stores ledgers; process mining extracts process flows from event logs.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Blockchain claim</h3>
+    <p class="quiz-prompt">A core feature of blockchain is:</p>
+    <ul class="quiz-options">
+      <li>Centralized control by a single party</li>
+      <li>Tamper-evident, append-only distributed ledger</li>
+      <li>Faster than centralized databases for all queries</li>
+      <li>Always anonymous</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Each block links cryptographically to the previous one; modifying any record requires re-computing the chain — tamper-evident. It's distributed and append-only. Centralized DBs are usually faster than blockchains for read-heavy work, and many chains are pseudonymous (not anonymous) — addresses are public.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">SDLC</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">BI & data mining</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="6">
+  <span class="unit-eyebrow">Unit 6 · F.4 Data Analytics</span>
+  <h1>Business intelligence & data mining</h1>
+  <p class="unit-lead"><strong>Business intelligence (BI)</strong> packages historical data into dashboards and reports — typically structured, aggregated views of GL/sales/operations. <strong>Data mining</strong> applies statistical and ML techniques to large datasets to find patterns: clusters, associations, predictions, outliers.</p>
+
+  <h2><span class="marker">§6.1</span>Data warehouse vs data lake</h2>
+  <ul>
+    <li><strong>Data warehouse</strong> — structured, schema-on-write, optimized for BI queries. Examples: Snowflake, BigQuery, Redshift.</li>
+    <li><strong>Data lake</strong> — raw, schema-on-read, holds structured + unstructured (logs, images, video). Examples: S3, ADLS.</li>
+    <li><strong>Lakehouse</strong> — hybrid: lake's flexibility + warehouse-style querying.</li>
+  </ul>
+
+  <h2><span class="marker">§6.2</span>Common mining techniques</h2>
+  <table class="fin-table">
+    <thead><tr><th>Technique</th><th>Question it answers</th></tr></thead>
+    <tbody>
+      <tr><td>Classification</td><td>Which category does this belong to? (fraud / not fraud)</td></tr>
+      <tr><td>Regression</td><td>What numeric value? (forecast revenue)</td></tr>
+      <tr><td>Clustering</td><td>Which natural groups exist? (customer segments)</td></tr>
+      <tr><td>Association</td><td>What goes with what? (market basket)</td></tr>
+      <tr><td>Anomaly detection</td><td>Which observations don't fit? (fraud, errors)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Warehouse vs lake</h3>
+    <p class="quiz-prompt">A data lake differs from a data warehouse primarily by:</p>
+    <ul class="quiz-options">
+      <li>Storing only structured data</li>
+      <li>Requiring schema-on-write before loading</li>
+      <li>Holding raw data of any type, applying schema on read</li>
+      <li>Being a real-time transactional system</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Lakes accept structured + unstructured + semi-structured data in raw form. Schema is applied later, when querying. Warehouses force schema upfront, optimizing for analytic queries.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Mining technique</h3>
+    <p class="quiz-prompt">Identifying that customers who buy product A often also buy product B is an example of:</p>
+    <ul class="quiz-options">
+      <li>Association (market basket) analysis</li>
+      <li>Regression</li>
+      <li>Classification</li>
+      <li>Clustering</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Association rules ("if A → B with confidence X%") drive cross-sell and product-placement decisions. Classification predicts a category for a known label; clustering finds groups without labels.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — BI scope</h3>
+    <p class="quiz-prompt">Business intelligence dashboards primarily provide:</p>
+    <ul class="quiz-options">
+      <li>Real-time stock-trading recommendations</li>
+      <li>Predictive customer-lifetime-value models</li>
+      <li>Source-code reviews</li>
+      <li>Aggregated, historical views of operational and financial KPIs</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> BI dashboards summarize "what happened" — sales, margin, headcount, AR aging. Predictive models live in the analytics/data-science stack on top of the warehouse, not in the dashboards themselves.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">RPA & AI</span></button>
+    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">Four types of analytics</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="7">
+  <span class="unit-eyebrow">Unit 7 · F.4 Data Analytics</span>
+  <h1>The four types of analytics</h1>
+  <p class="unit-lead">A canonical hierarchy of analytical sophistication, each answering a different question. The CMA tests recognition: which type does this scenario need?</p>
+
+  <h2><span class="marker">§7.1</span>The ladder</h2>
+  <table class="fin-table">
+    <thead><tr><th>Type</th><th>Question</th><th>Tools</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Descriptive</strong></td><td>What happened?</td><td>Dashboards, reports, GL summaries</td></tr>
+      <tr><td><strong>Diagnostic</strong></td><td>Why did it happen?</td><td>Drill-down, variance analysis, root cause</td></tr>
+      <tr><td><strong>Predictive</strong></td><td>What will happen?</td><td>Forecasting, ML models, scenario analysis</td></tr>
+      <tr><td><strong>Prescriptive</strong></td><td>What should we do?</td><td>Optimization, decision automation, recommendations</td></tr>
+    </tbody>
+  </table>
+
+  <p>Each layer builds on the previous: prescriptive without predictive isn't grounded; predictive without diagnostic doesn't know which features matter; diagnostic without descriptive can't even identify the problem.</p>
+
+  <h2><span class="marker">§7.2</span>Maturity in finance</h2>
+  <p>Most finance functions live in the descriptive/diagnostic layers. Predictive (rolling forecasts, churn prediction, demand sensing) is the modern frontier. Prescriptive (auto-pricing, portfolio optimization) is rare in mainstream finance but common in supply chain and trading.</p>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 1 — Diagnostic</h3>
+    <p class="quiz-prompt">"Sales were down 12% last quarter — why?" An analyst drills into product, region, and customer segment to find the root cause. This is:</p>
+    <ul class="quiz-options">
+      <li>Descriptive analytics</li>
+      <li>Predictive analytics</li>
+      <li>Prescriptive analytics</li>
+      <li>Diagnostic analytics</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> "Why" is diagnostic. "What happened" (sales were down 12%) is descriptive. The driving question determines the type.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Predictive</h3>
+    <p class="quiz-prompt">A model that estimates next quarter's cash flow from current AR aging, sales pipeline, and seasonality is:</p>
+    <ul class="quiz-options">
+      <li>Descriptive</li>
+      <li>Diagnostic</li>
+      <li>Predictive</li>
+      <li>Prescriptive</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> "What will happen" — predictive. Add an optimization layer that says "to keep cash above $X, accelerate collections from these specific customers" and you're prescriptive.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Prescriptive</h3>
+    <p class="quiz-prompt">A recommendation engine that suggests "increase price 4% on these SKUs to maximize Q4 margin within the demand-elasticity bounds" is:</p>
+    <ul class="quiz-options">
+      <li>Prescriptive analytics</li>
+      <li>Descriptive analytics</li>
+      <li>Predictive analytics</li>
+      <li>Diagnostic analytics</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Prescriptive recommends an action. It typically combines a predictive model (demand response to price) with an optimization (maximize margin subject to constraints). Mature analytics organizations can deploy this; many can't.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">BI & mining</span></button>
+    <button class="nav-link next" onclick="goTo(8)"><span class="dir">Next →</span><span class="ttl">Visualization</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="8">
+  <span class="unit-eyebrow">Unit 8 · F.4 Data Analytics</span>
+  <h1>Data visualization</h1>
+  <p class="unit-lead">A good chart converts data into insight at a glance. A bad chart obscures or misleads. The CMA tests two things: chart-type fit (which chart for which question?) and recognition of misleading practices (truncated axes, dual-axis confusion, 3D distortion).</p>
+
+  <h2><span class="marker">§8.1</span>Chart-type fit</h2>
+  <table class="fin-table">
+    <thead><tr><th>Chart</th><th>Best for</th></tr></thead>
+    <tbody>
+      <tr><td>Bar / column</td><td>Comparing magnitudes across categories</td></tr>
+      <tr><td>Line</td><td>Trends over time</td></tr>
+      <tr><td>Pie</td><td>Parts of a whole (use only with few segments)</td></tr>
+      <tr><td>Scatter</td><td>Relationship between two variables</td></tr>
+      <tr><td>Heatmap</td><td>Density across two dimensions</td></tr>
+      <tr><td>Waterfall</td><td>Sequential additions/subtractions to a total</td></tr>
+      <tr><td>Box plot</td><td>Distribution + outliers</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§8.2</span>Misleading visualizations</h2>
+  <ul>
+    <li><strong>Truncated y-axis</strong>: not starting at zero exaggerates differences. Acceptable on line charts of trends; problematic on bar charts.</li>
+    <li><strong>Dual-axis confusion</strong>: comparing series on different scales can imply correlation that isn't real.</li>
+    <li><strong>3D effects</strong>: tilt distorts size perception. Avoid.</li>
+    <li><strong>Cherry-picking time ranges</strong>: pick a window that supports a story.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">CFO standard</span><p>For board-level finance reporting, prefer simple, defensible chart types. Bar/column for comparison, line for trends, waterfall for variance bridges. Reserve novelty (sankey, treemap) for cases where they genuinely help.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Chart fit</h3>
+    <p class="quiz-prompt">The BEST chart to show monthly revenue from January through December (one year, one company) is:</p>
+    <ul class="quiz-options">
+      <li>Pie chart</li>
+      <li>Line chart</li>
+      <li>Stacked bar chart</li>
+      <li>Treemap</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Trend over time = line chart. Pie shows composition at a single point. Stacked bars are useful when each month has multiple components. Treemaps show hierarchical proportions.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Variance bridge</h3>
+    <p class="quiz-prompt">Showing how Q1 NI moved from $3.0M last year to $3.4M this year via volume, price, mix, and cost effects is BEST done with a:</p>
+    <ul class="quiz-options">
+      <li>Pie chart</li>
+      <li>Scatter plot</li>
+      <li>Waterfall chart</li>
+      <li>Histogram</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Waterfall is built for sequential additions/subtractions starting from a base and ending at a total. Variance bridges, EBITDA bridges, cash-flow bridges — all waterfalls.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Misleading practice</h3>
+    <p class="quiz-prompt">A bar chart whose y-axis starts at $9,500 instead of $0 is most likely to:</p>
+    <ul class="quiz-options">
+      <li>Exaggerate small differences between bars</li>
+      <li>Improve readability for trends</li>
+      <li>Be required for compliance with GAAP</li>
+      <li>Have no effect on perception</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Truncating the y-axis on a bar chart turns small absolute differences into large visual differences. Honest practice: bar charts start at zero. (Trend lines tolerate truncation since the eye reads slope, not bar heights.)</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-8">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(7)"><span class="dir">← Previous</span><span class="ttl">Four types</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="900">
+  <span class="unit-eyebrow">Practice Test 1 · Section F — Tech & Analytics</span>
+  <h1>Test 1 — Section F mixed</h1>
+  <p class="unit-lead">12 mixed multiple-choice questions across F.1–F.4.</p>
+
+  <div class="test-intro">
+    <h2>Coverage</h2>
+    <p>AIS/ERP, EPM, data governance, SDLC, RPA/AI/blockchain, BI/data mining, four analytics types, visualization.</p>
+    <div class="test-meta">
+      <span>Questions<strong>12</strong></span>
+      <span>Time target<strong>~22 min</strong></span>
+      <span>Pass mark<strong>75%</strong></span>
+    </div>
+  </div>
+
+  <div class="test">
+    <div class="test-progress">
+      <span class="answered">0 / 12 answered</span>
+      <div class="score-bar"><div class="score-fill"></div></div>
+      <span class="score-percent">0 correct</span>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="1" data-topic="ERP">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">ERP</span></div>
+      <p class="quiz-q">The single most-cited primary benefit of an ERP is:</p>
+      <ul class="quiz-options"><li>Lower total cost of ownership</li><li>Faster implementation</li><li>Single integrated source of truth across functions</li><li>No customization</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Integration is the win. Cost and speed go the wrong way during ERP rollouts.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="1" data-topic="Cycles">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">AIS cycles</span></div>
+      <p class="quiz-q">The "order-to-cash" flow falls under which AIS cycle?</p>
+      <ul class="quiz-options"><li>Revenue cycle</li><li>Expenditure cycle</li><li>Production cycle</li><li>Financing cycle</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Order, ship, bill, collect = revenue cycle (also "OTC"). Expenditure = procure-to-pay (P2P).</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="2" data-topic="EPM">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">EPM</span></div>
+      <p class="quiz-q">Which is most likely to live in an EPM (vs ERP)?</p>
+      <ul class="quiz-options"><li>Real-time invoice posting</li><li>Inventory receipt</li><li>Daily payroll processing</li><li>Multi-scenario rolling forecast</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Forecasting and planning are EPM. ERP is the transactional engine.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="3" data-topic="Data quality">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Data quality</span></div>
+      <p class="quiz-q">A vendor record missing the tax ID field fails which dimension?</p>
+      <ul class="quiz-options"><li>Accuracy</li><li>Completeness</li><li>Consistency</li><li>Timeliness</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Required value not present = completeness failure. Accuracy = wrong value; consistency = differs across systems; timeliness = stale.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="3" data-topic="GDPR">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Privacy</span></div>
+      <p class="quiz-q">GDPR principally regulates:</p>
+      <ul class="quiz-options"><li>Personal data of EU residents</li><li>Healthcare data in the U.S.</li><li>Financial reporting in California</li><li>Trade secrets globally</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> GDPR = EU/EEA personal data. HIPAA = US healthcare. CCPA = California consumer privacy.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="4" data-topic="SDLC">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">SDLC</span></div>
+      <p class="quiz-q">Cutting over from old to new system on a single date with no overlap is the:</p>
+      <ul class="quiz-options"><li>Parallel strategy</li><li>Phased strategy</li><li>Big-bang strategy</li><li>Pilot strategy</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Big bang = one-day cutover. Highest risk, lowest cost. Reserve for low-impact systems or strict deadlines (e.g. tax-year boundaries).</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="4" data-topic="Agile">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Agile</span></div>
+      <p class="quiz-q">Agile development is characterized by:</p>
+      <ul class="quiz-options"><li>Locking all requirements before any coding</li><li>Building the entire system before any user feedback</li><li>Single end-of-project test phase</li><li>Short iterations producing working software with continuous user feedback</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Sprints, working software per iteration, continuous user feedback. The opposite of waterfall's phase-gated, big-bang delivery.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="5" data-topic="RPA">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">RPA</span></div>
+      <p class="quiz-q">Which is RPA LEAST suitable for?</p>
+      <ul class="quiz-options"><li>High-volume invoice posting</li><li>Investment-decision recommendations</li><li>Automated bank reconciliation</li><li>Data extraction from a fixed-format report</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Investment decisions require judgment under uncertainty — outside RPA's rule-based comfort zone. The other three are exactly the kind of work RPA excels at.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="5" data-topic="Blockchain">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">Blockchain</span></div>
+      <p class="quiz-q">A claim about blockchain that is TRUE:</p>
+      <ul class="quiz-options"><li>Always fully anonymous</li><li>Always faster than centralized databases</li><li>Tamper-evident through cryptographic chaining</li><li>Always centrally governed</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Tamper-evidence (via hash chaining and consensus) is the defining feature. Most chains are pseudonymous, slower than centralized DBs for read-heavy work, and decentralized.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="6" data-topic="Lake vs warehouse">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Lake vs warehouse</span></div>
+      <p class="quiz-q">Schema-on-read describes a:</p>
+      <ul class="quiz-options"><li>Data lake</li><li>Data warehouse</li><li>OLTP database</li><li>Master data hub</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Lake stores raw data, schema applied at query time. Warehouse forces schema-on-write. OLTP is transactional and tightly schemed; MDM is canonical entity records.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="7" data-topic="Analytics types">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">Analytics types</span></div>
+      <p class="quiz-q">"Which customers are most likely to churn next quarter?" is what type of analytics?</p>
+      <ul class="quiz-options"><li>Descriptive</li><li>Diagnostic</li><li>Prescriptive</li><li>Predictive</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> "Most likely to" = future state given evidence = predictive. Add "and what should we offer them to retain them" → prescriptive.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="8" data-topic="Visualization">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Visualization</span></div>
+      <p class="quiz-q">A waterfall chart is best for:</p>
+      <ul class="quiz-options"><li>Showing parts of a whole</li><li>Density across two dimensions</li><li>Sequential additions/subtractions to reach a total</li><li>Outlier detection</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Waterfalls visualize bridges: opening → +/− components → closing. Common in EBITDA bridges, variance analysis, cash-flow walks.</div>
+    </div>
+
+    <div class="test-summary">
+      <h2>Test 1 · Results</h2>
+      <div class="score-display">0%</div>
+      <div class="score-meta">—</div>
+      <div class="missed-list"></div>
+      <button class="btn restart-btn">↻ Restart with shuffled order</button>
+    </div>
+  </div>
+  <button class="btn done-btn" id="mark-done-900">Mark complete</button>
+</article>
+
+<article class="unit" data-id="950">
+  <span class="unit-eyebrow">Flashcards · Section F</span>
+  <h1>Flashcard hub</h1>
+  <p class="unit-lead">Vocabulary drill for systems and analytics terminology.</p>
+  <div class="flashcard-hub" id="flashcard-hub"></div>
+  <button class="btn done-btn" id="mark-done-950">Mark complete</button>
+</article>
+
+</main>
+</div>
+
+<script src="../../assets/engine.js?v=2"></script>
+<script>
+window.SECTION_CONFIG = {
+  sectionId: "F",
+  sectionTitle: "Section F — Technology and Analytics",
+  storageKey: "cma-section-f-progress-v1",
+  annotationKey: "cma-section-f-ann-v1",
+  totalUnits: 10,
+  trackedUnits: 8,
+  navStructure: [
+    { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
+    { group: "F.1 · Information Systems", units: [
+      { id: 1, num: "01", title: "AIS & ERP" },
+      { id: 2, num: "02", title: "Enterprise performance management" },
+    ]},
+    { group: "F.2 · Data Governance", units: [
+      { id: 3, num: "03", title: "Governance, lifecycle, security" },
+    ]},
+    { group: "F.3 · Finance Transformation", units: [
+      { id: 4, num: "04", title: "SDLC & implementation" },
+      { id: 5, num: "05", title: "RPA, AI, blockchain" },
+    ]},
+    { group: "F.4 · Data Analytics", units: [
+      { id: 6, num: "06", title: "BI & data mining" },
+      { id: 7, num: "07", title: "Four types of analytics" },
+      { id: 8, num: "08", title: "Visualization" },
+    ]},
+    { group: "📝 Practice Test", units: [
+      { id: 900, num: "T1", title: "Section F mixed (12Q)" },
+    ]},
+    { group: "🃏 Flashcards", units: [
+      { id: 950, num: "FC", title: "All decks" },
+    ]},
+  ],
+  keyTakeaways: {
+    1: ["AIS captures, processes, and reports accounting transactions through six cycles.", "ERP integrates AIS with manufacturing, HR, sales — single database, one source of truth.", "ERP benefits: integration, real-time visibility. Costs: implementation, customization risk, vendor lock-in.", "Adapt processes to the system; minimize customization."],
+    2: ["EPM extends ERP with planning, budgeting, forecasting, consolidation.", "Driver-based planning ties financials to operational levers; recalculates as drivers change.", "EPM lives separately because ERP optimizes for transactional speed, EPM for analytical flexibility.", "Multi-entity, multi-currency consolidation with intercompany elimination is core EPM territory."],
+    3: ["Data lifecycle: Create → Store → Use → Share → Archive → Destroy.", "Quality dimensions: Accuracy, Completeness, Consistency, Timeliness, Validity, Uniqueness.", "GDPR (EU), CCPA (California), HIPAA (US healthcare). Right of erasure / right to be forgotten under GDPR Article 17.", "Master data management (MDM) addresses cross-system inconsistency."],
+    4: ["SDLC phases: Analysis, Design, Development, Testing, Implementation, Maintenance.", "Conversion strategies: Parallel (low risk, high cost), Pilot, Phased, Big bang (high risk, low cost).", "Waterfall: phase-gated, sequential. Agile: iterative sprints, continuous feedback, working software per iteration.", "UAT verifies the system meets business requirements — final gate before launch."],
+    5: ["RPA: software bots mimicking GUI actions; best for high-volume, rule-based tasks.", "AI/ML: pattern recognition and prediction from data; not just rules.", "Blockchain: distributed, append-only, tamper-evident ledger via cryptographic chaining.", "Match technology to use case; not every problem needs decentralization."],
+    6: ["Data warehouse = structured, schema-on-write, BI queries (Snowflake, BigQuery).", "Data lake = raw, any format, schema-on-read (S3, ADLS).", "Mining techniques: classification, regression, clustering, association, anomaly detection.", "BI dashboards = aggregated historical views of KPIs."],
+    7: ["Descriptive (what happened), Diagnostic (why), Predictive (what will happen), Prescriptive (what should we do).", "Each layer builds on the previous; skipping layers usually fails.", "Most finance functions live in descriptive/diagnostic; predictive is the modern frontier.", "Prescriptive = predictive + optimization."],
+    8: ["Bar/column for comparison, line for trends, pie for parts-of-whole, scatter for relationships.", "Waterfall for bridges (variance, EBITDA, cash flow).", "Misleading practices: truncated y-axis on bars, dual-axis correlation traps, 3D distortion, cherry-picked time ranges.", "For finance reporting, prefer simple, defensible chart types."],
+  },
+  flashcardDecks: {
+    "systems-vocab": {
+      title: "Systems & data vocabulary",
+      eyebrow: "F.1-F.3",
+      cards: [
+        ["AIS", "Accounting information system — captures and reports transactions"],
+        ["ERP", "Enterprise resource planning — integrates business functions"],
+        ["EPM", "Enterprise performance management — planning, budgeting, consolidation"],
+        ["Revenue cycle", "Order → ship → bill → collect (order-to-cash)"],
+        ["Expenditure cycle", "Request → PO → receive → pay (procure-to-pay)"],
+        ["Data warehouse", "Structured, schema-on-write, BI"],
+        ["Data lake", "Raw, schema-on-read, any format"],
+        ["GDPR", "EU personal-data regulation; right to erasure (Article 17)"],
+        ["HIPAA", "US healthcare data privacy"],
+        ["CCPA", "California consumer privacy"],
+        ["SDLC phases", "Analysis, Design, Develop, Test, Implement, Maintain"],
+        ["Parallel conversion", "Run old + new together; low risk, high cost"],
+        ["Big bang conversion", "Cut over all at once; high risk, low cost"],
+        ["Waterfall", "Sequential, phase-gated, requirements-locked upfront"],
+        ["Agile", "Iterative sprints, continuous user feedback, working software per iteration"],
+        ["UAT", "User acceptance testing — final gate before launch"],
+        ["RPA", "Robotic process automation — software bots for repetitive tasks"],
+        ["Blockchain", "Distributed, append-only, tamper-evident ledger"],
+      ]
+    },
+    "analytics-vocab": {
+      title: "Analytics & visualization",
+      eyebrow: "F.4",
+      cards: [
+        ["Descriptive", "What happened?"],
+        ["Diagnostic", "Why did it happen?"],
+        ["Predictive", "What will happen?"],
+        ["Prescriptive", "What should we do?"],
+        ["Classification", "Predict a category (fraud / not fraud)"],
+        ["Regression", "Predict a numeric value"],
+        ["Clustering", "Find natural groups (no labels)"],
+        ["Association", "What goes with what (market basket)"],
+        ["Anomaly detection", "Which observations don't fit"],
+        ["Bar chart use", "Compare magnitudes across categories"],
+        ["Line chart use", "Trend over time"],
+        ["Waterfall use", "Sequential additions/subtractions to a total"],
+        ["Scatter use", "Relationship between two variables"],
+        ["Truncated y-axis on bars", "Misleading — exaggerates differences"],
+        ["Quality dimensions", "Accuracy, Completeness, Consistency, Timeliness, Validity, Uniqueness"],
+      ]
+    },
+  },
+  formulaReference: [
+    { section: "Systems hierarchy", items: [
+      { label: "AIS", formula: "Captures and reports accounting transactions", unitId: 1 },
+      { label: "ERP", formula: "Integrates AIS + ops on a single database", unitId: 1 },
+      { label: "EPM", formula: "Planning, budgeting, forecasting, consolidation on top of ERP", unitId: 2 },
+    ]},
+    { section: "Implementation strategies", items: [
+      { label: "Parallel", formula: "Old + new together; low risk, high cost", unitId: 4 },
+      { label: "Pilot", formula: "One unit first, then roll out", unitId: 4 },
+      { label: "Phased", formula: "Module by module", unitId: 4 },
+      { label: "Big bang", formula: "All at once; high risk, low cost", unitId: 4 },
+    ]},
+    { section: "Analytics hierarchy", items: [
+      { label: "Descriptive", formula: "What happened?", unitId: 7 },
+      { label: "Diagnostic", formula: "Why did it happen?", unitId: 7 },
+      { label: "Predictive", formula: "What will happen?", unitId: 7 },
+      { label: "Prescriptive", formula: "What should we do?", unitId: 7 },
+    ]},
+  ],
+};
+</script>
+<script>CMA.init(window.SECTION_CONFIG);</script>
+</body>
+</html>

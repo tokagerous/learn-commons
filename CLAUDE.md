@@ -1,6 +1,6 @@
 # Learn Commons — context for future Claude sessions
 
-A self-hostable, browser-based **multi-program learning platform** for professional certifications. Currently covers IMA's CMA Part 1 (full) and FMAA (in progress). The repo is structured to add more programs (CMA Part 2, CPA, etc.) without touching existing code. Static HTML + CSS + JS — no build step, no backend.
+A self-hostable, browser-based **multi-program learning platform** for professional certifications. Covers the IMA's CMA Part 1 (all six sections per the 2024 CSO) and FMAA (all five sections). The repo is structured to add more programs (CMA Part 2, CPA, etc.) without touching existing code. Static HTML + CSS + JS — no build step, no backend.
 
 ## Repository layout
 
@@ -14,17 +14,39 @@ A self-hostable, browser-based **multi-program learning platform** for professio
   assets/
     style.css               ← Shared design system (Fraunces + Lora + JetBrains Mono)
     engine.js               ← Shared engine (CMA.init reads window.SECTION_CONFIG)
+  resources/                ← Authoritative IMA reference PDFs (linked from program landings)
+    2024 CMA Content Specification Outlines Final.pdf
+    CMA Handbook 3252026.pdf
+    FMAA Content Specification Outlines.pdf
+    FMAA_Handbook_2023.pdf
   programs/
     cma-part-1/
       index.html            ← CMA Part 1 program landing
-      section-a.html        ← External Financial Reporting (15% weight)
-      section-b.html        ← Planning, Budgeting & Forecasting (20%)
-      section-c.html        ← Performance Management (20%)
+      section-a.html        ← External Financial Reporting (15%) · DEEP
+      section-b.html        ← Planning, Budgeting & Forecasting (20%) · DEEP
+      section-c.html        ← Performance Management (20%) · DEEP
+      section-d.html        ← Cost Management (15%) · CSO-driven scaffold
+      section-e.html        ← Internal Controls (15%) · CSO-driven scaffold
+      section-f.html        ← Technology and Analytics (15%) · CSO-driven scaffold
     fmaa/
-      index.html            ← FMAA program landing (5-section layout: A–E)
-      section-a.html        ← Foundations & The Accounting Cycle (~30%, LIVE: 20 units, 4 tests, 130+ Qs)
-      (section-b.html..section-e.html — to be added; map to FMAA CSO B/C/D/E)
+      index.html            ← FMAA program landing
+      section-a.html        ← General Accounting & Financial Mgmt (25%) · DEEP
+      section-b.html        ← FS Preparation & Analysis (25%) · CSO scaffold
+      section-c.html        ← Planning & Budgeting (20%) · CSO scaffold
+      section-d.html        ← Cost Mgmt & Performance Metrics (20%) · CSO scaffold
+      section-e.html        ← Professional Ethics (10%) · CSO scaffold
 ```
+
+**Section depth tiers**:
+- **DEEP** — 12-34 units, multiple tests, 100+ practice Qs, 7-8 flashcard decks. Full topical coverage with diagrams and interactives.
+- **CSO-driven scaffold** — every CSO sub-topic covered as a substantive unit (lead paragraph + 2-3 § sub-sections + 2-3 inline quizzes), one starter test (8-15 questions), 1-2 flashcard decks, complete formula/key-takeaway maps. Built from the IMA's official CSO PDFs in `resources/`.
+- Both tiers use the same engine + shared `assets/`.
+
+## CSO mapping
+
+The CSO PDFs in `resources/` are the authoritative source for section structure. Every section file's `navStructure` mirrors the CSO sub-topics (e.g. CMA Section D nav has groups D.1, D.2, D.3, D.4, D.5 matching the 2024 CSO). When a future change to the CSO is published, update the corresponding section file's nav and unit content; do NOT add ad-hoc topics outside the CSO.
+
+CMA Part 1 cognitive level: all sections are **Level C** (knowledge → comprehension → application → analysis → synthesis → evaluation). FMAA is Levels A and B only (no synthesis/evaluation).
 
 ### URL paths
 - Multi-program hub: `/learn-commons/index.html`
@@ -180,18 +202,26 @@ Key Takeaways are auto-injected from the `keyTakeaways` map — no markup needed
 
 The engine auto-injects: timer (1.8 min/q target), per-question flag button, "Replay missed/flagged only" actions in the summary.
 
-## CMA Part 1 weighting (for reference)
+## CMA Part 1 weighting (per 2024 CSO; all Level C)
 
-| Section | Topic | Weight |
-|---|---|---|
-| A | External Financial Reporting | 15% |
-| B | Planning, Budgeting & Forecasting | 20% |
-| C | Performance Management | 20% |
-| D | Cost Management | 15% |
-| E | Internal Controls | 15% |
-| F | Technology & Analytics | 15% |
+| Section | Topic | Weight | Depth tier |
+|---|---|---|---|
+| A | External Financial Reporting | 15% | DEEP |
+| B | Planning, Budgeting & Forecasting | 20% | DEEP |
+| C | Performance Management | 20% | DEEP |
+| D | Cost Management | 15% | Scaffold |
+| E | Internal Controls | 15% | Scaffold |
+| F | Technology & Analytics | 15% | Scaffold |
 
-This platform currently covers A, B, and C. D, E, F could be added later as `cma-section-d.html` etc., reusing `assets/engine.js` and `assets/style.css`.
+## FMAA weighting (per 2024 CSO; Levels A and B)
+
+| Section | Topic | Weight | Depth tier |
+|---|---|---|---|
+| A | General Accounting & Financial Management | 25% | DEEP |
+| B | Financial Statement Preparation & Analysis | 25% | Scaffold |
+| C | Planning & Budgeting | 20% | Scaffold |
+| D | Cost Management & Performance Metrics | 20% | Scaffold |
+| E | Professional Ethics | 10% | Scaffold |
 
 ## 404 page recovery links
 
@@ -254,11 +284,12 @@ No environment variables, no DB, no auth. All progress is per-browser via `local
 
 1. **Done**: CMA Part 1 — Section A (34 units, 6 tests, 198 inline quizzes after A.1 expansion, 230 test Qs, 8 flashcard decks); Section B (16 units, 3 tests + final, 48 inline quizzes, 100 test Qs, 8 decks); Section C (12 units, 3 tests + final, 36 inline quizzes, 95 test Qs, 7 decks).
 2. **Done**: Multi-program reorganization. Files under `programs/<program>/`. Shared `assets/` at root. 404 redirects for old URLs.
-3. **In progress**: FMAA — Domain 1 substantive scaffold (4 units, 12 inline quizzes, 1 flashcard deck). Domains 2-4 with starter units (3 questions each).
-4. **In progress**: A.1 Units 1-8 expanded to 15 inline quizzes each. A.2 (Units 9-30), B (16 units), C (12 units) still at 3 inline quizzes each — same expansion needed.
-5. **Future**: FMAA — fill out Domains 2-4 with full unit lists and 15Q each.
-6. **Future**: CMA Sections D, E, F (Cost Management, Internal Controls, Technology) — same template.
-7. **Future**: CMA Part 2 (Strategic Financial Management).
-8. **Future**: A unified "Exam mode" final spanning all sections of a program.
-9. **Future**: Optional cloud sync for progress (Supabase or similar).
-10. **Future**: Service worker for offline use; printable PDF export of units.
+3. **Done**: FMAA Section A — full content (20 units, 4 tests, 130+ Qs, 8 decks).
+4. **Done**: A.1 Units 1-8 expanded to 15 inline quizzes each.
+5. **Done**: CSO-driven scaffolds for CMA D, E, F and FMAA B, C, D, E. Every CSO sub-topic has at least one substantive unit + a starter test + flashcards.
+6. **In progress**: A.2 (Units 9-30), B (16 units), C (12 units) still at 3 inline quizzes each — expand to 15 each (same pattern as A.1 expansion).
+7. **Future**: Deepen the scaffolded sections (CMA D/E/F, FMAA B-E) — more units per CSO sub-topic, more inline quizzes, multi-test sections, additional flashcard decks. Pattern: replicate Section A's depth.
+8. **Future**: CMA Part 2 (Strategic Financial Management) — six sections per CSO.
+9. **Future**: A unified "Exam mode" final spanning all sections of a program.
+10. **Future**: Optional cloud sync for progress (Supabase or similar).
+11. **Future**: Service worker for offline use; printable PDF export of units.
