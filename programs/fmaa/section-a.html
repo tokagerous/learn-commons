@@ -512,6 +512,366 @@
   </div>
 </article>
 
+<article class="unit" data-id="4">
+  <span class="unit-eyebrow">Unit 04 · A.2 · Bookkeeping Cycle</span>
+  <h1>Recording Journal Entries</h1>
+  <p class="unit-lead">The general journal is the chronological "book of original entry." Every transaction lands here first — date, accounts, amounts, brief explanation — before being posted to the ledger.</p>
+
+  <h2><span class="marker">§4.1</span>Anatomy of a journal entry</h2>
+  <ul class="plain">
+    <li><strong>Date</strong> — when the transaction occurred</li>
+    <li><strong>Account titles</strong> — debit accounts on the first line(s), credit accounts indented below</li>
+    <li><strong>Amounts</strong> — debit column on left, credit column on right</li>
+    <li><strong>Posting reference</strong> (PR) — added when posted to the ledger</li>
+    <li><strong>Brief explanation</strong> — narrative naming the source document or counterparty</li>
+  </ul>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px; line-height:1.6;">
+Date     Account                           DR        CR
+─────────────────────────────────────────────────────────
+Mar 12   Inventory                       2,500
+            Accounts Payable                          2,500
+         <em>(Purchase of merchandise on account, Inv. #4582)</em>
+  </pre>
+
+  <h2><span class="marker">§4.2</span>Simple vs. compound entries</h2>
+  <p>A <strong>simple entry</strong> has one debit and one credit. A <strong>compound entry</strong> has multiple debits and/or credits. Sum DR = Sum CR is still required. Example compound:</p>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px;">
+DR  Equipment              5,000
+    CR  Cash                            1,000
+    CR  Notes Payable                   4,000
+  </pre>
+
+  <h2><span class="marker">§4.3</span>The chart of accounts</h2>
+  <table class="fin-table">
+    <thead><tr><th>Range</th><th>Element</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td>100–199</td><td>Assets</td><td>101 Cash, 110 A/R, 120 Inventory, 150 Equipment</td></tr>
+      <tr><td>200–299</td><td>Liabilities</td><td>201 A/P, 210 Wages Payable, 250 Notes Payable</td></tr>
+      <tr><td>300–399</td><td>Equity</td><td>301 Common Stock, 320 Retained Earnings, 330 Dividends</td></tr>
+      <tr><td>400–499</td><td>Revenues</td><td>401 Sales, 410 Service Revenue, 420 Interest Income</td></tr>
+      <tr><td>500–599</td><td>Expenses</td><td>510 COGS, 520 Wage Exp, 530 Rent Exp, 540 Depreciation</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§4.4</span>Worked example — a week of entries</h2>
+  <table class="fin-table">
+    <thead><tr><th>Date</th><th>Event</th><th>Journal entry</th></tr></thead>
+    <tbody>
+      <tr><td>May 1</td><td>Owners invest $40,000 cash</td><td>DR Cash 40,000 / CR Common Stock 40,000</td></tr>
+      <tr><td>May 2</td><td>Pay $3,000 for May rent</td><td>DR Rent Expense 3,000 / CR Cash 3,000</td></tr>
+      <tr><td>May 5</td><td>Buy $7,000 of inventory on account</td><td>DR Inventory 7,000 / CR A/P 7,000</td></tr>
+      <tr><td>May 8</td><td>Sell inventory costing $4,000 for $9,000 cash</td><td>DR Cash 9,000 / CR Sales 9,000  •  DR COGS 4,000 / CR Inventory 4,000</td></tr>
+      <tr><td>May 12</td><td>Pay supplier $4,000 of A/P</td><td>DR A/P 4,000 / CR Cash 4,000</td></tr>
+      <tr><td>May 15</td><td>Pay employees $1,200 wages</td><td>DR Wage Expense 1,200 / CR Cash 1,200</td></tr>
+      <tr><td>May 18</td><td>Customer pays $2,500 cash for services to be performed in June</td><td>DR Cash 2,500 / CR Unearned Service Revenue 2,500</td></tr>
+      <tr><td>May 25</td><td>Declare and pay $1,500 dividend</td><td>DR Dividends 1,500 / CR Cash 1,500</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§4.5</span>Special journals</h2>
+  <p>Real systems break the general journal into <strong>special journals</strong> for high-volume routine transactions, with the GJ used only for non-routine items:</p>
+  <table class="fin-table">
+    <thead><tr><th>Special journal</th><th>Records</th></tr></thead>
+    <tbody>
+      <tr><td>Sales journal</td><td>All credit sales (DR A/R · CR Sales)</td></tr>
+      <tr><td>Purchases journal</td><td>All credit purchases of inventory</td></tr>
+      <tr><td>Cash receipts journal</td><td>All cash inflows</td></tr>
+      <tr><td>Cash disbursements journal</td><td>All cash outflows</td></tr>
+      <tr><td>General journal</td><td>Adjusting, closing, reversing, correcting, and unusual entries</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§4.6</span>Common journal-entry errors</h2>
+  <ul class="plain">
+    <li><strong>Reversed direction</strong> — recording a debit as a credit and vice versa.</li>
+    <li><strong>Transposition</strong> — writing $4,500 as $5,400. Difference is divisible by 9.</li>
+    <li><strong>Slide</strong> — writing $4,500 as $450 or $45,000. Difference is divisible by 9 (and a power of 10).</li>
+    <li><strong>Wrong account</strong> — debiting Repairs Expense instead of Equipment when capitalising. Trial balance unaffected; financial statements wrong.</li>
+  </ul>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A company pays $1,200 cash for a one-year insurance policy on April 1. The journal entry is:</p>
+    <ul class="quiz-options"><li>DR Prepaid Insurance 1,200 · CR Cash 1,200</li><li>DR Insurance Expense 1,200 · CR Cash 1,200</li><li>DR Cash 1,200 · CR Insurance Expense 1,200</li><li>DR Insurance Expense 100 · CR Cash 100</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The cash payment buys coverage extending across multiple periods, so it is initially an asset (Prepaid Insurance). Expense will be recognised $100/month via adjusting entries.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">Which of the following is a COMPOUND journal entry?</p>
+    <ul class="quiz-options"><li>DR Cash 5,000 / CR Sales 5,000</li><li>DR Rent Expense 800 / CR Cash 800</li><li>DR Equipment 12,000 / CR Cash 4,000 + CR Notes Payable 8,000</li><li>DR A/P 2,500 / CR Cash 2,500</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A compound entry has more than two accounts. Equipment is debited once but two credits balance it. Sum DR = Sum CR.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">A bookkeeper writes "$1,250" instead of the correct "$2,150" in a journal entry. This is a:</p>
+    <ul class="quiz-options"><li>Slide error — divisible by a power of 10</li><li>Misclassification</li><li>Compounding error</li><li>Transposition error — divisible by 9 ($900 difference)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Digits 1,2,5 vs 2,1,5 — transposing two digits. The dollar difference ($900) is divisible by 9, the diagnostic for transposition.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">In which journal would a company most efficiently record 200 credit sales per week?</p>
+    <ul class="quiz-options"><li>General journal</li><li>Sales journal (a special journal)</li><li>Purchases journal</li><li>Cash disbursements journal</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The sales journal records all credit sales — DR A/R · CR Sales — efficiently on one line each.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">A perpetual-inventory retailer sells $5,000 of merchandise that cost $3,000. How many journal entries are required?</p>
+    <ul class="quiz-options"><li>One: DR Cash $5,000 / CR Sales $5,000</li><li>One: DR COGS $3,000 / CR Inventory $3,000</li><li>Two: DR Cash $5,000 / CR Sales $5,000 AND DR COGS $3,000 / CR Inventory $3,000</li><li>Three: as above plus DR Inventory $2,000 / CR Profit $2,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A perpetual sale has two halves: revenue side and cost-of-goods-sold side that reduces inventory.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">A bookkeeper accidentally records a debit of $400 for office supplies as a credit (and offsets to cash correctly). After posting, the trial balance:</p>
+    <ul class="quiz-options"><li>Will not balance — debits and credits will be off by $800</li><li>Will balance because both sides moved</li><li>Will be off by $400</li><li>Will catch the error only on the income statement</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The intended debit was on the wrong side. Debit total is $400 too low and credit total $400 too high — total mismatch is $800.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-4">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Source documents</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">Posting to the ledger</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="5">
+  <span class="unit-eyebrow">Unit 05 · A.2 · Bookkeeping Cycle</span>
+  <h1>Posting to the Ledger (T-Accounts)</h1>
+  <p class="unit-lead">After the journal records each transaction chronologically, the ledger groups them by account. The "T-account" is the accountant's whiteboard — debits on the left, credits on the right, balance computed as the difference.</p>
+
+  <h2><span class="marker">§5.1</span>Journal vs. ledger</h2>
+  <table class="fin-table">
+    <thead><tr><th>—</th><th>Journal</th><th>Ledger</th></tr></thead>
+    <tbody>
+      <tr><td>Organised by</td><td>Date (chronologically)</td><td>Account</td></tr>
+      <tr><td>Purpose</td><td>Record transactions</td><td>Compute balances</td></tr>
+      <tr><td>Order of use</td><td>First (book of original entry)</td><td>Second (book of final entry)</td></tr>
+      <tr><td>Reveals</td><td>What happened on March 12</td><td>The current cash balance</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§5.2</span>The T-account format</h2>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:13px; line-height:1.5;">
+                       Cash
+        ─────────────────────────────────
+        Debit (left)       Credit (right)
+        ─────────────────────────────────
+  3/1   40,000             3,000   3/2 (rent)
+  3/8    9,000             4,000   3/12 (A/P)
+  3/18   2,500             1,500   3/25 (div)
+        ─────────────────────────────────
+  Bal   <strong>43,000</strong>
+  </pre>
+  <p>The balance is the difference between debit and credit totals, written on the side that has the larger total — the <em>normal</em> balance side for that account family.</p>
+
+  <h2><span class="marker">§5.3</span>Posting steps</h2>
+  <ol>
+    <li>Locate the account in the ledger.</li>
+    <li>Record the date.</li>
+    <li>Enter the journal page reference (audit trail).</li>
+    <li>Write the debit (or credit) amount in the appropriate column.</li>
+    <li>Update the running balance.</li>
+  </ol>
+
+  <h2><span class="marker">§5.4</span>Subsidiary ledgers and control accounts</h2>
+  <p>For high-cardinality accounts (A/R with 1,000 customers, A/P with 200 vendors, inventory with 50,000 SKUs), companies maintain a <strong>subsidiary ledger</strong> with one account per customer/vendor/SKU. The general ledger keeps a single <strong>control account</strong> whose balance equals the sum of the subsidiary balances.</p>
+  <table class="fin-table">
+    <thead><tr><th>Control account</th><th>Subsidiary ledger</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>Accounts Receivable</td><td>One account per customer</td><td>Statement of customer balances; collections</td></tr>
+      <tr><td>Accounts Payable</td><td>One account per vendor</td><td>Aging by vendor; payment scheduling</td></tr>
+      <tr><td>Inventory</td><td>One account per SKU</td><td>Stock counts; reorder triggers</td></tr>
+      <tr><td>PP&E</td><td>One account per asset</td><td>Depreciation schedule per asset</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§5.5</span>Worked example — post the May entries</h2>
+  <table class="fin-table">
+    <thead><tr><th>Account</th><th>Debits</th><th>Credits</th><th>Balance</th></tr></thead>
+    <tbody>
+      <tr><td>Cash</td><td>40,000 + 9,000 + 2,500 = 51,500</td><td>3,000 + 4,000 + 1,200 + 1,500 = 9,700</td><td>$41,800 DR</td></tr>
+      <tr><td>Inventory</td><td>7,000</td><td>4,000</td><td>$3,000 DR</td></tr>
+      <tr><td>A/P</td><td>4,000</td><td>7,000</td><td>$3,000 CR</td></tr>
+      <tr><td>Common Stock</td><td>—</td><td>40,000</td><td>$40,000 CR</td></tr>
+      <tr><td>Sales</td><td>—</td><td>9,000</td><td>$9,000 CR</td></tr>
+      <tr><td>COGS</td><td>4,000</td><td>—</td><td>$4,000 DR</td></tr>
+      <tr><td>Rent Expense</td><td>3,000</td><td>—</td><td>$3,000 DR</td></tr>
+      <tr><td>Wage Expense</td><td>1,200</td><td>—</td><td>$1,200 DR</td></tr>
+      <tr><td>Unearned Service Rev</td><td>—</td><td>2,500</td><td>$2,500 CR</td></tr>
+      <tr><td>Dividends</td><td>1,500</td><td>—</td><td>$1,500 DR</td></tr>
+    </tbody>
+  </table>
+  <p>Σ debit balances = $54,500. Σ credit balances = $54,500. ✓</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">Cash had a beginning debit balance of $5,000. The next two entries: DR Cash $3,000 (sale) and CR Cash $1,200 (rent paid). The new balance is:</p>
+    <ul class="quiz-options"><li>$1,200 CR</li><li>$3,800 CR</li><li>$6,800 DR</li><li>$5,200 DR</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $5,000 + $3,000 − $1,200 = $6,800 debit balance.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">A company maintains an A/R subsidiary ledger. The general-ledger A/R control account has a balance of $48,300 at month-end. Customer accounts in the subsidiary ledger total $48,800. The bookkeeper:</p>
+    <ul class="quiz-options"><li>Must investigate — control and subsidiary should agree to the cent</li><li>Can ignore — small differences are normal</li><li>Should write off the $500 to Bad Debt Expense</li><li>Should swap which is correct based on whichever is higher</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The control account is the sum of the subsidiary ledger by definition. A discrepancy means a posting error or omitted entry.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">If an account's debits total $14,000 and credits total $5,000, the account has:</p>
+    <ul class="quiz-options"><li>$19,000 credit balance</li><li>$9,000 credit balance</li><li>$0</li><li>$9,000 debit balance</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $14,000 DR − $5,000 CR = $9,000 DR balance.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">The book of original entry is the:</p>
+    <ul class="quiz-options"><li>Trial balance</li><li>General journal</li><li>General ledger</li><li>Income statement</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The general journal records every transaction first (chronologically), then those entries are posted to the ledger.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">A subsidiary ledger is most useful for which of the following accounts?</p>
+    <ul class="quiz-options"><li>Common Stock — to track each shareholder</li><li>Cash — to track each bank deposit slip</li><li>Accounts Receivable — to track balances by customer</li><li>Retained Earnings — to track each year's earnings separately</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A/R has many similar items that need to be tracked individually — one record per customer for collections and aging.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">An account that should normally have a credit balance shows a debit balance after posting. The MOST LIKELY explanation is:</p>
+    <ul class="quiz-options"><li>An error in posting or recording — investigation needed</li><li>A natural occurrence in normal operations</li><li>The account has been closed</li><li>The trial balance must still be in balance, so no concern</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Liability and revenue accounts having debit balances (or assets having credit balances) almost always indicate errors that need investigation.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">Recording journal entries</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Trial balance & locating errors</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="6">
+  <span class="unit-eyebrow">Unit 06 · A.2 · Bookkeeping Cycle</span>
+  <h1>Preparing the Trial Balance & Locating Errors</h1>
+  <p class="unit-lead">A trial balance is a list of every account and its balance, columns of debits and credits side-by-side. The columns must match. If they don't, there is a math or posting error to find before period-end statements can be trusted.</p>
+
+  <h2><span class="marker">§6.1</span>What a trial balance proves (and doesn't)</h2>
+  <ul class="plain">
+    <li><strong>Proves</strong>: total debits equal total credits — the equation has not been visibly violated.</li>
+    <li><strong>Does NOT prove</strong>: that all transactions are recorded, that the right accounts were used, or that all accounts have correct balances. Errors that affect both sides equally are invisible.</li>
+  </ul>
+
+  <h2><span class="marker">§6.2</span>Format & three uses</h2>
+  <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:12.5px; line-height:1.5;">
+TINKER CO. — TRIAL BALANCE — May 31
+
+Account                              DR              CR
+─────────────────────────────────────────────────────────
+Cash                                41,800
+Inventory                            3,000
+Accounts Payable                                    3,000
+Common Stock                                       40,000
+Sales                                               9,000
+Unearned Service Revenue                            2,500
+COGS                                 4,000
+Rent Expense                         3,000
+Wage Expense                         1,200
+Dividends                            1,500
+─────────────────────────────────────────────────────────
+                                   <strong>54,500</strong>          <strong>54,500</strong>
+  </pre>
+  <ul class="plain">
+    <li><strong>Unadjusted trial balance</strong> — after posting journals, before period-end adjustments.</li>
+    <li><strong>Adjusted trial balance</strong> — after adjusting entries (Units 7–9). Used to prepare the financial statements.</li>
+    <li><strong>Post-closing trial balance</strong> — after closing entries (Unit 11). Only permanent (BS) accounts remain.</li>
+  </ul>
+
+  <h2><span class="marker">§6.3</span>Errors a trial balance WILL catch</h2>
+  <table class="fin-table">
+    <thead><tr><th>Error type</th><th>Effect</th><th>Detection clue</th></tr></thead>
+    <tbody>
+      <tr><td>Math error in totals</td><td>Columns don't match</td><td>Re-add columns</td></tr>
+      <tr><td>One side of an entry omitted</td><td>Columns differ by the missing amount</td><td>Look for entries with only DR or only CR</td></tr>
+      <tr><td>Wrong amount on one side</td><td>Columns differ by the discrepancy</td><td>Difference / 2 may match a single posting</td></tr>
+      <tr><td>One side posted twice</td><td>Columns differ by the doubled amount</td><td>Search for repeated posting</td></tr>
+    </tbody>
+  </table>
+  <p>If the difference is divisible by 9, suspect transposition or slide. If divisible by 2, suspect a posting on the wrong side.</p>
+
+  <h2><span class="marker">§6.4</span>Errors a trial balance WILL NOT catch</h2>
+  <ul class="plain">
+    <li><strong>Omission of an entire transaction</strong> — both sides simply not recorded.</li>
+    <li><strong>Recording the same entry twice</strong> — both sides up by the same amount.</li>
+    <li><strong>Wrong account used</strong> — e.g., DR Repairs Expense instead of DR Equipment.</li>
+  </ul>
+
+  <h2><span class="marker">§6.5</span>How to find errors</h2>
+  <ol>
+    <li><strong>Re-add</strong> the columns.</li>
+    <li><strong>Compute the discrepancy</strong>. Test for 9 (transposition/slide) and 2 (wrong-side).</li>
+    <li><strong>Scan</strong> for unusual balances.</li>
+    <li><strong>Trace back</strong>: trial balance → ledger → journal → source document.</li>
+    <li><strong>Reconcile</strong> control account against subsidiary ledger.</li>
+  </ol>
+
+  <h2><span class="marker">§6.6</span>Correcting errors</h2>
+  <p>Make a <strong>correcting entry</strong>. Two equally common forms: (a) reverse the bad entry then book the right one, or (b) one combined entry that achieves the same net effect. Example: a $500 cash sale was recorded as DR Cash 500 / CR Service Revenue 500 when it should have been DR Cash 500 / CR Sales 500. Correcting entry: DR Service Revenue 500 / CR Sales 500.</p>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A trial balance shows total debits of $146,200 and total credits of $146,000. The $200 difference is divisible by 2. The MOST likely cause is:</p>
+    <ul class="quiz-options"><li>A transposition</li><li>An omitted journal entry</li><li>Forgotten depreciation</li><li>A $100 posting that hit the wrong side (e.g., debited instead of credited)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> When an amount lands on the wrong side, it appears on one side instead of the other — the difference is double the amount. $200 / 2 = $100; look for a $100 posting that was reversed.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">Which error would NOT be detected by the trial balance?</p>
+    <ul class="quiz-options"><li>The May 5 inventory purchase was never recorded at all</li><li>Cash was debited but no offsetting credit was recorded</li><li>Cash was debited $500 but the credit side recorded only $50</li><li>Wages payable was credited twice</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A complete omission of both sides means neither column changes — the trial balance still balances but with the wrong (incomplete) numbers.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">A trial balance is out of balance by $360. The most efficient first test is:</p>
+    <ul class="quiz-options"><li>Re-record every journal entry from scratch</li><li>Hire an external auditor</li><li>Check whether $360 is divisible by 9 (transposition or slide test) or 2 (wrong-side test)</li><li>Adjust retained earnings by $360</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $360 ÷ 9 = $40 ✓ — strongly suggests a transposition (e.g., posted $84 as $48). The 9-test is the first thing to try.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">A correcting entry differs from a regular adjusting entry because:</p>
+    <ul class="quiz-options"><li>It is always the largest entry of the period</li><li>It fixes a recording error rather than recognising the passage of time or accruing an expense</li><li>It cannot involve cash</li><li>It must be reversed at the start of the next period</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Adjusting entries (depreciation, accruals, deferrals) recognise economic events at period end. Correcting entries fix bookkeeping mistakes.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">Which trial balance is used to prepare the financial statements?</p>
+    <ul class="quiz-options"><li>The adjusted trial balance</li><li>The unadjusted trial balance</li><li>The post-closing trial balance</li><li>Any of the three; they show the same numbers</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Financial statements reflect the completed period — they need adjusting entries but not yet closing entries. The adjusted trial balance is the right source.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">A bookkeeper recorded a $4,200 advertising expense as a $4,200 utilities expense (both debit-balance accounts). The trial balance:</p>
+    <ul class="quiz-options"><li>Will be out of balance by $4,200</li><li>Will be out of balance by $8,400</li><li>Will catch the error in the credit column</li><li>Will balance — both accounts are debit-side; total debits unchanged</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Switching one debit account for another debit account leaves the column total unchanged. The trial balance balances but the income statement misclassifies expenses.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">Posting to the ledger</span></button>
+    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">Period-end adjustments — accruals</span></button>
+  </div>
+</article>
+
 <!-- UNITS_PLACEHOLDER -->
 
 <!-- TESTS_PLACEHOLDER -->
