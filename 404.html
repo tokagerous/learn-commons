@@ -96,13 +96,41 @@ hr {
   <h1>Lost in the chart of accounts.</h1>
   <p>The page you're looking for isn't here. Maybe a stale link, maybe a typo. Head back to the cover and pick a section.</p>
   <div class="actions">
-    <a class="btn" href="index.html">← Back to landing</a>
-    <a class="btn ghost" href="cma-section-a.html">Section A</a>
-    <a class="btn ghost" href="cma-section-b.html">Section B</a>
-    <a class="btn ghost" href="cma-section-c.html">Section C</a>
+    <!-- Static href fallback uses the GitHub Pages project prefix so links
+         work even from a nested invalid path like /learn-commons/foo/bar.
+         The script below rewrites them at runtime for other deployments
+         (custom domain, Vercel, root-domain hosting, etc.). -->
+    <a class="btn" href="/learn-commons/index.html" data-rel="index.html">← Back to landing</a>
+    <a class="btn ghost" href="/learn-commons/cma-section-a.html" data-rel="cma-section-a.html">Section A</a>
+    <a class="btn ghost" href="/learn-commons/cma-section-b.html" data-rel="cma-section-b.html">Section B</a>
+    <a class="btn ghost" href="/learn-commons/cma-section-c.html" data-rel="cma-section-c.html">Section C</a>
   </div>
   <hr />
   <p class="tiny">If you reached this by following a link from outside, please file an issue.</p>
 </div>
+<script>
+// Recovery-link base detection. On a 404 served at /learn-commons/foo/bar,
+// the static href above (with /learn-commons/ prefix) already works because
+// it's an absolute path. But that hardcoded prefix is wrong for any other
+// deployment — local server, Vercel, custom domain, fork with a different
+// repo name. This script computes the correct site base from the request
+// URL and rewrites the links. Must run after the <a> tags exist; placed
+// right after them to keep DOMContentLoaded latency out of the equation.
+(function () {
+  // Repo name(s) to detect. Update this list if forking under a new name.
+  var REPO_NAMES = ["learn-commons"];
+  var path = location.pathname;
+  var base = "/"; // fallback for root-domain / custom-domain deployments
+  for (var i = 0; i < REPO_NAMES.length; i++) {
+    var marker = "/" + REPO_NAMES[i] + "/";
+    var idx = path.indexOf(marker);
+    if (idx >= 0) { base = path.slice(0, idx + marker.length); break; }
+  }
+  var links = document.querySelectorAll("a[data-rel]");
+  for (var j = 0; j < links.length; j++) {
+    links[j].href = base + links[j].getAttribute("data-rel");
+  }
+})();
+</script>
 </body>
 </html>
