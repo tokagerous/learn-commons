@@ -1,20 +1,45 @@
-# CMA Learning Platform — context for future Claude sessions
+# Learn Commons — context for future Claude sessions
 
-A self-hostable, browser-based learning platform for the IMA's Certified Management Accountant (CMA) Part 1 exam. Static HTML + CSS + JS — no build step, no backend. Designed to deploy on Vercel / Netlify / GitHub Pages by uploading the directory as-is.
+A self-hostable, browser-based **multi-program learning platform** for professional certifications. Currently covers IMA's CMA Part 1 (full) and FMAA (in progress). The repo is structured to add more programs (CMA Part 2, CPA, etc.) without touching existing code. Static HTML + CSS + JS — no build step, no backend.
 
 ## Repository layout
 
 ```
 /Learning/
-  index.html                ← Landing page; links to all three sections
-  cma-section-a.html        ← Section A (External Financial Reporting) — STANDALONE, do not refactor without care
-  cma-section-b.html        ← Section B (Planning, Budgeting, Forecasting) — uses shared assets
-  cma-section-c.html        ← Section C (Performance Management) — uses shared assets
+  index.html                ← Multi-program hub (root landing page)
+  404.html                  ← Pages 404 with redirect table for moved URLs
+  README.md
+  CLAUDE.md                 ← This file
+  .nojekyll
   assets/
     style.css               ← Shared design system (Fraunces + Lora + JetBrains Mono)
-    engine.js               ← Shared JS: nav, quiz, test, search, kbd, formula panel, takeaways, flashcards, annotations
-  CLAUDE.md                 ← This file
+    engine.js               ← Shared engine (CMA.init reads window.SECTION_CONFIG)
+  programs/
+    cma-part-1/
+      index.html            ← CMA Part 1 program landing
+      section-a.html        ← External Financial Reporting (15% weight)
+      section-b.html        ← Planning, Budgeting & Forecasting (20%)
+      section-c.html        ← Performance Management (20%)
+    fmaa/
+      index.html            ← FMAA program landing
+      domain-1.html         ← Financial Statements (25%, scaffolded)
+      domain-2.html         ← Cost Management (25%, scaffolded)
+      domain-3.html         ← Planning & Budgeting (25%, scaffolded)
+      domain-4.html         ← Performance Management (25%, scaffolded)
 ```
+
+### URL paths
+- Multi-program hub: `/learn-commons/index.html`
+- Program landing: `/learn-commons/programs/<program>/index.html`
+- Section/domain pages: `/learn-commons/programs/<program>/section-X.html` or `domain-X.html`
+
+### Old-URL redirects
+Pre-reorganization URLs (`/learn-commons/cma-section-a.html` etc.) automatically redirect via the 404 handler's redirect table. The table is in `404.html` — update it when moving more files.
+
+### Asset paths
+- Files at root (`index.html`, `404.html`): use `assets/style.css?v=2`
+- Files at `programs/<program>/` depth: use `../../assets/style.css?v=2`
+- Cache-bust query string `?v=N` — bump on each shared-asset deploy
 
 ## Architecture
 
@@ -213,12 +238,29 @@ zip -r build.zip *.html assets/
 
 No environment variables, no DB, no auth. All progress is per-browser via `localStorage`.
 
+## Adding a new program
+
+1. Create `programs/<new-program>/` directory
+2. Add `index.html` (program landing) using `programs/cma-part-1/index.html` or `programs/fmaa/index.html` as template
+3. Add `section-X.html` / `domain-X.html` files for content. Each:
+   - `<link rel="stylesheet" href="../../assets/style.css?v=2" />`
+   - Sidebar with nav + "← All sections" (program landing) and "All programs" (root) links
+   - All annotation markup (toolbar/panel/modal/toggle button)
+   - Formula panel and keyboard help markup
+   - `window.SECTION_CONFIG = { sectionId, sectionTitle, storageKey, annotationKey, totalUnits, trackedUnits, navStructure, keyTakeaways, flashcardDecks, formulaReference }`
+   - `<script src="../../assets/engine.js?v=2"></script>` then `<script>CMA.init(window.SECTION_CONFIG);</script>`
+4. Add a card on root `index.html` linking to the new program
+5. Each program uses its own `storageKey` and `annotationKey` so progress and annotations are isolated
+
 ## Roadmap
 
-1. **Done**: Section A — 34 units, 6 tests, 102 inline quizzes, 180 test Qs, 8 flashcard decks, full annotation system. Now using shared assets.
-2. **Done**: Section B — 16 units, 3 tests + final, 48 inline quizzes, 100 test Qs, 8 flashcard decks. Built on shared assets.
-3. **Done**: Section C — 12 units, 3 tests + final, 36 inline quizzes, 95 test Qs, 7 flashcard decks. Built on shared assets.
-4. **Future**: Sections D, E, F (Cost Management, Internal Controls, Technology) — copy a section file as template, fill in nav/units/tests, drop in `SECTION_CONFIG`. Engine and CSS already work.
-5. **Future**: A unified "Exam mode" final spanning all six sections
-6. **Future**: Optional cloud sync for progress (Supabase or similar) if desired
-7. **Future**: Service worker for offline use; printable PDF export of units
+1. **Done**: CMA Part 1 — Section A (34 units, 6 tests, 198 inline quizzes after A.1 expansion, 230 test Qs, 8 flashcard decks); Section B (16 units, 3 tests + final, 48 inline quizzes, 100 test Qs, 8 decks); Section C (12 units, 3 tests + final, 36 inline quizzes, 95 test Qs, 7 decks).
+2. **Done**: Multi-program reorganization. Files under `programs/<program>/`. Shared `assets/` at root. 404 redirects for old URLs.
+3. **In progress**: FMAA — Domain 1 substantive scaffold (4 units, 12 inline quizzes, 1 flashcard deck). Domains 2-4 with starter units (3 questions each).
+4. **In progress**: A.1 Units 1-8 expanded to 15 inline quizzes each. A.2 (Units 9-30), B (16 units), C (12 units) still at 3 inline quizzes each — same expansion needed.
+5. **Future**: FMAA — fill out Domains 2-4 with full unit lists and 15Q each.
+6. **Future**: CMA Sections D, E, F (Cost Management, Internal Controls, Technology) — same template.
+7. **Future**: CMA Part 2 (Strategic Financial Management).
+8. **Future**: A unified "Exam mode" final spanning all sections of a program.
+9. **Future**: Optional cloud sync for progress (Supabase or similar).
+10. **Future**: Service worker for offline use; printable PDF export of units.
