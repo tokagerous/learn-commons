@@ -778,14 +778,21 @@ ul.plain li::before {
 /* SVG defaults */
 svg.fig text {
   font-family: "Fraunces", serif;
+}
+/* Default fill only when no inline fill attribute is set — otherwise the
+   CSS rule wins over inline `fill="white"` (CSS beats presentation attrs)
+   and white-on-dark labels render as black-on-dark, making them unreadable. */
+svg.fig text:not([fill]) {
   fill: var(--ink);
 }
 svg.fig text.label {
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
-  fill: var(--ink-faint);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+svg.fig text.label:not([fill]) {
+  fill: var(--ink-faint);
 }
 svg.fig .axis { stroke: var(--ink); stroke-width: 1; }
 svg.fig .grid { stroke: var(--rule); stroke-width: 0.5; stroke-dasharray: 2,3; }
