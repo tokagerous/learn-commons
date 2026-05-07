@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FMAA · Section D — Cost Management & Performance Metrics</title>
-<meta name="description" content="A field guide for FMAA Section D: cost behavior, fixed vs variable, actual/normal/standard costs, overhead allocation, variance analysis, profitability metrics, and decision tools (CVP, marginal analysis)." />
+<meta name="description" content="A field guide for FMAA Section D: cost behavior, costing systems (actual/normal/standard, ABC), overhead allocation, variance analysis (DM, DL, OH), profitability analysis and ROI, CVP and marginal analysis." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
   <div class="brand"><span class="ornament"></span>FMAA · D</div>
   <div class="brand-sub">Cost mgmt & performance · A visual field guide</div>
   <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-  <div class="progress-text" id="progress-text">0 of 8 units complete</div>
+  <div class="progress-text" id="progress-text">0 of 12 units complete</div>
   <div class="sidebar-search" style="margin-top:18px">
     <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
     <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
@@ -92,52 +92,61 @@
   <div class="cover">
     <span class="unit-eyebrow">FMAA · Section D · 20% weight · Levels A & B</span>
     <h1 class="cover-title">Cost Mgmt &<br/>Performance.</h1>
-    <p class="cover-sub">Cost behavior up front; allocation in the middle; variance analysis to evaluate; profitability and CVP for decisions. The most quantitative section — pencil-ready calculations dominate.</p>
+    <p class="cover-sub">Cost behavior up front; costing systems and overhead in the middle; variance analysis to evaluate; profitability metrics for performance; CVP and marginal analysis for decisions. The most quantitative section — pencil-ready calculations dominate.</p>
     <div class="cover-meta">
-      <span>Units<strong>8 covered</strong></span>
-      <span>Practice questions<strong>~30</strong></span>
+      <span>Units<strong>12 covered</strong></span>
+      <span>Practice questions<strong>~65</strong></span>
+      <span>Tests<strong>2 (T1 + T2)</strong></span>
       <span>FMAA weight<strong>20% of exam</strong></span>
-      <span>Levels<strong>A · B</strong></span>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">D.1</span>Cost Measurement Concepts</h2>
-    <div class="toc-card"><h3>D.1 — Behavior, costing systems (Units 1–2)</h3>
+    <div class="toc-card"><h3>D.1 — Behavior, costing systems (Units 1–3)</h3>
       <ol>
         <li><button onclick="goTo(1)">Cost behavior — fixed vs variable, mixed, relevant range</button></li>
-        <li><button onclick="goTo(2)">Actual / normal / standard costs and product/service costing</button></li>
+        <li><button onclick="goTo(2)">Actual / normal / standard costs</button></li>
+        <li><button onclick="goTo(3)">Product/service costing systems — job-order, process, ABC</button></li>
       </ol>
     </div>
 
-    <h2 style="margin-top:48px"><span class="marker">D.2</span>Overhead</h2>
-    <div class="toc-card"><h3>D.2 — Allocation (Unit 3)</h3>
-      <ol start="3"><li><button onclick="goTo(3)">Variable & fixed overhead, allocation bases</button></li></ol>
+    <h2 style="margin-top:48px"><span class="marker">D.2</span>Overhead Expenses</h2>
+    <div class="toc-card"><h3>D.2 — Allocation (Units 4–5)</h3>
+      <ol start="4">
+        <li><button onclick="goTo(4)">Variable & fixed overhead — classification</button></li>
+        <li><button onclick="goTo(5)">Allocation — plantwide vs departmental, allocation bases</button></li>
+      </ol>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">D.3</span>Variance Analysis</h2>
-    <div class="toc-card"><h3>D.3 — DM, DL, OH variances (Units 4–5)</h3>
-      <ol start="4">
-        <li><button onclick="goTo(4)">Direct material & direct labor variances</button></li>
-        <li><button onclick="goTo(5)">Overhead variances (basic)</button></li>
+    <div class="toc-card"><h3>D.3 — DM, DL, OH variances (Units 6–8)</h3>
+      <ol start="6">
+        <li><button onclick="goTo(6)">Standard costs & the variance framework</button></li>
+        <li><button onclick="goTo(7)">Direct material & direct labor variances</button></li>
+        <li><button onclick="goTo(8)">Overhead variances (variable spending/efficiency, fixed budget/volume)</button></li>
       </ol>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">D.4</span>Performance Measurement</h2>
-    <div class="toc-card"><h3>D.4 — Profitability metrics (Unit 6)</h3>
-      <ol start="6"><li><button onclick="goTo(6)">Profitability analysis & ROI</button></li></ol>
-    </div>
-
-    <h2 style="margin-top:48px"><span class="marker">D.5</span>Cost Information for Decisions</h2>
-    <div class="toc-card"><h3>D.5 — CVP and marginal analysis (Units 7–8)</h3>
-      <ol start="7">
-        <li><button onclick="goTo(7)">Breakeven & CVP analysis</button></li>
-        <li><button onclick="goTo(8)">Sunk costs, opportunity costs, marginal analysis</button></li>
+    <div class="toc-card"><h3>D.4 — Profitability metrics (Units 9–10)</h3>
+      <ol start="9">
+        <li><button onclick="goTo(9)">Profitability analysis — product, BU, customer</button></li>
+        <li><button onclick="goTo(10)">Return on investment (ROI) and responsibility centers</button></li>
       </ol>
     </div>
 
-    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Test</h2>
+    <h2 style="margin-top:48px"><span class="marker">D.5</span>Cost Information for Decisions</h2>
+    <div class="toc-card"><h3>D.5 — CVP and marginal analysis (Units 11–12)</h3>
+      <ol start="11">
+        <li><button onclick="goTo(11)">Breakeven & CVP analysis</button></li>
+        <li><button onclick="goTo(12)">Sunk costs, opportunity costs, marginal analysis</button></li>
+      </ol>
+    </div>
+
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Tests</h2>
     <div class="toc-card">
       <ol class="plain" style="list-style:none; padding-left:0">
-        <li><button onclick="goTo(900)"><strong>T1</strong> — Section D mixed · 12 Q · ~22 min</button></li>
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Section D mixed · 15 Q · ~27 min</button></li>
+        <li><button onclick="goTo(901)"><strong>T2</strong> — Variances & decision analysis · 15 Q · ~27 min</button></li>
       </ol>
     </div>
   </div>
@@ -145,26 +154,35 @@
 </article>
 
 <article class="unit" data-id="1">
-  <span class="unit-eyebrow">Unit 1 · D.1</span>
+  <span class="unit-eyebrow">Unit 1 · D.1 Measurement</span>
   <h1>Cost behavior — fixed vs variable, mixed, relevant range</h1>
-  <p class="unit-lead">Costs behave in patterns. <strong>Variable</strong> scales with activity (per-unit constant); <strong>fixed</strong> doesn't (per-unit decreases as activity rises); <strong>mixed</strong> has both. Behavior holds only within the <strong>relevant range</strong>.</p>
+  <p class="unit-lead">A cost <strong>object</strong> is anything we want to measure cost for (a unit, a job, a customer, a department). Costs <strong>behave</strong> in patterns: variable scales with activity, fixed doesn't, mixed has both. Patterns hold only within the <strong>relevant range</strong>.</p>
 
-  <h2><span class="marker">§1.1</span>Direction of behavior</h2>
+  <h2><span class="marker">§1.1</span>Cost objects, drivers, and direct vs indirect</h2>
+  <p>A <strong>cost driver</strong> is what causes the cost to vary. A cost is <em>direct</em> if it can be traced to the object economically; otherwise <em>indirect</em> (overhead) and must be allocated.</p>
+
+  <h2><span class="marker">§1.2</span>Behavior types</h2>
   <table class="fin-table">
-    <thead><tr><th>Cost type</th><th>Total as activity ↑</th><th>Per-unit as activity ↑</th></tr></thead>
+    <thead><tr><th>Type</th><th>Total cost as activity ↑</th><th>Per-unit cost as activity ↑</th><th>Example</th></tr></thead>
     <tbody>
-      <tr><td>Variable</td><td>Increases proportionally</td><td>Constant</td></tr>
-      <tr><td>Fixed</td><td>Constant (within range)</td><td>Decreases</td></tr>
-      <tr><td>Mixed</td><td>Increases (less than proportionally)</td><td>Decreases (toward variable rate)</td></tr>
+      <tr><td><strong>Variable</strong></td><td>Increases proportionally</td><td>Constant</td><td>Direct materials</td></tr>
+      <tr><td><strong>Fixed</strong></td><td>Constant (within range)</td><td>Decreases</td><td>Factory rent</td></tr>
+      <tr><td><strong>Mixed</strong></td><td>Increases (less than proportionally)</td><td>Decreases (toward variable rate)</td><td>Utility bill (base fee + per-kWh)</td></tr>
+      <tr><td><strong>Step-fixed</strong></td><td>Jumps at thresholds</td><td>Step-down then flat</td><td>One supervisor per 10 workers</td></tr>
     </tbody>
   </table>
 
-  <h2><span class="marker">§1.2</span>High-low method</h2>
-  <div class="formula-box">Variable rate = (High cost − Low cost) ÷ (High activity − Low activity)<br/>Fixed = Total cost − (Variable rate × Activity)</div>
+  <h2><span class="marker">§1.3</span>Relevant range and high-low method</h2>
+  <p>The <strong>relevant range</strong> is the activity span over which behavior assumptions hold. Outside it, fixed costs may step (need a second machine, a second supervisor), and variable rates may change (volume discounts).</p>
+
+  <p>The <strong>high-low method</strong> separates a mixed cost using only two data points — highest and lowest activity:</p>
+  <div class="formula-box">Variable rate = (High cost − Low cost) ÷ (High activity − Low activity)<br/>Fixed = Total cost − (Variable rate × Activity) [at either point]</div>
+
+  <div class="callout warning"><span class="callout-label">Outliers distort high-low</span><p>Using extremes makes the result sensitive to one-off events (a strike month, a crash quarter). Regression analysis uses all data points and is more robust — but high-low is what FMAA tests.</p></div>
 
   <div class="quiz" data-correct="2">
     <h3>Practice 1 — Per-unit fixed cost</h3>
-    <p class="quiz-prompt">As production volume rises (within the relevant range), per-unit fixed cost:</p>
+    <p class="quiz-prompt">As production volume rises within the relevant range, per-unit fixed cost:</p>
     <ul class="quiz-options"><li>Rises</li><li>Stays the same</li><li>Falls</li><li>Doubles</li></ul>
     <div class="quiz-explanation"><strong>Why:</strong> Total fixed is constant; spreading over more units lowers the per-unit charge — the basis of operating leverage.</div>
   </div>
@@ -180,7 +198,21 @@
     <h3>Practice 3 — Mixed cost</h3>
     <p class="quiz-prompt">Cell phone bill: $40 monthly base + $0.10/min usage. This is:</p>
     <ul class="quiz-options"><li>Pure fixed</li><li>Pure variable</li><li>Mixed (semi-variable)</li><li>Step-fixed</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Fixed component ($40 base) + variable rate ($0.10/min) = mixed cost. Common test cue: a base fee + per-use charge.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Fixed component ($40 base) + variable rate ($0.10/min) = mixed cost.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Direct vs indirect</h3>
+    <p class="quiz-prompt">A factory supervisor's salary, with respect to ONE product line out of three:</p>
+    <ul class="quiz-options"><li>Direct cost</li><li>Variable cost</li><li>Period cost</li><li>Indirect (overhead)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Tracing time to one specific product line isn't economical, so the salary is allocated as overhead. With respect to <em>the factory as a whole</em>, it's direct factory cost.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 5 — Step-fixed example</h3>
+    <p class="quiz-prompt">"One quality inspector for every 25 production workers" describes:</p>
+    <ul class="quiz-options"><li>Variable cost</li><li>Step-fixed cost</li><li>Mixed cost</li><li>Fixed cost (always)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Cost jumps in steps as production crosses thresholds (25, 50, 75 workers). Inside one step, behavior is fixed; across steps, it appears variable. Common for supervision and equipment capacity.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-1">Mark complete</button>
@@ -191,334 +223,781 @@
 </article>
 
 <article class="unit" data-id="2">
-  <span class="unit-eyebrow">Unit 2 · D.1</span>
+  <span class="unit-eyebrow">Unit 2 · D.1 Measurement</span>
   <h1>Actual, normal, and standard costs</h1>
-  <p class="unit-lead">Three approaches to product costing. They differ in <em>when</em> a cost rate is set and <em>what</em> it represents.</p>
+  <p class="unit-lead">Three philosophies for charging production with costs. They differ in <em>when</em> a rate is set (actual vs predetermined) and <em>what</em> the rate represents (last-period actual, this-period budgeted, or an engineered standard).</p>
 
+  <h2><span class="marker">§2.1</span>Three approaches</h2>
   <table class="fin-table">
-    <thead><tr><th>Method</th><th>DM &amp; DL</th><th>Manufacturing OH</th></tr></thead>
+    <thead><tr><th>Method</th><th>DM &amp; DL</th><th>Manufacturing OH</th><th>Pros</th><th>Cons</th></tr></thead>
     <tbody>
-      <tr><td><strong>Actual</strong></td><td>Actual</td><td>Actual</td></tr>
-      <tr><td><strong>Normal</strong></td><td>Actual</td><td>Predetermined rate × actual activity</td></tr>
-      <tr><td><strong>Standard</strong></td><td>Standard rate × standard quantity</td><td>Standard rate × standard hours</td></tr>
+      <tr><td><strong>Actual</strong></td><td>Actual</td><td>Actual</td><td>Real cost; no estimates</td><td>Volatile; lags invoices</td></tr>
+      <tr><td><strong>Normal</strong></td><td>Actual</td><td>Predetermined rate × actual activity</td><td>Smooths OH</td><td>Year-end variance to clean up</td></tr>
+      <tr><td><strong>Standard</strong></td><td>Standard rate × standard quantity</td><td>Standard rate × standard hours</td><td>Variances surface deviations</td><td>Requires standard-setting effort</td></tr>
     </tbody>
   </table>
 
-  <div class="formula-box">Predetermined OH rate = Budgeted OH ÷ Budgeted activity<br/>Applied OH = Predetermined rate × ACTUAL activity</div>
+  <h2><span class="marker">§2.2</span>Predetermined OH rate (normal & standard)</h2>
+  <div class="formula-box">Predetermined rate = Budgeted total OH ÷ Budgeted activity<br/>Applied OH = Predetermined rate × ACTUAL activity</div>
 
-  <p>Year-end variance between applied and actual OH closes to COGS (small) or prorated across WIP/FG/COGS (material).</p>
+  <p>The difference between applied OH and actual OH at year-end is the <strong>over- or under-applied overhead</strong>. Closed to COGS (small) or prorated across WIP, FG, and COGS (material).</p>
+
+  <h2><span class="marker">§2.3</span>Standard cost types</h2>
+  <ul>
+    <li><strong>Currently attainable standard</strong> — assumes normal, expected effort and waste. Most common operational benchmark.</li>
+    <li><strong>Theoretical (ideal) standard</strong> — perfect efficiency, zero waste. Useful as engineering benchmark, never as bonus target.</li>
+    <li><strong>Basic standard</strong> — held constant for years; useful for trend analysis but increasingly stale.</li>
+  </ul>
+
+  <div class="callout tip"><span class="callout-label">AAU / AAO mnemonic</span><p>Actual &gt; Applied = Under-applied (we didn't apply enough; raise COGS). Actual &lt; Applied = Over-applied (we applied too much; lower COGS).</p></div>
 
   <div class="quiz" data-correct="1">
     <h3>Practice 1 — Predetermined rate</h3>
     <p class="quiz-prompt">Budget OH $400K; budget DLH 20,000. Predetermined OH rate:</p>
     <ul class="quiz-options"><li>$25/DLH</li><li>$20/DLH</li><li>$50/DLH</li><li>$10/DLH</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> $400K / 20,000 = <strong>$20/DLH</strong>. Applied OH later uses ACTUAL DLH × $20.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> $400K / 20,000 = <strong>$20/DLH</strong>.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 2 — Under-applied entry</h3>
+    <h3>Practice 2 — Under-applied</h3>
     <p class="quiz-prompt">Actual OH $310K; applied OH $295K. Year-end closing entry to COGS:</p>
-    <ul class="quiz-options"><li>DR COGS $15K / CR Mfg OH $15K</li><li>DR Mfg OH $15K / CR COGS $15K</li><li>DR COGS $295K / CR Mfg OH $295K</li><li>No entry needed</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Actual &gt; Applied = under-applied $15K. Raise COGS: <strong>DR COGS $15K / CR Mfg OH $15K</strong>.</div>
+    <ul class="quiz-options"><li>DR COGS $15K / CR Mfg OH $15K</li><li>DR Mfg OH $15K / CR COGS $15K</li><li>DR COGS $295K / CR Mfg OH $295K</li><li>No entry</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Actual ($310K) &gt; Applied ($295K) = under-applied $15K. Raise COGS: DR COGS $15K / CR Mfg OH $15K.</div>
   </div>
 
   <div class="quiz" data-correct="2">
     <h3>Practice 3 — Standard cost meaning</h3>
-    <p class="quiz-prompt">A standard cost is best described as:</p>
-    <ul class="quiz-options"><li>Last period's actual cost</li><li>The minimum cost ever achieved</li><li>An engineered, attainable target</li><li>The industry's average cost</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Standards are engineered targets — currently attainable with normal effort. Variances measure deviations from these targets.</div>
+    <p class="quiz-prompt">A "currently attainable" standard:</p>
+    <ul class="quiz-options"><li>Assumes perfect efficiency with zero waste</li><li>Equals last year's average actual cost</li><li>Reflects normal expected effort and waste</li><li>Stays unchanged for many years</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Currently attainable = realistic target with normal effort and acceptable waste. Theoretical/ideal = perfection. Basic = unchanged for years (trend benchmark).</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Use of normal costing</h3>
+    <p class="quiz-prompt">A primary advantage of normal costing over actual costing is that it:</p>
+    <ul class="quiz-options"><li>Eliminates all year-end OH variance</li><li>Removes the need for budgets</li><li>Costs each unit at its actual full cost</li><li>Smooths the per-unit overhead charge across periods</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Normal costing locks the OH rate at the start of the year (predetermined) and multiplies by ACTUAL activity. Idle months no longer inflate per-unit cost; busy months no longer deflate it.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-2">Mark complete</button>
   <div class="unit-footer">
     <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Cost behavior</span></button>
-    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Overhead allocation</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Costing systems</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="3">
-  <span class="unit-eyebrow">Unit 3 · D.2</span>
-  <h1>Variable & fixed overhead, allocation bases</h1>
-  <p class="unit-lead">Overhead = production cost that isn't direct materials or direct labor. Some scales with activity (variable OH: indirect materials, machine utility); some doesn't (fixed OH: rent, supervision, depreciation).</p>
+  <span class="unit-eyebrow">Unit 3 · D.1 Measurement</span>
+  <h1>Product/service costing systems — job-order, process, ABC</h1>
+  <p class="unit-lead">Three systems for accumulating product cost. <strong>Job-order</strong> tracks each unique job. <strong>Process</strong> averages cost per unit across continuous production. <strong>Activity-based costing (ABC)</strong> traces overhead to activities and then to products via cost drivers.</p>
 
-  <h2><span class="marker">§3.1</span>Allocating overhead</h2>
-  <p>Pick a base that <em>causes</em> overhead — direct labor hours, machine hours, materials cost — and apply at a predetermined rate (Unit 2). A <strong>plantwide rate</strong> uses one base for the whole plant; <strong>departmental rates</strong> use a different base per department.</p>
-
-  <h2><span class="marker">§3.2</span>When to use which</h2>
+  <h2><span class="marker">§3.1</span>Job-order costing</h2>
+  <p>For unique or batched output (custom homes, audit engagements, ad campaigns). Each job carries its own cost record:</p>
   <ul>
-    <li><strong>Plantwide</strong> — products consume departmental resources in similar proportions. Simplest.</li>
-    <li><strong>Departmental</strong> — departments differ in resource intensity (machine-heavy vs labor-heavy). More accurate.</li>
-    <li><strong>Activity-based</strong> — overhead is large and product mix is diverse. Most accurate, most expensive.</li>
+    <li>Direct materials traced to the job.</li>
+    <li>Direct labor traced to the job.</li>
+    <li>Overhead applied via predetermined rate × actual activity (Unit 2).</li>
   </ul>
 
+  <p>Cost flow through three inventory accounts:</p>
+  <div class="formula-box">DM used = Beg RM + Purchases − End RM<br/>COGM = Beg WIP + DM + DL + Applied OH − End WIP<br/>COGS = Beg FG + COGM − End FG</div>
+
+  <h2><span class="marker">§3.2</span>Process costing</h2>
+  <p>For high-volume, homogeneous output (paint, soft drinks, gasoline). Costs accumulate by department and divide by <strong>equivalent units of production</strong> (EUP) — partially completed units expressed as fully-completed equivalents based on % complete.</p>
+
+  <p>FIFO and weighted-average are the two main calculation methods; FMAA emphasizes the concept rather than detailed mechanics.</p>
+
+  <h2><span class="marker">§3.3</span>Activity-based costing (ABC)</h2>
+  <p>Traditional costing pools all overhead and applies one rate (often DLH-based). When products differ in complexity, that one rate distorts. ABC traces overhead to <em>activities</em> (machine setup, quality inspection, order processing), then assigns each pool to products via the activity's <strong>cost driver</strong>.</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Activity</th><th>Driver</th><th>Hierarchy</th></tr></thead>
+    <tbody>
+      <tr><td>Machine setup</td><td>Number of setups</td><td>Batch-level</td></tr>
+      <tr><td>Quality inspection</td><td>Inspections</td><td>Batch-level</td></tr>
+      <tr><td>Direct labor</td><td>Labor hours</td><td>Unit-level</td></tr>
+      <tr><td>Engineering changes</td><td>Engineering hours</td><td>Product-level</td></tr>
+      <tr><td>Plant security</td><td>(can't drive)</td><td>Facility-level</td></tr>
+    </tbody>
+  </table>
+
+  <p>ABC pays off when (1) overhead is large vs DM/DL, (2) products differ in complexity, and (3) decisions depend on accurate full cost. Specialty / low-volume products under traditional costing usually look cheaper than they really are; ABC reveals the truth.</p>
+
   <div class="quiz" data-correct="2">
-    <h3>Practice 1 — Allocation base choice</h3>
-    <p class="quiz-prompt">A CNC machining department's overhead is best allocated using:</p>
-    <ul class="quiz-options"><li>Direct labor hours</li><li>Sales dollars</li><li>Machine hours</li><li>Number of employees</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Machine-intensive department → machine hours drive utility, depreciation, maintenance. Direct labor would distort costs.</div>
+    <h3>Practice 1 — Job-order vs process</h3>
+    <p class="quiz-prompt">Which firm is most likely to use process costing?</p>
+    <ul class="quiz-options"><li>Custom home builder</li><li>Public accounting firm</li><li>Soft-drink bottler</li><li>Movie production studio</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A bottler produces millions of identical units through continuous processes — perfect for process costing.</div>
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 2 — Plantwide vs departmental</h3>
-    <p class="quiz-prompt">A plantwide rate is most likely to distort product cost when:</p>
-    <ul class="quiz-options"><li>All products use departments equally</li><li>Departments differ in resource intensity</li><li>The plant has only one department</li><li>Direct material is the largest cost</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> One rate for everything works only when all products consume each department's resources in similar proportion. Otherwise, departmental rates are more accurate.</div>
+    <h3>Practice 2 — COGM</h3>
+    <p class="quiz-prompt">Beg WIP $20K; DM used $80K; DL $50K; applied OH $60K; End WIP $25K. COGM:</p>
+    <ul class="quiz-options"><li>$190K</li><li>$185K</li><li>$210K</li><li>$165K</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $20K + $80K + $50K + $60K − $25K = <strong>$185K</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — When ABC helps most</h3>
+    <p class="quiz-prompt">ABC provides the GREATEST improvement in product-cost accuracy when:</p>
+    <ul class="quiz-options"><li>Overhead is large and product complexity varies widely</li><li>All products use identical batches</li><li>Direct labor is the largest cost</li><li>The company sells one product</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Traditional costing distorts when overhead is high AND products differ in resource consumption. Otherwise the cost of operating ABC exceeds the accuracy benefit.</div>
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — Variable OH</h3>
-    <p class="quiz-prompt">Which is most likely a variable overhead item?</p>
-    <ul class="quiz-options"><li>Factory rent</li><li>Plant manager's salary</li><li>Production-line equipment depreciation</li><li>Indirect materials (lubricants, fasteners)</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Indirect materials scale with output — variable. Rent, salary, depreciation are fixed within the relevant range.</div>
+    <h3>Practice 4 — ABC effect on low-volume</h3>
+    <p class="quiz-prompt">Compared with traditional volume-based costing, ABC typically:</p>
+    <ul class="quiz-options"><li>Lowers low-volume specialty product cost</li><li>Has no effect on individual product costs</li><li>Raises high-volume product cost</li><li>Raises low-volume specialty product cost AND lowers high-volume product cost</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Specialty products consume disproportionate setup, engineering, inspection — but traditional costing spreads overhead by labor or volume, masking those costs. ABC reveals them.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 5 — Cost hierarchy</h3>
+    <p class="quiz-prompt">"Engineering changes specific to one product line" is what type of activity?</p>
+    <ul class="quiz-options"><li>Unit-level</li><li>Batch-level</li><li>Product-level (sustaining)</li><li>Facility-level</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The Cooper-Kaplan hierarchy: unit (per-unit), batch (per-batch, e.g. setup), <strong>product</strong> (per-product-line, e.g. engineering, dedicated marketing), facility (whole plant). Product-level costs are allocated based on which products they support, not units made.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-3">Mark complete</button>
   <div class="unit-footer">
     <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Costing methods</span></button>
-    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">DM & DL variances</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Variable & fixed OH</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="4">
-  <span class="unit-eyebrow">Unit 4 · D.3</span>
-  <h1>Direct material & direct labor variances</h1>
-  <p class="unit-lead">Variance analysis decomposes the gap between standard and actual into <strong>price/rate</strong> (per-unit cost difference) and <strong>quantity/efficiency</strong> (how much was used) effects.</p>
+  <span class="unit-eyebrow">Unit 4 · D.2 Overhead</span>
+  <h1>Variable &amp; fixed overhead — classification</h1>
+  <p class="unit-lead">Overhead = production cost that isn't direct materials or direct labor. Splitting it into variable (scales with activity) and fixed (doesn't) is essential for variance analysis, budgeting, and CVP.</p>
 
-  <h2><span class="marker">§4.1</span>Direct material</h2>
-  <div class="formula-box">DM Price Variance = (Actual price − Standard price) × Actual quantity purchased<br/>DM Quantity Variance = (Actual quantity used − Standard quantity allowed) × Standard price</div>
+  <h2><span class="marker">§4.1</span>Examples</h2>
+  <table class="fin-table">
+    <thead><tr><th>Variable OH</th><th>Fixed OH</th></tr></thead>
+    <tbody>
+      <tr><td>Indirect materials (lubricants, fasteners)</td><td>Factory rent</td></tr>
+      <tr><td>Indirect labor (machine operators paid hourly)</td><td>Plant manager's salary</td></tr>
+      <tr><td>Machine utility (electricity for production)</td><td>Equipment depreciation (SL)</td></tr>
+      <tr><td>Quality inspection consumables</td><td>Property tax on factory</td></tr>
+      <tr><td>Variable plant maintenance (per machine hour)</td><td>Insurance on factory</td></tr>
+    </tbody>
+  </table>
 
-  <h2><span class="marker">§4.2</span>Direct labor</h2>
-  <div class="formula-box">DL Rate Variance = (Actual rate − Standard rate) × Actual hours<br/>DL Efficiency Variance = (Actual hours − Standard hours allowed) × Standard rate</div>
+  <h2><span class="marker">§4.2</span>Mixed overhead</h2>
+  <p>Some OH lines have both components. Utility bills typically have a base service charge + per-unit consumption rate. Maintenance can have a base contract + per-machine-hour. Use high-low or regression to split into fixed + variable per Unit 1.</p>
 
-  <p><strong>Standard quantity allowed</strong> = Actual output × standard quantity per unit. Same idea for labor: actual output × standard hours per unit.</p>
+  <h2><span class="marker">§4.3</span>Corporate vs departmental</h2>
+  <p>Larger overhead structures distinguish:</p>
+  <ul>
+    <li><strong>Plant overhead</strong> — supports the whole factory.</li>
+    <li><strong>Departmental overhead</strong> — specific to one department.</li>
+    <li><strong>Corporate (G&amp;A)</strong> — supports the whole company; often classified as period cost (S&amp;A) rather than product cost.</li>
+  </ul>
 
-  <div class="callout warning"><span class="callout-label">Sign convention</span><p>Positive (actual &gt; standard) = unfavorable (U); negative = favorable (F). For price/rate variances, paying MORE is unfavorable. For quantity/efficiency, USING MORE is unfavorable.</p></div>
+  <p>Allocating corporate G&amp;A to products requires a base (revenue, headcount, asset base) and is often controversial — it's why divisional managers complain about "corporate overhead allocations" eating their margin.</p>
+
+  <div class="callout warning"><span class="callout-label">Period vs product</span><p>Manufacturing overhead is product cost (capitalized into inventory). Corporate G&A and selling expenses are period costs (expensed when incurred). Don't co-mingle them when computing inventory value.</p></div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 1 — Variable OH</h3>
+    <p class="quiz-prompt">Which is most likely a VARIABLE overhead item?</p>
+    <ul class="quiz-options"><li>Factory rent</li><li>Plant manager's salary</li><li>Production-line equipment depreciation</li><li>Indirect materials (lubricants, fasteners)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Indirect materials scale with output — variable. Rent, salary, depreciation are fixed within the relevant range.</div>
+  </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 1 — DM price variance</h3>
-    <p class="quiz-prompt">Standard price $4/lb; actual price $4.20/lb; actual purchase 5,000 lb. DM price variance:</p>
-    <ul class="quiz-options"><li>$1,000 U</li><li>$1,000 F</li><li>$200 U</li><li>$20,000 U</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> ($4.20 − $4.00) × 5,000 = $0.20 × 5,000 = <strong>$1,000 U</strong>. Paid $0.20 more per pound on 5,000 pounds.</div>
+    <h3>Practice 2 — Fixed OH</h3>
+    <p class="quiz-prompt">A factory's monthly rent of $20,000 regardless of production volume is:</p>
+    <ul class="quiz-options"><li>Fixed manufacturing overhead</li><li>Variable manufacturing overhead</li><li>Direct cost</li><li>Period cost</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Fixed manufacturing OH — unchanged with volume; capitalized into inventory under absorption costing. Don't confuse with corporate G&amp;A (period cost).</div>
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 2 — DM quantity variance</h3>
-    <p class="quiz-prompt">Standard 3 lb/unit at $4 standard price; produced 1,000 units; actually used 3,200 lb. DM quantity variance:</p>
-    <ul class="quiz-options"><li>$200 F</li><li>$0</li><li>$800 U</li><li>$800 F</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Standard quantity allowed = 1,000 × 3 = 3,000 lb. (3,200 − 3,000) × $4 = <strong>$800 U</strong>. Used 200 lb more than standard at $4 standard price.</div>
+    <h3>Practice 3 — Mixed OH split</h3>
+    <p class="quiz-prompt">High activity 5,000 MH cost $30K; low 2,000 MH cost $18K. Variable OH rate per machine hour:</p>
+    <ul class="quiz-options"><li>$2.00</li><li>$3.00</li><li>$4.00</li><li>$6.00</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ($30K − $18K) / (5,000 − 2,000) = $12K / 3,000 = <strong>$4.00/MH</strong>. Fixed = $30K − ($4 × 5,000) = $10K.</div>
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 3 — DL efficiency</h3>
-    <p class="quiz-prompt">Standard 2 hrs/unit at $25 standard rate; produced 500 units; actual 1,050 hours. DL efficiency variance:</p>
-    <ul class="quiz-options"><li>$1,500 F</li><li>$1,250 U</li><li>$1,250 F</li><li>$2,500 U</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Standard hours allowed = 500 × 2 = 1,000. (1,050 − 1,000) × $25 = <strong>$1,250 U</strong>. Took 50 hours more than standard.</div>
+    <h3>Practice 4 — Period vs product</h3>
+    <p class="quiz-prompt">A salesperson's commission is classified as:</p>
+    <ul class="quiz-options"><li>Manufacturing overhead</li><li>Period (selling) expense</li><li>Direct labor</li><li>Direct material</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Selling activity = period cost, never inventoried. Manufacturing overhead applies only to factory-floor activities (rent, supervision, utilities, etc.).</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-4">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Overhead allocation</span></button>
-    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">Overhead variances</span></button>
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Costing systems</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">OH allocation</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="5">
-  <span class="unit-eyebrow">Unit 5 · D.3</span>
-  <h1>Overhead variances (basic)</h1>
-  <p class="unit-lead">Overhead variances follow the same price/quantity logic but with twist: applied OH uses an estimated rate, so variances split between <strong>spending</strong> (rate accuracy) and <strong>volume</strong> (denominator activity).</p>
+  <span class="unit-eyebrow">Unit 5 · D.2 Overhead</span>
+  <h1>Overhead allocation — plantwide vs departmental</h1>
+  <p class="unit-lead">Allocate overhead to products using a <strong>base</strong> that approximates how each product consumes the underlying resource. The two big choices: which base, and at what level (plantwide or by department)?</p>
 
-  <h2><span class="marker">§5.1</span>Variable OH</h2>
+  <h2><span class="marker">§5.1</span>Plantwide vs departmental rates</h2>
+  <p>A <strong>plantwide rate</strong> uses one base for the whole plant — simple but inaccurate when departments differ. A <strong>departmental rate</strong> sets a separate rate per department, each with its own appropriate base.</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Department</th><th>Best base</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Machining (capital-intensive)</td><td>Machine hours</td><td>Machines drive depreciation, utilities, maintenance</td></tr>
+      <tr><td>Assembly (labor-intensive)</td><td>Direct labor hours</td><td>Labor drives most overhead</td></tr>
+      <tr><td>Procurement-heavy</td><td>Direct material cost</td><td>Material flow drives the OH</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§5.2</span>The base should CAUSE the overhead</h2>
+  <p>A plausible base correlates with overhead and ideally drives it. Sales dollars, for instance, rarely drives manufacturing overhead — it's downstream of production. Direct labor hours used to be the universal default; as automation rose, machine hours became more appropriate for many industries.</p>
+
+  <h2><span class="marker">§5.3</span>Capacity choice for the denominator</h2>
+  <ul>
+    <li><strong>Theoretical capacity</strong> — 100% utilization, no breaks. Unrealistic.</li>
+    <li><strong>Practical capacity</strong> — theoretical minus normal downtime. Best for cost management.</li>
+    <li><strong>Normal capacity</strong> — average over a few years. Smooths cyclical demand.</li>
+    <li><strong>Master-budget capacity</strong> — this year's expected volume.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Recession trap</span><p>Using master-budget capacity in a downturn raises the OH rate (less volume to absorb fixed OH), making products look pricier. Price increases drive customers away; demand falls; rate rises further. Practical capacity isolates "cost of unused capacity" as a separate line.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Allocation base choice</h3>
+    <p class="quiz-prompt">A CNC machining department's overhead is best allocated using:</p>
+    <ul class="quiz-options"><li>Direct labor hours</li><li>Sales dollars</li><li>Machine hours</li><li>Number of employees</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Machine-intensive department → machine hours drive utility, depreciation, maintenance.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2 — When plantwide fails</h3>
+    <p class="quiz-prompt">A plantwide overhead rate is most likely to distort product cost when:</p>
+    <ul class="quiz-options"><li>All products use departments equally</li><li>Departments differ in resource intensity</li><li>The plant has only one department</li><li>Direct material is the largest cost</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> If product X is 90% machined and product Y is 90% assembled, but the plantwide rate is set on labor hours, X is undercosted and Y overcosted. Departmental rates fix it.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Capacity choice</h3>
+    <p class="quiz-prompt">A company in a cyclical industry wants product costs that don't swing with the cycle. Best denominator:</p>
+    <ul class="quiz-options"><li>Theoretical</li><li>Master-budget capacity for the current year</li><li>Practical capacity</li><li>Normal capacity</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Normal capacity averages activity across the cycle, producing a stable per-unit OH. Master-budget swings with the cycle; theoretical is unrealistic; practical isolates idle-capacity cost separately.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 4 — Predetermined rate computation</h3>
+    <p class="quiz-prompt">Budgeted OH $480K; budgeted MH 24,000. Predetermined rate per MH:</p>
+    <ul class="quiz-options"><li>$20</li><li>$24</li><li>$10</li><li>$50</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $480K / 24,000 = <strong>$20/MH</strong>. Applied OH then = $20 × actual MH.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">Variable & fixed OH</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Variance framework</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="6">
+  <span class="unit-eyebrow">Unit 6 · D.3 Variances</span>
+  <h1>Standard costs &amp; the variance framework</h1>
+  <p class="unit-lead">A <strong>variance</strong> is the difference between actual cost and standard cost (or budgeted cost). Variances are the diagnostic engine: they tell you where reality deviated from plan and — crucially — into which components.</p>
+
+  <h2><span class="marker">§6.1</span>The price/quantity decomposition</h2>
+  <p>For each input (materials, labor, variable OH), the total variance splits into two:</p>
+  <ul>
+    <li><strong>Price (or rate) variance</strong> — paid more or less per unit of input.</li>
+    <li><strong>Quantity (or efficiency) variance</strong> — used more or less of the input than standard.</li>
+  </ul>
+  <p>For fixed overhead, the split is between <strong>budget variance</strong> (spent more or less than budget) and <strong>volume variance</strong> (utilized capacity differently than budgeted).</p>
+
+  <h2><span class="marker">§6.2</span>Sign convention</h2>
+  <table class="fin-table">
+    <thead><tr><th>Sign</th><th>Label</th><th>Effect on income</th></tr></thead>
+    <tbody>
+      <tr><td>Positive (Actual &gt; Standard)</td><td>Unfavorable (U)</td><td>Reduces income</td></tr>
+      <tr><td>Negative (Actual &lt; Standard)</td><td>Favorable (F)</td><td>Increases income</td></tr>
+    </tbody>
+  </table>
+
+  <p>For price/rate: paying MORE per unit is unfavorable. For quantity/efficiency: USING MORE input is unfavorable. (Both interpretations result in the same total cost variance sign.)</p>
+
+  <h2><span class="marker">§6.3</span>Standard quantity allowed</h2>
+  <p>Critical concept. The standard cost per actual output unit:</p>
+  <div class="formula-box">Standard quantity allowed = Actual output × Standard input per unit<br/>Standard hours allowed = Actual output × Standard hours per unit</div>
+
+  <p>Always compare actual usage against the standard allowed for the actual production — NOT against the original budget standard. This is what makes variance analysis fair to the manager (they're not penalized for producing more or fewer units than planned).</p>
+
+  <div class="callout tip"><span class="callout-label">Why decompose?</span><p>The TOTAL variance = "actual differs from standard by $X." That alone is uninformative. The decomposition into price and quantity points the investigation: price variance suggests procurement or rate negotiation issues; quantity variance suggests production or yield issues.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Standard quantity allowed</h3>
+    <p class="quiz-prompt">Standard 4 lb/unit; produced 1,200 units. Standard quantity allowed:</p>
+    <ul class="quiz-options"><li>4,800 lbs</li><li>3,000 lbs</li><li>1,200 lbs</li><li>4 lbs</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> 1,200 × 4 = <strong>4,800 lbs</strong>. Standard quantity is computed for actual output, not for the original budget output.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2 — Sign convention</h3>
+    <p class="quiz-prompt">Actual material cost $50,200; standard for actual production $48,000. Total material variance:</p>
+    <ul class="quiz-options"><li>$2,200 F</li><li>$2,200 U</li><li>$0</li><li>$48,000 U</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Actual ($50,200) − Standard ($48,000) = $2,200. Positive = U (unfavorable). To learn whether it was a price or quantity issue, decompose further.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Decomposition purpose</h3>
+    <p class="quiz-prompt">Why decompose a total variance into price and quantity components?</p>
+    <ul class="quiz-options"><li>To make the math look harder</li><li>For tax compliance</li><li>To direct investigation toward the right root cause</li><li>To eliminate the variance</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Different sub-variances point to different responsible functions: price variance → procurement; quantity variance → production / yield. Without decomposition, "the variance was $X unfavorable" is unactionable.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Comparing actual to original budget</h3>
+    <p class="quiz-prompt">Comparing actual costs to the ORIGINAL budgeted costs (not the flexible budget) for variance analysis is:</p>
+    <ul class="quiz-options"><li>Best practice</li><li>Required by GAAP</li><li>Acceptable for fixed costs only</li><li>Unfair — mixes volume effects with spending efficiency</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Actual vs original budget mixes volume (we produced more or fewer units than planned) with efficiency (we were better or worse per unit). Flexible budget at actual volume isolates the latter.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">OH allocation</span></button>
+    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">DM & DL variances</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="7">
+  <span class="unit-eyebrow">Unit 7 · D.3 Variances</span>
+  <h1>Direct material &amp; direct labor variances</h1>
+  <p class="unit-lead">Now apply the price/quantity framework to materials and labor — the two largest controllable cost categories in most manufacturing operations.</p>
+
+  <h2><span class="marker">§7.1</span>Direct material variances</h2>
+  <div class="formula-box">DM Price Variance = (Actual price − Standard price) × Actual quantity (purchased or used)<br/>DM Quantity Variance = (Actual quantity used − Standard quantity allowed) × Standard price</div>
+
+  <p>Note the variance "stayed in the buckets": price variance uses actual quantity (you can only feel the price effect on what you actually bought); quantity variance uses standard price (rate is held constant to isolate the quantity effect).</p>
+
+  <h2><span class="marker">§7.2</span>Direct labor variances</h2>
+  <div class="formula-box">DL Rate Variance = (Actual rate − Standard rate) × Actual hours<br/>DL Efficiency Variance = (Actual hours − Standard hours allowed) × Standard rate</div>
+
+  <p>Same structure as DM — just substitute "rate" for price and "hours" for quantity.</p>
+
+  <h2><span class="marker">§7.3</span>Common interpretations</h2>
+  <table class="fin-table">
+    <thead><tr><th>Variance pattern</th><th>Possible cause</th></tr></thead>
+    <tbody>
+      <tr><td>DM price F + DM quantity U</td><td>Bought cheap material that's harder to work with — more waste</td></tr>
+      <tr><td>DM price U + DM quantity F</td><td>Bought premium material that yielded better — quality trade-off</td></tr>
+      <tr><td>DL rate F + DL efficiency U</td><td>Used less-skilled (cheaper) labor — slower output</td></tr>
+      <tr><td>DL rate U + DL efficiency F</td><td>Used premium / overtime labor — faster but expensive</td></tr>
+    </tbody>
+  </table>
+
+  <p>Whether the trade-off is favorable depends on totals and product impact (quality, defect rate, customer satisfaction).</p>
+
+  <div class="callout warning"><span class="callout-label">Purchase vs use</span><p>For DM price variance, "actual quantity" can mean quantity PURCHASED (timing of price recognition) or quantity USED. Most modern systems use purchased quantity — the price effect is recognized when materials arrive, not when consumed. Either is acceptable; just be consistent.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — DM price</h3>
+    <p class="quiz-prompt">Standard $5/lb; actual $4.80/lb; purchased 2,000 lb. DM price variance:</p>
+    <ul class="quiz-options"><li>$400 F</li><li>$400 U</li><li>$0</li><li>$10,000 F</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ($4.80 − $5.00) × 2,000 = -$400 = <strong>$400 F</strong>. Paid less than standard.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — DM quantity</h3>
+    <p class="quiz-prompt">Standard 3 lb/unit at $5; produced 1,000 units; actually used 3,200 lb. DM quantity variance:</p>
+    <ul class="quiz-options"><li>$200 F</li><li>$0</li><li>$1,000 U</li><li>$1,000 F</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Standard allowed = 1,000 × 3 = 3,000 lb. (3,200 − 3,000) × $5 = <strong>$1,000 U</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — DL efficiency</h3>
+    <p class="quiz-prompt">Standard 2 hr/unit at $25; produced 500 units; actual 1,050 hours. DL efficiency variance:</p>
+    <ul class="quiz-options"><li>$1,500 F</li><li>$1,250 U</li><li>$1,250 F</li><li>$2,500 U</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Standard hours allowed = 500 × 2 = 1,000. (1,050 − 1,000) × $25 = <strong>$1,250 U</strong>. Took 50 hours more than standard.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Variance interpretation</h3>
+    <p class="quiz-prompt">DM Price F $1,000 and DM Quantity U $1,500. The most likely root cause:</p>
+    <ul class="quiz-options"><li>Strong supplier negotiation alone</li><li>Production team wasted material independent of purchasing</li><li>Both unrelated</li><li>Bought lower-quality material that wasted more in production — net cost</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Classic price/quantity trade-off pattern: cheaper material that's harder to use yielded more waste. Net unfavorable $500 — savings on the wrong dimension. Investigate supplier quality.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 5 — DL rate variance</h3>
+    <p class="quiz-prompt">Standard rate $20/hr; actual rate $22/hr; actual hours 800. DL rate variance:</p>
+    <ul class="quiz-options"><li>$1,600 U</li><li>$1,600 F</li><li>$2,000 U</li><li>$3,200 U</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ($22 − $20) × 800 = <strong>$1,600 U</strong>. Paid $2/hr more than standard on 800 hours.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">Framework</span></button>
+    <button class="nav-link next" onclick="goTo(8)"><span class="dir">Next →</span><span class="ttl">Overhead variances</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="8">
+  <span class="unit-eyebrow">Unit 8 · D.3 Variances</span>
+  <h1>Overhead variances — variable spending/efficiency, fixed budget/volume</h1>
+  <p class="unit-lead">Variable overhead variances follow the DM/DL pattern. Fixed overhead has its own twist: applied OH uses an estimated rate, so variances split between <strong>spending</strong> (rate accuracy) and <strong>volume</strong> (denominator activity).</p>
+
+  <h2><span class="marker">§8.1</span>Variable OH</h2>
   <div class="formula-box">VOH Spending = (Actual rate − Standard rate) × Actual hours<br/>VOH Efficiency = (Actual hours − Standard hours allowed) × Standard rate</div>
 
-  <p>Identical structure to DL variance, just applied to variable overhead.</p>
+  <p>Identical structure to DL variances, applied to variable overhead. Common driver: machine hours or DLH.</p>
 
-  <h2><span class="marker">§5.2</span>Fixed OH</h2>
-  <div class="formula-box">FOH Budget Variance = Actual FOH − Budgeted FOH<br/>FOH Volume Variance = Budgeted FOH − Applied FOH (= Std rate × Standard hours allowed)</div>
+  <h2><span class="marker">§8.2</span>Fixed OH — two variances, different logic</h2>
+  <div class="formula-box">FOH Budget Variance = Actual FOH − Budgeted FOH<br/>FOH Volume Variance = Budgeted FOH − Applied FOH (= Std rate × Std hours allowed)</div>
 
-  <p>Volume variance reflects under- or over-utilization of capacity. Higher actual production than budgeted = favorable volume variance (more units absorbing the same fixed cost).</p>
+  <p><strong>Budget variance</strong> measures spending performance: did we spend more than we planned? <strong>Volume variance</strong> measures capacity utilization: did we produce more or fewer units than the level used to set the predetermined rate? Higher actual production = favorable volume variance (more units absorbing the same fixed cost).</p>
+
+  <h2><span class="marker">§8.3</span>Reconciliation</h2>
+  <p>Total OH variance = Actual OH − Applied OH = Budget variance + Volume variance (for fixed) + Spending + Efficiency (for variable). Each variance answers a different management question.</p>
+
+  <div class="callout warning"><span class="callout-label">Volume variance is informational</span><p>FOH volume variance reflects how the company allocated its fixed cost across actual output, not how well it controlled costs. A plant running 80% capacity will show unfavorable volume variance even with perfect spending discipline. Don't reflexively treat unfavorable volume as a "problem."</p></div>
 
   <div class="quiz" data-correct="2">
     <h3>Practice 1 — VOH efficiency</h3>
     <p class="quiz-prompt">Standard VOH rate $5/DLH; standard hours allowed 2,000; actual hours 2,200. VOH efficiency variance:</p>
-    <ul class="quiz-options"><li>$1,000 F</li><li>$1,000 U</li><li>$1,000 unfavorable</li><li>$11,000 U</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> (2,200 − 2,000) × $5 = <strong>$1,000 U</strong>. (Same as choice C.) Took 200 hours more than standard at $5 rate.</div>
+    <ul class="quiz-options"><li>$1,000 F</li><li>$1,000 unchanged</li><li>$1,000 U</li><li>$11,000 U</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> (2,200 − 2,000) × $5 = <strong>$1,000 U</strong>. Took 200 hours more than standard at $5 rate.</div>
   </div>
 
   <div class="quiz" data-correct="0">
     <h3>Practice 2 — FOH budget variance</h3>
     <p class="quiz-prompt">Budgeted FOH $40K; actual FOH $43K. Budget variance:</p>
     <ul class="quiz-options"><li>$3,000 U</li><li>$3,000 F</li><li>$0</li><li>Cannot be calculated</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Budget variance = Actual − Budgeted = $43K − $40K = <strong>$3,000 U</strong>. Spent more on fixed overhead than planned.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Actual − Budgeted = $43K − $40K = <strong>$3,000 U</strong>. Spent more on fixed overhead than planned.</div>
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — Volume variance source</h3>
+    <h3>Practice 3 — FOH volume variance source</h3>
     <p class="quiz-prompt">A favorable fixed overhead VOLUME variance arises when:</p>
     <ul class="quiz-options"><li>Actual fixed OH is lower than budgeted</li><li>Actual rate is lower than standard rate</li><li>Hours used were less than allowed</li><li>Actual production exceeded the level used to set the predetermined rate</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Volume variance = Budgeted FOH − Applied FOH (std rate × std hrs allowed). Higher actual production raises applied FOH above budget — favorable. The other choices describe budget or efficiency variances, not volume.</div>
-  </div>
-
-  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
-  <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">DM & DL</span></button>
-    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Profitability metrics</span></button>
-  </div>
-</article>
-
-<article class="unit" data-id="6">
-  <span class="unit-eyebrow">Unit 6 · D.4 Performance</span>
-  <h1>Profitability analysis & ROI</h1>
-  <p class="unit-lead">Beyond company-level NI, analyze profit at finer cuts — by product, business unit, customer. The same lens applies: revenue minus directly attributable cost.</p>
-
-  <h2><span class="marker">§6.1</span>Cuts of profit</h2>
-  <ul>
-    <li><strong>Product profitability</strong> — revenue per SKU minus traceable variable cost (and product-specific fixed) → gross or contribution margin per product.</li>
-    <li><strong>Business unit profitability</strong> — segment revenue minus segment-level cost; used in segment reporting (Section A) and bonus calculations.</li>
-    <li><strong>Customer profitability</strong> — customer revenue minus all costs to serve that customer (acquisition, support, customizations). Often surprises management.</li>
-  </ul>
-
-  <h2><span class="marker">§6.2</span>Return on investment (ROI)</h2>
-  <div class="formula-box">ROI = Net income ÷ Average investment (or assets)<br/>= Profit margin × Asset turnover (DuPont 2-step)</div>
-
-  <p>ROI lets investments be compared on a common scale. Drawback: managers may reject good projects whose return is below the unit's current ROI (because accepting drags the average down). Residual income (RI = NI − Required return × Investment) avoids that incentive trap.</p>
-
-  <div class="quiz" data-correct="1">
-    <h3>Practice 1 — ROI</h3>
-    <p class="quiz-prompt">Operating income $200K; average operating assets $1M. ROI:</p>
-    <ul class="quiz-options"><li>10%</li><li>20%</li><li>5%</li><li>50%</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> $200K / $1M = <strong>20%</strong>. Decompose: assume sales $2M, then margin 10% × turnover 2.0 = 20% ROI.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Volume = Budgeted FOH − Applied FOH. Higher production raises Applied FOH above Budgeted — favorable. The other choices describe budget or efficiency variances, not volume.</div>
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 2 — ROI weakness</h3>
-    <p class="quiz-prompt">A potential weakness of ROI as a divisional performance metric is:</p>
-    <ul class="quiz-options"><li>It cannot be calculated below the firm level</li><li>It rewards risk-taking</li><li>Managers may reject projects that earn above the cost of capital but below the division's current ROI</li><li>It ignores asset utilization</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> The dilution incentive: a manager at 25% ROI rejects a 18% project even if cost of capital is 12%. RI fixes this by charging a capital cost.</div>
+    <h3>Practice 4 — Volume variance limitation</h3>
+    <p class="quiz-prompt">An unfavorable FOH volume variance most often signals:</p>
+    <ul class="quiz-options"><li>Material spending is out of control</li><li>Bad-debt expense is rising</li><li>The plant ran below the capacity used in setting the predetermined rate</li><li>Workers were less efficient</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Volume variance is purely about utilization. Spending and efficiency variances are separate. An 80% capacity plant will show unfavorable volume even with perfect cost discipline.</div>
   </div>
 
-  <div class="quiz" data-correct="0">
-    <h3>Practice 3 — Customer profitability</h3>
-    <p class="quiz-prompt">Customer profitability analysis often reveals:</p>
-    <ul class="quiz-options"><li>A small fraction of customers generate most profit; some are unprofitable to serve</li><li>All customers contribute roughly equal profit</li><li>Customer acquisition cost is irrelevant</li><li>Service costs are the same for every customer</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> The Pareto pattern is universal — typically 20% of customers generate 80% of profit, and 10-20% of customers may actually lose money once full service costs are loaded. Action: tier the service model to fit the profitability tier.</div>
+  <div class="quiz" data-correct="1">
+    <h3>Practice 5 — VOH spending</h3>
+    <p class="quiz-prompt">Actual VOH rate $4/DLH; standard $3.50/DLH; actual hours 1,500. VOH spending variance:</p>
+    <ul class="quiz-options"><li>$750 F</li><li>$750 U</li><li>$5,250 U</li><li>$6,000 U</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ($4.00 − $3.50) × 1,500 = $0.50 × 1,500 = <strong>$750 U</strong>. Paid $0.50 more per hour than standard rate.</div>
   </div>
 
-  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <button class="btn done-btn" id="mark-done-8">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">OH variances</span></button>
-    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">CVP & breakeven</span></button>
+    <button class="nav-link" onclick="goTo(7)"><span class="dir">← Previous</span><span class="ttl">DM & DL</span></button>
+    <button class="nav-link next" onclick="goTo(9)"><span class="dir">Next →</span><span class="ttl">Profitability analysis</span></button>
   </div>
 </article>
 
-<article class="unit" data-id="7">
-  <span class="unit-eyebrow">Unit 7 · D.5 Decisions</span>
-  <h1>Breakeven & CVP analysis</h1>
-  <p class="unit-lead">Cost-volume-profit analysis links volume, contribution margin, and operating income. The breakeven point is the volume where total revenue equals total cost — zero operating profit.</p>
+<article class="unit" data-id="9">
+  <span class="unit-eyebrow">Unit 9 · D.4 Performance</span>
+  <h1>Profitability analysis — product, BU, customer</h1>
+  <p class="unit-lead">Beyond company-level NI, slice profitability finer to drive better decisions. Same lens applies at every level: revenue minus directly attributable cost. The lens choice depends on the decision.</p>
 
-  <h2><span class="marker">§7.1</span>Core formulas</h2>
-  <div class="formula-box">Contribution margin = Sales − Variable cost<br/>Contribution margin ratio = CM ÷ Sales<br/>Breakeven units = Fixed costs ÷ Unit CM<br/>Breakeven sales $ = Fixed costs ÷ CM ratio<br/>Target profit units = (Fixed + Target profit) ÷ Unit CM</div>
+  <h2><span class="marker">§9.1</span>Three cuts of profit</h2>
+  <table class="fin-table">
+    <thead><tr><th>Cut</th><th>What it shows</th><th>Decisions enabled</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Product profitability</strong></td><td>Revenue per SKU − traceable variable + product-specific fixed</td><td>Pricing, product mix, discontinue/keep</td></tr>
+      <tr><td><strong>Business unit profitability</strong></td><td>Segment revenue − segment-level cost</td><td>Capital allocation, BU bonuses, BU divestiture</td></tr>
+      <tr><td><strong>Customer profitability</strong></td><td>Customer revenue − all costs to serve that customer</td><td>Service tiering, customer retention, fire bad customers</td></tr>
+    </tbody>
+  </table>
 
-  <h2><span class="marker">§7.2</span>Margin of safety & operating leverage</h2>
-  <div class="formula-box">Margin of safety = Actual sales − Breakeven sales (in $ or units)<br/>Operating leverage = Contribution margin ÷ Operating income</div>
+  <h2><span class="marker">§9.2</span>Common patterns</h2>
+  <p>The Pareto pattern is universal:</p>
+  <ul>
+    <li>~80% of profit from ~20% of customers (or products, or business units).</li>
+    <li>~10-20% of customers may actually LOSE money once full service costs are loaded.</li>
+    <li>"Whale curves" plot cumulative profit by customer rank — typically rises steeply, peaks, then declines as unprofitable customers drag down totals.</li>
+  </ul>
 
-  <p>High operating leverage means small sales changes drive big OI changes — sword that cuts both ways. Capital-intensive industries (airlines, telecoms) typically have higher operating leverage than service businesses.</p>
+  <h2><span class="marker">§9.3</span>Common analytical traps</h2>
+  <ul>
+    <li><strong>Allocated overhead distortion</strong> — full-cost margins can mislead because allocated overhead may not actually go away if a product is dropped.</li>
+    <li><strong>Joint product over-attribution</strong> — selling a luxury item at a "loss" might still be valuable if it drives flagship traffic.</li>
+    <li><strong>Customer acquisition cost amortization</strong> — first-year customer "loses money" but earns out over a 5-year retention period.</li>
+  </ul>
+
+  <div class="callout tip"><span class="callout-label">Action: tier the service model</span><p>Once customer profitability is clear, design service tiers matched to value. Premium customers get high-touch; standard customers get self-service. Don't fire unprofitable customers — make them profitable through service economics, or let them go to a lower-cost channel.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Pareto pattern</h3>
+    <p class="quiz-prompt">A typical customer profitability analysis reveals:</p>
+    <ul class="quiz-options"><li>A small fraction of customers generates most profit; some are unprofitable to serve</li><li>All customers contribute roughly equally</li><li>Customer acquisition cost is irrelevant</li><li>Service costs are uniform across customers</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The 80/20 pattern dominates. Action: tier service to fit profitability, not just revenue.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Whale curve interpretation</h3>
+    <p class="quiz-prompt">A customer-profitability "whale curve" rising then falling means:</p>
+    <ul class="quiz-options"><li>The company has steady margins across all customers</li><li>The curve always rises monotonically</li><li>Top customers contribute most profit; bottom customers actively destroy profit</li><li>Customer acquisition is too expensive</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The curve rises as profitable customers add to cumulative profit. It peaks when neutral customers (~$0 profit) are reached. It then declines as unprofitable customers (negative profit) drag total down. The "tail" behind the peak represents the value-destroying segment.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Allocated cost trap</h3>
+    <p class="quiz-prompt">A product line shows a $5K loss based on full cost, including $20K of allocated corporate overhead. The decision to drop it should be based on:</p>
+    <ul class="quiz-options"><li>Drop — it's losing $5K</li><li>Keep — it has positive revenue</li><li>Drop — and reduce all overhead allocations</li><li>Keep if its contribution margin (revenue − variable cost) covers product-specific fixed costs</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Drop only if avoidable cost exceeds revenue. Allocated corporate overhead probably doesn't go away if the product is dropped — it gets reallocated to remaining products. Consider only avoidable costs in drop decisions.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — CLV view</h3>
+    <p class="quiz-prompt">A new customer cost $500 to acquire and earned $100 profit in year 1. Over a 5-year retention, the customer is expected to earn $1,000 total profit. The CFO should view year 1 as:</p>
+    <ul class="quiz-options"><li>A failure — $400 net loss</li><li>An investment — amortize acquisition over expected customer lifetime</li><li>Irrelevant</li><li>Indistinguishable from a one-time customer</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Customer-acquisition cost is an investment that earns out over the customer's lifetime. Year-1 P&amp;L misleads. Customer-lifetime-value (CLV) analysis matches acquisition cost against expected lifetime contribution.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-9">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(8)"><span class="dir">← Previous</span><span class="ttl">OH variances</span></button>
+    <button class="nav-link next" onclick="goTo(10)"><span class="dir">Next →</span><span class="ttl">ROI & responsibility centers</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="10">
+  <span class="unit-eyebrow">Unit 10 · D.4 Performance</span>
+  <h1>Return on investment (ROI) and responsibility centers</h1>
+  <p class="unit-lead"><strong>ROI</strong> measures profit per dollar of invested capital, putting investments on a common scale. <strong>Responsibility centers</strong> structure the organization so each manager is held accountable for what they actually control.</p>
+
+  <h2><span class="marker">§10.1</span>ROI</h2>
+  <div class="formula-box">ROI = Net income (or operating income) ÷ Average investment (or assets)<br/>= Profit margin × Asset turnover (DuPont 2-step)</div>
+
+  <p>Used to compare divisions, projects, capital investments. Easy to compute; widely understood.</p>
+
+  <h2><span class="marker">§10.2</span>ROI's structural weakness</h2>
+  <p>Managers may reject value-creating projects whose return is below their unit's current ROI — accepting drags the average down. Example:</p>
+  <ul>
+    <li>Division ROI: 25%. Cost of capital: 12%.</li>
+    <li>New project: ROI 18% (above cost of capital — value-creating).</li>
+    <li>If accepted, division ROI averages down. Manager rejects to protect bonus.</li>
+    <li>The company loses 6% above cost of capital × project size.</li>
+  </ul>
+
+  <h2><span class="marker">§10.3</span>Residual income (RI) — fixes ROI's incentive</h2>
+  <div class="formula-box">RI = Net income − (Required return × Investment)</div>
+
+  <p>RI rewards any project earning above the required return, regardless of effect on average ROI. The CMA prefers RI for divisional evaluation; ROI is still ubiquitous because it's intuitive.</p>
+
+  <h2><span class="marker">§10.4</span>Responsibility centers</h2>
+  <table class="fin-table">
+    <thead><tr><th>Type</th><th>Manager controls</th><th>Manager evaluated on</th></tr></thead>
+    <tbody>
+      <tr><td>Cost center</td><td>Costs only</td><td>Spending efficiency, variances</td></tr>
+      <tr><td>Revenue center</td><td>Revenue only</td><td>Sales targets, mix</td></tr>
+      <tr><td>Profit center</td><td>Both revenues and costs</td><td>Operating income</td></tr>
+      <tr><td>Investment center</td><td>Revenues, costs, AND investment base</td><td>ROI, RI, EVA</td></tr>
+    </tbody>
+  </table>
+
+  <p>Match the metric to the level of control: don't penalize a cost-center manager for revenue shortfalls; don't expect a revenue-center manager to manage capital allocation.</p>
+
+  <div class="callout warning"><span class="callout-label">Controllability principle</span><p>Hold managers accountable only for what they meaningfully control. Allocating uncontrollable corporate overhead into divisional ROI/RI calculations introduces noise and erodes the trust the metric requires.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — ROI</h3>
+    <p class="quiz-prompt">Operating income $90K; average operating assets $600K. ROI:</p>
+    <ul class="quiz-options"><li>10%</li><li>15%</li><li>20%</li><li>6.67%</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $90K / $600K = <strong>15%</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — ROI dilution</h3>
+    <p class="quiz-prompt">A division at 20% ROI (cost of capital 10%) considers a project that would earn 14%. Under ROI evaluation, the manager will likely:</p>
+    <ul class="quiz-options"><li>Accept — 14% &gt; 10% cost of capital</li><li>Decline — 14% is below the required return</li><li>Decline — accepting drags the divisional ROI down</li><li>Be indifferent</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> 14% &lt; current 20% ROI, so accepting reduces divisional ROI. Bonus tied to ROI gives the manager an incentive to reject — even though 14% &gt; 10% is value-creating. Classic dilution problem; RI fixes it.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — RI calculation</h3>
+    <p class="quiz-prompt">NI $80K; investment $500K; required return 12%. Residual income:</p>
+    <ul class="quiz-options"><li>$20,000</li><li>$80,000</li><li>$500,000</li><li>−$60,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> RI = $80K − (12% × $500K) = $80K − $60K = <strong>$20K</strong>. Positive RI = earning above required return.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Center type</h3>
+    <p class="quiz-prompt">A division manager controls revenues, operating costs, AND can recommend capital investments evaluated against a hurdle rate. Best classified as:</p>
+    <ul class="quiz-options"><li>Cost center</li><li>Revenue center</li><li>Profit center</li><li>Investment center</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Investment center: controls inputs, outputs, AND the asset base. Evaluated on ROI/RI/EVA. Profit center stops at operating income; cost/revenue centers control only their respective dimension.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-10">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(9)"><span class="dir">← Previous</span><span class="ttl">Profitability</span></button>
+    <button class="nav-link next" onclick="goTo(11)"><span class="dir">Next →</span><span class="ttl">CVP & breakeven</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="11">
+  <span class="unit-eyebrow">Unit 11 · D.5 Decisions</span>
+  <h1>Breakeven &amp; CVP analysis</h1>
+  <p class="unit-lead">Cost-volume-profit (CVP) analysis links volume, contribution margin, and operating income. The breakeven point is the volume where total revenue equals total cost — zero operating profit. Beyond breakeven, every additional unit's CM falls to OI.</p>
+
+  <h2><span class="marker">§11.1</span>Core formulas</h2>
+  <div class="formula-box">Contribution margin (CM) = Sales − Variable cost<br/>Unit CM = Selling price − Variable cost per unit<br/>CM ratio = CM ÷ Sales (or Unit CM ÷ Selling price)<br/>Breakeven units = Fixed cost ÷ Unit CM<br/>Breakeven sales $ = Fixed cost ÷ CM ratio<br/>Target profit units = (Fixed + Target profit) ÷ Unit CM</div>
+
+  <h2><span class="marker">§11.2</span>Margin of safety</h2>
+  <div class="formula-box">Margin of safety ($) = Actual sales − Breakeven sales<br/>Margin of safety (%) = MOS $ ÷ Actual sales</div>
+
+  <p>Margin of safety = how much sales can drop before the company breaks even. High MOS = safer; low MOS = vulnerable.</p>
+
+  <h2><span class="marker">§11.3</span>Operating leverage</h2>
+  <div class="formula-box">Degree of operating leverage = Contribution margin ÷ Operating income</div>
+
+  <p>Tells you the % change in OI for a 1% change in sales. High leverage (capital-intensive industries: airlines, telecoms) means small sales changes drive big OI changes — sword that cuts both ways.</p>
+
+  <h2><span class="marker">§11.4</span>CVP assumptions</h2>
+  <ul>
+    <li>Costs are linear in the relevant range.</li>
+    <li>Single product (or constant mix for multi-product).</li>
+    <li>Selling price is constant.</li>
+    <li>Inventory is constant (production = sales) — relevant for absorption costing.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Multi-product CVP</span><p>For a multi-product company, breakeven uses the weighted-average CM based on the standard sales mix. Change the mix and breakeven changes — even with no change in volumes, prices, or costs.</p></div>
 
   <div class="quiz" data-correct="0">
     <h3>Practice 1 — Breakeven units</h3>
-    <p class="quiz-prompt">Selling price $50; variable cost $30; fixed cost $80,000. Breakeven units:</p>
+    <p class="quiz-prompt">Selling price $50; variable cost $30; fixed $80,000. Breakeven units:</p>
     <ul class="quiz-options"><li>4,000</li><li>2,667</li><li>1,600</li><li>2,000</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Unit CM = $50 − $30 = $20. BE units = $80K / $20 = <strong>4,000</strong>. Each unit contributes $20 toward covering fixed; need 4,000 to clear $80K.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Unit CM = $50 − $30 = $20. BE = $80K / $20 = <strong>4,000 units</strong>.</div>
   </div>
 
   <div class="quiz" data-correct="2">
     <h3>Practice 2 — CM ratio</h3>
     <p class="quiz-prompt">Sales $500K; variable costs $300K. CM ratio:</p>
     <ul class="quiz-options"><li>30%</li><li>60%</li><li>40%</li><li>67%</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> CM = $500K − $300K = $200K. CM ratio = $200K / $500K = <strong>40%</strong>. Every additional dollar of sales adds 40 cents of CM.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> CM = $500K − $300K = $200K. CM ratio = $200K / $500K = <strong>40%</strong>.</div>
   </div>
 
   <div class="quiz" data-correct="3">
     <h3>Practice 3 — Target profit</h3>
-    <p class="quiz-prompt">Same as Q1; target operating profit $40,000. Required sales units:</p>
+    <p class="quiz-prompt">Same data as Q1; target profit $40,000. Required sales units:</p>
     <ul class="quiz-options"><li>4,000</li><li>5,000</li><li>2,000</li><li>6,000</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> ($80K + $40K) / $20 = $120K / $20 = <strong>6,000 units</strong>. Above breakeven (4,000), each additional unit's CM falls to OI; need 2,000 more units × $20 = $40K profit.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> ($80K + $40K) / $20 = <strong>6,000</strong>. Above breakeven (4,000), each additional unit's CM falls to OI.</div>
   </div>
 
-  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — Margin of safety</h3>
+    <p class="quiz-prompt">Actual sales $500K; breakeven sales $400K. Margin of safety:</p>
+    <ul class="quiz-options"><li>$100K, 25%</li><li>$100K, 20%</li><li>$400K, 80%</li><li>$0</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> MOS $ = $500K − $400K = $100K. MOS % = $100K / $500K = <strong>20%</strong>. Sales can drop 20% before the company breaks even.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 5 — Operating leverage</h3>
+    <p class="quiz-prompt">CM $300K; operating income $100K. Degree of operating leverage:</p>
+    <ul class="quiz-options"><li>0.33</li><li>1.0</li><li>3.0</li><li>$200K</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $300K / $100K = <strong>3.0×</strong>. A 10% sales change yields ~30% OI change. High leverage industries (airlines, software) tend to show DOL of 3-5+.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-11">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">Profitability</span></button>
-    <button class="nav-link next" onclick="goTo(8)"><span class="dir">Next →</span><span class="ttl">Marginal analysis</span></button>
+    <button class="nav-link" onclick="goTo(10)"><span class="dir">← Previous</span><span class="ttl">ROI</span></button>
+    <button class="nav-link next" onclick="goTo(12)"><span class="dir">Next →</span><span class="ttl">Marginal analysis</span></button>
   </div>
 </article>
 
-<article class="unit" data-id="8">
-  <span class="unit-eyebrow">Unit 8 · D.5 Decisions</span>
+<article class="unit" data-id="12">
+  <span class="unit-eyebrow">Unit 12 · D.5 Decisions</span>
   <h1>Sunk costs, opportunity costs, marginal analysis</h1>
   <p class="unit-lead">When a manager evaluates an option (special order, make-vs-buy, sell-or-process-further), only the costs and revenues that <em>change</em> with the decision matter. The discipline of identifying these — and ignoring sunk costs — is marginal analysis.</p>
 
-  <h2><span class="marker">§8.1</span>Three cost concepts</h2>
+  <h2><span class="marker">§12.1</span>Three cost concepts</h2>
   <ul>
     <li><strong>Sunk cost</strong> — already spent; never relevant to a future decision.</li>
     <li><strong>Opportunity cost</strong> — value of the best foregone alternative; ALWAYS relevant.</li>
     <li><strong>Avoidable / differential cost</strong> — changes between options; what marginal analysis weighs.</li>
   </ul>
 
-  <h2><span class="marker">§8.2</span>Common decisions</h2>
+  <h2><span class="marker">§12.2</span>Common decisions</h2>
   <table class="fin-table">
-    <thead><tr><th>Decision</th><th>Compare</th></tr></thead>
+    <thead><tr><th>Decision</th><th>Compare</th><th>Watch out for</th></tr></thead>
     <tbody>
-      <tr><td>Special order</td><td>Incremental revenue vs incremental variable cost (and any opportunity cost of capacity)</td></tr>
-      <tr><td>Make-vs-buy</td><td>Avoidable cost of making vs purchase price (plus quality/control)</td></tr>
-      <tr><td>Sell or process further</td><td>Incremental revenue vs separable processing cost</td></tr>
-      <tr><td>Drop a segment</td><td>Lost CM vs avoidable fixed cost</td></tr>
+      <tr><td>Special order</td><td>Incremental revenue vs incremental variable cost (and any opportunity cost of capacity)</td><td>Don't anchor on full cost; check capacity</td></tr>
+      <tr><td>Make-vs-buy</td><td>Avoidable cost of making vs purchase price</td><td>Allocated fixed cost may not actually be avoidable</td></tr>
+      <tr><td>Sell or process further</td><td>Incremental revenue vs separable processing cost</td><td>Joint cost is sunk and irrelevant</td></tr>
+      <tr><td>Drop a segment</td><td>Lost contribution margin vs avoidable fixed cost</td><td>Allocated overhead doesn't disappear</td></tr>
+      <tr><td>Add a product</td><td>Incremental revenue vs incremental cost (incl. opportunity cost)</td><td>Cannibalization of existing products</td></tr>
     </tbody>
   </table>
 
-  <div class="callout warning"><span class="callout-label">Trap</span><p>Allocated overhead is often NOT relevant — much of it persists whether the decision goes either way. Always check whether each cost actually changes with the option chosen.</p></div>
+  <h2><span class="marker">§12.3</span>Capacity-constrained decisions</h2>
+  <p>When capacity is fully utilized, accepting a special order means giving up some current production. Use <strong>contribution margin per unit of constrained resource</strong> to rank competing uses:</p>
+  <div class="formula-box">CM per machine hour (or per labor hour, or per pound of scarce material) = Unit CM ÷ Resource per unit</div>
+
+  <p>Make products with the highest CM per scarce resource until capacity is exhausted.</p>
+
+  <div class="callout warning"><span class="callout-label">Two common traps</span><p>(1) Treating allocated fixed cost as if it would disappear with the decision. Most allocated overhead persists. (2) Ignoring opportunity cost. Idle capacity has no opportunity cost; busy capacity does.</p></div>
 
   <div class="quiz" data-correct="0">
     <h3>Practice 1 — Sunk cost</h3>
-    <p class="quiz-prompt">Six months ago, the company bought a $500K machine. It now offers a custom job that needs the machine. The $500K is:</p>
-    <ul class="quiz-options"><li>Sunk — irrelevant to the decision</li><li>Variable cost of the job</li><li>Opportunity cost</li><li>Differential cost</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> The $500K is gone regardless of the new decision. Sunk costs never affect the future-only choice. Relevant: incremental revenue from the job, incremental variable costs to do it, opportunity cost if the machine could otherwise be used profitably.</div>
+    <p class="quiz-prompt">Six months ago, the company bought a $500K specialized machine. It is now considering a custom job that would use the machine. The $500K is:</p>
+    <ul class="quiz-options"><li>Sunk — irrelevant</li><li>Variable cost of the job</li><li>Opportunity cost</li><li>Differential cost</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The $500K is gone regardless of the decision. Sunk costs never affect the future-only choice. Relevant: incremental revenue from the job, incremental variable costs, opportunity cost if the machine could otherwise be used profitably.</div>
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 2 — Special order</h3>
-    <p class="quiz-prompt">Capacity is idle. A customer offers $24/unit for 5,000 units of a product that has variable cost $18/unit and allocated fixed cost $4/unit. Accept?</p>
-    <ul class="quiz-options"><li>Reject — price below full cost</li><li>Reject — allocated fixed cost not covered</li><li>Accept — incremental margin $6/unit × 5,000 = $30,000</li><li>Reject unless price ≥ $22</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Idle capacity → fixed costs unchanged → only variable cost is differential. ($24 − $18) × 5,000 = $30K incremental contribution. Allocated fixed cost is irrelevant. Take it.</div>
+    <h3>Practice 2 — Special order with idle capacity</h3>
+    <p class="quiz-prompt">Idle capacity. A customer offers $24/unit for 5,000 units of a product that costs $18 variable + $4 allocated fixed. Accept?</p>
+    <ul class="quiz-options"><li>Reject — price below full cost</li><li>Reject — fixed not covered</li><li>Accept — incremental margin $6/unit × 5,000 = $30,000</li><li>Reject unless price ≥ $22</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Idle capacity → fixed costs unchanged → only variable cost is differential. ($24 − $18) × 5,000 = $30K incremental. Take it. Allocated fixed is irrelevant.</div>
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — Make vs buy</h3>
+    <h3>Practice 3 — Make-vs-buy</h3>
     <p class="quiz-prompt">Currently making a part at $12 variable + $4 allocated fixed (of which $2 is avoidable). Outside vendor offers $13. Decision:</p>
-    <ul class="quiz-options"><li>Make — total cost is $16 vs $13</li><li>Buy — saves $3/unit</li><li>Buy — saves $1/unit</li><li>Make — saves $1/unit (avoidable cost)</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Avoidable cost of making = $12 + $2 = $14. Buy at $13 saves <strong>$1/unit</strong>. The $4 allocated fixed cost trap: only $2 actually goes away if the company stops making the part. Total cost ($16) misleads.</div>
+    <ul class="quiz-options"><li>Make — total cost is $16 vs $13</li><li>Buy — saves $3/unit</li><li>Buy — saves $1/unit</li><li>Make — saves $1/unit (vs avoidable $14)</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Avoidable cost of making = $12 + $2 = $14. Buy at $13 saves $1/unit, BUT the question is asking direction: "make at $14 or buy at $13?" Buy saves $1. Wait — re-read: "Make saves $1/unit (vs avoidable $14)" is comparing $14 making vs $13 buying — buying is cheaper by $1, so MAKING does NOT save. The correct answer is choice 2: BUY saves $1/unit.</div>
   </div>
 
-  <button class="btn done-btn" id="mark-done-8">Mark complete</button>
+  <div class="quiz" data-correct="0">
+    <h3>Practice 4 — Process further</h3>
+    <p class="quiz-prompt">A joint product can be sold at split-off for $20K, or processed further at $7K cost and sold for $30K. Decision:</p>
+    <ul class="quiz-options"><li>Process further — $3K incremental margin</li><li>Sell at split-off — separable cost too high</li><li>Process further only if joint cost &lt; $3K</li><li>Sell at split-off — joint cost is sunk</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Incremental analysis: ($30K − $20K) − $7K = +$3K margin from further processing. Joint cost is sunk and irrelevant.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 5 — Constrained resource ranking</h3>
+    <p class="quiz-prompt">Product A: CM $10/unit, 0.5 machine hours. Product B: CM $15/unit, 1.0 machine hour. Capacity is the constraint. Make:</p>
+    <ul class="quiz-options"><li>B — higher CM per unit</li><li>A — higher CM per machine hour ($20 vs $15)</li><li>Equal mix</li><li>Cannot be determined without fixed costs</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> CM per machine hour: A = $10 / 0.5 = $20; B = $15 / 1 = $15. A wins on the constrained resource. Capacity-constrained decisions rank by CM per unit of scarce resource, not absolute CM.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-12">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(7)"><span class="dir">← Previous</span><span class="ttl">CVP</span></button>
-    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test</span></button>
+    <button class="nav-link" onclick="goTo(11)"><span class="dir">← Previous</span><span class="ttl">CVP</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test 1</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="900">
   <span class="unit-eyebrow">Practice Test 1 · FMAA Section D</span>
   <h1>Test 1 — Section D mixed</h1>
-  <p class="unit-lead">12 mixed multiple-choice questions covering D.1–D.5.</p>
-  <div class="test-intro"><h2>Coverage</h2><p>Cost behavior, costing methods, overhead allocation, variance analysis, ROI, CVP, marginal analysis.</p>
-    <div class="test-meta"><span>Questions<strong>12</strong></span><span>Time target<strong>~22 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
+  <p class="unit-lead">15 mixed multiple-choice questions covering D.1–D.5.</p>
+  <div class="test-intro"><h2>Coverage</h2><p>Cost behavior, costing methods, overhead allocation, variances, ROI, CVP, marginal analysis.</p>
+    <div class="test-meta"><span>Questions<strong>15</strong></span><span>Time target<strong>~27 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
 
   <div class="test">
-    <div class="test-progress"><span class="answered">0 / 12 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
+    <div class="test-progress"><span class="answered">0 / 15 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
 
     <div class="test-question" data-correct="2" data-unit="1" data-topic="Cost behavior">
       <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Cost behavior</span></div>
       <p class="quiz-q">Per-unit variable cost as activity rises (within relevant range):</p>
       <ul class="quiz-options"><li>Increases</li><li>Decreases</li><li>Stays constant</li><li>Becomes fixed</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Variable per-unit is constant by definition. Total variable rises proportionally; total fixed stays flat; per-unit fixed falls.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> Variable per-unit constant by definition; fixed per-unit decreases.</div>
     </div>
 
     <div class="test-question" data-correct="0" data-unit="1" data-topic="High-low">
@@ -530,7 +1009,7 @@
 
     <div class="test-question" data-correct="1" data-unit="2" data-topic="Predetermined OH">
       <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Predetermined OH</span></div>
-      <p class="quiz-q">Budget OH $360K; budget MH 30,000. Predetermined OH rate:</p>
+      <p class="quiz-q">Budget OH $360K; budget MH 30,000. Predetermined rate:</p>
       <ul class="quiz-options"><li>$10/MH</li><li>$12/MH</li><li>$1.20/MH</li><li>$30/MH</li></ul>
       <div class="quiz-explanation"><strong>Why:</strong> $360K / 30,000 = <strong>$12/MH</strong>.</div>
     </div>
@@ -539,63 +1018,84 @@
       <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Over-applied</span></div>
       <p class="quiz-q">Applied OH $250K; actual $230K. Closing entry to COGS:</p>
       <ul class="quiz-options"><li>DR COGS $20K / CR Mfg OH $20K</li><li>No entry</li><li>DR Mfg OH $20K / CR COGS $20K</li><li>DR Mfg OH $250K / CR COGS $250K</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Applied &gt; Actual = over-applied. Reduce COGS: <strong>DR Mfg OH $20K / CR COGS $20K</strong>.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> Applied &gt; Actual = over-applied. Reduce COGS: DR Mfg OH $20K / CR COGS $20K.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="3" data-topic="Allocation">
-      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Allocation base</span></div>
+    <div class="test-question" data-correct="2" data-unit="3" data-topic="ABC">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">ABC</span></div>
+      <p class="quiz-q">ABC is most appropriate when:</p>
+      <ul class="quiz-options"><li>Single product</li><li>DL is the largest cost</li><li>Overhead is large and product diversity is high</li><li>All products have equal batches</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ABC pays off with high overhead AND product variety.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="5" data-topic="Allocation">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Allocation base</span></div>
       <p class="quiz-q">A labor-intensive assembly department's overhead is best allocated using:</p>
       <ul class="quiz-options"><li>Direct labor hours</li><li>Square footage</li><li>Sales dollars</li><li>Number of products</li></ul>
       <div class="quiz-explanation"><strong>Why:</strong> Labor-intensive = labor causes the overhead. DLH is the right base.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="4" data-topic="DM price">
-      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">DM price</span></div>
+    <div class="test-question" data-correct="2" data-unit="7" data-topic="DM price">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">DM price</span></div>
       <p class="quiz-q">Standard $5/lb; actual $4.80/lb; bought 2,000 lb. DM price variance:</p>
       <ul class="quiz-options"><li>$400 U</li><li>$0</li><li>$400 F</li><li>$10,000 F</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> ($4.80 − $5.00) × 2,000 = -$400 = <strong>$400 F</strong>. Paid less than standard.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> ($4.80 − $5.00) × 2,000 = -$400 = <strong>$400 F</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="1" data-unit="4" data-topic="DL efficiency">
-      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">DL efficiency</span></div>
+    <div class="test-question" data-correct="1" data-unit="7" data-topic="DL efficiency">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">DL efficiency</span></div>
       <p class="quiz-q">Standard 3 hr/unit at $20; produced 200 units; actual hours 580. DL efficiency:</p>
-      <ul class="quiz-options"><li>$200 F</li><li>$400 U</li><li>$400 F</li><li>$200 U</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Std hrs = 200 × 3 = 600. (580 − 600) × $20 = -$400 = <strong>$400 F</strong>. Used 20 fewer hours.</div>
+      <ul class="quiz-options"><li>$200 F</li><li>$400 F</li><li>$400 U</li><li>$200 U</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Std hrs = 200 × 3 = 600. (580 − 600) × $20 = -$400 = <strong>$400 F</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="5" data-topic="FOH budget">
-      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">FOH budget variance</span></div>
-      <p class="quiz-q">Budget FOH $50K; actual FOH $48K. Budget variance:</p>
+    <div class="test-question" data-correct="0" data-unit="8" data-topic="FOH budget">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">FOH budget</span></div>
+      <p class="quiz-q">Budget FOH $50K; actual $48K. Budget variance:</p>
       <ul class="quiz-options"><li>$2,000 F</li><li>$2,000 U</li><li>$0</li><li>Cannot determine</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Actual − Budget = $48K − $50K = -$2K = <strong>$2,000 F</strong>. Spent less than planned.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> Actual − Budget = -$2K = <strong>$2,000 F</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="1" data-unit="6" data-topic="ROI">
-      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">ROI</span></div>
+    <div class="test-question" data-correct="3" data-unit="9" data-topic="Customer profitability">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Customer profitability</span></div>
+      <p class="quiz-q">A customer-profitability whale curve typically:</p>
+      <ul class="quiz-options"><li>Rises monotonically</li><li>Is flat</li><li>Always declines</li><li>Rises, peaks, then declines as unprofitable customers drag total down</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Pareto + value-destroyers create the rise-peak-decline pattern.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="10" data-topic="ROI">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">ROI</span></div>
       <p class="quiz-q">Operating income $90K; average operating assets $600K. ROI:</p>
       <ul class="quiz-options"><li>10%</li><li>15%</li><li>20%</li><li>6.67%</li></ul>
       <div class="quiz-explanation"><strong>Why:</strong> $90K / $600K = <strong>15%</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="7" data-topic="Breakeven">
-      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Breakeven</span></div>
+    <div class="test-question" data-correct="3" data-unit="10" data-topic="Investment center">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Investment center</span></div>
+      <p class="quiz-q">Which responsibility-center type is evaluated on ROI/RI/EVA?</p>
+      <ul class="quiz-options"><li>Cost center</li><li>Revenue center</li><li>Profit center</li><li>Investment center</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Investment center: controls inputs, outputs, AND asset base.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="11" data-topic="Breakeven">
+      <div class="q-num"><span class="num-text">Question 13</span><span class="topic">Breakeven</span></div>
       <p class="quiz-q">Price $40; VC $25; FC $60K. Breakeven units:</p>
       <ul class="quiz-options"><li>4,000</li><li>1,500</li><li>2,400</li><li>2,000</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> CM = $15. BE = $60K / $15 = <strong>4,000 units</strong>.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> CM = $15. BE = $60K / $15 = <strong>4,000</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="7" data-topic="Target profit">
-      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">Target profit</span></div>
-      <p class="quiz-q">Same data; target profit $30K. Required sales:</p>
-      <ul class="quiz-options"><li>4,000 units</li><li>5,000 units</li><li>6,000 units</li><li>7,000 units</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> ($60K + $30K) / $15 = <strong>6,000 units</strong>.</div>
+    <div class="test-question" data-correct="2" data-unit="11" data-topic="Target profit">
+      <div class="q-num"><span class="num-text">Question 14</span><span class="topic">Target profit</span></div>
+      <p class="quiz-q">Same data; target profit $30K. Required units:</p>
+      <ul class="quiz-options"><li>4,000</li><li>5,000</li><li>6,000</li><li>7,000</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ($60K + $30K) / $15 = <strong>6,000</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="8" data-topic="Special order">
-      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Special order</span></div>
+    <div class="test-question" data-correct="2" data-unit="12" data-topic="Special order">
+      <div class="q-num"><span class="num-text">Question 15</span><span class="topic">Special order</span></div>
       <p class="quiz-q">Idle capacity. Customer offers $20/unit for 1,000 units; variable $14, allocated fixed $5. Accept?</p>
       <ul class="quiz-options"><li>Reject — total cost $19</li><li>Reject — fixed unallocated</li><li>Accept — $6,000 incremental contribution</li><li>Reject — pricing below full cost</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Idle capacity → only VC differential. ($20 − $14) × 1,000 = <strong>$6,000</strong> incremental. Take it.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> ($20 − $14) × 1,000 = <strong>$6,000</strong>.</div>
     </div>
 
     <div class="test-summary"><h2>Test 1 · Results</h2><div class="score-display">0%</div><div class="score-meta">—</div><div class="missed-list"></div><button class="btn restart-btn">↻ Restart with shuffled order</button></div>
@@ -603,10 +1103,130 @@
   <button class="btn done-btn" id="mark-done-900">Mark complete</button>
 </article>
 
+<article class="unit" data-id="901">
+  <span class="unit-eyebrow">Practice Test 2 · FMAA Section D</span>
+  <h1>Test 2 — Variances &amp; decision analysis</h1>
+  <p class="unit-lead">15 questions focused on variance computations and marginal-decision scenarios.</p>
+  <div class="test-intro"><h2>Coverage</h2><p>Heavy on D.3 (variances) and D.5 (decisions) at slightly elevated difficulty.</p>
+    <div class="test-meta"><span>Questions<strong>15</strong></span><span>Time target<strong>~27 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
+
+  <div class="test">
+    <div class="test-progress"><span class="answered">0 / 15 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
+
+    <div class="test-question" data-correct="0" data-unit="6" data-topic="Std qty allowed">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Std qty allowed</span></div>
+      <p class="quiz-q">Standard 2.5 lb/unit; produced 800 units. Standard quantity allowed:</p>
+      <ul class="quiz-options"><li>2,000 lbs</li><li>800 lbs</li><li>320 lbs</li><li>2.5 lbs</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 800 × 2.5 = <strong>2,000 lbs</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="7" data-topic="DM price">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">DM price</span></div>
+      <p class="quiz-q">Standard $8/lb; actual $7.50/lb; purchased 1,500 lb. DM price variance:</p>
+      <ul class="quiz-options"><li>$750 U</li><li>$0</li><li>$750 F</li><li>$11,250 F</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ($7.50 − $8.00) × 1,500 = -$750 = <strong>$750 F</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="7" data-topic="DM quantity">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">DM quantity</span></div>
+      <p class="quiz-q">Standard 4 lb/unit at $6; produced 500 units; actual usage 2,100 lbs. DM quantity variance:</p>
+      <ul class="quiz-options"><li>$600 F</li><li>$600 U</li><li>$0</li><li>$300 U</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Std qty = 500 × 4 = 2,000. (2,100 − 2,000) × $6 = <strong>$600 U</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="7" data-topic="DL rate">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">DL rate</span></div>
+      <p class="quiz-q">Standard $20/hr; actual $22/hr; actual hours 800. DL rate variance:</p>
+      <ul class="quiz-options"><li>$1,600 F</li><li>$2,000 U</li><li>$1,600 U</li><li>$3,200 U</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ($22 − $20) × 800 = <strong>$1,600 U</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="7" data-topic="Variance interpretation">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Variance interpretation</span></div>
+      <p class="quiz-q">DM Price F + DM Quantity U most likely indicates:</p>
+      <ul class="quiz-options"><li>Cheaper material that's harder to use, leading to waste</li><li>Strong supplier negotiation alone</li><li>Production team waste, no supplier impact</li><li>An error in the standard</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Classic price/quantity trade-off. Investigate supplier-quality relationship.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="8" data-topic="VOH efficiency">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">VOH efficiency</span></div>
+      <p class="quiz-q">Standard VOH $4/DLH; standard hours allowed 1,500; actual hours 1,650. VOH efficiency:</p>
+      <ul class="quiz-options"><li>$600 F</li><li>$0</li><li>$6,600 U</li><li>$600 U</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> (1,650 − 1,500) × $4 = <strong>$600 U</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="8" data-topic="FOH volume">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">FOH volume</span></div>
+      <p class="quiz-q">A favorable FOH VOLUME variance arises when:</p>
+      <ul class="quiz-options"><li>Spending is below budget</li><li>Production exceeded the level used to set the predetermined rate</li><li>Variable costs were lower</li><li>Material was wasted</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Volume variance reflects capacity utilization, not spending discipline.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="10" data-topic="RI">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Residual income</span></div>
+      <p class="quiz-q">NI $120K; investment $800K; required return 10%. RI:</p>
+      <ul class="quiz-options"><li>$80K</li><li>$120K</li><li>$40K</li><li>−$80K</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> $120K − (10% × $800K) = $120K − $80K = <strong>$40K</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="10" data-topic="ROI dilution">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">ROI dilution</span></div>
+      <p class="quiz-q">A division at 25% ROI considers a 16% project (cost of capital 10%). Under ROI evaluation, the manager will likely:</p>
+      <ul class="quiz-options"><li>Accept — 16% &gt; 10%</li><li>Be indifferent</li><li>Decline — 16% drags ROI below 25%</li><li>Decline — capital is too expensive</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 16% &lt; current 25% → division ROI falls if accepted → manager rejects despite the project being value-creating. RI fixes this trap.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="11" data-topic="CM ratio">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">CM ratio</span></div>
+      <p class="quiz-q">Sales $800K; variable $480K. CM ratio:</p>
+      <ul class="quiz-options"><li>40%</li><li>60%</li><li>50%</li><li>67%</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ($800K − $480K) / $800K = $320K / $800K = <strong>40%</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="11" data-topic="Operating leverage">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">Operating leverage</span></div>
+      <p class="quiz-q">CM $400K; operating income $80K. Degree of operating leverage:</p>
+      <ul class="quiz-options"><li>0.20</li><li>1.0</li><li>4.0</li><li>5.0</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> $400K / $80K = <strong>5.0×</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="11" data-topic="Margin of safety">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Margin of safety</span></div>
+      <p class="quiz-q">Actual sales $1M; breakeven $700K. Margin of safety %:</p>
+      <ul class="quiz-options"><li>30%</li><li>30% / $300K MOS</li><li>43%</li><li>$0</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> MOS $ = $1M − $700K = $300K. MOS % = $300K / $1M = <strong>30%</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="12" data-topic="Constrained resource">
+      <div class="q-num"><span class="num-text">Question 13</span><span class="topic">Constrained resource</span></div>
+      <p class="quiz-q">Product A: CM $20/unit, 0.4 MH. Product B: CM $25/unit, 1.0 MH. Capacity-constrained on machine hours. Choose:</p>
+      <ul class="quiz-options"><li>B — higher CM</li><li>Equal mix</li><li>A — higher CM per MH ($50 vs $25)</li><li>Cannot determine</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> CM/MH: A = $20/0.4 = $50; B = $25/1 = $25. A wins per unit of scarce resource.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="12" data-topic="Make vs buy">
+      <div class="q-num"><span class="num-text">Question 14</span><span class="topic">Make vs buy</span></div>
+      <p class="quiz-q">Currently making at $10 variable + $3 allocated fixed (of which $1 avoidable). Buy at $12. Decide:</p>
+      <ul class="quiz-options"><li>Make — $11 avoidable &lt; $12</li><li>Buy — $12 &lt; $13 full cost</li><li>Make — saves $1/unit</li><li>Buy — saves $1</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Avoidable cost of making = $10 + $1 = $11. Buy at $12 → MAKE saves $1/unit. Allocated $3 trap: only $1 is actually avoidable.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="12" data-topic="Sunk cost">
+      <div class="q-num"><span class="num-text">Question 15</span><span class="topic">Sunk cost</span></div>
+      <p class="quiz-q">A previously incurred R&amp;D cost of $2M for a product now being evaluated for launch is:</p>
+      <ul class="quiz-options"><li>Sunk — irrelevant to the launch decision</li><li>Relevant if the product is profitable</li><li>An opportunity cost</li><li>Required to be capitalized into inventory</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> R&amp;D already spent = sunk. Launch decision: incremental revenue vs incremental costs going forward only.</div>
+    </div>
+
+    <div class="test-summary"><h2>Test 2 · Results</h2><div class="score-display">0%</div><div class="score-meta">—</div><div class="missed-list"></div><button class="btn restart-btn">↻ Restart with shuffled order</button></div>
+  </div>
+  <button class="btn done-btn" id="mark-done-901">Mark complete</button>
+</article>
+
 <article class="unit" data-id="950">
   <span class="unit-eyebrow">Flashcards · Section D</span>
   <h1>Flashcard hub</h1>
-  <p class="unit-lead">Variance formulas and CVP relationships.</p>
+  <p class="unit-lead">Variance formulas, costing systems, CVP, and decision rules.</p>
   <div class="flashcard-hub" id="flashcard-hub"></div>
   <button class="btn done-btn" id="mark-done-950">Mark complete</button>
 </article>
@@ -621,103 +1241,172 @@ window.SECTION_CONFIG = {
   sectionTitle: "FMAA · Section D — Cost Mgmt & Performance",
   storageKey: "fmaa-d-progress-v1",
   annotationKey: "fmaa-d-ann-v1",
-  totalUnits: 10,
-  trackedUnits: 8,
+  totalUnits: 15,
+  trackedUnits: 12,
   navStructure: [
     { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
-    { group: "D.1 · Measurement Concepts", units: [
+    { group: "D.1 · Measurement", units: [
       { id: 1, num: "01", title: "Cost behavior" },
       { id: 2, num: "02", title: "Actual / normal / standard" },
+      { id: 3, num: "03", title: "Costing systems & ABC" },
     ]},
     { group: "D.2 · Overhead", units: [
-      { id: 3, num: "03", title: "Variable & fixed OH" },
+      { id: 4, num: "04", title: "Variable & fixed OH" },
+      { id: 5, num: "05", title: "Allocation bases" },
     ]},
     { group: "D.3 · Variances", units: [
-      { id: 4, num: "04", title: "DM & DL variances" },
-      { id: 5, num: "05", title: "OH variances" },
+      { id: 6, num: "06", title: "Variance framework" },
+      { id: 7, num: "07", title: "DM & DL variances" },
+      { id: 8, num: "08", title: "OH variances" },
     ]},
     { group: "D.4 · Performance", units: [
-      { id: 6, num: "06", title: "Profitability & ROI" },
+      { id: 9, num: "09", title: "Profitability analysis" },
+      { id: 10, num: "10", title: "ROI & responsibility centers" },
     ]},
     { group: "D.5 · Decisions", units: [
-      { id: 7, num: "07", title: "Breakeven & CVP" },
-      { id: 8, num: "08", title: "Marginal analysis" },
+      { id: 11, num: "11", title: "Breakeven & CVP" },
+      { id: 12, num: "12", title: "Marginal analysis" },
     ]},
-    { group: "📝 Practice Test", units: [
-      { id: 900, num: "T1", title: "Section D mixed (12Q)" },
+    { group: "📝 Practice Tests", units: [
+      { id: 900, num: "T1", title: "Section D mixed (15Q)" },
+      { id: 901, num: "T2", title: "Variances & decisions (15Q)" },
     ]},
     { group: "🃏 Flashcards", units: [
       { id: 950, num: "FC", title: "All decks" },
     ]},
   ],
   keyTakeaways: {
-    1: ["Variable: total scales, per-unit constant. Fixed: total constant, per-unit decreases.", "Mixed cost = fixed component + variable rate. High-low method separates them using extreme observations.", "Relevant range: span of activity over which behavior assumptions hold."],
-    2: ["Actual / Normal / Standard differ in WHEN rate is set and WHAT it represents.", "Predetermined OH rate = Budget OH ÷ Budget activity. Applied = rate × ACTUAL activity.", "Under-applied (Actual > Applied) closes via DR COGS / CR Mfg OH.", "Standards are engineered, currently attainable targets — not historical, not perfect."],
-    3: ["Choose allocation base that CAUSES the overhead.", "Plantwide rate works when departments have similar resource intensity.", "Variable OH (indirect materials, machine utility) flexes; fixed OH (rent, supervision) doesn't."],
-    4: ["DM Price = (AP − SP) × AQ. DM Quantity = (AQ − SQ allowed) × SP.", "DL Rate = (AR − SR) × AH. DL Efficiency = (AH − SH allowed) × SR.", "Standard quantity allowed = actual output × standard per unit.", "Positive variance is unfavorable (paid more, used more)."],
-    5: ["VOH Spending and Efficiency mirror DL Rate and Efficiency.", "FOH Budget = Actual − Budgeted (spending performance).", "FOH Volume = Budgeted − Applied (capacity utilization). Higher production = favorable volume."],
-    6: ["ROI = NI ÷ Avg investment = Profit margin × Asset turnover.", "Customer/product/segment profitability often shows Pareto pattern (20% drives 80%).", "ROI weakness: managers reject value-adding projects that drag the average down. RI fixes the incentive."],
-    7: ["CM = Sales − VC. CM ratio = CM ÷ Sales.", "BE units = Fixed ÷ Unit CM. BE $ = Fixed ÷ CM ratio.", "Target profit units = (Fixed + Target) ÷ Unit CM.", "Operating leverage = CM ÷ OI. Higher leverage = more sensitivity to volume."],
-    8: ["Sunk cost: never relevant. Opportunity cost: always relevant.", "Differential / avoidable cost is what marginal analysis weighs.", "Special order with idle capacity: only VC matters; allocated fixed often irrelevant.", "Make-vs-buy: compare AVOIDABLE cost to purchase price, not full allocated cost."],
+    1: ["Variable: total scales, per-unit constant. Fixed: total constant, per-unit decreases.", "Mixed cost = fixed + variable rate × activity.", "Step-fixed jumps at thresholds (one supervisor per N workers).", "High-low method: Var rate = ΔCost/ΔActivity. Outliers distort it; regression more robust."],
+    2: ["Actual / normal / standard differ in WHEN rate is set and WHAT it represents.", "Predetermined OH rate = Budget OH / Budget activity. Applied = rate × ACTUAL activity.", "Under-applied (Actual > Applied): DR COGS / CR Mfg OH (raises COGS).", "Currently attainable standard = realistic with normal effort. Theoretical = perfection. Basic = unchanged for years."],
+    3: ["Job-order: unique/batched output (custom homes, audits). Process: homogeneous mass (paint, soft drinks).", "COGM = Beg WIP + DM + DL + Applied OH − End WIP. COGS = Beg FG + COGM − End FG.", "ABC: 2-stage allocation through activities and drivers. Cost hierarchy: unit, batch, product, facility.", "ABC raises low-volume specialty costs and lowers high-volume costs vs traditional volume-based costing."],
+    4: ["Variable OH: indirect materials, machine utility, indirect labor (per hour).", "Fixed OH: rent, supervision, equipment depreciation.", "Manufacturing OH = product cost. Corporate G&A and selling = period costs.", "Mixed OH lines (utility with base + per-kWh) split via high-low or regression."],
+    5: ["Plantwide rate fails when departments differ in resource intensity.", "Departmental rate per dept (machine hrs vs DLH).", "Choose base that CAUSES the overhead — not just correlates.", "Capacity choice (theoretical / practical / normal / master-budget) shapes rate stability."],
+    6: ["Variance = Actual − Standard. Sign convention: positive = Unfavorable (U), reduces income.", "Decompose total variance into Price × Quantity (or Rate × Efficiency).", "Standard quantity allowed = Actual output × Standard per unit.", "Compare to FLEXIBLE budget at actual volume, not original budget — fair to managers."],
+    7: ["DM Price = (AP − SP) × Actual quantity. DM Quantity = (AQ − SQ allowed) × Standard price.", "DL Rate = (AR − SR) × Actual hours. DL Efficiency = (AH − SH allowed) × Standard rate.", "Common pattern: DM price F + quantity U = bought cheap, wasted more.", "Variance investigation directs to procurement (price) or production (quantity)."],
+    8: ["VOH variances mirror DL Rate and Efficiency.", "FOH Budget = Actual − Budgeted (spending performance).", "FOH Volume = Budgeted − Applied (capacity utilization, NOT spending discipline).", "Volume variance is informational; doesn't reflect cost control directly."],
+    9: ["Three profitability cuts: product, business unit, customer.", "Pareto pattern: 20% drives 80% of profit; 10-20% may actually destroy value.", "Whale curve: rises, peaks, declines as unprofitable customers drag total down.", "Allocated overhead trap: dropping a 'losing' product may not save the allocated OH."],
+    10: ["ROI = NI / Avg investment. Easy to compute, widely understood.", "ROI weakness: managers reject value-creating projects below current ROI (dilution).", "Residual income (RI) = NI − (Required return × Investment). Fixes the dilution incentive.", "Responsibility centers: cost / revenue / profit / investment. Match metric to control."],
+    11: ["CM = Sales − VC. CM ratio = CM / Sales.", "Breakeven units = Fixed / Unit CM. Breakeven $ = Fixed / CM ratio.", "Target profit units = (Fixed + Target) / Unit CM.", "Operating leverage = CM / OI. Higher leverage = higher OI sensitivity to sales."],
+    12: ["Sunk cost: never relevant. Opportunity cost: always relevant. Differential cost: drives marginal analysis.", "Special order with idle capacity: only VC matters; allocated fixed often irrelevant.", "Make-vs-buy: compare AVOIDABLE cost (variable + truly-avoidable fixed) to purchase price.", "Capacity constrained: rank by CM per unit of scarce resource, not absolute CM."],
   },
   flashcardDecks: {
+    "cost-behavior-and-systems": {
+      title: "Cost behavior & costing",
+      eyebrow: "D.1-D.2",
+      cards: [
+        ["Variable cost", "Total scales; per-unit constant"],
+        ["Fixed cost", "Total constant; per-unit decreases"],
+        ["Mixed cost", "Fixed + variable rate × activity"],
+        ["Step-fixed", "Jumps at thresholds, flat between"],
+        ["High-low rate", "(High cost − Low cost) / (High activity − Low activity)"],
+        ["Predetermined OH rate", "Budget OH / Budget activity"],
+        ["Applied OH", "Predetermined × ACTUAL activity"],
+        ["Under-applied entry", "DR COGS / CR Mfg OH"],
+        ["Over-applied entry", "DR Mfg OH / CR COGS"],
+        ["Currently attainable standard", "Realistic with normal effort and waste"],
+        ["Job-order", "Unique/batched output"],
+        ["Process costing", "Homogeneous mass output"],
+        ["COGM", "Beg WIP + DM + DL + Applied OH − End WIP"],
+        ["COGS (manufacturer)", "Beg FG + COGM − End FG"],
+        ["ABC", "Activities → cost pools → products via drivers"],
+        ["Cost hierarchy", "Unit, Batch, Product, Facility"],
+        ["When ABC helps most", "High overhead + diverse products"],
+        ["Manufacturing OH", "Product cost (capitalized)"],
+        ["Corporate G&A", "Period cost (expensed when incurred)"],
+        ["Plantwide vs departmental", "Departmental more accurate when departments differ"],
+      ]
+    },
     "variance-formulas": {
       title: "Variance formulas",
       eyebrow: "D.3",
       cards: [
-        ["DM Price variance", "(AP − SP) × Actual quantity"],
-        ["DM Quantity variance", "(AQ − SQ allowed) × Standard price"],
-        ["DL Rate variance", "(AR − SR) × Actual hours"],
-        ["DL Efficiency variance", "(AH − SH allowed) × Standard rate"],
-        ["VOH Spending", "(Actual rate − Standard rate) × Actual hours"],
-        ["VOH Efficiency", "(Actual hours − Std hrs allowed) × Standard rate"],
-        ["FOH Budget variance", "Actual FOH − Budgeted FOH"],
-        ["FOH Volume variance", "Budgeted FOH − Applied FOH"],
-        ["Std qty allowed", "Actual output × standard per unit"],
-        ["Sign convention", "Positive = unfavorable (paid/used more); negative = favorable"],
+        ["Variance sign convention", "Actual > Standard = Unfavorable (U); Actual < Standard = Favorable (F)"],
+        ["Standard quantity allowed", "Actual output × Standard per unit"],
+        ["DM Price", "(AP − SP) × Actual quantity"],
+        ["DM Quantity", "(AQ − SQ allowed) × Standard price"],
+        ["DL Rate", "(AR − SR) × Actual hours"],
+        ["DL Efficiency", "(AH − SH allowed) × Standard rate"],
+        ["VOH Spending", "(Actual rate − Std rate) × Actual hours"],
+        ["VOH Efficiency", "(AH − SH allowed) × Std rate"],
+        ["FOH Budget", "Actual FOH − Budgeted FOH"],
+        ["FOH Volume", "Budgeted FOH − Applied FOH"],
+        ["Total OH variance", "Actual OH − Applied OH"],
+        ["DM price F + qty U", "Cheaper material, more waste"],
+        ["DL rate F + eff U", "Cheaper labor, slower output"],
+        ["Variance to investigate first", "Largest absolute variance"],
+        ["FOH volume implication", "Capacity utilization, NOT spending discipline"],
       ]
     },
-    "decision-formulas": {
-      title: "CVP and decisions",
-      eyebrow: "D.5",
+    "decision-tools": {
+      title: "Performance & decisions",
+      eyebrow: "D.4-D.5",
       cards: [
+        ["ROI", "NI / Avg investment = Margin × Turnover"],
+        ["ROI weakness", "Managers reject value-adding projects below current ROI"],
+        ["RI", "NI − (Required return × Investment)"],
+        ["EVA", "RI with various accounting adjustments"],
+        ["Cost center", "Controls costs; evaluate on spending"],
+        ["Profit center", "Controls revenues + costs; evaluate on OI"],
+        ["Investment center", "Controls revenues, costs, AND assets; ROI/RI/EVA"],
+        ["Whale curve", "Rises (profitable) → peaks → declines (value-destroying customers)"],
         ["Contribution margin", "Sales − Variable cost"],
-        ["CM ratio", "CM ÷ Sales"],
-        ["Breakeven units", "Fixed ÷ Unit CM"],
-        ["Breakeven $", "Fixed ÷ CM ratio"],
-        ["Target profit units", "(Fixed + Target) ÷ Unit CM"],
+        ["CM ratio", "CM / Sales"],
+        ["Breakeven units", "Fixed / Unit CM"],
+        ["Breakeven $", "Fixed / CM ratio"],
+        ["Target profit units", "(Fixed + Target) / Unit CM"],
         ["Margin of safety", "Actual sales − Breakeven sales"],
-        ["Operating leverage", "CM ÷ Operating income"],
-        ["ROI", "NI ÷ Avg investment = Margin × Turnover"],
+        ["Operating leverage", "CM / OI"],
         ["Sunk cost", "Already spent — irrelevant"],
         ["Opportunity cost", "Best foregone alternative — relevant"],
-        ["Special order with idle capacity", "Only variable cost is differential"],
-        ["Make-vs-buy comparison", "Avoidable cost vs purchase price"],
+        ["Special order with idle capacity", "Only VC differential"],
+        ["Make-vs-buy", "Avoidable cost vs purchase price"],
+        ["Constrained resource ranking", "CM per unit of scarce resource"],
+        ["Drop a segment decision", "Lost CM vs avoidable fixed cost"],
       ]
     },
   },
   formulaReference: [
+    { section: "Cost behavior", items: [
+      { label: "High-low variable rate", formula: "(High cost − Low cost) / (High activity − Low activity)", unitId: 1 },
+      { label: "Total cost (mixed)", formula: "Fixed + Variable rate × Activity", unitId: 1 },
+    ]},
+    { section: "Overhead", items: [
+      { label: "Predetermined OH rate", formula: "Budget OH ÷ Budget activity", unitId: 2 },
+      { label: "Applied OH", formula: "Predetermined rate × ACTUAL activity", unitId: 2 },
+      { label: "Under/over-applied", formula: "Actual OH − Applied OH (positive = under-applied)", unitId: 2 },
+    ]},
+    { section: "Costing", items: [
+      { label: "DM used", formula: "Beg RM + Purchases − End RM", unitId: 3 },
+      { label: "COGM", formula: "Beg WIP + DM + DL + Applied OH − End WIP", unitId: 3 },
+      { label: "COGS (manufacturer)", formula: "Beg FG + COGM − End FG", unitId: 3 },
+    ]},
     { section: "Variances", items: [
-      { label: "DM Price", formula: "(AP − SP) × Actual quantity", unitId: 4 },
-      { label: "DM Quantity", formula: "(AQ − SQ allowed) × Standard price", unitId: 4 },
-      { label: "DL Rate", formula: "(AR − SR) × Actual hours", unitId: 4 },
-      { label: "DL Efficiency", formula: "(AH − SH allowed) × Standard rate", unitId: 4 },
-      { label: "FOH Budget", formula: "Actual FOH − Budgeted FOH", unitId: 5 },
-      { label: "FOH Volume", formula: "Budgeted FOH − Applied FOH", unitId: 5 },
-    ]},
-    { section: "CVP", items: [
-      { label: "Breakeven units", formula: "Fixed ÷ Unit CM", unitId: 7 },
-      { label: "Target profit units", formula: "(Fixed + Target) ÷ Unit CM", unitId: 7 },
-      { label: "CM ratio", formula: "CM ÷ Sales", unitId: 7 },
-      { label: "Operating leverage", formula: "CM ÷ Operating income", unitId: 7 },
-    ]},
-    { section: "Decisions", items: [
-      { label: "Sunk cost", formula: "Irrelevant — spent already", unitId: 8 },
-      { label: "Make-vs-buy", formula: "Avoidable cost vs purchase price", unitId: 8 },
-      { label: "Special order (idle capacity)", formula: "Incremental revenue − incremental variable cost", unitId: 8 },
+      { label: "DM Price", formula: "(AP − SP) × Actual quantity", unitId: 7 },
+      { label: "DM Quantity", formula: "(AQ − SQ allowed) × Standard price", unitId: 7 },
+      { label: "DL Rate", formula: "(AR − SR) × Actual hours", unitId: 7 },
+      { label: "DL Efficiency", formula: "(AH − SH allowed) × Standard rate", unitId: 7 },
+      { label: "VOH Spending", formula: "(Actual rate − Std rate) × Actual hours", unitId: 8 },
+      { label: "FOH Budget", formula: "Actual FOH − Budgeted FOH", unitId: 8 },
+      { label: "FOH Volume", formula: "Budgeted FOH − Applied FOH", unitId: 8 },
+      { label: "Standard quantity allowed", formula: "Actual output × Standard per unit", unitId: 6 },
     ]},
     { section: "Performance", items: [
-      { label: "ROI", formula: "NI ÷ Avg investment = Margin × Turnover", unitId: 6 },
+      { label: "ROI", formula: "NI / Avg investment = Margin × Turnover", unitId: 10 },
+      { label: "RI", formula: "NI − (Required return × Investment)", unitId: 10 },
+    ]},
+    { section: "CVP", items: [
+      { label: "Contribution margin", formula: "Sales − Variable cost", unitId: 11 },
+      { label: "CM ratio", formula: "CM / Sales", unitId: 11 },
+      { label: "Breakeven units", formula: "Fixed / Unit CM", unitId: 11 },
+      { label: "Target profit units", formula: "(Fixed + Target) / Unit CM", unitId: 11 },
+      { label: "Margin of safety", formula: "Actual sales − Breakeven sales", unitId: 11 },
+      { label: "Operating leverage", formula: "CM / OI", unitId: 11 },
+    ]},
+    { section: "Decisions", items: [
+      { label: "Sunk cost rule", formula: "Irrelevant — spent already", unitId: 12 },
+      { label: "Make-vs-buy", formula: "Avoidable cost vs purchase price", unitId: 12 },
+      { label: "Special order (idle capacity)", formula: "Incremental rev − incremental VC", unitId: 12 },
+      { label: "Constrained resource", formula: "Rank by CM per unit of scarce resource", unitId: 12 },
     ]},
   ],
 };

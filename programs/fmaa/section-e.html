@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FMAA · Section E — Professional Ethics</title>
-<meta name="description" content="A field guide for FMAA Section E: ethical decision-making, types of business fraud, the IMA Statement of Ethical Professional Practice, the fraud triangle, and resolving ethical issues." />
+<meta name="description" content="A field guide for FMAA Section E: ethical decision-making frameworks, common pressures, types of business fraud, the IMA Statement of Ethical Professional Practice, the fraud triangle, and resolving ethical dilemmas." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
   <div class="brand"><span class="ornament"></span>FMAA · E</div>
   <div class="brand-sub">Professional ethics · A visual field guide</div>
   <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-  <div class="progress-text" id="progress-text">0 of 4 units complete</div>
+  <div class="progress-text" id="progress-text">0 of 7 units complete</div>
   <div class="sidebar-search" style="margin-top:18px">
     <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
     <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
@@ -94,32 +94,38 @@
     <h1 class="cover-title">Professional<br/>Ethics.</h1>
     <p class="cover-sub">The smallest section by weight, but the highest stakes — every published case of fraud or restatement begins with someone failing the ethics test. The IMA's <em>Statement of Ethical Professional Practice</em> is the spine; the fraud triangle explains why fraud happens; the resolution framework is what to do when you encounter it.</p>
     <div class="cover-meta">
-      <span>Units<strong>4 covered</strong></span>
-      <span>Practice questions<strong>~15</strong></span>
+      <span>Units<strong>7 covered</strong></span>
+      <span>Practice questions<strong>~30</strong></span>
+      <span>Tests<strong>2 (T1 + T2)</strong></span>
       <span>FMAA weight<strong>10% of exam</strong></span>
-      <span>Levels<strong>A · B</strong></span>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">E.1</span>Business Ethics</h2>
-    <div class="toc-card"><h3>E.1 — Decision-making & fraud (Units 1–2)</h3>
+    <div class="toc-card">
+      <h3>E.1 — Decision-making & fraud (Units 1–4)</h3>
       <ol>
-        <li><button onclick="goTo(1)">Ethical decision making — frameworks & common pressures</button></li>
-        <li><button onclick="goTo(2)">Types of business fraud</button></li>
+        <li><button onclick="goTo(1)">Ethical decision-making frameworks</button></li>
+        <li><button onclick="goTo(2)">Common pressures and rationalizations</button></li>
+        <li><button onclick="goTo(3)">Types of business fraud (ACFE taxonomy)</button></li>
+        <li><button onclick="goTo(4)">Detection schemes and red flags</button></li>
       </ol>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">E.2</span>Ethics for Accountants</h2>
-    <div class="toc-card"><h3>E.2 — IMA Statement, triangle, resolution (Units 3–4)</h3>
-      <ol start="3">
-        <li><button onclick="goTo(3)">IMA Statement of Ethical Professional Practice</button></li>
-        <li><button onclick="goTo(4)">The fraud triangle & resolving ethical dilemmas</button></li>
+    <div class="toc-card">
+      <h3>E.2 — IMA Statement, triangle, resolution (Units 5–7)</h3>
+      <ol start="5">
+        <li><button onclick="goTo(5)">IMA Statement of Ethical Professional Practice</button></li>
+        <li><button onclick="goTo(6)">Fraud triangle / diamond</button></li>
+        <li><button onclick="goTo(7)">Resolving ethical dilemmas — the IMA framework</button></li>
       </ol>
     </div>
 
-    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Test</h2>
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Tests</h2>
     <div class="toc-card">
       <ol class="plain" style="list-style:none; padding-left:0">
-        <li><button onclick="goTo(900)"><strong>T1</strong> — Section E mixed · 8 Q · ~14 min</button></li>
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Section E mixed · 12 Q · ~22 min</button></li>
+        <li><button onclick="goTo(901)"><strong>T2</strong> — IMA Statement scenarios · 10 Q · ~18 min</button></li>
       </ol>
     </div>
   </div>
@@ -127,116 +133,339 @@
 </article>
 
 <article class="unit" data-id="1">
-  <span class="unit-eyebrow">Unit 1 · E.1</span>
-  <h1>Ethical decision making — frameworks & pressures</h1>
-  <p class="unit-lead">Ethical decisions arise when one course of action serves your interest at the expense of someone else's, or when competing principles point in different directions. Frameworks don't give you the answer — they make the decision visible.</p>
+  <span class="unit-eyebrow">Unit 1 · E.1 Business Ethics</span>
+  <h1>Ethical decision-making frameworks</h1>
+  <p class="unit-lead">Ethical decisions arise when one course of action serves your interest at the expense of someone else's, or when competing principles point in different directions. Frameworks don't give you the answer — they make the decision visible, force you to articulate your reasoning, and reveal which considerations you're weighting.</p>
 
-  <h2><span class="marker">§1.1</span>Three lenses</h2>
-  <ul>
-    <li><strong>Consequentialist (utilitarian)</strong> — what produces the most good for the most people?</li>
-    <li><strong>Deontological (duty-based)</strong> — what does my duty require, regardless of outcome?</li>
-    <li><strong>Virtue ethics</strong> — what would a person of good character do here?</li>
-  </ul>
+  <h2><span class="marker">§1.1</span>Three classical lenses</h2>
+  <table class="fin-table">
+    <thead><tr><th>Framework</th><th>Question</th><th>Strength</th><th>Weakness</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Consequentialist (Utilitarian)</strong></td><td>What produces the most good for the most people?</td><td>Considers impact</td><td>"Ends justify means" — sometimes endorses sacrificing minorities</td></tr>
+      <tr><td><strong>Deontological (Duty-based)</strong></td><td>What does my duty require, regardless of outcome?</td><td>Universalizable; protects rights</td><td>Can ignore catastrophic consequences</td></tr>
+      <tr><td><strong>Virtue ethics</strong></td><td>What would a person of good character do?</td><td>Holistic; considers integrity</td><td>Vague when characters disagree</td></tr>
+      <tr><td><strong>Justice / fairness</strong></td><td>What is fair to all parties?</td><td>Strong on distribution and equality</td><td>"Fair" itself is contested</td></tr>
+    </tbody>
+  </table>
 
-  <p>Most professional ethics — including the IMA Statement — sit closer to the deontological / virtue end: certain things you simply don't do, even when the math seems to favor them.</p>
+  <h2><span class="marker">§1.2</span>Where professional ethics sits</h2>
+  <p>Most professional ethics — including the IMA Statement of Ethical Professional Practice — sits closer to the deontological / virtue end. Certain things you simply don't do, even when the math seems to favor them. "Most good for most people" doesn't justify falsifying financial statements, even if the BU's bonus pool would be larger.</p>
 
-  <h2><span class="marker">§1.2</span>Common pressures</h2>
-  <ul>
-    <li>Performance targets just out of reach.</li>
-    <li>Personal financial pressure (debts, lifestyle, addiction).</li>
-    <li>Authority pressure ("the CFO told me to").</li>
-    <li>Group conformity ("everyone here does it this way").</li>
-    <li>Rationalization ("we'll fix it next quarter").</li>
-  </ul>
+  <h2><span class="marker">§1.3</span>A practical decision sequence</h2>
+  <ol>
+    <li><strong>Recognize the issue</strong> — name what's at stake. Is this an ethical decision, or a personal-preference one?</li>
+    <li><strong>Identify stakeholders</strong> — who benefits, who is harmed, what are their legitimate interests?</li>
+    <li><strong>Consider alternatives</strong> — usually more options exist than the binary first frame suggests.</li>
+    <li><strong>Apply frameworks</strong> — what does each lens say? When they agree, decision is easy.</li>
+    <li><strong>Consider the public test</strong> — would I be comfortable if this decision were on the front page?</li>
+    <li><strong>Decide and act</strong> — including what to communicate, to whom, and how.</li>
+  </ol>
 
-  <div class="callout warning"><span class="callout-label">Recognize early</span><p>The fraud cases that ruin careers rarely begin with a single act of dishonesty. They begin with a small accommodation that is rationalized, then escalates. Recognizing pressure as pressure — not as "just business" — is the first defense.</p></div>
+  <div class="callout tip"><span class="callout-label">The newspaper test</span><p>Ask: "If this decision and my reasoning were published in tomorrow's Wall Street Journal, would I be comfortable defending it?" If not, that's signal — not proof of wrongdoing, but a flag worth examining. Many ethical dilemmas dissolve under the newspaper test.</p></div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 1 — Framework</h3>
+    <h3>Practice 1 — Framework match</h3>
     <p class="quiz-prompt">"It would be wrong to falsify the report even if the unit needs the bonus, because integrity is a duty I owe regardless of consequence." This reasoning is most consistent with:</p>
-    <ul class="quiz-options"><li>Utilitarian / consequentialist</li><li>Cost-benefit analysis</li><li>Deontological (duty-based) ethics</li><li>Egoism</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Duty regardless of outcome = deontological (Kant, IMA Statement spirit). Utilitarian would weigh the greater good of the unit's bonus against the harm of inaccurate reporting.</div>
+    <ul class="quiz-options">
+      <li>Utilitarian / consequentialist</li>
+      <li>Cost-benefit analysis</li>
+      <li>Deontological (duty-based) ethics</li>
+      <li>Egoism</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Duty regardless of outcome = deontological (Kant, IMA Statement spirit). Utilitarian would weigh the unit's bonus benefit against the harm of inaccurate reporting.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 2 — Pressure type</h3>
-    <p class="quiz-prompt">"The CFO told me to record the entry; I shouldn't second-guess." This rationalization is best characterized as:</p>
-    <ul class="quiz-options"><li>Authority pressure</li><li>Personal financial pressure</li><li>Group conformity</li><li>Performance pressure</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Deferring to authority. The Milgram experiments showed how powerful this is. Professional codes (including the IMA Statement) explicitly require resistance to unlawful or unethical instructions, regardless of who gives them.</div>
+    <h3>Practice 2 — Newspaper test</h3>
+    <p class="quiz-prompt">The "newspaper test" asks:</p>
+    <ul class="quiz-options">
+      <li>Would I be comfortable if this decision and my reasoning appeared on tomorrow's front page?</li>
+      <li>Would the SEC approve in writing?</li>
+      <li>Has the decision been made before by competitors?</li>
+      <li>Is the decision technically legal?</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The newspaper test is a quick gut-check that surfaces when something feels uncomfortable. Discomfort isn't proof of wrongdoing, but it's signal worth examining. Legal but unethical decisions often fail this test.</div>
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — First defense</h3>
-    <p class="quiz-prompt">The first and most important defense against gradual ethical drift is:</p>
-    <ul class="quiz-options"><li>Detailed external audits</li><li>Whistleblower hotlines</li><li>Increased segregation of duties</li><li>Recognizing pressure as pressure rather than rationalizing it as ordinary business</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Awareness is upstream of every other control. Audits, hotlines, and SoD are downstream — they catch fraud after it starts. Ethics training that names the rationalizations explicitly ("we'll fix it next quarter") helps people recognize the slope they're on.</div>
+    <h3>Practice 3 — Most professional ethics codes</h3>
+    <p class="quiz-prompt">Most professional ethics codes (including the IMA Statement) sit closest to which framework?</p>
+    <ul class="quiz-options">
+      <li>Egoism (self-interest)</li>
+      <li>Pure consequentialism</li>
+      <li>Cost-benefit analysis</li>
+      <li>Deontological / virtue ethics</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Codes tend to specify duties and prohibited behaviors — deontological in form. Some considerations are absolute regardless of consequence ("you shall not falsify…"). Virtue language ("integrity, honesty, fairness") complements the duties.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 4 — Stakeholder analysis</h3>
+    <p class="quiz-prompt">In ethical decision-making, identifying stakeholders helps because:</p>
+    <ul class="quiz-options">
+      <li>It satisfies legal disclosure requirements</li>
+      <li>It speeds up the decision</li>
+      <li>It surfaces all parties affected, including those who may be harmed silently</li>
+      <li>It reduces the need for analysis</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> First-frame decisions often consider only the obvious parties. Identifying the full set of affected stakeholders (employees, suppliers, customers, regulators, community) surfaces hidden harms and broadens the ethical calculus.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-1">Mark complete</button>
   <div class="unit-footer">
     <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Map</span></button>
-    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Types of fraud</span></button>
+    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Pressures</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="2">
-  <span class="unit-eyebrow">Unit 2 · E.1</span>
-  <h1>Types of business fraud</h1>
-  <p class="unit-lead">The ACFE classifies <strong>occupational fraud</strong> into three families: asset misappropriation, financial statement fraud, and corruption. Misappropriation is the most common; FS fraud is the most expensive per case.</p>
+  <span class="unit-eyebrow">Unit 2 · E.1 Business Ethics</span>
+  <h1>Common pressures and rationalizations</h1>
+  <p class="unit-lead">Most people who commit fraud don't think of themselves as criminals. Pressures push them to act, then rationalizations let them keep their self-image intact. Understanding both lets you spot risk before it materializes — in others and in yourself.</p>
 
-  <h2><span class="marker">§2.1</span>The three families</h2>
+  <h2><span class="marker">§2.1</span>The five most common pressures</h2>
+  <ul>
+    <li><strong>Performance pressure</strong> — targets just out of reach; bonus tied to a single metric.</li>
+    <li><strong>Personal financial pressure</strong> — debts, lifestyle, addiction, family medical costs.</li>
+    <li><strong>Authority pressure</strong> — "the CFO told me to"; structural power asymmetry.</li>
+    <li><strong>Group conformity</strong> — "everyone here does this"; tribe over principle.</li>
+    <li><strong>Time pressure</strong> — close on Friday, audit on Monday; shortcuts taken under stress.</li>
+  </ul>
+
+  <h2><span class="marker">§2.2</span>The classic rationalizations</h2>
   <table class="fin-table">
-    <thead><tr><th>Family</th><th>Examples</th><th>Frequency</th><th>Typical loss</th></tr></thead>
+    <thead><tr><th>Rationalization</th><th>What it really is</th></tr></thead>
     <tbody>
-      <tr><td>Asset misappropriation</td><td>Skimming, larceny, payroll, expense reimbursement schemes</td><td>~85%</td><td>Lower</td></tr>
-      <tr><td>Corruption</td><td>Bribery, kickbacks, conflicts of interest, bid-rigging</td><td>~50%* (overlaps)</td><td>Medium</td></tr>
-      <tr><td>Financial statement fraud</td><td>Revenue inflation, expense deferral, fictitious assets</td><td>~10%</td><td>Highest (often $millions)</td></tr>
+      <tr><td>"I'm just borrowing — I'll pay it back"</td><td>Theft (becomes obvious when the discovery happens before repayment)</td></tr>
+      <tr><td>"I deserve this; the company underpaid me"</td><td>Compensating yourself outside the legitimate process</td></tr>
+      <tr><td>"Everyone does it"</td><td>Conformity used to suspend personal judgment</td></tr>
+      <tr><td>"It's only this once"</td><td>Almost never true; first time leads to second time</td></tr>
+      <tr><td>"For the good of the company"</td><td>Conflating personal benefit with company benefit</td></tr>
+      <tr><td>"We'll fix it next quarter"</td><td>Aggressive accounting that compounds; cannot self-correct</td></tr>
     </tbody>
   </table>
 
-  <h2><span class="marker">§2.2</span>Common asset-misappropriation schemes</h2>
+  <h2><span class="marker">§2.3</span>The slippery slope</h2>
+  <p>Almost no fraud begins with a major theft. It begins with a small accommodation — fudging an expense report, "borrowing" cash for a weekend, postponing an inconvenient adjustment. Each accommodation is rationalized; each makes the next easier; the slope drops gradually until the fall is catastrophic.</p>
+
+  <p>This is why ethical training emphasizes EARLY pattern recognition: it's much easier to walk back from the first $100 than the first $100,000.</p>
+
+  <div class="callout warning"><span class="callout-label">Self-defense</span><p>Recognizing pressure as pressure — not as "just business" — is the first defense. When you find yourself rationalizing, that's a signal: the rationalization is doing the work that integrity should be doing.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Authority pressure</h3>
+    <p class="quiz-prompt">"The CFO told me to record the entry; I shouldn't second-guess." This is best characterized as:</p>
+    <ul class="quiz-options"><li>Authority pressure</li><li>Personal financial pressure</li><li>Group conformity</li><li>Time pressure</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Deferring to authority — Milgram-style. Professional codes (including the IMA Statement) explicitly require resistance to unlawful or unethical instructions, regardless of who gives them.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 2 — First defense</h3>
+    <p class="quiz-prompt">The first and most important defense against gradual ethical drift is:</p>
+    <ul class="quiz-options"><li>Detailed external audits</li><li>Whistleblower hotlines</li><li>Increased segregation of duties</li><li>Recognizing pressure as pressure rather than rationalizing it as ordinary business</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Awareness is upstream of every other control. Audits, hotlines, and SoD catch fraud after it starts. Ethics training that names the rationalizations explicitly ("we'll fix it next quarter") helps people recognize the slope they're on.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Slippery slope mechanic</h3>
+    <p class="quiz-prompt">The "slippery slope" of fraud most directly describes:</p>
+    <ul class="quiz-options"><li>The legal requirement for whistleblower protection</li><li>How small initial frauds always escalate to major ones automatically</li><li>How small accommodations, each rationalized, make subsequent ones easier and more likely</li><li>A specific anti-fraud control framework</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Each rationalized step doesn't trigger the alarm — but it makes the next step's alarm threshold a little higher. Over time, behavior that would have been unthinkable becomes routine. Understanding this mechanic helps catch yourself early.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — Common rationalizations</h3>
+    <p class="quiz-prompt">"I'm just borrowing — I'll pay it back" most often functions as:</p>
+    <ul class="quiz-options"><li>A legitimate loan arrangement</li><li>A rationalization that conceals theft until repayment doesn't happen in time</li><li>A protected employment arrangement</li><li>An ethical hedging strategy</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The "loan" is unauthorized. If discovered before repayment, it's theft. The rationalization works only as long as no one looks. Almost every embezzlement case starts with this self-narrative.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-2">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Frameworks</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Types of fraud</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="3">
+  <span class="unit-eyebrow">Unit 3 · E.1 Business Ethics</span>
+  <h1>Types of business fraud (ACFE taxonomy)</h1>
+  <p class="unit-lead">The Association of Certified Fraud Examiners (ACFE) classifies <strong>occupational fraud</strong> — fraud committed by employees against employers — into three families. The proportions and dollar magnitudes are remarkably stable across global studies.</p>
+
+  <h2><span class="marker">§3.1</span>The fraud tree</h2>
+  <table class="fin-table">
+    <thead><tr><th>Family</th><th>Examples</th><th>Frequency</th><th>Median loss</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Asset misappropriation</strong></td><td>Skimming, larceny, payroll, expense reimbursement, billing schemes, inventory theft</td><td>~85% of cases</td><td>Lower (median ~$100K)</td></tr>
+      <tr><td><strong>Corruption</strong></td><td>Bribery, kickbacks, conflicts of interest, bid-rigging, illegal gratuities</td><td>~50% (often overlaps misappropriation)</td><td>Medium (~$200K)</td></tr>
+      <tr><td><strong>Financial statement fraud</strong></td><td>Revenue inflation, expense deferral, fictitious assets, hidden liabilities</td><td>~10% of cases</td><td>Highest ($500K+, often $millions)</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§3.2</span>Asset-misappropriation schemes</h2>
   <ul>
-    <li><strong>Skimming</strong> — cash diverted before it's recorded.</li>
-    <li><strong>Larceny</strong> — cash diverted after recording.</li>
-    <li><strong>Lapping</strong> — covering one customer's stolen payment with another's, rolling forward.</li>
+    <li><strong>Skimming</strong> — cash diverted BEFORE recording. No paper trail; hardest to detect via books.</li>
+    <li><strong>Cash larceny</strong> — cash diverted AFTER recording. Creates a discrepancy.</li>
+    <li><strong>Lapping</strong> — covering one customer's stolen payment with another's payment, rolling forward indefinitely.</li>
     <li><strong>Ghost employees</strong> — payroll to fake employees that the perpetrator collects.</li>
     <li><strong>Fictitious vendors / shell companies</strong> — invoices paid for services never rendered.</li>
+    <li><strong>Expense reimbursement fraud</strong> — fictitious or inflated expense claims.</li>
+    <li><strong>Inventory theft</strong> — physical removal of goods.</li>
   </ul>
+
+  <h2><span class="marker">§3.3</span>FS fraud schemes</h2>
+  <ul>
+    <li><strong>Revenue inflation</strong> — channel-stuffing, bill-and-hold, fictitious sales, premature recognition.</li>
+    <li><strong>Expense deferral or capitalization</strong> — capitalizing what should be expensed (WorldCom).</li>
+    <li><strong>Hidden or understated liabilities</strong> — off-balance-sheet entities (Enron's SPEs).</li>
+    <li><strong>Improper asset valuation</strong> — overstating receivables, inventory, goodwill not impaired when it should be.</li>
+    <li><strong>Improper disclosures</strong> — omitting related-party transactions, contingencies.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Why FS fraud is the most expensive</span><p>FS fraud is rare per case but enormous in dollar terms because it's nearly always perpetrated by senior management with broad access to override controls. The 2002 WorldCom case ($11B) and Enron ($74B in lost market cap) are the textbook examples that prompted SOX.</p></div>
 
   <div class="quiz" data-correct="1">
     <h3>Practice 1 — Most expensive type</h3>
-    <p class="quiz-prompt">According to the ACFE's "Report to the Nations," the type of occupational fraud with the HIGHEST median loss per case is:</p>
-    <ul class="quiz-options"><li>Asset misappropriation</li><li>Financial statement fraud</li><li>Corruption</li><li>Cash skimming</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> FS fraud is the rarest (~10% of cases) but most expensive (median &gt;$500K, often $millions). Misappropriation is most common but lower-dollar per case. Corruption is in the middle.</div>
+    <p class="quiz-prompt">According to the ACFE, the type of occupational fraud with the HIGHEST median loss per case is:</p>
+    <ul class="quiz-options">
+      <li>Asset misappropriation</li>
+      <li>Financial statement fraud</li>
+      <li>Corruption</li>
+      <li>Cash skimming</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> FS fraud is the rarest (~10%) but most expensive — often $millions per case, perpetrated by senior management. Misappropriation is most common but lower per case. Corruption is in the middle.</div>
   </div>
 
   <div class="quiz" data-correct="2">
     <h3>Practice 2 — Lapping</h3>
     <p class="quiz-prompt">"Lapping" describes:</p>
-    <ul class="quiz-options"><li>Inflating revenue at quarter-end</li><li>Deferring expenses to a future period</li><li>Crediting one customer's payment with the next customer's, masking a stolen payment</li><li>Paying a bribe through an intermediary</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Lapping is the classic AR cash-skimming scheme. Detect it via independent bank reconciliation, mandatory vacations (the perpetrator can't keep rolling the scheme forward while away), and rotation of duties.</div>
+    <ul class="quiz-options"><li>Inflating revenue at quarter-end</li><li>Capitalizing what should be expensed</li><li>Crediting one customer's payment with the next customer's payment, masking a stolen payment</li><li>Paying a bribe through an intermediary</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Lapping is the classic AR cash-skimming scheme. Detect it via independent bank reconciliation, mandatory vacations (the perpetrator can't keep the scheme rolling forward while away), and rotation of duties.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Skimming vs larceny</h3>
+    <p class="quiz-prompt">The key distinction between skimming and cash larceny is:</p>
+    <ul class="quiz-options"><li>Skimming uses checks; larceny uses cash</li><li>Larceny is less common</li><li>Skimming requires collusion</li><li>Skimming diverts cash BEFORE recording; larceny diverts cash AFTER recording</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Skimming = takes cash before it ever hits the books — no audit trail. Larceny = takes cash already recorded — creates a detectable discrepancy. Skimming is harder to detect but limited to point-of-receipt; larceny is broader but easier to catch.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 3 — FS fraud red flag</h3>
+    <h3>Practice 4 — FS fraud red flag</h3>
     <p class="quiz-prompt">A red flag commonly associated with financial-statement fraud is:</p>
     <ul class="quiz-options"><li>Aggressive earnings targets combined with management's heavy ownership of stock options</li><li>Large balance of vacation days carried by the AR clerk</li><li>Frequent rotation of audit-committee members</li><li>Detailed expense-reimbursement policies</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Stock-based comp + aggressive targets create incentive AND opportunity to hit numbers fraudulently. The other choices are mostly ASSET-misappropriation cues or healthy controls.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Stock-based comp + aggressive targets create incentive AND opportunity to hit numbers fraudulently. Large unused vacation days suggests the AR clerk doesn't want anyone covering their work — a misappropriation cue.</div>
   </div>
 
-  <button class="btn done-btn" id="mark-done-2">Mark complete</button>
+  <div class="quiz" data-correct="2">
+    <h3>Practice 5 — Channel stuffing</h3>
+    <p class="quiz-prompt">Shipping product to distributors near quarter-end with side agreements allowing return is most likely:</p>
+    <ul class="quiz-options"><li>Asset misappropriation</li><li>Bribery</li><li>Channel stuffing — premature revenue recognition (FS fraud)</li><li>Embezzlement</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Channel stuffing inflates current-period revenue while the side agreement effectively makes the "sale" a consignment. Revenue should not be recognized when control hasn't transferred. ASC 606 explicitly addresses this — return rights and side agreements affect transaction price determination.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-3">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Decision making</span></button>
-    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">IMA Statement</span></button>
+    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Pressures</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Detection schemes</span></button>
   </div>
 </article>
 
-<article class="unit" data-id="3">
-  <span class="unit-eyebrow">Unit 3 · E.2</span>
-  <h1>IMA Statement of Ethical Professional Practice</h1>
-  <p class="unit-lead">The IMA Statement is the operating code for management accountants. Memorize the four principles and the four standards — both will appear on the exam, often in the form of "which standard does this scenario violate?"</p>
+<article class="unit" data-id="4">
+  <span class="unit-eyebrow">Unit 4 · E.1 Business Ethics</span>
+  <h1>Detection schemes and red flags</h1>
+  <p class="unit-lead">If fraud cannot always be prevented, the next best thing is fast detection — and detection requires both controls and the awareness to recognize anomalies as anomalies.</p>
 
-  <h2><span class="marker">§3.1</span>The four overarching principles</h2>
+  <h2><span class="marker">§4.1</span>How fraud is detected (ACFE data)</h2>
+  <table class="fin-table">
+    <thead><tr><th>Detection method</th><th>Approximate share</th></tr></thead>
+    <tbody>
+      <tr><td>Tip (especially from employees)</td><td>~40-45%</td></tr>
+      <tr><td>Internal audit</td><td>~15%</td></tr>
+      <tr><td>Management review</td><td>~12%</td></tr>
+      <tr><td>By accident</td><td>~5-7%</td></tr>
+      <tr><td>External audit</td><td>~3-4%</td></tr>
+      <tr><td>Document examination, account reconciliation, monitoring tools</td><td>balance</td></tr>
+    </tbody>
+  </table>
+
+  <p>Tips are by far the dominant source. This is why <strong>whistleblower hotlines</strong> (anonymous, well-publicized, with anti-retaliation protections) are among the most effective anti-fraud controls — they more than triple the tip rate.</p>
+
+  <h2><span class="marker">§4.2</span>Personal red flags</h2>
+  <p>The ACFE notes that ~85% of perpetrators displayed at least one of these behavioral red flags before discovery:</p>
+  <ul>
+    <li>Living beyond their means (sudden lifestyle upgrade unsupported by salary)</li>
+    <li>Financial difficulties (debts, divorce, addiction)</li>
+    <li>Unusually close relationships with vendors or customers</li>
+    <li>Control issues — refusal to share duties, unwillingness to take vacation</li>
+    <li>Recent personal stress (illness, family problems)</li>
+    <li>Defensive about questions or audits</li>
+  </ul>
+
+  <h2><span class="marker">§4.3</span>Process red flags</h2>
+  <ul>
+    <li>Accounting irregularities — frequent year-end adjustments, unusual journal entries.</li>
+    <li>Unexplained variances repeatedly favorable for one manager.</li>
+    <li>Missing or altered documents.</li>
+    <li>Unusual related-party transactions.</li>
+    <li>Aggressive accounting positions justified with elaborate technical arguments.</li>
+    <li>Sudden growth or margin expansion that competitors aren't matching.</li>
+  </ul>
+
+  <h2><span class="marker">§4.4</span>Effective anti-fraud controls</h2>
+  <p>The ACFE measures which controls reduce median loss and detection time. Top performers:</p>
+  <ol>
+    <li>Mandatory employee vacations / job rotation (huge effect — many ongoing schemes need constant maintenance)</li>
+    <li>Surprise audits</li>
+    <li>Hotline / reporting mechanism with anti-retaliation</li>
+    <li>Dedicated fraud-risk assessment</li>
+    <li>Formal anti-fraud policy + training</li>
+    <li>Strong tone at the top</li>
+  </ol>
+
+  <div class="callout tip"><span class="callout-label">Vacations as fraud detection</span><p>"Mandatory two consecutive weeks" is more than HR policy — it's a fraud control. Schemes like lapping require daily attention to roll forward; the perpetrator can't sustain them on vacation. Force vacation, rotate someone in, and the scheme breaks.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — Top detection method</h3>
+    <p class="quiz-prompt">According to ACFE data, the single largest source of fraud detection is:</p>
+    <ul class="quiz-options"><li>Tips (especially from employees)</li><li>External audit</li><li>By accident</li><li>Forensic accounting investigations</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ~40-45% of fraud cases are detected via tips. Whistleblower hotlines dramatically improve this because anonymity removes retaliation fear. External audits detect &lt;5%.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Mandatory vacation purpose</h3>
+    <p class="quiz-prompt">A "mandatory two-week consecutive vacation" policy primarily serves as:</p>
+    <ul class="quiz-options"><li>HR morale benefit</li><li>Cost reduction</li><li>Fraud detection — schemes that need daily attention often surface during the vacation</li><li>Tax efficiency</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Schemes like lapping, ghost employees, and fictitious vendors typically need ongoing maintenance. A two-week absence with someone else covering the work often reveals the scheme.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Behavioral red flags</h3>
+    <p class="quiz-prompt">All of the following are typical behavioral red flags EXCEPT:</p>
+    <ul class="quiz-options"><li>Living beyond means</li><li>Refusing to take vacation</li><li>Defensive about audit questions</li><li>Taking lunch at the same time every day</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Lunchtime regularity is unrelated. The other three are well-documented in ACFE data — sustained patterns associated with active fraud schemes.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — Hotline effectiveness</h3>
+    <p class="quiz-prompt">A whistleblower hotline most directly increases fraud detection by:</p>
+    <ul class="quiz-options"><li>Eliminating the need for internal audit</li><li>Providing an anonymous, anti-retaliation channel that more than triples the tip rate</li><li>Replacing external audit</li><li>Reducing the cost of compliance training</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Tips are the #1 detection source. Anonymity + anti-retaliation removes barriers that suppress reporting. Companies with hotlines see substantially higher tip rates and shorter detection windows.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-4">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Types of fraud</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">IMA Statement</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="5">
+  <span class="unit-eyebrow">Unit 5 · E.2 Ethics for Accountants</span>
+  <h1>IMA Statement of Ethical Professional Practice</h1>
+  <p class="unit-lead">The IMA Statement is the operating code for management accountants. <strong>Memorize the four overarching principles AND the four standards</strong> — both will appear on the exam, often in the form of "which standard does this scenario violate?"</p>
+
+  <h2><span class="marker">§5.1</span>The four overarching principles</h2>
   <ul>
     <li><strong>Honesty</strong></li>
     <li><strong>Fairness</strong></li>
@@ -244,167 +473,337 @@
     <li><strong>Responsibility</strong></li>
   </ul>
 
-  <h2><span class="marker">§3.2</span>The four standards (CCCC)</h2>
+  <p>The principles set the broad ethical aspiration. The standards specify operational requirements.</p>
+
+  <h2><span class="marker">§5.2</span>The four standards (CCIC)</h2>
   <table class="fin-table">
     <thead><tr><th>Standard</th><th>Means</th><th>Common test cue</th></tr></thead>
     <tbody>
-      <tr><td><strong>Competence</strong></td><td>Maintain professional skill; perform duties per laws/regs/standards</td><td>"Did the work without the necessary expertise"</td></tr>
-      <tr><td><strong>Confidentiality</strong></td><td>Don't disclose info; don't use it for personal gain; ensure subordinates respect it</td><td>"Tipped a friend on a pending merger"</td></tr>
-      <tr><td><strong>Integrity</strong></td><td>Avoid actual or apparent conflicts; refuse gifts/favors that would influence; communicate unfavorable as well as favorable</td><td>"Accepted a vendor's gift while sourcing"</td></tr>
-      <tr><td><strong>Credibility</strong></td><td>Communicate fairly and objectively; disclose all relevant info; report deficiencies</td><td>"Selectively reported only favorable variances"</td></tr>
+      <tr><td><strong>Competence</strong></td><td>Maintain professional skill; perform duties per laws/regs/standards; recognize and communicate limitations</td><td>"Did the work without the necessary expertise"</td></tr>
+      <tr><td><strong>Confidentiality</strong></td><td>Don't disclose info; don't use it for personal/others' gain; ensure subordinates respect it</td><td>"Tipped a friend on a pending merger"</td></tr>
+      <tr><td><strong>Integrity</strong></td><td>Avoid actual or apparent conflicts; refuse gifts/favors that would influence; communicate unfavorable information as well as favorable</td><td>"Accepted a vendor's gift while sourcing"</td></tr>
+      <tr><td><strong>Credibility</strong></td><td>Communicate fairly and objectively; disclose all relevant info; report internal-control deficiencies; comply with relevant laws</td><td>"Selectively reported only favorable variances"</td></tr>
     </tbody>
   </table>
 
-  <div class="callout tip"><span class="callout-label">Mnemonic</span><p><strong>4C</strong>: Competence, Confidentiality, Integrity, Credibility (some sources put them in order C-C-I-C; the IMA materials typically list the four under those names). Integrity and Credibility are the most-tested.</p></div>
+  <h2><span class="marker">§5.3</span>Common scenarios and which standard they violate</h2>
+  <table class="fin-table">
+    <thead><tr><th>Scenario</th><th>Standard violated</th></tr></thead>
+    <tbody>
+      <tr><td>Accountant accepts a luxury watch from a vendor</td><td>Integrity</td></tr>
+      <tr><td>Tipped a friend about pending acquisition</td><td>Confidentiality</td></tr>
+      <tr><td>Selectively reports favorable variances; omits unfavorable</td><td>Credibility</td></tr>
+      <tr><td>Took on tax engagement without sufficient knowledge</td><td>Competence</td></tr>
+      <tr><td>Did not disclose a known internal-control weakness</td><td>Credibility (or Integrity)</td></tr>
+      <tr><td>Failed to maintain CPE as required</td><td>Competence</td></tr>
+      <tr><td>Apparent conflict of interest with a relative's business</td><td>Integrity</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip"><span class="callout-label">"Apparent" matters</span><p>Integrity prohibits not just actual conflicts but APPARENT conflicts. Even if a gift wouldn't actually sway the accountant, accepting it creates the appearance of impropriety — and that itself is the violation.</p></div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 1 — Standard match</h3>
+    <h3>Practice 1 — Standard match (gift)</h3>
     <p class="quiz-prompt">An accountant accepts an expensive watch from a vendor whose contract she influences. Most direct violation:</p>
     <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Integrity prohibits accepting gifts that would or appear to influence judgment. Even if she "wouldn't really be influenced," the apparent conflict alone violates Integrity.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Integrity prohibits accepting gifts that would or APPEAR TO influence judgment. Even if she wouldn't really be influenced, the apparent conflict alone violates Integrity.</div>
   </div>
 
   <div class="quiz" data-correct="3">
     <h3>Practice 2 — Selective reporting</h3>
-    <p class="quiz-prompt">A controller selectively highlights favorable variances in the monthly review and downplays unfavorable ones to keep the bonus pool intact. Standard violated:</p>
+    <p class="quiz-prompt">A controller selectively highlights favorable variances and downplays unfavorable ones to keep the bonus pool intact. Standard violated:</p>
     <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Credibility specifically requires fair, objective communication and disclosure of all relevant information — favorable AND unfavorable. Selective reporting is a textbook Credibility violation.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Credibility requires fair, objective communication and disclosure of all relevant information — favorable AND unfavorable. Selective reporting is a textbook Credibility violation.</div>
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 3 — Confidentiality</h3>
+    <h3>Practice 3 — Tipping</h3>
     <p class="quiz-prompt">A staff accountant casually mentions to a college friend that the company is about to acquire a public competitor. Standard violated:</p>
     <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Confidentiality forbids disclosing information acquired in the course of work. (And — separately — federal securities law prohibits trading on material non-public information; the friend now has potentially actionable insider knowledge.)</div>
-  </div>
-
-  <button class="btn done-btn" id="mark-done-3">Mark complete</button>
-  <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Types of fraud</span></button>
-    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Triangle & resolution</span></button>
-  </div>
-</article>
-
-<article class="unit" data-id="4">
-  <span class="unit-eyebrow">Unit 4 · E.2</span>
-  <h1>The fraud triangle & resolving ethical dilemmas</h1>
-  <p class="unit-lead">Donald Cressey's <strong>fraud triangle</strong> identifies three conditions that together produce fraud: <strong>pressure</strong>, <strong>opportunity</strong>, <strong>rationalization</strong>. Remove any one, and most fraud doesn't happen.</p>
-
-  <h2><span class="marker">§4.1</span>The triangle</h2>
-  <table class="fin-table">
-    <thead><tr><th>Side</th><th>Examples</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Pressure</strong> (incentive)</td><td>Personal debts, lifestyle, performance targets, fear of job loss</td></tr>
-      <tr><td><strong>Opportunity</strong></td><td>Weak controls, override capability, related-party transactions, complex structures</td></tr>
-      <tr><td><strong>Rationalization</strong></td><td>"Borrowing, will repay", "everyone does it", "deserved it", "for the good of the company"</td></tr>
-    </tbody>
-  </table>
-
-  <p>The <strong>fraud diamond</strong> adds a fourth: <em>capability</em> (the perpetrator must actually have the skill and access to execute and conceal the fraud).</p>
-
-  <h2><span class="marker">§4.2</span>Resolving an ethical dilemma — IMA framework</h2>
-  <p>When an accountant identifies an unethical act or unresolved conflict, the IMA prescribes a sequence:</p>
-  <ol>
-    <li><strong>Discuss with immediate supervisor</strong>. If the supervisor IS the issue, skip this step.</li>
-    <li><strong>Escalate</strong> through internal levels — supervisor's manager, audit committee, board — until resolved.</li>
-    <li><strong>Consult an objective advisor</strong> (IMA Ethics Helpline, internal ethics hotline, attorney) about courses of action.</li>
-    <li><strong>If unresolved</strong>, the only remaining option may be resignation — together with a memorandum laying out the issue.</li>
-  </ol>
-
-  <div class="callout warning"><span class="callout-label">Not the first step</span><p>"Notify external authorities" is generally NOT a required first step under the IMA Statement. The framework prioritizes internal escalation. External whistleblowing may be appropriate when internal channels fail or where law requires (e.g., SOX whistleblower protections, securities fraud).</p></div>
-
-  <div class="quiz" data-correct="2">
-    <h3>Practice 1 — Triangle</h3>
-    <p class="quiz-prompt">Which is NOT one of the three sides of Cressey's fraud triangle?</p>
-    <ul class="quiz-options"><li>Pressure</li><li>Opportunity</li><li>Concealment</li><li>Rationalization</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> The three sides: pressure, opportunity, rationalization. Concealment is part of every fraud but isn't a side. The "fraud diamond" adds capability — also not concealment.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Confidentiality forbids disclosing information acquired in the course of work. Separately, federal securities law prohibits trading on material non-public information; the friend now has potentially actionable insider knowledge.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 2 — First step</h3>
-    <p class="quiz-prompt">An accountant discovers her CFO has instructed her to record a clearly improper entry. The IMA Statement most directly suggests her first step is to:</p>
-    <ul class="quiz-options"><li>Escalate to the next level above the CFO (audit committee or board)</li><li>Notify the SEC</li><li>Resign immediately</li><li>Comply, then report later</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> First step is normally the immediate supervisor, but if the supervisor IS the issue, escalate ABOVE them. The audit committee — independent of management — is the right next stop. External reporting is later, only if internal channels fail. Comply-then-report is never acceptable.</div>
+    <h3>Practice 4 — Competence</h3>
+    <p class="quiz-prompt">An accountant takes on a complex international tax engagement despite knowing the rules are outside their training. The most direct standard violation is:</p>
+    <ul class="quiz-options"><li>Competence — must maintain professional skill and recognize/communicate limitations</li><li>Confidentiality</li><li>Credibility</li><li>Integrity</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Competence requires recognizing the limits of your own expertise and either declining the work, partnering with someone qualified, or seeking sufficient training before proceeding.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 5 — Apparent conflict</h3>
+    <p class="quiz-prompt">An accountant's brother owns a company that is one of three vendors bidding on a contract. The accountant is on the bid-evaluation committee. The most ethical action:</p>
+    <ul class="quiz-options"><li>Recuse only if the brother's bid wins</li><li>Continue serving — disclose at year-end</li><li>Recuse from the bid-evaluation committee and disclose the relationship to management</li><li>Recommend the brother's bid since his prices are better</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Apparent conflict alone is a violation. Recuse and disclose, regardless of confidence in personal objectivity. Other committee members can evaluate without the conflict.</div>
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — Removing one side</h3>
+    <h3>Practice 6 — Failure to disclose ICFR weakness</h3>
+    <p class="quiz-prompt">An accountant discovers a material weakness in internal control over financial reporting but doesn't escalate or document. Standard violated:</p>
+    <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Credibility specifically requires reporting "internal-control deficiencies" — the IMA standards explicitly enumerate this duty. Failing to disclose the weakness violates Credibility (and may also implicate Integrity if motivation is to avoid management discomfort).</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-5">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">Detection</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Fraud triangle</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="6">
+  <span class="unit-eyebrow">Unit 6 · E.2 Ethics for Accountants</span>
+  <h1>Fraud triangle / diamond</h1>
+  <p class="unit-lead">Donald Cressey's <strong>fraud triangle</strong> identifies three conditions that together produce fraud: <strong>pressure</strong>, <strong>opportunity</strong>, <strong>rationalization</strong>. Remove any one, and most fraud doesn't happen.</p>
+
+  <h2><span class="marker">§6.1</span>The three sides</h2>
+  <table class="fin-table">
+    <thead><tr><th>Side</th><th>Examples</th><th>Who can address it</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pressure</strong> (incentive / motivation)</td><td>Personal debts, lifestyle, performance targets, fear of job loss, family medical expenses</td><td>Mostly personal; company can avoid creating performance pressure that invites fraud</td></tr>
+      <tr><td><strong>Opportunity</strong></td><td>Weak controls, override capability, related-party transactions, complex structures, lack of audit visibility</td><td>The company — internal controls, segregation, oversight</td></tr>
+      <tr><td><strong>Rationalization</strong></td><td>"Borrowing, will repay", "everyone does it", "deserved it", "for the good of the company"</td><td>Tone at the top, ethics training, hiring</td></tr>
+    </tbody>
+  </table>
+
+  <p>Internal control mostly attacks <strong>opportunity</strong>. Tone at the top and culture mostly attack <strong>rationalization</strong>. <strong>Pressure</strong> is hardest to address structurally — most you can do is avoid creating performance pressure that invites it (single-metric bonuses, impossible targets).</p>
+
+  <h2><span class="marker">§6.2</span>The fraud diamond — adding capability</h2>
+  <p>Wolfe and Hermanson (2004) extended the triangle into the <strong>fraud diamond</strong> by adding <strong>capability</strong>: the perpetrator must actually have the skill, position, and access to execute and conceal the fraud.</p>
+
+  <p>Capability matters because pressure + opportunity + rationalization don't guarantee fraud — the person also needs:</p>
+  <ul>
+    <li>Position (authority to override controls or initiate fraudulent transactions)</li>
+    <li>Brain (technical understanding to construct a workable scheme)</li>
+    <li>Confidence (ability to deal with stress over time)</li>
+    <li>Ability to lie effectively</li>
+  </ul>
+
+  <p>Some fraudsters fit a profile: smart, technical, calm under pressure, with broad system access. Recognizing this combination as a risk factor — without paranoia — informs control design (require backups, mandatory vacations, periodic role rotation).</p>
+
+  <h2><span class="marker">§6.3</span>Removing one side</h2>
+  <p>The triangle is multiplicative: missing any side and fraud is unlikely. This is why anti-fraud strategy is layered:</p>
+  <ul>
+    <li><strong>Tone at the top + ethics culture</strong> → reduces rationalization opportunities.</li>
+    <li><strong>Strong controls (SoD, monitoring, audits)</strong> → reduces opportunity.</li>
+    <li><strong>Reasonable performance targets, employee assistance programs, balanced compensation</strong> → reduces pressure.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Pressure can come from the top</span><p>When senior management creates extreme performance pressure (Enron, Wells Fargo cross-selling), the resulting fraud often involves multiple employees who didn't initiate the pressure. The institutional cause is upstream of the individual perpetrator.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Triangle sides</h3>
+    <p class="quiz-prompt">Which is NOT one of the three sides of Cressey's fraud triangle?</p>
+    <ul class="quiz-options"><li>Pressure</li><li>Opportunity</li><li>Concealment</li><li>Rationalization</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The three sides: pressure, opportunity, rationalization. Concealment is part of every fraud but isn't a triangle side. The fraud diamond adds capability — also not concealment.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 2 — Removing one side</h3>
     <p class="quiz-prompt">A company strengthens internal controls by tightening segregation of duties and adding independent reconciliation. Which side of the fraud triangle is most directly attacked?</p>
     <ul class="quiz-options"><li>Pressure</li><li>Rationalization</li><li>Capability</li><li>Opportunity</li></ul>
     <div class="quiz-explanation"><strong>Why:</strong> Strong controls take away the OPPORTUNITY to commit and conceal fraud. Pressure (incentives, personal needs) is harder for the company to address. Rationalization is countered by tone-at-the-top and ethics training, not controls.</div>
   </div>
 
-  <button class="btn done-btn" id="mark-done-4">Mark complete</button>
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Tone at the top</h3>
+    <p class="quiz-prompt">A strong "tone at the top" most directly attacks which side of the fraud triangle?</p>
+    <ul class="quiz-options"><li>Rationalization</li><li>Opportunity</li><li>Capability</li><li>Pressure</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Tone at the top sets cultural expectations that delegitimize the rationalizations ("everyone does it," "for the good of the company"). When the boss visibly lives the values, the rationalization mechanism breaks down.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — Diamond addition</h3>
+    <p class="quiz-prompt">The fraud diamond extends the triangle by adding:</p>
+    <ul class="quiz-options"><li>Concealment</li><li>Capability — skill, position, and access required to execute the scheme</li><li>Compensation pressure</li><li>External economic factors</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Wolfe and Hermanson noted that pressure + opportunity + rationalization aren't sufficient — the perpetrator also needs the practical capability to execute and sustain the fraud. Capability includes position, technical skill, confidence, and the ability to lie effectively.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">IMA Statement</span></button>
-    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test</span></button>
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">IMA Statement</span></button>
+    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">Resolution framework</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="7">
+  <span class="unit-eyebrow">Unit 7 · E.2 Ethics for Accountants</span>
+  <h1>Resolving ethical dilemmas — the IMA framework</h1>
+  <p class="unit-lead">When an accountant identifies an unethical act, an unresolved conflict, or pressure to violate the IMA Statement, the framework prescribes a sequence — internal first, external as a last resort.</p>
+
+  <h2><span class="marker">§7.1</span>The standard sequence</h2>
+  <ol>
+    <li><strong>Discuss with the immediate supervisor</strong>. Many issues dissolve here — the supervisor wasn't aware, was misinformed, or hadn't thought it through.</li>
+    <li><strong>If the supervisor IS the issue, skip them</strong>. Go to the next level (their manager, audit committee, board chair).</li>
+    <li><strong>Escalate through internal levels</strong> — supervisor's manager, audit committee, board — until resolved.</li>
+    <li><strong>Consult an objective advisor</strong> — IMA Ethics Helpline, internal ethics hotline, attorney — about your courses of action and your legal exposure.</li>
+    <li><strong>If the issue is unresolved</strong>, the only remaining option may be <strong>resignation</strong> — together with an informative memorandum to the appropriate level laying out the issue and your concerns.</li>
+  </ol>
+
+  <h2><span class="marker">§7.2</span>What about external whistleblowing?</h2>
+  <p>External reporting (to regulators, law enforcement) is generally NOT a required first step under the IMA Statement. The framework prioritizes internal escalation. External whistleblowing may be appropriate when:</p>
+  <ul>
+    <li>Internal channels have failed or have been compromised.</li>
+    <li>Law requires reporting (e.g., specific violations triggering mandatory disclosure).</li>
+    <li>SOX whistleblower protections apply (publicly traded companies).</li>
+    <li>The fraud is so substantial that internal channels are likely to suppress it.</li>
+  </ul>
+
+  <h2><span class="marker">§7.3</span>Whistleblower protections</h2>
+  <table class="fin-table">
+    <thead><tr><th>Statute / mechanism</th><th>Protection / incentive</th></tr></thead>
+    <tbody>
+      <tr><td>Sarbanes-Oxley §806</td><td>Anti-retaliation for FS-fraud whistleblowers in public companies</td></tr>
+      <tr><td>SEC Office of the Whistleblower</td><td>10-30% of penalties &gt; $1M; anti-retaliation</td></tr>
+      <tr><td>Dodd-Frank</td><td>Strengthened SEC whistleblower program</td></tr>
+      <tr><td>False Claims Act (qui tam)</td><td>Whistleblower share of government recovery (federal contracts)</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§7.4</span>Common mistakes</h2>
+  <ul>
+    <li><strong>Going public too early</strong> — burns bridges, may forfeit whistleblower protections that require giving the company a chance.</li>
+    <li><strong>Documenting in personal email or social media</strong> — destroys confidentiality and may waive privilege.</li>
+    <li><strong>Confronting the perpetrator personally</strong> — destroys evidence, alerts them.</li>
+    <li><strong>Resigning silently</strong> — leaves the issue unresolved and may forfeit subsequent legal recourse.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">Document everything</span><p>From the first uneasy moment, keep a contemporaneous (date-stamped) personal log of conversations, instructions, and your own communications. Save copies on neutral media. Don't rely on company systems alone — they can be revoked.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — First step (normal)</h3>
+    <p class="quiz-prompt">An accountant uncertain about an entry's propriety should typically FIRST:</p>
+    <ul class="quiz-options"><li>Discuss with the immediate supervisor</li><li>File a report with the SEC</li><li>Resign</li><li>Post on social media</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The IMA framework starts with internal discussion. External authorities are a last resort, not a first step. Many issues dissolve at the supervisor level when the supervisor wasn't aware.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — When supervisor IS the issue</h3>
+    <p class="quiz-prompt">An accountant discovers her CFO has instructed her to record a clearly improper entry. The IMA Statement most directly suggests her first step is to:</p>
+    <ul class="quiz-options"><li>Escalate to the next level above the CFO (audit committee or board)</li><li>Notify the SEC</li><li>Resign immediately</li><li>Comply, then report later</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> First step is normally the immediate supervisor, but if the supervisor IS the issue, escalate ABOVE them. The audit committee — independent of management — is the right next stop. External reporting is later, only if internal channels fail.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — IMA Ethics Helpline</h3>
+    <p class="quiz-prompt">The IMA Ethics Helpline is most useful for:</p>
+    <ul class="quiz-options"><li>Reporting fraud to law enforcement</li><li>Filing SEC complaints</li><li>Discussing ethical dilemmas with an objective advisor before deciding next steps</li><li>Negotiating settlement amounts</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The helpline provides confidential consultation — sounding board for an accountant facing a dilemma. Doesn't replace legal counsel and isn't a reporting channel to authorities. Helps you think through your options.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Resignation as last resort</h3>
+    <p class="quiz-prompt">If internal escalation fails to resolve a major ethical dilemma, the IMA Statement's last-resort recommendation is:</p>
+    <ul class="quiz-options"><li>Continue working and stay silent</li><li>Always file with the SEC immediately</li><li>Confront the perpetrator personally</li><li>Resign with an informative memorandum to the appropriate level</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Resignation is the final available step under the IMA Statement when internal channels are exhausted. The memorandum documents the issue, preserves the record, and gives the appropriate body a chance to act. External whistleblowing may also be appropriate, but isn't always required.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 5 — SOX whistleblower</h3>
+    <p class="quiz-prompt">SOX §806 specifically protects:</p>
+    <ul class="quiz-options"><li>All whistleblowers in any organization</li><li>Whistleblowers in public companies who report financial-statement fraud, against retaliation</li><li>Tax fraud whistleblowers only</li><li>Government contractor whistleblowers</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> SOX §806 = anti-retaliation for FS-fraud reporting in PUBLIC companies. The False Claims Act / qui tam covers government-contractor fraud separately. Dodd-Frank further strengthens SEC whistleblower programs with bounty incentives.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">Triangle</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test 1</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="900">
   <span class="unit-eyebrow">Practice Test 1 · FMAA Section E</span>
   <h1>Test 1 — Section E mixed</h1>
-  <p class="unit-lead">8 mixed multiple-choice questions covering E.1 and E.2.</p>
-  <div class="test-intro"><h2>Coverage</h2><p>Decision-making, fraud types, IMA Statement, fraud triangle, resolution.</p>
-    <div class="test-meta"><span>Questions<strong>8</strong></span><span>Time target<strong>~14 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
+  <p class="unit-lead">12 mixed multiple-choice questions covering E.1 and E.2.</p>
+  <div class="test-intro"><h2>Coverage</h2><p>Decision-making, pressures, fraud taxonomy, detection, IMA Statement, fraud triangle, resolution.</p>
+    <div class="test-meta"><span>Questions<strong>12</strong></span><span>Time target<strong>~22 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
 
   <div class="test">
-    <div class="test-progress"><span class="answered">0 / 8 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
+    <div class="test-progress"><span class="answered">0 / 12 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
 
-    <div class="test-question" data-correct="2" data-unit="1" data-topic="Framework">
+    <div class="test-question" data-correct="2" data-unit="1" data-topic="Frameworks">
       <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Frameworks</span></div>
       <p class="quiz-q">"The right action is the one that produces the greatest good for the greatest number" describes:</p>
-      <ul class="quiz-options"><li>Deontological ethics</li><li>Virtue ethics</li><li>Utilitarian / consequentialist ethics</li><li>Egoism</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Utilitarianism / consequentialism judges by outcomes. Deontology judges by duty regardless of outcome. Virtue ethics asks what a person of good character would do.</div>
+      <ul class="quiz-options"><li>Deontological ethics</li><li>Virtue ethics</li><li>Utilitarian / consequentialist</li><li>Egoism</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Utilitarianism judges by outcomes. Deontology by duty regardless of outcome.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="2" data-topic="Most expensive">
-      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">Fraud cost</span></div>
+    <div class="test-question" data-correct="3" data-unit="2" data-topic="First defense">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">First defense</span></div>
+      <p class="quiz-q">The first defense against gradual ethical drift is:</p>
+      <ul class="quiz-options"><li>External audits</li><li>Whistleblower hotlines</li><li>Increased SoD</li><li>Recognizing pressure as pressure rather than rationalizing it</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Awareness is upstream of every other control. Audits, hotlines, and SoD catch fraud after it starts.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="3" data-topic="Most expensive">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Fraud cost</span></div>
       <p class="quiz-q">The MOST expensive type of occupational fraud per case is:</p>
       <ul class="quiz-options"><li>Financial statement fraud</li><li>Asset misappropriation</li><li>Skimming</li><li>Corruption</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> FS fraud is rare but the largest median loss — often millions. Misappropriation is most common but lower per case.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> FS fraud is rare but the largest median loss — often $millions.</div>
     </div>
 
-    <div class="test-question" data-correct="3" data-unit="2" data-topic="Skimming">
-      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Skimming</span></div>
+    <div class="test-question" data-correct="3" data-unit="3" data-topic="Skimming">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Skimming</span></div>
       <p class="quiz-q">"Skimming" specifically refers to:</p>
       <ul class="quiz-options"><li>Inflating sales figures</li><li>Stealing fixed assets</li><li>Falsifying expense reports</li><li>Diverting cash BEFORE it is recorded in the books</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Skim = take cash before it ever hits the books — no audit trail. Larceny = taking cash that's already recorded.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> Skim = take cash before it ever hits the books — no audit trail.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="3" data-topic="Confidentiality">
-      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Confidentiality</span></div>
-      <p class="quiz-q">An accountant uses non-public sales-pipeline data to recommend stock to a friend. Most direct standard violated:</p>
+    <div class="test-question" data-correct="0" data-unit="4" data-topic="Detection method">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Detection</span></div>
+      <p class="quiz-q">According to ACFE data, the LARGEST source of fraud detection is:</p>
+      <ul class="quiz-options"><li>Tips (especially from employees)</li><li>External audit</li><li>Forensic investigation</li><li>By accident</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ~40-45% of fraud is detected via tips. Whistleblower hotlines triple the rate.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="4" data-topic="Mandatory vacation">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Mandatory vacation</span></div>
+      <p class="quiz-q">A "mandatory two-week consecutive vacation" policy primarily serves as:</p>
+      <ul class="quiz-options"><li>HR morale benefit</li><li>Cost reduction</li><li>Fraud detection — schemes needing daily attention surface during the absence</li><li>Tax efficiency</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Lapping, ghost employees, fictitious vendors all need ongoing maintenance.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="5" data-topic="Confidentiality">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Confidentiality</span></div>
+      <p class="quiz-q">An accountant uses non-public sales-pipeline data to recommend stock to a friend. Standard violated:</p>
       <ul class="quiz-options"><li>Competence</li><li>Integrity</li><li>Confidentiality</li><li>Credibility</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Confidentiality forbids using info acquired in the course of work for personal advantage or to advise others.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> Confidentiality forbids using info for personal advantage or to advise others.</div>
     </div>
 
-    <div class="test-question" data-correct="1" data-unit="3" data-topic="Integrity">
-      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Integrity</span></div>
+    <div class="test-question" data-correct="1" data-unit="5" data-topic="Integrity">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Integrity</span></div>
       <p class="quiz-q">A buyer accepts a luxury vacation from a vendor whose bid she's evaluating. Standard violated:</p>
       <ul class="quiz-options"><li>Confidentiality</li><li>Integrity</li><li>Competence</li><li>Credibility</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Integrity prohibits accepting gifts that would influence — or appear to influence — judgment. Even if she'd "decide objectively anyway," the apparent conflict is the violation.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> Integrity prohibits accepting gifts that would or APPEAR to influence judgment.</div>
     </div>
 
-    <div class="test-question" data-correct="3" data-unit="3" data-topic="Credibility">
-      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Credibility</span></div>
-      <p class="quiz-q">A controller omits an unfavorable variance from the management report to avoid an uncomfortable conversation. Standard violated:</p>
+    <div class="test-question" data-correct="3" data-unit="5" data-topic="Credibility">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">Credibility</span></div>
+      <p class="quiz-q">A controller omits an unfavorable variance from the report to avoid an uncomfortable conversation. Standard violated:</p>
       <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Credibility requires disclosure of ALL relevant information — favorable and unfavorable. Selective reporting is a textbook Credibility violation.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> Credibility requires disclosure of ALL relevant information — favorable and unfavorable.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="4" data-topic="Triangle">
-      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Fraud triangle</span></div>
+    <div class="test-question" data-correct="2" data-unit="6" data-topic="Triangle">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Fraud triangle</span></div>
       <p class="quiz-q">The three sides of the fraud triangle are:</p>
       <ul class="quiz-options"><li>Pressure, Concealment, Capability</li><li>Pressure, Capability, Rationalization</li><li>Pressure, Opportunity, Rationalization</li><li>Opportunity, Capability, Concealment</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Pressure, Opportunity, Rationalization (POR). The fraud diamond extension adds Capability.</div>
+      <div class="quiz-explanation"><strong>Why:</strong> POR. The fraud diamond adds Capability.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="4" data-topic="Resolution sequence">
-      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Ethical resolution</span></div>
-      <p class="quiz-q">An accountant uncertain about an entry's propriety should typically FIRST:</p>
-      <ul class="quiz-options"><li>Discuss with the immediate supervisor (or escalate above if supervisor is the issue)</li><li>File a report with the SEC</li><li>Resign</li><li>Post on social media</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> The IMA framework starts with internal discussion and escalates only if unresolved. External authorities are a last resort, not a first step.</div>
+    <div class="test-question" data-correct="0" data-unit="7" data-topic="Resolution">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">Ethical resolution</span></div>
+      <p class="quiz-q">An accountant uncertain about an entry should typically FIRST:</p>
+      <ul class="quiz-options"><li>Discuss with the immediate supervisor (or escalate above if supervisor is the issue)</li><li>File a report with the SEC</li><li>Resign</li><li>Post publicly</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> The IMA framework starts internally. External authorities are a last resort.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="6" data-topic="Removing one side">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Triangle removal</span></div>
+      <p class="quiz-q">Strengthening internal controls (SoD, reconciliation) most directly attacks which side?</p>
+      <ul class="quiz-options"><li>Pressure</li><li>Rationalization</li><li>Capability</li><li>Opportunity</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Strong controls take away OPPORTUNITY to commit and conceal.</div>
     </div>
 
     <div class="test-summary"><h2>Test 1 · Results</h2><div class="score-display">0%</div><div class="score-meta">—</div><div class="missed-list"></div><button class="btn restart-btn">↻ Restart with shuffled order</button></div>
@@ -412,10 +811,95 @@
   <button class="btn done-btn" id="mark-done-900">Mark complete</button>
 </article>
 
+<article class="unit" data-id="901">
+  <span class="unit-eyebrow">Practice Test 2 · FMAA Section E</span>
+  <h1>Test 2 — IMA Statement scenarios</h1>
+  <p class="unit-lead">10 scenario-based questions on which IMA standard each case violates and how to resolve it.</p>
+  <div class="test-intro"><h2>Coverage</h2><p>Heavy on the four IMA standards (Competence, Confidentiality, Integrity, Credibility) and the resolution framework.</p>
+    <div class="test-meta"><span>Questions<strong>10</strong></span><span>Time target<strong>~18 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
+
+  <div class="test">
+    <div class="test-progress"><span class="answered">0 / 10 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
+
+    <div class="test-question" data-correct="0" data-unit="5" data-topic="Competence">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Competence</span></div>
+      <p class="quiz-q">An accountant takes on a complex international tax engagement despite knowing it's beyond his training. Standard violated:</p>
+      <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Competence requires recognizing the limits of your expertise — decline, partner, or train before proceeding.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="5" data-topic="Credibility">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">Credibility</span></div>
+      <p class="quiz-q">An accountant fails to disclose a known material weakness in internal control. Standard violated:</p>
+      <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Credibility specifically requires reporting internal-control deficiencies.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="5" data-topic="Apparent conflict">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Apparent conflict</span></div>
+      <p class="quiz-q">An accountant's brother bids on a contract while the accountant serves on the bid-evaluation committee. Best action:</p>
+      <ul class="quiz-options"><li>Continue and disclose at year-end</li><li>Recuse only if the brother wins</li><li>Recuse from the committee and disclose the relationship</li><li>Recommend the brother since prices are best</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Apparent conflict alone is a violation. Recuse and disclose.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="5" data-topic="Confidentiality test">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Confidentiality</span></div>
+      <p class="quiz-q">A staff accountant tells his sister at dinner about a layoff plan announced internally. Standard violated:</p>
+      <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Credibility</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Confidentiality forbids disclosing information acquired in the course of work.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="5" data-topic="Integrity overstatement">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Integrity</span></div>
+      <p class="quiz-q">An accountant signs off on inflated revenue figures because the CFO insists. Standard violated:</p>
+      <ul class="quiz-options"><li>Competence</li><li>Confidentiality</li><li>Integrity</li><li>Both Integrity and Credibility</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Both apply, but Integrity is the most direct (refusing to compromise principles regardless of pressure). Credibility (fair, objective communication) also at risk.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="7" data-topic="First step">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Resolution first step</span></div>
+      <p class="quiz-q">Under the IMA Statement, the typical FIRST step when uncertain about an entry is:</p>
+      <ul class="quiz-options"><li>Discuss with the immediate supervisor</li><li>File with the SEC</li><li>Resign</li><li>Confront the perpetrator</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Internal first; external is a last resort.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="7" data-topic="Supervisor is the issue">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Supervisor is the issue</span></div>
+      <p class="quiz-q">The CFO orders an improper entry. Best next step:</p>
+      <ul class="quiz-options"><li>Escalate to the audit committee or board</li><li>File with the SEC</li><li>Resign immediately</li><li>Comply, then report</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Skip the supervisor (CFO) since they're the issue; escalate above.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="7" data-topic="Helpline">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">IMA Helpline</span></div>
+      <p class="quiz-q">The IMA Ethics Helpline is best used for:</p>
+      <ul class="quiz-options"><li>Reporting fraud to law enforcement</li><li>Filing SEC complaints</li><li>Confidentially discussing options with an objective advisor</li><li>Negotiating settlements</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> The helpline is a sounding board, not a reporting channel.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="7" data-topic="Last resort">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">Last resort</span></div>
+      <p class="quiz-q">If internal escalation fails, the IMA Statement's last-resort step is:</p>
+      <ul class="quiz-options"><li>Continue working in silence</li><li>Always file with the SEC</li><li>Confront the perpetrator</li><li>Resign with an informative memorandum to the appropriate level</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Resignation with documentation; preserves the record and your protections. External whistleblowing may also apply, but isn't always required.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="7" data-topic="SOX 806">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">SOX 806</span></div>
+      <p class="quiz-q">SOX §806 protects:</p>
+      <ul class="quiz-options"><li>All employees in any organization</li><li>Public-company FS-fraud whistleblowers from retaliation</li><li>Tax fraud whistleblowers only</li><li>Government contractor whistleblowers</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> SOX §806 = anti-retaliation for FS fraud reports in PUBLIC companies. False Claims Act covers government contractors separately.</div>
+    </div>
+
+    <div class="test-summary"><h2>Test 2 · Results</h2><div class="score-display">0%</div><div class="score-meta">—</div><div class="missed-list"></div><button class="btn restart-btn">↻ Restart with shuffled order</button></div>
+  </div>
+  <button class="btn done-btn" id="mark-done-901">Mark complete</button>
+</article>
+
 <article class="unit" data-id="950">
   <span class="unit-eyebrow">Flashcards · Section E</span>
   <h1>Flashcard hub</h1>
-  <p class="unit-lead">IMA standards and fraud-triangle vocabulary.</p>
+  <p class="unit-lead">IMA standards, fraud-triangle vocabulary, resolution sequence.</p>
   <div class="flashcard-hub" id="flashcard-hub"></div>
   <button class="btn done-btn" id="mark-done-950">Mark complete</button>
 </article>
@@ -430,30 +914,37 @@ window.SECTION_CONFIG = {
   sectionTitle: "FMAA · Section E — Professional Ethics",
   storageKey: "fmaa-e-progress-v1",
   annotationKey: "fmaa-e-ann-v1",
-  totalUnits: 6,
-  trackedUnits: 4,
+  totalUnits: 10,
+  trackedUnits: 7,
   navStructure: [
     { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
     { group: "E.1 · Business Ethics", units: [
-      { id: 1, num: "01", title: "Decision making & pressures" },
-      { id: 2, num: "02", title: "Types of business fraud" },
+      { id: 1, num: "01", title: "Decision-making frameworks" },
+      { id: 2, num: "02", title: "Pressures & rationalizations" },
+      { id: 3, num: "03", title: "Types of business fraud" },
+      { id: 4, num: "04", title: "Detection & red flags" },
     ]},
     { group: "E.2 · Ethics for Accountants", units: [
-      { id: 3, num: "03", title: "IMA Statement of Ethical Practice" },
-      { id: 4, num: "04", title: "Fraud triangle & resolution" },
+      { id: 5, num: "05", title: "IMA Statement" },
+      { id: 6, num: "06", title: "Fraud triangle / diamond" },
+      { id: 7, num: "07", title: "Resolution framework" },
     ]},
-    { group: "📝 Practice Test", units: [
-      { id: 900, num: "T1", title: "Section E mixed (8Q)" },
+    { group: "📝 Practice Tests", units: [
+      { id: 900, num: "T1", title: "Section E mixed (12Q)" },
+      { id: 901, num: "T2", title: "IMA Statement scenarios (10Q)" },
     ]},
     { group: "🃏 Flashcards", units: [
       { id: 950, num: "FC", title: "All decks" },
     ]},
   ],
   keyTakeaways: {
-    1: ["Three lenses: utilitarian (outcomes), deontological (duty), virtue (character).", "Professional ethics codes lean deontological — certain things you don't do regardless of outcome.", "Common pressures: performance targets, personal financial, authority, conformity, rationalization.", "First defense is recognizing pressure as pressure rather than rationalizing it."],
-    2: ["ACFE three families: asset misappropriation (most common), corruption, FS fraud (most expensive).", "Skimming = cash diverted BEFORE recording. Larceny = AFTER recording. Lapping = covering one stolen payment with another's.", "FS fraud red flags: aggressive targets + heavy management equity stake.", "Mandatory vacations and rotation of duties detect ongoing schemes that require constant maintenance."],
-    3: ["IMA principles: Honesty, Fairness, Objectivity, Responsibility.", "IMA standards (4C): Competence, Confidentiality, Integrity, Credibility.", "Integrity = avoid actual or APPARENT conflicts; refuse influence-buying gifts.", "Credibility = communicate fairly and disclose ALL relevant info — favorable and unfavorable."],
-    4: ["Fraud triangle (Cressey): Pressure + Opportunity + Rationalization. Remove any one, fraud unlikely.", "Fraud diamond adds Capability (skill and access to execute and conceal).", "Resolution sequence: immediate supervisor → escalate up → objective advisor → resignation if unresolved.", "External whistleblowing is a LAST resort under the IMA Statement, not a first step."],
+    1: ["Three lenses: utilitarian (outcomes), deontological (duty), virtue (character).", "Most professional ethics codes lean deontological — certain things you don't do regardless of outcome.", "Decision sequence: recognize, identify stakeholders, consider alternatives, apply frameworks, public test, decide.", "The newspaper test: would I be comfortable defending this on tomorrow's front page?"],
+    2: ["Common pressures: performance targets, financial, authority, conformity, time.", "Common rationalizations: 'just borrowing', 'I deserve this', 'everyone does it', 'only this once', 'good of company'.", "Slippery slope: small accommodations rationalized → next step easier → catastrophic fall.", "First defense: recognizing pressure as pressure rather than rationalizing."],
+    3: ["ACFE three families: asset misappropriation (most common), corruption, FS fraud (most expensive).", "Skimming = cash diverted BEFORE recording. Larceny = AFTER. Lapping = covering one stolen payment with another's.", "FS fraud red flags: aggressive targets + heavy management equity stake.", "Channel stuffing, expense deferral/capitalization, hidden liabilities are common FS-fraud schemes."],
+    4: ["Tips are #1 detection method (~40-45%). Whistleblower hotlines triple the rate.", "External audit detects <5% of fraud. Internal audit ~15%.", "Behavioral red flags: living beyond means, refusing vacations, defensive about audits.", "Mandatory vacations and rotation expose ongoing schemes that need daily maintenance."],
+    5: ["IMA principles: Honesty, Fairness, Objectivity, Responsibility.", "IMA standards: Competence, Confidentiality, Integrity, Credibility (CCIC).", "Integrity = avoid actual or APPARENT conflicts; refuse influence-buying gifts.", "Credibility = communicate fairly and disclose ALL relevant info — favorable AND unfavorable; report ICFR deficiencies."],
+    6: ["Fraud triangle (Cressey): Pressure + Opportunity + Rationalization. Remove any one, fraud unlikely.", "Fraud diamond adds Capability (skill, position, access to execute and conceal).", "Internal controls attack OPPORTUNITY. Tone at the top attacks RATIONALIZATION. Pressure is hardest to address structurally.", "Senior-management-driven pressure (Enron, Wells Fargo) often produces multi-perpetrator fraud."],
+    7: ["IMA resolution sequence: immediate supervisor → escalate up → objective advisor → resignation as last resort.", "Skip the supervisor if THEY are the issue.", "External whistleblowing is a LAST resort under the IMA Statement, not a first step.", "SOX §806 anti-retaliation for FS-fraud whistleblowers in public companies. Dodd-Frank adds SEC bounties."],
   },
   flashcardDecks: {
     "ima-standards": {
@@ -464,36 +955,61 @@ window.SECTION_CONFIG = {
         ["IMA standards", "Competence, Confidentiality, Integrity, Credibility"],
         ["Competence cue", "Performed work without necessary expertise"],
         ["Confidentiality cue", "Disclosed or used non-public info for personal/others' gain"],
-        ["Integrity cue", "Accepted gifts, conflicts of interest"],
-        ["Credibility cue", "Selective or biased reporting"],
-        ["Fraud triangle (Cressey)", "Pressure, Opportunity, Rationalization"],
-        ["Fraud diamond", "Adds Capability to the triangle"],
-        ["Resolution first step", "Discuss with immediate supervisor (or skip if they're the issue)"],
-        ["Resolution next steps", "Escalate up, consult advisor, resign as last resort"],
-        ["External reporting under IMA", "Last resort, not first step"],
+        ["Integrity cue", "Accepted gifts, conflicts of interest (actual or apparent)"],
+        ["Credibility cue", "Selective or biased reporting; failed to disclose ICFR weakness"],
+        ["First step under IMA", "Discuss with immediate supervisor (skip if they're the issue)"],
+        ["Resolution sequence", "Supervisor → escalate → advisor → resign as last resort"],
+        ["External reporting", "Last resort under IMA Statement, not first step"],
+        ["IMA Ethics Helpline", "Confidential consultation; not a reporting channel"],
+        ["SOX §806", "Anti-retaliation for FS-fraud whistleblowers in public companies"],
+        ["Dodd-Frank", "Strengthens SEC whistleblower program with bounty"],
+      ]
+    },
+    "fraud-mechanics": {
+      title: "Fraud mechanics",
+      eyebrow: "E.1, E.2",
+      cards: [
+        ["ACFE three families", "Asset misappropriation, Corruption, FS fraud"],
+        ["Most common type", "Asset misappropriation (~85% of cases)"],
+        ["Most expensive type", "FS fraud (rare, $millions per case)"],
         ["Skimming", "Cash diverted BEFORE recording"],
         ["Larceny", "Cash diverted AFTER recording"],
-        ["Lapping", "Covering one customer's stolen payment with the next"],
-        ["FS fraud", "Rarest type, highest median loss"],
-        ["Asset misappropriation", "Most common type, lower median loss"],
+        ["Lapping", "Cover one stolen payment with another's"],
+        ["Ghost employees", "Payroll to fake employees collected by perpetrator"],
+        ["Channel stuffing", "Premature revenue recognition via shipments with side returns"],
+        ["Fraud triangle (Cressey)", "Pressure, Opportunity, Rationalization (POR)"],
+        ["Fraud diamond addition", "Capability (skill, position, access)"],
+        ["Internal controls attack", "Opportunity"],
+        ["Tone at the top attacks", "Rationalization"],
+        ["#1 fraud detection source", "Tips (~40-45%, employee tips dominate)"],
+        ["External audit detects", "<5% of fraud"],
+        ["Mandatory vacation purpose", "Detect schemes needing daily maintenance"],
+        ["Common rationalization", "'I'm just borrowing — I'll pay it back'"],
       ]
     },
   },
   formulaReference: [
     { section: "IMA Statement", items: [
-      { label: "Four principles", formula: "Honesty, Fairness, Objectivity, Responsibility", unitId: 3 },
-      { label: "Four standards", formula: "Competence, Confidentiality, Integrity, Credibility", unitId: 3 },
+      { label: "Four principles", formula: "Honesty, Fairness, Objectivity, Responsibility", unitId: 5 },
+      { label: "Four standards", formula: "Competence, Confidentiality, Integrity, Credibility", unitId: 5 },
+      { label: "Apparent conflict rule", formula: "Avoid actual OR apparent conflicts of interest", unitId: 5 },
     ]},
     { section: "Fraud", items: [
-      { label: "Fraud triangle", formula: "Pressure + Opportunity + Rationalization", unitId: 4 },
-      { label: "Fraud diamond", formula: "Triangle + Capability", unitId: 4 },
-      { label: "Skimming vs Larceny", formula: "Before recording vs After recording", unitId: 2 },
+      { label: "Fraud triangle", formula: "Pressure + Opportunity + Rationalization", unitId: 6 },
+      { label: "Fraud diamond", formula: "Triangle + Capability", unitId: 6 },
+      { label: "ACFE three families", formula: "Asset misappropriation, Corruption, FS fraud", unitId: 3 },
+      { label: "Skimming vs Larceny", formula: "Before recording vs After recording", unitId: 3 },
+    ]},
+    { section: "Detection", items: [
+      { label: "Top detection source", formula: "Tips (~40-45%) — hotlines triple the tip rate", unitId: 4 },
+      { label: "Mandatory vacation", formula: "Schemes needing daily maintenance surface during absence", unitId: 4 },
     ]},
     { section: "Resolution", items: [
-      { label: "Step 1", formula: "Immediate supervisor (skip if they're the issue)", unitId: 4 },
-      { label: "Step 2", formula: "Escalate up — manager, audit committee, board", unitId: 4 },
-      { label: "Step 3", formula: "Consult objective advisor (IMA Ethics Helpline)", unitId: 4 },
-      { label: "Step 4", formula: "Resign with memo (last resort)", unitId: 4 },
+      { label: "Step 1", formula: "Immediate supervisor (skip if they're the issue)", unitId: 7 },
+      { label: "Step 2", formula: "Escalate up — manager, audit committee, board", unitId: 7 },
+      { label: "Step 3", formula: "Consult objective advisor (IMA Ethics Helpline)", unitId: 7 },
+      { label: "Step 4", formula: "Resign with informative memorandum (last resort)", unitId: 7 },
+      { label: "External reporting", formula: "Last resort under IMA Statement, not required first step", unitId: 7 },
     ]},
   ],
 };

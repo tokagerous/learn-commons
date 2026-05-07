@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FMAA · Section B — Financial Statement Preparation & Analysis</title>
-<meta name="description" content="A field guide for FMAA Section B: recognition and valuation in financial statements (assets, liabilities, equity, revenue, income); common-size and base-year analysis; ratio analysis (liquidity, leverage, activity, profitability)." />
+<meta name="description" content="A field guide for FMAA Section B: recognition and valuation in financial statements (assets, inventory, PP&E, liabilities, equity, revenue, income); common-size and base-year analysis; ratio analysis (liquidity, leverage, activity, profitability)." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
   <div class="brand"><span class="ornament"></span>FMAA · B</div>
   <div class="brand-sub">FS preparation & analysis · A visual field guide</div>
   <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-  <div class="progress-text" id="progress-text">0 of 7 units complete</div>
+  <div class="progress-text" id="progress-text">0 of 13 units complete</div>
   <div class="sidebar-search" style="margin-top:18px">
     <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
     <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
@@ -41,7 +41,6 @@
     <div class="kbd-row"><span>Toggle annotation panel</span><span class="kbd">A</span></div>
     <div class="kbd-row"><span>Toggle formula panel</span><span class="kbd">F</span></div>
     <div class="kbd-row"><span>Mark unit complete</span><span class="kbd">M</span></div>
-    <div class="kbd-row"><span>Undo annotation</span><span class="keys"><span class="kbd">⌘/Ctrl</span><span class="kbd">Z</span></span></div>
     <div class="kbd-row"><span>Show this help</span><span class="keys"><span class="kbd">?</span> <span class="kbd">Esc</span> to close</span></div>
     <div style="margin-top:16px; text-align:right;"><button class="btn ghost small" id="kbd-help-close">Close</button></div>
   </div>
@@ -93,46 +92,53 @@
   <div class="cover">
     <span class="unit-eyebrow">FMAA · Section B · 25% weight · Levels A & B</span>
     <h1 class="cover-title">Financial Statement<br/>Prep & Analysis.</h1>
-    <p class="cover-sub">After the books are closed, two activities matter: prepare the statements correctly (recognition and valuation rules), and read what they say (vertical, horizontal, and ratio analysis). This section bridges bookkeeping mechanics and decision-relevant interpretation.</p>
+    <p class="cover-sub">After the books are closed, two activities matter: prepare the statements correctly (recognition and valuation rules), and read what they say (vertical, horizontal, and ratio analysis). This is one of the two largest sections on the FMAA exam — master it and you've covered half the test.</p>
     <div class="cover-meta">
-      <span>Units<strong>7 covered</strong></span>
-      <span>Practice questions<strong>~30</strong></span>
+      <span>Units<strong>13 covered</strong></span>
+      <span>Practice questions<strong>~75</strong></span>
+      <span>Tests<strong>2 (T1 + T2)</strong></span>
       <span>FMAA weight<strong>25% of exam</strong></span>
-      <span>Levels<strong>A · B</strong></span>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">B.1</span>Recognition & Valuation</h2>
     <div class="toc-card">
-      <h3>B.1 — Asset/liability/equity rules (Units 1–3)</h3>
+      <h3>B.1 — Asset/liability/equity/revenue rules (Units 1–7)</h3>
       <ol>
-        <li><button onclick="goTo(1)">Asset valuation — historical, FV, LCNRV, impairment</button></li>
-        <li><button onclick="goTo(2)">Liability valuation & equity transactions</button></li>
-        <li><button onclick="goTo(3)">Revenue recognition & income measurement</button></li>
+        <li><button onclick="goTo(1)">Asset valuation — cash, AR, allowance method</button></li>
+        <li><button onclick="goTo(2)">Inventory valuation — FIFO, LIFO, weighted-avg, LCNRV</button></li>
+        <li><button onclick="goTo(3)">PP&amp;E and intangibles — depreciation, impairment, goodwill</button></li>
+        <li><button onclick="goTo(4)">Liability valuation — current, long-term, contingent</button></li>
+        <li><button onclick="goTo(5)">Equity transactions — issuance, treasury, dividends, splits</button></li>
+        <li><button onclick="goTo(6)">Revenue recognition (ASC 606 five steps)</button></li>
+        <li><button onclick="goTo(7)">Income measurement — gains, presentation, EPS basics</button></li>
       </ol>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">B.2</span>Common-Size & Base-Year Analysis</h2>
     <div class="toc-card">
-      <h3>B.2 — Vertical & horizontal analysis (Unit 4)</h3>
-      <ol start="4">
-        <li><button onclick="goTo(4)">Common-size statements & common-base-year</button></li>
+      <h3>B.2 — Vertical & horizontal (Units 8–9)</h3>
+      <ol start="8">
+        <li><button onclick="goTo(8)">Common-size statements (vertical analysis)</button></li>
+        <li><button onclick="goTo(9)">Common base year &amp; growth metrics (horizontal, CAGR)</button></li>
       </ol>
     </div>
 
     <h2 style="margin-top:48px"><span class="marker">B.3</span>Ratio Analysis</h2>
     <div class="toc-card">
-      <h3>B.3 — Four ratio families (Units 5–7)</h3>
-      <ol start="5">
-        <li><button onclick="goTo(5)">Liquidity — current, quick, cash ratios</button></li>
-        <li><button onclick="goTo(6)">Leverage & activity — D/E, times-interest, turnovers</button></li>
-        <li><button onclick="goTo(7)">Profitability — margins, ROA, ROE, DuPont</button></li>
+      <h3>B.3 — Four ratio families (Units 10–13)</h3>
+      <ol start="10">
+        <li><button onclick="goTo(10)">Liquidity ratios — current, quick, cash, CCC</button></li>
+        <li><button onclick="goTo(11)">Leverage ratios — D/E, TIE, equity multiplier</button></li>
+        <li><button onclick="goTo(12)">Activity ratios — turnover, DIO, DSO, DPO</button></li>
+        <li><button onclick="goTo(13)">Profitability ratios &amp; DuPont decomposition</button></li>
       </ol>
     </div>
 
-    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Test</h2>
+    <h2 style="margin-top:48px"><span class="marker">📝</span>Practice Tests</h2>
     <div class="toc-card">
       <ol class="plain" style="list-style:none; padding-left:0">
-        <li><button onclick="goTo(900)"><strong>T1</strong> — Section B mixed · 12 Q · ~22 min</button></li>
+        <li><button onclick="goTo(900)"><strong>T1</strong> — Section B mixed (recognition + analysis) · 15 Q · ~27 min</button></li>
+        <li><button onclick="goTo(901)"><strong>T2</strong> — Ratio analysis deep dive · 15 Q · ~27 min</button></li>
       </ol>
     </div>
   </div>
@@ -141,526 +147,1252 @@
 
 <article class="unit" data-id="1">
   <span class="unit-eyebrow">Unit 1 · B.1 Recognition & Valuation</span>
-  <h1>Asset valuation</h1>
-  <p class="unit-lead">Most assets enter the books at <strong>historical cost</strong> — what was paid. Subsequent measurement may shift to fair value, lower-of-cost-or-NRV, or impaired value depending on asset type and circumstance.</p>
+  <h1>Asset valuation — cash, AR, and the allowance method</h1>
+  <p class="unit-lead">Most assets enter the books at <strong>historical cost</strong> — what was paid. Subsequent measurement may shift to fair value, lower-of-cost-or-NRV, or impaired value. This unit covers the simplest assets — cash, receivables, and the allowance for doubtful accounts.</p>
 
-  <h2><span class="marker">§1.1</span>Common measurement bases</h2>
+  <h2><span class="marker">§1.1</span>Cash and equivalents</h2>
+  <p>Cash on hand, demand deposits, and instruments convertible to cash within 90 days (Treasury bills, money-market funds). Compensating balances required by lenders are typically classified separately or disclosed.</p>
+
+  <h2><span class="marker">§1.2</span>Accounts receivable and the allowance</h2>
+  <p>AR is reported at <strong>net realizable value</strong> — gross AR minus an allowance for amounts management estimates won't be collected.</p>
+  <div class="formula-box">Net AR = Gross AR − Allowance for Doubtful Accounts</div>
+  <p>Two methods to estimate the allowance:</p>
+  <ul>
+    <li><strong>Percentage of credit sales</strong> (income-statement focus) — bad-debt expense = % × credit sales for the period.</li>
+    <li><strong>Aging of receivables</strong> (balance-sheet focus) — apply graduated % rates to current/30/60/90+ AR buckets to estimate ending allowance.</li>
+  </ul>
+
+  <h2><span class="marker">§1.3</span>Write-off and recovery</h2>
   <table class="fin-table">
-    <thead><tr><th>Asset</th><th>Initial</th><th>Subsequent</th></tr></thead>
+    <thead><tr><th>Event</th><th>Journal entry</th><th>Net AR effect</th></tr></thead>
     <tbody>
-      <tr><td>Cash &amp; equivalents</td><td>Face value</td><td>Face value</td></tr>
-      <tr><td>AR (net)</td><td>Invoice</td><td>Invoice − allowance for doubtful accounts</td></tr>
-      <tr><td>Inventory (US GAAP)</td><td>Cost</td><td>Lower of cost or NRV (LCNRV)</td></tr>
-      <tr><td>PP&amp;E</td><td>Cost</td><td>Cost − accumulated depreciation, tested for impairment</td></tr>
-      <tr><td>Trading securities</td><td>FV</td><td>Fair value through P&amp;L</td></tr>
-      <tr><td>AFS securities</td><td>FV</td><td>Fair value through OCI</td></tr>
-      <tr><td>Goodwill</td><td>Cost (purchase)</td><td>Tested for impairment annually; not amortized</td></tr>
+      <tr><td>Estimate bad debt</td><td>DR Bad Debt Exp / CR Allowance</td><td>↓ (allowance ↑)</td></tr>
+      <tr><td>Specific account written off</td><td>DR Allowance / CR AR</td><td>None (both ↓)</td></tr>
+      <tr><td>Recovery of written-off account</td><td>DR AR / CR Allowance, then DR Cash / CR AR</td><td>None initially</td></tr>
     </tbody>
   </table>
 
-  <h2><span class="marker">§1.2</span>Impairment</h2>
-  <p>An asset is impaired when its carrying amount exceeds the recoverable amount. US GAAP for PP&amp;E uses a two-step test: (1) is undiscounted future cash flow &lt; carrying? (2) if yes, write down to <strong>fair value</strong>. Impairment losses generally cannot be reversed under US GAAP (IFRS allows reversals, except for goodwill).</p>
+  <div class="callout warning"><span class="callout-label">Direct vs allowance</span><p>Direct write-off (DR Bad Debt Exp / CR AR when an account is determined uncollectible) violates the matching principle and is acceptable only when bad debts are immaterial — never under U.S. GAAP for material amounts.</p></div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 1 — Inventory rule</h3>
-    <p class="quiz-prompt">Under US GAAP, inventory measured using FIFO is reported at:</p>
+    <h3>Practice 1 — Net AR after write-off</h3>
+    <p class="quiz-prompt">Gross AR $400K; allowance $30K. The company writes off a specific $5K account. Net AR after the write-off:</p>
     <ul class="quiz-options">
-      <li>Fair value</li>
-      <li>Replacement cost</li>
-      <li>Lower of cost or net realizable value</li>
-      <li>Selling price</li>
+      <li>$365,000</li>
+      <li>$395,000</li>
+      <li>$370,000 — unchanged</li>
+      <li>$425,000</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> US GAAP uses LCNRV (Lower of Cost or NRV) for FIFO/average inventory. NRV = estimated selling price − completion and disposal costs. Older rule LCM (Lower of Cost or Market) still applies for LIFO.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Both gross AR ($400K → $395K) and allowance ($30K → $25K) drop by $5K. Net = $395K − $25K = <strong>$370K</strong>, identical to before ($400K − $30K). The bad-debt expense was already recognized when the allowance was set up.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 2 — AFS securities</h3>
-    <p class="quiz-prompt">Available-for-sale debt securities are measured subsequently at:</p>
+    <h3>Practice 2 — Bad-debt expense (% of sales)</h3>
+    <p class="quiz-prompt">Credit sales $2M; estimate is 1% will be uncollectible. Bad-debt expense for the period:</p>
     <ul class="quiz-options">
-      <li>Fair value, with unrealized G/L through OCI</li>
-      <li>Amortized cost</li>
-      <li>Fair value, with unrealized G/L through net income</li>
-      <li>Lower of cost or fair value</li>
+      <li>$20,000</li>
+      <li>$2,000</li>
+      <li>$200,000</li>
+      <li>Cannot be determined without aging schedule</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> AFS = fair value, but unrealized changes flow through OCI (not P&amp;L). Trading securities flow through P&amp;L. Held-to-maturity uses amortized cost. The OCI parking lot smooths unrealized swings out of NI.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> 1% × $2M = <strong>$20,000</strong>. Percentage-of-sales sets the EXPENSE directly; the allowance balance becomes whatever it becomes. Aging-method, in contrast, sets the ENDING allowance and backs into the expense.</div>
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — Goodwill</h3>
-    <p class="quiz-prompt">Under US GAAP, goodwill is:</p>
+    <h3>Practice 3 — Aging method</h3>
+    <p class="quiz-prompt">Aging schedule estimates required ending allowance of $50K. Current allowance balance is $12K (credit). Bad-debt expense to record:</p>
     <ul class="quiz-options">
-      <li>Amortized over 10 years</li>
-      <li>Amortized over its useful life</li>
-      <li>Written down to fair value annually</li>
-      <li>Tested for impairment annually; not amortized</li>
+      <li>$50,000</li>
+      <li>$62,000</li>
+      <li>$12,000</li>
+      <li>$38,000</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Public-company goodwill is not amortized; it's tested for impairment at least annually (and on triggering events). Private companies may elect to amortize. IFRS aligns with US GAAP on no amortization for public companies.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Need to TOP UP the allowance from $12K to $50K — adjust by <strong>$38,000</strong>. Aging gives the target ENDING balance; the expense is the plug. If allowance had a debit balance (over-written-off), you'd add to bring it up.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — Direct write-off rule</h3>
+    <p class="quiz-prompt">The direct write-off method:</p>
+    <ul class="quiz-options">
+      <li>Is preferred under U.S. GAAP</li>
+      <li>Violates the matching principle and is acceptable only when bad debts are immaterial</li>
+      <li>Records bad debt expense based on aging</li>
+      <li>Always overstates AR</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The matching principle requires expenses recognized in the period the related revenue is earned. Direct write-off recognizes bad debt only when discovered — sometimes years later. Acceptable for tax and immaterial-impact cases; not for GAAP financial reporting when material.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-1">Mark complete</button>
   <div class="unit-footer">
     <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Map</span></button>
-    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Liabilities & equity</span></button>
+    <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Inventory valuation</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="2">
   <span class="unit-eyebrow">Unit 2 · B.1 Recognition & Valuation</span>
-  <h1>Liability valuation & equity transactions</h1>
-  <p class="unit-lead">Liabilities are present obligations to transfer economic benefit. Most are measured at the present value of future cash payments (long-term debt) or at face (short-term payables). Equity records contributions, retained earnings, and treasury stock.</p>
+  <h1>Inventory valuation — FIFO, LIFO, weighted-average, LCNRV</h1>
+  <p class="unit-lead">Inventory is recorded at cost when acquired. The cost-flow assumption decides which units' costs flow to COGS when items sell, and which stay on the balance sheet. Then a valuation rule (LCNRV under U.S. GAAP for FIFO/avg) writes inventory down if its market value falls below cost.</p>
 
-  <h2><span class="marker">§2.1</span>Liability measurement</h2>
-  <ul>
-    <li><strong>Accounts payable</strong> / accrued expenses → invoice or face value.</li>
-    <li><strong>Bonds payable</strong> → present value at issuance (usually face × discount factor); amortized to face at maturity.</li>
-    <li><strong>Notes payable</strong> → PV; if non-interest-bearing, impute interest.</li>
-    <li><strong>Provisions</strong> (warranty, restructuring) → best estimate, often expected value or PV of likely outcomes.</li>
-    <li><strong>Contingent liabilities</strong> → accrue if probable AND reasonably estimable; otherwise disclose.</li>
-  </ul>
+  <h2><span class="marker">§2.1</span>Three cost-flow assumptions</h2>
+  <table class="fin-table">
+    <thead><tr><th>Method</th><th>COGS reflects</th><th>Ending inventory reflects</th><th>Rising prices effect</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FIFO</strong> (first-in, first-out)</td><td>Oldest costs</td><td>Newest costs</td><td>Lower COGS, higher NI, higher ending inv</td></tr>
+      <tr><td><strong>LIFO</strong> (last-in, first-out, U.S. GAAP only)</td><td>Newest costs</td><td>Oldest costs</td><td>Higher COGS, lower NI, lower taxes</td></tr>
+      <tr><td><strong>Weighted-average</strong></td><td>Average cost</td><td>Average cost</td><td>Between FIFO and LIFO</td></tr>
+      <tr><td><strong>Specific identification</strong></td><td>Each item's actual cost</td><td>Actual cost</td><td>Used for unique high-value items (cars, art)</td></tr>
+    </tbody>
+  </table>
 
-  <h2><span class="marker">§2.2</span>Equity transactions</h2>
-  <ul>
-    <li><strong>Common stock issued</strong> → CR Common Stock (par) + CR Additional Paid-in Capital (excess).</li>
-    <li><strong>Treasury stock</strong> (cost method) → DR Treasury Stock; reduces total equity. Reissuance G/L flows through APIC, not P&amp;L.</li>
-    <li><strong>Cash dividends</strong> → DR Retained Earnings on declaration; CR Dividends Payable.</li>
-    <li><strong>Stock dividends</strong> (small &lt;25%) → reclassify RE to common stock + APIC at fair value.</li>
-    <li><strong>Stock splits</strong> → memo entry only; par value adjusted, no journal effect on totals.</li>
-  </ul>
+  <div class="formula-box">Weighted-average cost per unit = Total cost of goods available ÷ Total units available</div>
 
-  <div class="quiz" data-correct="1">
-    <h3>Practice 1 — Contingent liability</h3>
-    <p class="quiz-prompt">A pending lawsuit is "reasonably possible" of resulting in a $200K loss. Under US GAAP, the company:</p>
+  <h2><span class="marker">§2.2</span>LCNRV (U.S. GAAP, FIFO/avg)</h2>
+  <p>If net realizable value (selling price − completion/disposal costs) falls below cost, write inventory down to NRV. The write-down hits COGS or a separate loss account; recovery (later increases) cannot reverse the prior write-down under U.S. GAAP. IFRS allows reversals up to original cost.</p>
+
+  <div class="callout tip"><span class="callout-label">LIFO conformity</span><p>If a U.S. company uses LIFO for tax, IRS rules require LIFO for financial statements too — the "LIFO conformity rule." This is a major reason LIFO persists despite IFRS prohibiting it.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — FIFO COGS</h3>
+    <p class="quiz-prompt">Beg inventory: 100 units @ $10. Purchase: 200 units @ $12. Sold 250 units. Under FIFO, COGS:</p>
     <ul class="quiz-options">
-      <li>Records a $200K liability</li>
-      <li>Discloses the contingency in notes; no liability accrued</li>
-      <li>Records and footnote-discloses</li>
-      <li>Ignores the contingency</li>
+      <li>$2,800</li>
+      <li>$3,000</li>
+      <li>$2,750</li>
+      <li>$2,500</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Accrual requires "probable" + reasonably estimable. "Reasonably possible" gets footnote disclosure only. "Remote" is ignored. The threshold language matters: probable ≈ likely (&gt;70% under most interpretations); reasonably possible is more than remote but less than probable.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> FIFO sells oldest first: 100 @ $10 = $1,000, then 150 @ $12 = $1,800. COGS = <strong>$2,800</strong>. Ending = 50 × $12 = $600.</div>
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 2 — Treasury stock</h3>
-    <p class="quiz-prompt">A company buys back 1,000 shares at $50 (par $1). The journal entry includes:</p>
+    <h3>Practice 2 — LIFO COGS</h3>
+    <p class="quiz-prompt">Same data as Practice 1. Under LIFO, COGS:</p>
     <ul class="quiz-options">
-      <li>DR Common Stock $1,000</li>
-      <li>CR Treasury Stock $50,000</li>
-      <li>DR Treasury Stock $50,000 / CR Cash $50,000</li>
-      <li>DR Retained Earnings $50,000</li>
+      <li>$2,800</li>
+      <li>$3,000</li>
+      <li>$2,900</li>
+      <li>$2,500</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Cost-method buyback: DR Treasury Stock $50K (1,000 × $50) / CR Cash $50K. Treasury stock is contra-equity; reduces total stockholders' equity. Par value isn't touched — that lives in Common Stock.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> LIFO sells newest first: 200 @ $12 = $2,400, then 50 @ $10 = $500. COGS = <strong>$2,900</strong>. Ending = 50 × $10 = $500. Notice LIFO COGS &gt; FIFO COGS in rising-price periods.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Weighted-average</h3>
+    <p class="quiz-prompt">Same data. Under weighted-average, COGS (rounded):</p>
+    <ul class="quiz-options">
+      <li>$2,800</li>
+      <li>$2,833</li>
+      <li>$2,900</li>
+      <li>$2,750</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Avg cost = (100 × $10 + 200 × $12) / 300 = $3,400 / 300 = $11.333. COGS = 250 × $11.333 = <strong>$2,833</strong>. Sits between FIFO ($2,800) and LIFO ($2,900).</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Rising prices effect</h3>
+    <p class="quiz-prompt">In a period of rising prices, FIFO produces:</p>
+    <ul class="quiz-options">
+      <li>Higher COGS than LIFO</li>
+      <li>Lower ending inventory than LIFO</li>
+      <li>Same NI as LIFO</li>
+      <li>Higher NI than LIFO and higher ending inventory</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> FIFO uses oldest (cheaper) costs in COGS → lower COGS → higher NI. Ending inventory holds the newer (pricier) costs → higher BS value. The mirror image is LIFO's tax advantage in rising prices: higher COGS → lower taxable income.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 3 — Stock split</h3>
-    <p class="quiz-prompt">A 2-for-1 stock split:</p>
+    <h3>Practice 5 — LCNRV</h3>
+    <p class="quiz-prompt">Inventory cost $50K; estimated selling price $48K; estimated disposal costs $3K. Write down to:</p>
     <ul class="quiz-options">
-      <li>Doubles shares outstanding; halves par value; total equity unchanged</li>
-      <li>Doubles shares outstanding; doubles total equity</li>
-      <li>Reduces retained earnings by the par value × new shares</li>
-      <li>Requires a journal entry to APIC</li>
+      <li>$45,000 (NRV)</li>
+      <li>$48,000 (selling price)</li>
+      <li>$50,000 (cost — no write-down)</li>
+      <li>$53,000</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> A split is a memo entry — no balance-sheet amounts change. Each holder owns twice as many shares at half the par. Stock dividends, in contrast, do reclassify within equity (RE → CS/APIC).</div>
+    <div class="quiz-explanation"><strong>Why:</strong> NRV = $48K − $3K = $45K. NRV ($45K) &lt; cost ($50K), so write down to <strong>$45K</strong>. Loss = $5K. Under U.S. GAAP this loss cannot reverse if NRV later recovers. IFRS would allow reversal up to original $50K.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-2">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Asset valuation</span></button>
-    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Revenue recognition</span></button>
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Cash & AR</span></button>
+    <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">PP&E & intangibles</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="3">
   <span class="unit-eyebrow">Unit 3 · B.1 Recognition & Valuation</span>
-  <h1>Revenue recognition & income measurement</h1>
-  <p class="unit-lead">ASC 606 / IFRS 15 unified revenue recognition under one framework: revenue is recognized when control of goods or services transfers to the customer, in the amount the entity expects to be entitled to. The famous <strong>five steps</strong> structure the analysis.</p>
+  <h1>PP&amp;E and intangibles — depreciation, impairment, goodwill</h1>
+  <p class="unit-lead">Long-lived assets enter the books at historical cost (purchase price + costs to ready for use). Tangible PP&amp;E is depreciated; intangibles are amortized (if finite-lived) or impairment-tested (indefinite-lived, including goodwill).</p>
 
-  <h2><span class="marker">§3.1</span>The five-step model</h2>
+  <h2><span class="marker">§3.1</span>Depreciation methods</h2>
+  <table class="fin-table">
+    <thead><tr><th>Method</th><th>Per-period charge</th><th>Pattern</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Straight-line</strong></td><td>(Cost − Salvage) ÷ Life</td><td>Flat</td></tr>
+      <tr><td><strong>Units-of-production</strong></td><td>(Cost − Salvage) × (Units used ÷ Total units)</td><td>Tracks actual usage</td></tr>
+      <tr><td><strong>Double-declining balance</strong></td><td>(2 ÷ Life) × NBV</td><td>Front-loaded; ignores salvage in calc but stops at salvage</td></tr>
+      <tr><td><strong>Sum-of-years' digits</strong></td><td>(Cost − Salvage) × Year fraction</td><td>Front-loaded but less than DDB</td></tr>
+    </tbody>
+  </table>
+
+  <p>Accumulated depreciation is a contra-asset; book value (NBV) = Cost − Accumulated depreciation. The asset's <em>cost</em> stays at historical cost on the books; accumulated depreciation absorbs the decline.</p>
+
+  <h2><span class="marker">§3.2</span>Impairment (U.S. GAAP)</h2>
+  <p>Two-step test for PP&amp;E:</p>
   <ol>
-    <li><strong>Identify the contract</strong> with the customer.</li>
-    <li><strong>Identify performance obligations</strong> (distinct goods/services).</li>
-    <li><strong>Determine the transaction price</strong> (consider variable consideration, financing).</li>
-    <li><strong>Allocate the price</strong> to performance obligations (relative standalone selling price).</li>
-    <li><strong>Recognize revenue</strong> as each obligation is satisfied (point-in-time vs over-time).</li>
+    <li><strong>Recoverability</strong>: are the asset's undiscounted future cash flows ≥ carrying amount? If yes, no impairment.</li>
+    <li><strong>Measurement</strong>: if no, write down to <strong>fair value</strong>. Loss = Carrying − FV.</li>
   </ol>
+  <p>Once impaired, the new lower carrying becomes the depreciable base going forward. Reversals are NOT permitted under U.S. GAAP. IFRS uses a one-step test (carrying vs recoverable amount = max(FV − costs to sell, value-in-use)) and allows reversals.</p>
 
-  <h2><span class="marker">§3.2</span>Point-in-time vs over-time</h2>
-  <p>Most product sales transfer control at a point in time (delivery). Long-term construction or service contracts often transfer over time (e.g., the customer simultaneously receives benefit). Over-time uses an input method (cost-to-cost) or output method (units delivered).</p>
+  <h2><span class="marker">§3.3</span>Intangibles &amp; goodwill</h2>
+  <ul>
+    <li><strong>Finite-life intangibles</strong> (patents, customer lists, software) — amortize over useful life; test for impairment when triggers exist.</li>
+    <li><strong>Indefinite-life intangibles</strong> (perpetual licenses, some trademarks) — not amortized; impairment-tested at least annually.</li>
+    <li><strong>Goodwill</strong> — arises only from purchase of another business; never internally generated. Not amortized; impairment-tested annually at the reporting-unit level.</li>
+  </ul>
 
-  <div class="formula-box">% complete (cost-to-cost) = Cost incurred to date ÷ Total estimated cost<br/>Revenue recognized = % complete × Total contract price − Revenue already recognized</div>
-
-  <div class="quiz" data-correct="3">
-    <h3>Practice 1 — Five-step order</h3>
-    <p class="quiz-prompt">Under ASC 606, the FINAL step in revenue recognition is:</p>
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Straight-line</h3>
+    <p class="quiz-prompt">Cost $50K; salvage $5K; life 5 years. Annual SL depreciation:</p>
     <ul class="quiz-options">
-      <li>Identify the contract</li>
-      <li>Identify performance obligations</li>
-      <li>Determine transaction price</li>
-      <li>Recognize revenue when (or as) performance obligations are satisfied</li>
+      <li>$10,000</li>
+      <li>$11,000</li>
+      <li>$9,000</li>
+      <li>$8,000</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Steps in order: (1) contract, (2) POs, (3) price, (4) allocate, (5) recognize. The fifth step is where revenue actually hits the income statement.</div>
-  </div>
-
-  <div class="quiz" data-correct="1">
-    <h3>Practice 2 — Cost-to-cost</h3>
-    <p class="quiz-prompt">Long-term contract: $10M total price, total estimated cost $8M. By year-end, $4M has been incurred. Revenue to recognize:</p>
-    <ul class="quiz-options">
-      <li>$4,000,000</li>
-      <li>$5,000,000</li>
-      <li>$10,000,000</li>
-      <li>$8,000,000</li>
-    </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> % complete = $4M ÷ $8M = 50%. Revenue = 50% × $10M = <strong>$5M</strong>. Gross profit recognized = $5M − $4M = $1M. Loss on overall contract requires immediate full recognition.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> ($50K − $5K) / 5 = <strong>$9,000</strong>/year. The $10K trap is dividing cost ($50K) by life without subtracting salvage.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 3 — Variable consideration</h3>
-    <p class="quiz-prompt">A contract has a base price of $1,000 plus a $200 performance bonus probable of being earned. Transaction price most likely:</p>
+    <h3>Practice 2 — DDB Year 1</h3>
+    <p class="quiz-prompt">Same data. DDB Year 1 depreciation:</p>
     <ul class="quiz-options">
-      <li>$1,200 — include the variable consideration if highly probable</li>
-      <li>$1,000 — variable consideration is never included</li>
-      <li>$1,200 — always include the maximum</li>
-      <li>$0 — defer until paid</li>
+      <li>$20,000</li>
+      <li>$18,000</li>
+      <li>$10,000</li>
+      <li>$25,000</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> ASC 606 includes variable consideration in the transaction price using either expected-value or most-likely-amount method, BUT only to the extent it's highly probable that a significant reversal will not occur. "Probable" earned + bonus → include $200.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> DDB rate = 2/5 = 40%. Year 1 = 40% × $50K (cost, NOT cost minus salvage in DDB calc) = <strong>$20,000</strong>. Year 2 = 40% × ($50K − $20K NBV) = $12K. Stops when NBV reaches salvage.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Impairment recoverability</h3>
+    <p class="quiz-prompt">PP&amp;E carrying $300K; expected undiscounted future cash flows $310K; fair value $250K. Under U.S. GAAP, the impairment loss is:</p>
+    <ul class="quiz-options">
+      <li>$50,000</li>
+      <li>$0 — no impairment</li>
+      <li>$60,000</li>
+      <li>$10,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Step 1 — undiscounted CFs ($310K) ≥ carrying ($300K) → NOT impaired. Step 2 not triggered. Even though FV is below carrying, U.S. GAAP requires the recoverability test first. IFRS would have impaired ($300K − $250K) since IFRS uses a one-step FV-comparison test.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Goodwill</h3>
+    <p class="quiz-prompt">Under U.S. GAAP, goodwill is:</p>
+    <ul class="quiz-options">
+      <li>Amortized over 10 years for all companies</li>
+      <li>Amortized over its useful life</li>
+      <li>Always written off in the year acquired</li>
+      <li>Not amortized; impairment-tested at least annually</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Public-company goodwill is impairment-tested only — no amortization since 2001 (SFAS 142). Private companies may elect to amortize over up to 10 years (ASU 2014-02). Goodwill is internally never generated; it arises only from business acquisitions where price exceeds FV of identifiable net assets acquired.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-3">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Liabilities & equity</span></button>
-    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Common-size analysis</span></button>
+    <button class="nav-link" onclick="goTo(2)"><span class="dir">← Previous</span><span class="ttl">Inventory</span></button>
+    <button class="nav-link next" onclick="goTo(4)"><span class="dir">Next →</span><span class="ttl">Liabilities</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="4">
-  <span class="unit-eyebrow">Unit 4 · B.2 Common-Size & Base-Year</span>
-  <h1>Common-size statements & common base-year</h1>
-  <p class="unit-lead">Two analytical lenses on the same statements. <strong>Vertical (common-size)</strong> expresses each line as a % of a base on the same statement. <strong>Horizontal (common-base-year)</strong> tracks each line as a % of its value in a chosen base year.</p>
+  <span class="unit-eyebrow">Unit 4 · B.1 Recognition & Valuation</span>
+  <h1>Liability valuation — current, long-term, contingent</h1>
+  <p class="unit-lead">Liabilities are present obligations to transfer economic benefit. <strong>Current</strong> = due within one year (or operating cycle if longer). <strong>Long-term</strong> = beyond one year, measured at present value of future cash flows. <strong>Contingent</strong> = obligation depends on a future event.</p>
 
-  <h2><span class="marker">§4.1</span>Vertical (common-size)</h2>
+  <h2><span class="marker">§4.1</span>Current liabilities</h2>
   <ul>
-    <li><strong>Income statement</strong>: each line as % of net sales.</li>
-    <li><strong>Balance sheet</strong>: each line as % of total assets.</li>
+    <li><strong>Accounts payable</strong> — at face / invoice value.</li>
+    <li><strong>Accrued expenses</strong> (wages, taxes, utilities) — at amount earned/incurred but unpaid.</li>
+    <li><strong>Unearned revenue</strong> — cash received before performance.</li>
+    <li><strong>Notes payable, current portion of long-term debt</strong> — at PV.</li>
   </ul>
-  <p>Use case: comparing companies of different sizes (Walmart vs the corner store), or comparing one company to industry benchmarks.</p>
 
-  <h2><span class="marker">§4.2</span>Horizontal (common base-year)</h2>
-  <p>Pick a base year (e.g. 5 years ago) and divide each subsequent year's line by the base. A line that grew from 100 → 130 over 5 years has a 30% cumulative growth (or ~5.4% CAGR).</p>
+  <h2><span class="marker">§4.2</span>Long-term liabilities — bonds payable</h2>
+  <p>Bonds are issued at par, premium, or discount depending on coupon vs market rate at issuance:</p>
+  <ul>
+    <li><strong>Coupon = market rate</strong>: par.</li>
+    <li><strong>Coupon &gt; market</strong>: premium (cash &gt; face).</li>
+    <li><strong>Coupon &lt; market</strong>: discount (cash &lt; face).</li>
+  </ul>
+  <p>Premium/discount is amortized over the bond's life (effective-interest method preferred under GAAP/IFRS), bringing the carrying amount to face by maturity. Interest expense each period = carrying × market rate at issuance.</p>
 
-  <div class="formula-box">CAGR = (Ending ÷ Beginning)<sup>(1/n)</sup> − 1<br/>where n = number of years</div>
+  <h2><span class="marker">§4.3</span>Contingent liabilities</h2>
+  <table class="fin-table">
+    <thead><tr><th>Likelihood</th><th>Estimable?</th><th>Treatment (U.S. GAAP)</th></tr></thead>
+    <tbody>
+      <tr><td>Probable</td><td>Reasonably</td><td>Accrue + disclose</td></tr>
+      <tr><td>Probable</td><td>Not estimable</td><td>Disclose</td></tr>
+      <tr><td>Reasonably possible</td><td>Either</td><td>Disclose only</td></tr>
+      <tr><td>Remote</td><td>Either</td><td>Ignore (unless guarantees)</td></tr>
+    </tbody>
+  </table>
 
-  <div class="callout tip"><span class="callout-label">Use the right one</span><p>Vertical answers "what is this company's structure?" Horizontal answers "how has this company changed?" Most analyses combine both.</p></div>
-
-  <div class="quiz" data-correct="0">
-    <h3>Practice 1 — Common-size base</h3>
-    <p class="quiz-prompt">On a common-size income statement, each line is expressed as a percentage of:</p>
-    <ul class="quiz-options">
-      <li>Net sales</li>
-      <li>Total assets</li>
-      <li>Total equity</li>
-      <li>Operating income</li>
-    </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> IS common-size base = revenue. BS common-size base = total assets. Each is a "size-anchor" appropriate to the statement.</div>
-  </div>
+  <div class="callout warning"><span class="callout-label">Asymmetric treatment</span><p>Loss contingencies are recognized conservatively (probable + estimable). Gain contingencies are NOT recognized until realized — conservatism principle.</p></div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 2 — Cross-company comparison</h3>
-    <p class="quiz-prompt">An analyst wants to compare gross-margin structure between a $50B retailer and a $500M retailer. The most appropriate tool is:</p>
+    <h3>Practice 1 — Bond pricing</h3>
+    <p class="quiz-prompt">A bond with a 6% coupon is issued in a market demanding 7%. The bond will be issued at:</p>
     <ul class="quiz-options">
-      <li>Horizontal analysis</li>
-      <li>Absolute dollar comparison</li>
-      <li>Vertical (common-size) analysis</li>
-      <li>Quick ratio</li>
+      <li>Par</li>
+      <li>Premium</li>
+      <li>Discount</li>
+      <li>Cannot be determined</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Common-size makes scale irrelevant. Both companies' COGS as % of revenue can be compared apples-to-apples. Absolute dollars are meaningless across vastly different sizes.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Coupon (6%) &lt; market (7%) → bond pays less than market expects → buyers demand a discount on the face. Coupon &gt; market would create a premium.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Contingent liability — probable + estimable</h3>
+    <p class="quiz-prompt">A pending lawsuit is "probable" of resulting in a loss between $200K and $300K, with $250K being most likely. The company:</p>
+    <ul class="quiz-options">
+      <li>Accrues a $250K liability and discloses the range</li>
+      <li>Discloses only — no accrual</li>
+      <li>Accrues $300K (worst case)</li>
+      <li>Ignores it</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Probable + estimable = accrue. When a range exists, accrue the most likely point estimate (or midpoint if no point is more likely). Disclose the range.</div>
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 3 — CAGR</h3>
-    <p class="quiz-prompt">Revenue grew from $100M (year 0) to $200M (year 5). CAGR is approximately:</p>
+    <h3>Practice 3 — Gain contingency</h3>
+    <p class="quiz-prompt">A company is suing a competitor for $5M, with management estimating a 90% chance of victory. The company should:</p>
     <ul class="quiz-options">
-      <li>20%</li>
-      <li>15%</li>
-      <li>10%</li>
-      <li>50%</li>
+      <li>Accrue a $4.5M receivable</li>
+      <li>Disclose the contingency; do NOT accrue</li>
+      <li>Accrue $5M</li>
+      <li>Recognize $5M as revenue</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> CAGR = (200/100)^(1/5) − 1 = 2^0.2 − 1 ≈ 1.149 − 1 = <strong>14.9% ≈ 15%</strong>. The total growth was 100% over 5 years, but compounding takes the per-year rate down to ~15%. The 20% trap is just 100%/5.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Gain contingencies are not accrued until realized — conservatism. Disclose only. Compare to loss contingencies which are accrued at probable + estimable. The asymmetry is intentional.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Unearned revenue classification</h3>
+    <p class="quiz-prompt">A magazine publisher receives $120 in advance for a 12-month subscription. After 3 months, the unearned-revenue balance is:</p>
+    <ul class="quiz-options">
+      <li>$120</li>
+      <li>$30</li>
+      <li>$0</li>
+      <li>$90</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $120 / 12 = $10/month earned. After 3 months: $30 earned (revenue), $90 still unearned (liability). Adjusting entry monthly: DR Unearned Rev $10 / CR Subscription Rev $10.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-4">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">Revenue recognition</span></button>
-    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">Liquidity ratios</span></button>
+    <button class="nav-link" onclick="goTo(3)"><span class="dir">← Previous</span><span class="ttl">PP&E</span></button>
+    <button class="nav-link next" onclick="goTo(5)"><span class="dir">Next →</span><span class="ttl">Equity</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="5">
-  <span class="unit-eyebrow">Unit 5 · B.3 Ratio Analysis</span>
-  <h1>Liquidity ratios</h1>
-  <p class="unit-lead">Liquidity = ability to meet short-term obligations as they come due. Three ratios, increasing strictness: <strong>current</strong> (all CA), <strong>quick / acid-test</strong> (CA minus inventory and prepaid), <strong>cash ratio</strong> (cash + securities only).</p>
+  <span class="unit-eyebrow">Unit 5 · B.1 Recognition & Valuation</span>
+  <h1>Equity transactions — issuance, treasury, dividends, splits</h1>
+  <p class="unit-lead">Equity records ownership claims: contributed capital (common stock + APIC), retained earnings, and contra-equity (treasury stock, AOCI losses). Transactions among shareholders flow through equity, never through net income.</p>
 
-  <h2><span class="marker">§5.1</span>The three ratios</h2>
-  <div class="formula-box">Current ratio = Current assets ÷ Current liabilities<br/>Quick (acid-test) = (Cash + Marketable securities + AR) ÷ Current liabilities<br/>Cash ratio = (Cash + Marketable securities) ÷ Current liabilities</div>
+  <h2><span class="marker">§5.1</span>Stock issuance</h2>
+  <p>Issue 1,000 shares of $1 par stock at $25 each. Cash = $25,000.</p>
+  <div class="formula-box">DR Cash $25,000<br/>CR Common Stock (par × shares = $1 × 1,000) $1,000<br/>CR Additional Paid-in Capital ($25,000 − $1,000) $24,000</div>
 
-  <p>Rule-of-thumb benchmarks: current ratio &gt; 1 healthy, &gt; 2 conservative; quick ratio &gt; 1 strong; cash ratio &gt; 0.5 unusually conservative. Industry matters — grocery stores can run lower current ratios because inventory turns fast.</p>
+  <h2><span class="marker">§5.2</span>Treasury stock (cost method)</h2>
+  <p>Buyback at $30 of 100 shares: DR Treasury Stock $3,000 / CR Cash $3,000. Treasury is contra-equity — reduces total stockholders' equity.</p>
+  <p>Reissuance at $35: DR Cash $3,500 / CR Treasury $3,000 / CR APIC-Treasury $500. Reissuance at $25: DR Cash $2,500 / DR APIC-Treasury (or RE if APIC depleted) $500 / CR Treasury $3,000. Gains/losses on treasury never hit P&amp;L — they flow through APIC.</p>
 
-  <h2><span class="marker">§5.2</span>Working capital and the cash conversion cycle</h2>
-  <div class="formula-box">Working capital = Current assets − Current liabilities (a $ amount, not a ratio)<br/>Cash conversion cycle = DIO + DSO − DPO</div>
-  <p>Lower CCC = less cash tied up in operations. Negative CCC (Amazon, Apple) means suppliers finance the business.</p>
+  <h2><span class="marker">§5.3</span>Dividends</h2>
+  <table class="fin-table">
+    <thead><tr><th>Type</th><th>Declaration entry</th><th>BS effect</th></tr></thead>
+    <tbody>
+      <tr><td>Cash dividend</td><td>DR RE / CR Dividends Payable</td><td>↓ RE, ↑ liability</td></tr>
+      <tr><td>Stock dividend (small &lt;25%)</td><td>DR RE (FV) / CR CS (par) + APIC (excess)</td><td>Reclassify within equity at FV</td></tr>
+      <tr><td>Stock dividend (large ≥25%)</td><td>DR RE (par) / CR CS</td><td>Reclassify within equity at par</td></tr>
+      <tr><td>Stock split</td><td>Memo entry only</td><td>No journal effect</td></tr>
+    </tbody>
+  </table>
 
-  <div class="quiz" data-correct="2">
-    <h3>Practice 1 — Quick ratio components</h3>
-    <p class="quiz-prompt">The quick (acid-test) ratio EXCLUDES which current asset?</p>
+  <h2><span class="marker">§5.4</span>Three relevant dividend dates</h2>
+  <ul>
+    <li><strong>Declaration</strong> — board authorizes; liability is recorded.</li>
+    <li><strong>Record</strong> — shareholders on this date receive the dividend; no entry.</li>
+    <li><strong>Payment</strong> — DR Dividends Payable / CR Cash.</li>
+  </ul>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 1 — Stock issuance entry</h3>
+    <p class="quiz-prompt">Issue 5,000 shares of $2 par stock at $20. Credit to APIC:</p>
     <ul class="quiz-options">
-      <li>Cash</li>
-      <li>Accounts receivable</li>
-      <li>Inventory</li>
-      <li>Marketable securities</li>
+      <li>$0</li>
+      <li>$10,000</li>
+      <li>$100,000</li>
+      <li>$90,000</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Quick excludes inventory (and prepaid) because those are slowest to convert to cash. The numerator is cash + marketable securities + net AR.</div>
-  </div>
-
-  <div class="quiz" data-correct="1">
-    <h3>Practice 2 — Effect of paying AP</h3>
-    <p class="quiz-prompt">A company with current ratio 1.5 pays $20K of accounts payable using cash. Current ratio after the payment is:</p>
-    <ul class="quiz-options">
-      <li>Lower</li>
-      <li>Higher</li>
-      <li>Unchanged</li>
-      <li>Cannot be determined</li>
-    </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Both numerator (CA) and denominator (CL) drop by $20K. Since the ratio &gt; 1, equal $-reductions raise the ratio. Test: 150/100 = 1.50 → 130/80 = 1.625. Symmetric truth: paying AP when ratio &lt; 1 makes it worse.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Cash $100K (5,000 × $20) = CS at par $10K (5,000 × $2) + APIC <strong>$90K</strong>. APIC absorbs everything above par.</div>
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 3 — CCC interpretation</h3>
-    <p class="quiz-prompt">A negative cash conversion cycle (CCC &lt; 0) means:</p>
+    <h3>Practice 2 — Treasury reissuance loss</h3>
+    <p class="quiz-prompt">Bought 200 shares treasury at $50; reissuing at $40. APIC-Treasury balance is $1,000 (credit). Entry to record reissuance:</p>
     <ul class="quiz-options">
-      <li>Suppliers finance the company's operations</li>
-      <li>The company is insolvent</li>
-      <li>DSO exceeds DPO</li>
-      <li>The company is in default on its payables</li>
+      <li>DR Cash $8K / DR APIC-Treasury $1K / DR RE $1K / CR Treasury $10K</li>
+      <li>DR Cash $8K / DR Treasury $2K / CR APIC $10K</li>
+      <li>DR Cash $8K / DR Loss on Treasury $2K / CR Treasury $10K</li>
+      <li>No entry — treasury reissues at cost</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Negative CCC: the company collects from customers BEFORE it pays suppliers. Net effect: suppliers fund the business. Amazon and Apple are textbook examples — favorable supplier terms create a permanent free working-capital float.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Sale below cost: total loss = ($50 − $40) × 200 = $2K. Hits APIC-Treasury first ($1K), then RE for the remainder ($1K). Treasury credited at cost ($50 × 200 = $10K). Never P&amp;L — equity transactions don't flow through NI.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Stock dividend (small)</h3>
+    <p class="quiz-prompt">Declared a 5% stock dividend; current shares 1M; FV $30/share; par $1. RE reduction is:</p>
+    <ul class="quiz-options">
+      <li>$50,000</li>
+      <li>$1,500,000</li>
+      <li>$1,500,000 (50,000 × $30)</li>
+      <li>$30,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Small (&lt;25%) stock dividend uses fair value. New shares = 5% × 1M = 50,000. RE reduction = 50,000 × $30 = <strong>$1.5M</strong>, of which $50K goes to CS (par) and $1.45M to APIC.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — Stock split vs dividend</h3>
+    <p class="quiz-prompt">A 3-for-1 stock split on 100,000 $1-par shares results in:</p>
+    <ul class="quiz-options">
+      <li>300,000 shares at $1 par; total CS $300K</li>
+      <li>300,000 shares at $0.33 par; total CS unchanged</li>
+      <li>100,000 shares at $3 par</li>
+      <li>Reduces RE by FV × new shares</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Split adjusts par proportionally. 3-for-1 → par $1 ÷ 3 = $0.33; shares 100K × 3 = 300K. CS total unchanged ($100K → 300K × $0.33 = $100K). Memo entry only — no journal effect on totals. Stock dividends, in contrast, reclassify within equity.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-5">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">Common-size</span></button>
-    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Leverage & activity</span></button>
+    <button class="nav-link" onclick="goTo(4)"><span class="dir">← Previous</span><span class="ttl">Liabilities</span></button>
+    <button class="nav-link next" onclick="goTo(6)"><span class="dir">Next →</span><span class="ttl">Revenue recognition</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="6">
-  <span class="unit-eyebrow">Unit 6 · B.3 Ratio Analysis</span>
-  <h1>Leverage & activity ratios</h1>
-  <p class="unit-lead"><strong>Leverage</strong> measures debt usage and the firm's ability to service it. <strong>Activity</strong> (turnover) measures how efficiently assets generate sales — how hard the balance sheet is working.</p>
+  <span class="unit-eyebrow">Unit 6 · B.1 Recognition & Valuation</span>
+  <h1>Revenue recognition — ASC 606 / IFRS 15 five steps</h1>
+  <p class="unit-lead">Unified under one global framework: revenue is recognized when control of goods or services transfers to the customer, in the amount the entity expects to be entitled to. The famous <strong>five-step model</strong> structures every analysis.</p>
 
-  <h2><span class="marker">§6.1</span>Leverage</h2>
-  <div class="formula-box">Debt-to-equity = Total debt ÷ Total equity<br/>Debt-to-assets = Total debt ÷ Total assets<br/>Times-interest-earned (TIE) = EBIT ÷ Interest expense<br/>Equity multiplier = Total assets ÷ Total equity</div>
+  <h2><span class="marker">§6.1</span>The five steps</h2>
+  <ol>
+    <li><strong>Identify the contract</strong> — has commercial substance, identifiable rights, payment terms, approval, and probable collection.</li>
+    <li><strong>Identify performance obligations</strong> (POs) — distinct goods or services. A bundle is one PO if items are not separable in practice.</li>
+    <li><strong>Determine the transaction price</strong> — including variable consideration (rebates, performance bonuses, refund rights) and any significant financing component.</li>
+    <li><strong>Allocate price</strong> to POs — based on relative <em>standalone selling prices</em>.</li>
+    <li><strong>Recognize revenue</strong> as each PO is satisfied (point-in-time vs over-time).</li>
+  </ol>
 
-  <p>Higher leverage amplifies ROE in good times AND losses in bad times. TIE &gt; 3 is generally comfortable; below 2 raises concerns about debt service.</p>
+  <h2><span class="marker">§6.2</span>Point-in-time vs over-time</h2>
+  <p>Most product sales transfer control at delivery (point-in-time). Long-term construction or services typically transfer over time when the customer simultaneously receives benefit, the entity's work is customer-controlled, or the asset has no alternative use plus right to payment.</p>
 
-  <h2><span class="marker">§6.2</span>Activity / turnover</h2>
-  <div class="formula-box">Inventory turnover = COGS ÷ Average inventory; Days inventory outstanding (DIO) = 365 ÷ turnover<br/>AR turnover = Net credit sales ÷ Average AR; DSO = 365 ÷ turnover<br/>AP turnover = Purchases ÷ Average AP; DPO = 365 ÷ turnover<br/>Total asset turnover = Sales ÷ Average total assets</div>
+  <div class="formula-box">% complete (cost-to-cost) = Costs incurred to date ÷ Total estimated costs<br/>Revenue recognized = % complete × Total contract price − Revenue already recognized</div>
 
-  <div class="callout warning"><span class="callout-label">Watch the numerator</span><p>Inventory turnover uses COGS (a cost), not sales. AR turnover uses sales. Mix them up and ratios become meaningless. Same idea for AP — use purchases or COGS, not sales.</p></div>
+  <h2><span class="marker">§6.3</span>Variable consideration</h2>
+  <p>Estimate using either <em>expected value</em> (probability-weighted) or <em>most-likely amount</em>. Include only to the extent it's highly probable a significant reversal won't occur — the "constraint."</p>
 
-  <div class="quiz" data-correct="0">
-    <h3>Practice 1 — TIE</h3>
-    <p class="quiz-prompt">EBIT $300K; interest expense $50K. Times-interest-earned is:</p>
+  <div class="callout warning"><span class="callout-label">Loss contracts</span><p>If the total estimated cost will exceed the contract price, recognize the entire estimated loss IMMEDIATELY — don't spread it over remaining percent-complete. This is conservatism applied to revenue recognition.</p></div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 1 — Step order</h3>
+    <p class="quiz-prompt">Step 4 in the ASC 606 framework is:</p>
     <ul class="quiz-options">
-      <li>6.0×</li>
-      <li>5.0×</li>
-      <li>0.17×</li>
-      <li>$250K</li>
+      <li>Identify the contract</li>
+      <li>Identify performance obligations</li>
+      <li>Determine the transaction price</li>
+      <li>Allocate the transaction price to performance obligations</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> TIE = EBIT / Interest = $300K / $50K = <strong>6.0×</strong>. EBIT covers interest 6 times — comfortable. Bond covenants often require TIE &gt; 2 or 3.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Order: contract (1), POs (2), price (3), allocate (4), recognize (5). Step 4 distributes the total transaction price across the POs identified in step 2 using their relative standalone selling prices.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2 — Cost-to-cost</h3>
+    <p class="quiz-prompt">$8M contract; total estimated cost $6M; cost incurred to date $1.5M. Revenue to recognize so far:</p>
+    <ul class="quiz-options">
+      <li>$1,500,000</li>
+      <li>$2,000,000</li>
+      <li>$8,000,000</li>
+      <li>$3,500,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> % complete = $1.5M / $6M = 25%. Revenue = 25% × $8M = <strong>$2,000,000</strong>. Gross profit recognized = $2M − $1.5M = $500K.</div>
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 2 — Inventory turnover</h3>
-    <p class="quiz-prompt">COGS $480K; average inventory $80K. Days inventory outstanding (DIO):</p>
+    <h3>Practice 3 — Loss on long-term contract</h3>
+    <p class="quiz-prompt">$5M contract; revised total estimated cost climbs to $6M (loss expected). Cost to date $2M. Treatment under ASC 606:</p>
     <ul class="quiz-options">
-      <li>167 days</li>
-      <li>30 days</li>
-      <li>61 days</li>
-      <li>6 days</li>
+      <li>Spread the $1M loss over remaining percent-complete</li>
+      <li>Reverse all revenue recognized so far</li>
+      <li>Recognize the entire $1M expected loss immediately</li>
+      <li>Defer the loss until contract completion</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Turnover = $480K / $80K = 6×. DIO = 365 / 6 = <strong>~61 days</strong>. The 167 trap = 365 / (480/80) reversed; the 30 trap = misuse of 360/12.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Conservatism — loss contracts require immediate full loss recognition. Continuing percent-complete revenue but accruing the full loss on top puts the financial statements at the right ending position.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 4 — Variable consideration</h3>
+    <p class="quiz-prompt">Contract base $1,000 + $200 bonus probable of being earned. Constraint analysis suggests minimal reversal risk. Transaction price:</p>
+    <ul class="quiz-options">
+      <li>$1,200 — include the $200 bonus</li>
+      <li>$1,000 — variable consideration excluded</li>
+      <li>$0 — defer until paid</li>
+      <li>$2,000 — gross up</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ASC 606 includes variable consideration to the extent a significant reversal is improbable. Probable + minimal reversal risk → include the $200 → transaction price <strong>$1,200</strong>.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">Equity</span></button>
+    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">Income measurement</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="7">
+  <span class="unit-eyebrow">Unit 7 · B.1 Recognition & Valuation</span>
+  <h1>Income measurement — gains, presentation, EPS basics</h1>
+  <p class="unit-lead">The income statement reports the period's revenues, expenses, gains, and losses to arrive at net income. Beyond the basics, the FMAA tests gains-vs-revenues classification, single-step vs multi-step format, and a light dose of EPS.</p>
+
+  <h2><span class="marker">§7.1</span>Revenues vs gains</h2>
+  <p><strong>Revenues</strong> arise from the entity's <em>ordinary, ongoing</em> operations — selling products, providing services. <strong>Gains</strong> arise from <em>peripheral or incidental</em> transactions — selling old PP&amp;E, foreign-exchange gains, gains on debt extinguishment.</p>
+  <p>Same distinction for expenses (ongoing) vs losses (peripheral). The classification matters: gains/losses go below operating income; revenues/expenses are inside operating income.</p>
+
+  <h2><span class="marker">§7.2</span>Single-step vs multi-step</h2>
+  <table class="fin-table">
+    <thead><tr><th>Format</th><th>Structure</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Single-step</strong></td><td>All revenues + gains − all expenses + losses = NI. One subtraction.</td></tr>
+      <tr><td><strong>Multi-step</strong></td><td>Revenue − COGS = Gross profit; − Op exp = Operating income; ± non-op = Pre-tax; − Tax = NI</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§7.3</span>EPS basics</h2>
+  <div class="formula-box">Basic EPS = (NI − Preferred dividends) ÷ Weighted-average common shares outstanding</div>
+  <p>Weighted-average shares: each share is weighted by months outstanding ÷ 12. Issuing shares mid-year contributes only the partial-year weight.</p>
+  <p><strong>Diluted EPS</strong> additionally accounts for convertible securities and options that would dilute basic if exercised — covered in CMA Part 1 in depth; FMAA tests only basic.</p>
+
+  <div class="callout tip"><span class="callout-label">Cumulative preferred</span><p>For cumulative preferred stock, subtract the period's dividend amount in the EPS numerator EVEN IF NOT DECLARED — the entitlement accrues. For non-cumulative, subtract only if declared.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Revenues vs gains</h3>
+    <p class="quiz-prompt">A retailer sells inventory for $40K (cost $30K) AND sells a delivery truck used for years for $10K (book value $7K). On the income statement:</p>
+    <ul class="quiz-options">
+      <li>Both are revenue</li>
+      <li>Both are gains</li>
+      <li>$40K revenue from inventory; $3K gain on truck (selling price − BV)</li>
+      <li>$50K total revenue</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Inventory is the retailer's ordinary business → revenue $40K with COGS $30K → gross profit $10K. Truck sale is peripheral → <strong>gain $3K</strong> = selling price ($10K) − book value ($7K). Don't gross up gain.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2 — Multi-step structure</h3>
+    <p class="quiz-prompt">In a multi-step income statement, "operating income" is calculated as:</p>
+    <ul class="quiz-options">
+      <li>Revenue − COGS</li>
+      <li>Revenue − COGS − Operating expenses</li>
+      <li>Revenue − all expenses and losses</li>
+      <li>Pre-tax income − Tax</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Order in multi-step: Revenue − COGS = Gross profit; − Operating expenses = Operating income; ± Non-operating items = Pre-tax; − Tax = NI. Each subtotal is informative on its own.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — Basic EPS</h3>
+    <p class="quiz-prompt">NI $1.2M; preferred dividends declared $200K; weighted-average common shares 500,000. Basic EPS:</p>
+    <ul class="quiz-options">
+      <li>$2.00</li>
+      <li>$2.40</li>
+      <li>$1.60</li>
+      <li>$3.20</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ($1.2M − $200K) / 500K = $1M / 500K = <strong>$2.00</strong>. The $2.40 trap forgets to subtract preferred dividends.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Cumulative preferred</h3>
+    <p class="quiz-prompt">Company has cumulative preferred with annual dividend $50K; this year the board did NOT declare a preferred dividend. For basic EPS calculation, the preferred dividend deduction is:</p>
+    <ul class="quiz-options">
+      <li>$0 — not declared</li>
+      <li>Half — half-rate</li>
+      <li>$50K only if dividends in arrears</li>
+      <li>$50K — accrues regardless of declaration</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Cumulative preferred entitlement accrues whether or not declared — common shareholders cannot benefit until preferred is paid (current + arrears). For NON-cumulative, the deduction would be $0 if not declared.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">Revenue recognition</span></button>
+    <button class="nav-link next" onclick="goTo(8)"><span class="dir">Next →</span><span class="ttl">Common-size analysis</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="8">
+  <span class="unit-eyebrow">Unit 8 · B.2 Common-Size & Base-Year</span>
+  <h1>Common-size statements (vertical analysis)</h1>
+  <p class="unit-lead"><strong>Vertical (common-size) analysis</strong> expresses each line item as a percentage of a "size anchor" on the same statement. Income statement: % of net sales. Balance sheet: % of total assets. Lets you compare companies of vastly different sizes apples-to-apples.</p>
+
+  <h2><span class="marker">§8.1</span>Income statement common-size</h2>
+  <p>Each line ÷ net sales × 100. Reveals operating structure: Walmart's COGS is ~75% of revenue (low margin); Apple's is ~55% (high margin). Trends over years tell you whether margins are expanding or compressing.</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Line</th><th>Year 1 $</th><th>Year 1 %</th><th>Year 2 $</th><th>Year 2 %</th></tr></thead>
+    <tbody>
+      <tr><td>Revenue</td><td>$1,000</td><td>100.0%</td><td>$1,200</td><td>100.0%</td></tr>
+      <tr><td>COGS</td><td>$600</td><td>60.0%</td><td>$780</td><td>65.0%</td></tr>
+      <tr><td>Gross profit</td><td>$400</td><td>40.0%</td><td>$420</td><td>35.0%</td></tr>
+      <tr><td>Operating exp</td><td>$200</td><td>20.0%</td><td>$240</td><td>20.0%</td></tr>
+      <tr><td>Operating income</td><td>$200</td><td>20.0%</td><td>$180</td><td>15.0%</td></tr>
+    </tbody>
+  </table>
+
+  <p>Reading: revenue grew, but COGS grew faster — gross margin compressed 5 points, dragging operating margin down even though OpEx held steady at 20%.</p>
+
+  <h2><span class="marker">§8.2</span>Balance sheet common-size</h2>
+  <p>Each asset, liability, and equity line ÷ total assets. Reveals capital structure (debt vs equity), asset mix (inventory-heavy vs receivable-heavy), and liquidity profile (current vs long-term assets).</p>
+
+  <div class="callout tip"><span class="callout-label">Use it for benchmarking</span><p>Common-size makes industry comparisons direct. A 35% inventory ratio is fine for a retailer, alarming for a software company. Industry context matters as much as the percentages.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — IS common-size base</h3>
+    <p class="quiz-prompt">On a common-size income statement, the base for each line is:</p>
+    <ul class="quiz-options">
+      <li>Net sales (revenue)</li>
+      <li>Total assets</li>
+      <li>Total equity</li>
+      <li>Operating income</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> IS base = revenue. BS base = total assets. Each statement uses its own size anchor.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Reading the table</h3>
+    <p class="quiz-prompt">From the table above, what most likely happened between Year 1 and Year 2?</p>
+    <ul class="quiz-options">
+      <li>Operating expenses grew uncontrollably</li>
+      <li>Revenue declined</li>
+      <li>Gross margin compressed (COGS grew faster than revenue)</li>
+      <li>The company switched to LIFO</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> COGS % rose 60→65, gross margin fell 40→35. Revenue grew (+20%) but COGS grew more (+30%). OpEx % held at 20% — they're proportional. Margin compression usually reflects input-cost inflation, pricing pressure, or product-mix shift.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Cross-company comparison</h3>
+    <p class="quiz-prompt">Which is the BEST use case for common-size statements?</p>
+    <ul class="quiz-options">
+      <li>Tracking absolute dollar growth</li>
+      <li>Calculating total return for shareholders</li>
+      <li>Forecasting next year's revenue</li>
+      <li>Comparing companies of different sizes on a structural basis</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Eliminating scale lets you compare margin and capital-structure profiles across firms. Industry leaders publish "average margin" benchmarks — common-size is the only way that comparison works at all.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — BS common-size insight</h3>
+    <p class="quiz-prompt">A balance sheet shows inventory at 5% of assets in Year 1 and 25% in Year 5 (revenue grew 30%). The MOST likely interpretation:</p>
+    <ul class="quiz-options">
+      <li>Healthy growth in inventory matching revenue growth</li>
+      <li>Possible inventory build-up (slow turnover, obsolescence risk)</li>
+      <li>Switch from FIFO to LIFO</li>
+      <li>Strong supply chain efficiency</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Inventory rising as % of assets — and far faster than revenue grew — is a classic warning sign: building inventory faster than selling. Could reflect demand miss, obsolescence, or seasonal anomaly. Cross-check with inventory turnover and days-of-inventory.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-8">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(7)"><span class="dir">← Previous</span><span class="ttl">Income measurement</span></button>
+    <button class="nav-link next" onclick="goTo(9)"><span class="dir">Next →</span><span class="ttl">Base year & CAGR</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="9">
+  <span class="unit-eyebrow">Unit 9 · B.2 Common-Size & Base-Year</span>
+  <h1>Common base year &amp; growth metrics (CAGR)</h1>
+  <p class="unit-lead"><strong>Horizontal (common-base-year) analysis</strong> divides each year's value by its base-year value. Tracks how each line has changed, isolating growth or decline. CAGR converts cumulative growth into an annualized compound rate.</p>
+
+  <h2><span class="marker">§9.1</span>Base-year analysis</h2>
+  <p>Pick a base year (usually the earliest in your span). Express every subsequent year as % of base. Revenue 100 in Year 0 becomes 100, 110, 121, 130 over four years.</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Year</th><th>Revenue $</th><th>Index (base = 100)</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>$1,000</td><td>100</td></tr>
+      <tr><td>1</td><td>$1,150</td><td>115</td></tr>
+      <tr><td>2</td><td>$1,250</td><td>125</td></tr>
+      <tr><td>3</td><td>$1,500</td><td>150</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§9.2</span>CAGR — compound annual growth rate</h2>
+  <div class="formula-box">CAGR = (Ending value ÷ Beginning value)<sup>(1/n)</sup> − 1<br/>where n = number of years</div>
+  <p>CAGR converts total growth over multiple years into the equivalent steady annual rate. Total growth of 50% over 3 years isn't 16.7% per year — it's about 14.5% (compounded).</p>
+
+  <h2><span class="marker">§9.3</span>Year-over-year vs CAGR</h2>
+  <ul>
+    <li><strong>YoY growth</strong>: (This year − Last year) ÷ Last year. Period-specific.</li>
+    <li><strong>Cumulative growth</strong>: (Latest year − Base year) ÷ Base year.</li>
+    <li><strong>CAGR</strong>: smooths the cumulative into per-year, accounting for compounding.</li>
+  </ul>
+
+  <div class="callout warning"><span class="callout-label">CAGR hides volatility</span><p>A revenue series of [100, 200, 50, 200] has a 4-year CAGR of about 26% — the same as a smooth [100, 126, 159, 200] line. CAGR doesn't capture the wild ride between endpoints. Always look at the actual series, not just the rate.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — CAGR calculation</h3>
+    <p class="quiz-prompt">Revenue grew from $50M (year 0) to $80M (year 4). CAGR is closest to:</p>
+    <ul class="quiz-options">
+      <li>15%</li>
+      <li>10%</li>
+      <li>12.5%</li>
+      <li>60%</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> CAGR = ($80M / $50M)^(1/4) − 1 = 1.6^0.25 − 1 ≈ 1.1247 − 1 = <strong>~12.5%</strong>. The 15% trap = 60% / 4. The 60% is total cumulative.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — Index reading</h3>
+    <p class="quiz-prompt">From the table above (Year 0 = 100, Year 3 = 150), revenue grew approximately:</p>
+    <ul class="quiz-options">
+      <li>50% cumulative; ~14.5% CAGR over 3 years</li>
+      <li>50% per year</li>
+      <li>15% per year</li>
+      <li>16.7% CAGR</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Cumulative = 50%. CAGR = 1.5^(1/3) − 1 ≈ 0.1447 = ~14.5%. The 16.7% trap = 50% / 3.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — YoY vs CAGR</h3>
+    <p class="quiz-prompt">A series shows YoY growth of [50%, −20%, 50%, −20%]. CAGR over the 4 years is closest to:</p>
+    <ul class="quiz-options">
+      <li>15% (average)</li>
+      <li>20%</li>
+      <li>0%</li>
+      <li>~9.5%</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Multiplicative chain: 1.5 × 0.8 × 1.5 × 0.8 = 1.44. CAGR = 1.44^(1/4) − 1 ≈ <strong>9.5%</strong>. Simple-average growth (50−20+50−20)/4 = 15% is wrong — geometric, not arithmetic, mean. CAGR always &lt;= arithmetic average when there's volatility.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 4 — Choosing the metric</h3>
+    <p class="quiz-prompt">A long-term investor wants to compare expected annualized returns across stocks with very different volatility. Best metric:</p>
+    <ul class="quiz-options">
+      <li>Highest YoY growth in any year</li>
+      <li>Arithmetic average growth</li>
+      <li>CAGR (geometric annualized)</li>
+      <li>Total cumulative return</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> CAGR captures the equivalent steady rate that connects start and end — what an investor actually experiences. Arithmetic average overstates returns when there's volatility (the −20% / +50% example). Cumulative return doesn't normalize for time.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-9">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(8)"><span class="dir">← Previous</span><span class="ttl">Common-size</span></button>
+    <button class="nav-link next" onclick="goTo(10)"><span class="dir">Next →</span><span class="ttl">Liquidity ratios</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="10">
+  <span class="unit-eyebrow">Unit 10 · B.3 Ratio Analysis</span>
+  <h1>Liquidity ratios — current, quick, cash, CCC</h1>
+  <p class="unit-lead">Liquidity = ability to meet short-term obligations as they come due. Three ratios in increasing strictness, plus the cash conversion cycle which measures how long working capital is tied up.</p>
+
+  <h2><span class="marker">§10.1</span>The three ratios</h2>
+  <div class="formula-box">Current ratio = Current assets ÷ Current liabilities<br/>Quick (acid-test) = (Cash + Marketable securities + AR) ÷ Current liabilities<br/>Cash ratio = (Cash + Marketable securities) ÷ Current liabilities</div>
+
+  <p>Rule-of-thumb: current ratio &gt; 1 healthy, &gt; 2 conservative; quick &gt; 1 strong; cash ratio &gt; 0.5 unusually conservative. Industry context matters — grocery stores can run low ratios because inventory turns fast; software firms run high ratios because of low working capital needs.</p>
+
+  <h2><span class="marker">§10.2</span>Working capital and CCC</h2>
+  <div class="formula-box">Working capital = CA − CL (a $ amount)<br/>Cash conversion cycle (CCC) = DIO + DSO − DPO</div>
+  <p>Lower CCC = less cash tied up. Negative CCC means suppliers fund the business — Amazon, Apple, Costco are textbook examples.</p>
+
+  <h2><span class="marker">§10.3</span>Effect of common transactions on the current ratio</h2>
+  <table class="fin-table">
+    <thead><tr><th>Transaction</th><th>Current ratio &gt; 1</th><th>Current ratio &lt; 1</th></tr></thead>
+    <tbody>
+      <tr><td>Pay AP with cash</td><td>Increases</td><td>Decreases</td></tr>
+      <tr><td>Collect AR (cash up, AR down)</td><td>Unchanged</td><td>Unchanged</td></tr>
+      <tr><td>Borrow ST (cash up, CL up)</td><td>Decreases</td><td>Increases</td></tr>
+      <tr><td>Buy inventory on credit (inv up, AP up)</td><td>Decreases</td><td>Increases</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip"><span class="callout-label">Why direction depends on starting ratio</span><p>Equal $-changes in numerator and denominator move the ratio toward 1. If starting above 1, equal $-changes pull it down toward 1. If below 1, they push it up toward 1.</p></div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 1 — Quick ratio</h3>
+    <p class="quiz-prompt">Cash $40K; Mkt Sec $20K; AR $50K; Inventory $80K; Prepaid $10K; CL $100K. Quick ratio:</p>
+    <ul class="quiz-options">
+      <li>2.00</li>
+      <li>1.10</li>
+      <li>1.00</li>
+      <li>0.90</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Quick = ($40K + $20K + $50K) / $100K = $110K / $100K = <strong>1.10</strong>. Inventory and prepaid excluded.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Effect on current ratio</h3>
+    <p class="quiz-prompt">A firm with current ratio 1.5 collects $50K of accounts receivable. The current ratio:</p>
+    <ul class="quiz-options">
+      <li>Increases</li>
+      <li>Decreases</li>
+      <li>Stays the same</li>
+      <li>Cannot be determined</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Cash up $50K, AR down $50K — both current assets, so total CA unchanged. CL unchanged. Ratio unchanged. Common test trap.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 3 — CCC interpretation</h3>
+    <p class="quiz-prompt">DIO 60 days; DSO 45 days; DPO 75 days. Cash conversion cycle:</p>
+    <ul class="quiz-options">
+      <li>30 days</li>
+      <li>180 days</li>
+      <li>−30 days</li>
+      <li>0 days</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> CCC = DIO + DSO − DPO = 60 + 45 − 75 = <strong>30 days</strong>. The company holds $1 of working capital tied up in operations for 30 days on average. Lower is better.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 4 — Negative CCC</h3>
+    <p class="quiz-prompt">Negative CCC indicates:</p>
+    <ul class="quiz-options">
+      <li>The company is insolvent</li>
+      <li>DSO exceeds DPO</li>
+      <li>Inventory is illiquid</li>
+      <li>Suppliers effectively fund the company's operations</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Negative CCC means cash arrives from customers BEFORE the supplier needs to be paid. The float funds operations interest-free. Possible only with strong supplier terms (DPO &gt; DIO + DSO). Amazon, Costco, Apple all run negative CCC.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 5 — Cash ratio purpose</h3>
+    <p class="quiz-prompt">The cash ratio (vs current or quick) is most useful for assessing:</p>
+    <ul class="quiz-options">
+      <li>Survival under a sudden severe disruption — can the firm meet near-term liabilities with cash on hand?</li>
+      <li>Long-term solvency</li>
+      <li>Operational efficiency</li>
+      <li>Profitability</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Cash ratio strips out everything except cash and marketable securities — what you can spend right now. Most relevant in stress-test scenarios (pandemic, recession). Quick still relies on AR collection; cash doesn't.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-10">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(9)"><span class="dir">← Previous</span><span class="ttl">CAGR</span></button>
+    <button class="nav-link next" onclick="goTo(11)"><span class="dir">Next →</span><span class="ttl">Leverage ratios</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="11">
+  <span class="unit-eyebrow">Unit 11 · B.3 Ratio Analysis</span>
+  <h1>Leverage ratios — D/E, TIE, equity multiplier</h1>
+  <p class="unit-lead">Leverage = how much of the company is financed with debt vs equity. More debt amplifies returns in good times AND losses in bad times. Three ratio families: <strong>capital structure</strong> (mix), <strong>coverage</strong> (ability to service), and the <strong>equity multiplier</strong> (DuPont's leverage component).</p>
+
+  <h2><span class="marker">§11.1</span>Capital structure</h2>
+  <div class="formula-box">Debt-to-equity = Total debt ÷ Total equity<br/>Debt-to-assets = Total debt ÷ Total assets<br/>Equity multiplier = Total assets ÷ Total equity (= 1 + D/E)</div>
+
+  <p>D/E above 1 means more debt than equity; depending on industry that's normal (banks, utilities, REITs) or a red flag (tech, services). D/A is bounded between 0 and 1 if equity ≥ 0, easier to interpret across industries.</p>
+
+  <h2><span class="marker">§11.2</span>Coverage</h2>
+  <div class="formula-box">Times-interest-earned (TIE) = EBIT ÷ Interest expense<br/>Cash-coverage = (EBIT + Depreciation) ÷ Interest expense<br/>Fixed-charge coverage = (EBIT + Lease) ÷ (Interest + Lease)</div>
+  <p>TIE &gt; 3 generally comfortable; below 2 raises concerns about debt service. Cash-coverage adds back non-cash depreciation — closer to actual cash available.</p>
+
+  <h2><span class="marker">§11.3</span>Why leverage matters</h2>
+  <p>The classic trade-off:</p>
+  <ul>
+    <li><strong>Pros</strong> — interest is tax-deductible (cheaper than equity); leverage amplifies ROE; doesn't dilute ownership.</li>
+    <li><strong>Cons</strong> — required interest payments regardless of profitability; bankruptcy risk; covenants may restrict operations.</li>
+  </ul>
+  <p>Optimal capital structure balances tax shield gains against expected bankruptcy costs.</p>
+
+  <div class="callout warning"><span class="callout-label">Defensive metrics</span><p>Cyclical and capital-intensive industries (airlines, automakers) benefit from holding leverage low — they can't escape interest payments during downturns. Predictable-cash businesses (utilities) can sustain higher leverage safely.</p></div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 1 — D/E from D/A</h3>
+    <p class="quiz-prompt">Debt-to-assets is 0.6. The corresponding debt-to-equity is:</p>
+    <ul class="quiz-options">
+      <li>1.5</li>
+      <li>0.4</li>
+      <li>1.0</li>
+      <li>2.5</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> D/A = 0.6 → Equity/A = 0.4 → D/E = 0.6/0.4 = <strong>1.5</strong>. Equity multiplier = A/E = 1 / 0.4 = 2.5. So D/E = EM − 1 = 1.5.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — TIE</h3>
+    <p class="quiz-prompt">EBIT $400K; interest expense $80K. Times-interest-earned:</p>
+    <ul class="quiz-options">
+      <li>3.2×</li>
+      <li>4.0×</li>
+      <li>5.0×</li>
+      <li>0.20×</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $400K / $80K = <strong>5.0×</strong>. Comfortably above the 2-3× covenant minimum.</div>
   </div>
 
   <div class="quiz" data-correct="3">
     <h3>Practice 3 — Equity multiplier</h3>
     <p class="quiz-prompt">A company with a higher equity multiplier:</p>
     <ul class="quiz-options">
-      <li>Has lower leverage</li>
-      <li>Cannot earn ROE above ROA</li>
       <li>Has more equity per dollar of assets</li>
-      <li>Has more debt per dollar of equity (higher financial leverage)</li>
+      <li>Is less risky</li>
+      <li>Has zero leverage</li>
+      <li>Has more assets per dollar of equity (more leverage)</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Equity multiplier = Assets / Equity. Higher means more assets per dollar of equity, financed by debt — i.e., more leverage. Connects to DuPont: ROE = Net margin × Asset turnover × Equity multiplier.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> EM = A / E. Higher means each dollar of equity supports more assets, financed by debt. Connects to DuPont: ROE = ROA × EM. EM is just D/E + 1.</div>
   </div>
 
-  <button class="btn done-btn" id="mark-done-6">Mark complete</button>
+  <div class="quiz" data-correct="0">
+    <h3>Practice 4 — Tax shield</h3>
+    <p class="quiz-prompt">Why is debt financing often considered "cheaper" than equity at low leverage levels?</p>
+    <ul class="quiz-options">
+      <li>Interest is tax-deductible, lowering after-tax cost</li>
+      <li>Bond investors require lower returns regardless of tax</li>
+      <li>Debt does not need to be repaid</li>
+      <li>Equity holders demand more reporting</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Interest deductibility creates a tax shield = Interest × Tax rate. Pre-tax 8% debt at 25% tax rate has effective after-tax cost of 6%. Equity dividends are NOT deductible. The tax shield is the foundation of the trade-off theory of capital structure.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-11">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(5)"><span class="dir">← Previous</span><span class="ttl">Liquidity</span></button>
-    <button class="nav-link next" onclick="goTo(7)"><span class="dir">Next →</span><span class="ttl">Profitability</span></button>
+    <button class="nav-link" onclick="goTo(10)"><span class="dir">← Previous</span><span class="ttl">Liquidity</span></button>
+    <button class="nav-link next" onclick="goTo(12)"><span class="dir">Next →</span><span class="ttl">Activity ratios</span></button>
   </div>
 </article>
 
-<article class="unit" data-id="7">
-  <span class="unit-eyebrow">Unit 7 · B.3 Ratio Analysis</span>
-  <h1>Profitability ratios & DuPont</h1>
-  <p class="unit-lead">Margins answer "how much profit per dollar of sales?" Returns answer "how much profit per dollar of investment?" The DuPont decomposition splits ROE into the levers driving it.</p>
+<article class="unit" data-id="12">
+  <span class="unit-eyebrow">Unit 12 · B.3 Ratio Analysis</span>
+  <h1>Activity ratios — turnover, DIO, DSO, DPO</h1>
+  <p class="unit-lead">Activity (turnover) ratios measure how efficiently a company uses its assets to generate sales. Each ratio answers: how many times per year does this asset cycle? Reciprocally: how many days does it take to turn over once?</p>
 
-  <h2><span class="marker">§7.1</span>Margins and returns</h2>
-  <div class="formula-box">Gross margin = Gross profit ÷ Net sales<br/>Operating margin = Operating income ÷ Net sales<br/>Net profit margin = Net income ÷ Net sales<br/>ROA = Net income ÷ Average total assets<br/>ROE = Net income ÷ Average equity</div>
+  <h2><span class="marker">§12.1</span>The four core turnovers</h2>
+  <div class="formula-box">Inventory turnover = COGS ÷ Avg inventory; DIO = 365 ÷ turnover<br/>AR turnover = Net credit sales ÷ Avg AR; DSO = 365 ÷ turnover<br/>AP turnover = Purchases (or COGS) ÷ Avg AP; DPO = 365 ÷ turnover<br/>Total asset turnover = Sales ÷ Avg total assets</div>
 
-  <h2><span class="marker">§7.2</span>DuPont decomposition</h2>
+  <h2><span class="marker">§12.2</span>Critical: get the numerator right</h2>
+  <table class="fin-table">
+    <thead><tr><th>Ratio</th><th>Numerator</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Inventory turnover</td><td>COGS (NOT sales)</td><td>Inventory is at cost; matching numerator must also be at cost</td></tr>
+      <tr><td>AR turnover</td><td>Net CREDIT sales</td><td>Cash sales never sit in AR; including them inflates turnover</td></tr>
+      <tr><td>AP turnover</td><td>Purchases (or COGS as proxy)</td><td>AP arises from purchases, not sales</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="marker">§12.3</span>What turnovers reveal</h2>
+  <ul>
+    <li><strong>High inventory turnover</strong> → fast-moving, well-managed inventory; or stockouts.</li>
+    <li><strong>Low inventory turnover</strong> → obsolete or slow-moving stock; or bulk-buying for safety.</li>
+    <li><strong>High DSO</strong> (long collection time) → loose credit policies, customer financial trouble, or lax collection.</li>
+    <li><strong>Low DSO</strong> → strict credit terms, prompt collections, or losing customers to laxer competitors.</li>
+    <li><strong>High DPO</strong> → using suppliers as financing — pro-cash, but may strain supplier relationships.</li>
+  </ul>
+
+  <div class="callout tip"><span class="callout-label">365 vs 360</span><p>Some textbooks and contracts use 360 days for simplification. The IMA's official materials use 365. Pick whichever you're trained on and stay consistent.</p></div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 1 — Inventory turnover</h3>
+    <p class="quiz-prompt">COGS $1.2M; average inventory $200K. Inventory turnover:</p>
+    <ul class="quiz-options">
+      <li>0.17×</li>
+      <li>3.0×</li>
+      <li>6.0×</li>
+      <li>8.3×</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $1.2M / $200K = <strong>6.0×</strong>. DIO = 365 / 6 ≈ 61 days.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Practice 2 — DSO</h3>
+    <p class="quiz-prompt">Net credit sales $1.46M; average AR $200K. DSO:</p>
+    <ul class="quiz-options">
+      <li>50 days</li>
+      <li>30 days</li>
+      <li>14 days</li>
+      <li>365 days</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Turnover = $1.46M / $200K = 7.3×. DSO = 365 / 7.3 = <strong>50 days</strong>. Direct formula: 365 × $200K / $1.46M = 50.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Practice 3 — Wrong numerator</h3>
+    <p class="quiz-prompt">Using sales (instead of COGS) in inventory turnover:</p>
+    <ul class="quiz-options">
+      <li>Has no effect</li>
+      <li>Makes the ratio more conservative</li>
+      <li>Can give different but valid results</li>
+      <li>Inflates the apparent turnover (because sales include the markup)</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Sales = COGS + Gross profit. Using sales puts a much larger numerator over the same inventory denominator → inflated apparent turnover. Inventory is at cost; the numerator should match.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — Total asset turnover</h3>
+    <p class="quiz-prompt">Sales $5M; average total assets $2.5M. Total asset turnover:</p>
+    <ul class="quiz-options">
+      <li>0.5×</li>
+      <li>2.0×</li>
+      <li>$2.5M</li>
+      <li>50%</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> $5M / $2.5M = <strong>2.0×</strong>. Each dollar of assets generated $2 in sales — strong efficiency. Industries vary widely: retail can hit 3-4×; capital-intensive utilities run 0.3-0.5×.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 5 — DSO trend interpretation</h3>
+    <p class="quiz-prompt">DSO has risen from 35 to 60 days over three quarters while sales stayed flat. The most likely interpretation:</p>
+    <ul class="quiz-options">
+      <li>Strong sales-discipline improvement</li>
+      <li>Switch from credit to cash sales</li>
+      <li>Slower collections — possibly customer financial weakness or relaxed credit terms</li>
+      <li>Routine seasonal pattern</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> DSO climbing on flat revenue means money is sitting in AR longer. Possible causes: relaxed credit terms (sales pressure), customer financial stress (collection risk), or process degradation (collections team understaffed). Investigate.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-12">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(11)"><span class="dir">← Previous</span><span class="ttl">Leverage</span></button>
+    <button class="nav-link next" onclick="goTo(13)"><span class="dir">Next →</span><span class="ttl">Profitability & DuPont</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="13">
+  <span class="unit-eyebrow">Unit 13 · B.3 Ratio Analysis</span>
+  <h1>Profitability ratios &amp; DuPont decomposition</h1>
+  <p class="unit-lead">Margins answer "how much profit per dollar of sales?" Returns answer "how much profit per dollar of investment?" The <strong>DuPont decomposition</strong> splits ROE into three drivers — surfacing whether returns come from margin, efficiency, or leverage.</p>
+
+  <h2><span class="marker">§13.1</span>Margins</h2>
+  <div class="formula-box">Gross margin = Gross profit ÷ Net sales<br/>Operating margin = Operating income ÷ Net sales<br/>Net profit margin = Net income ÷ Net sales</div>
+
+  <p>Each margin tells a different story. Gross margin = pricing power and direct-cost discipline. Operating margin = total operational leverage. Net margin = the bottom-line take-home rate after non-operating costs and taxes.</p>
+
+  <h2><span class="marker">§13.2</span>Returns</h2>
+  <div class="formula-box">ROA = Net income ÷ Avg total assets<br/>ROE = Net income ÷ Avg equity</div>
+
+  <p>ROA measures asset productivity. ROE measures shareholder return. ROE &gt; ROA when there's leverage — the gap shows how much leverage adds.</p>
+
+  <h2><span class="marker">§13.3</span>DuPont 3-step</h2>
   <div class="formula-box">ROE = (NI / Sales) × (Sales / Avg Assets) × (Avg Assets / Avg Equity)<br/>= Net margin × Asset turnover × Equity multiplier</div>
-  <p>Three levers: <em>profitability</em>, <em>efficiency</em>, <em>leverage</em>. A management team raising ROE should be able to point to which lever they pulled. A 5-step extension splits net margin further: tax burden × interest burden × operating margin.</p>
 
-  <div class="callout tip"><span class="callout-label">Strategic read</span><p>Walmart and Costco have low margins but high turnover (volume strategy). Tiffany has high margins and low turnover (luxury strategy). DuPont surfaces this strategic difference cleanly.</p></div>
+  <table class="fin-table">
+    <thead><tr><th>Strategy</th><th>Net margin</th><th>Asset turnover</th><th>EM</th><th>ROE</th></tr></thead>
+    <tbody>
+      <tr><td>Volume retailer (Walmart-style)</td><td>3%</td><td>2.5×</td><td>3.0×</td><td>22.5%</td></tr>
+      <tr><td>Luxury (Tiffany-style)</td><td>10%</td><td>0.8×</td><td>2.5×</td><td>20.0%</td></tr>
+      <tr><td>SaaS (high margin)</td><td>20%</td><td>0.5×</td><td>1.5×</td><td>15.0%</td></tr>
+      <tr><td>Bank (high leverage)</td><td>15%</td><td>0.1×</td><td>10.0×</td><td>15.0%</td></tr>
+    </tbody>
+  </table>
+
+  <p>Same approximate ROE achieved through wildly different mixes. DuPont surfaces the strategy.</p>
+
+  <h2><span class="marker">§13.4</span>5-step DuPont (advanced)</h2>
+  <div class="formula-box">ROE = (NI / Pre-tax) × (Pre-tax / EBIT) × (EBIT / Sales) × (Sales / Assets) × (Assets / Equity)<br/>= Tax burden × Interest burden × Operating margin × Asset turnover × Equity multiplier</div>
+
+  <p>Splits net margin into three pieces (tax efficiency, interest burden, operating performance). FMAA tests the 3-step; the 5-step is bonus knowledge.</p>
 
   <div class="quiz" data-correct="0">
     <h3>Practice 1 — Gross margin</h3>
-    <p class="quiz-prompt">Net sales $500K; COGS $300K. Gross margin is:</p>
+    <p class="quiz-prompt">Net sales $400K; COGS $260K. Gross margin:</p>
     <ul class="quiz-options">
-      <li>40%</li>
-      <li>60%</li>
-      <li>67%</li>
-      <li>200%</li>
+      <li>35%</li>
+      <li>65%</li>
+      <li>54%</li>
+      <li>$140K</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Gross profit = $500K − $300K = $200K. Gross margin = $200K / $500K = <strong>40%</strong>. The 60% trap is COGS as % of sales (the inverse complement).</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Gross profit = $400K − $260K = $140K. Gross margin = $140K / $400K = <strong>35%</strong>. The 65% trap is COGS-as-percent-of-sales, the complement.</div>
   </div>
 
   <div class="quiz" data-correct="2">
     <h3>Practice 2 — DuPont</h3>
-    <p class="quiz-prompt">Net margin 5%; asset turnover 2.0; equity multiplier 1.5. ROE is:</p>
+    <p class="quiz-prompt">Net margin 6%; asset turnover 1.5; equity multiplier 2.5. ROE:</p>
     <ul class="quiz-options">
-      <li>5%</li>
-      <li>10%</li>
+      <li>9%</li>
       <li>15%</li>
-      <li>20%</li>
+      <li>22.5%</li>
+      <li>10%</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> ROE = 5% × 2.0 × 1.5 = <strong>15%</strong>. The product of the three levers IS ROE. Math check: 5% × 2 = 10% (= ROA), then × 1.5 multiplier = 15%.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> 6% × 1.5 × 2.5 = <strong>22.5%</strong>. Multiplicative chain. ROA would be 6% × 1.5 = 9%. EM lifts ROA to ROE.</div>
   </div>
 
   <div class="quiz" data-correct="3">
     <h3>Practice 3 — Strategy classification</h3>
-    <p class="quiz-prompt">A discount retailer typically has:</p>
+    <p class="quiz-prompt">A company has gross margin 60% and asset turnover 0.4×. The strategy is most likely:</p>
     <ul class="quiz-options">
-      <li>High net margin and low asset turnover</li>
-      <li>High net margin and high asset turnover</li>
-      <li>Low net margin and low asset turnover</li>
-      <li>Low net margin and high asset turnover</li>
+      <li>High-volume discount</li>
+      <li>Commodity producer</li>
+      <li>Low-margin wholesale</li>
+      <li>Premium / luxury or specialty (high margin, low volume)</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Volume strategy: thin margins, fast turns. Walmart's ~3% net margin × ~2.5 asset turnover × ~3 equity multiplier ≈ 22% ROE. Tiffany has the opposite mix at the same eventual ROE.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> 60% gross margin signals significant pricing power; 0.4× turnover signals slow asset cycling. Together: premium / luxury. Volume strategies show the inverse: low margins, fast turnover.</div>
   </div>
 
-  <button class="btn done-btn" id="mark-done-7">Mark complete</button>
+  <div class="quiz" data-correct="1">
+    <h3>Practice 4 — ROA vs ROE</h3>
+    <p class="quiz-prompt">A company has ROA 8% and ROE 18%. The most likely explanation is:</p>
+    <ul class="quiz-options">
+      <li>Sales declined</li>
+      <li>The company carries meaningful financial leverage</li>
+      <li>Management is fraudulent</li>
+      <li>The company has high cash reserves</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ROE − ROA = leverage effect. 18 / 8 = 2.25 implied equity multiplier — meaningful debt funding. Higher leverage levers ROA into higher ROE (and bigger losses if NI turns negative).</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 5 — When ROE rises but ROA falls</h3>
+    <p class="quiz-prompt">A company's ROE rose from 15% to 18% but ROA fell from 12% to 9%. The most likely cause:</p>
+    <ul class="quiz-options">
+      <li>Net margin improved sharply</li>
+      <li>Asset turnover increased</li>
+      <li>Equity was repurchased — shrinking the denominator and raising leverage</li>
+      <li>Sales declined while assets stayed flat</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Falling ROA + rising ROE → leverage is doing the work. Buying back stock with debt cash (or just increased debt) shrinks equity and raises EM. Watch this pattern: financial engineering creating apparent improvement with deteriorating fundamentals.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-13">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(6)"><span class="dir">← Previous</span><span class="ttl">Leverage & activity</span></button>
-    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test</span></button>
+    <button class="nav-link" onclick="goTo(12)"><span class="dir">← Previous</span><span class="ttl">Activity ratios</span></button>
+    <button class="nav-link next" onclick="goTo(900)"><span class="dir">Next →</span><span class="ttl">Practice test 1</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="900">
   <span class="unit-eyebrow">Practice Test 1 · FMAA Section B</span>
   <h1>Test 1 — Section B mixed</h1>
-  <p class="unit-lead">12 mixed multiple-choice questions covering recognition/valuation, common-size, and ratios.</p>
-  <div class="test-intro">
-    <h2>Coverage</h2>
-    <p>B.1 recognition & valuation; B.2 common-size; B.3 liquidity, leverage, activity, profitability.</p>
-    <div class="test-meta"><span>Questions<strong>12</strong></span><span>Time target<strong>~22 min</strong></span><span>Pass mark<strong>75%</strong></span></div>
-  </div>
+  <p class="unit-lead">15 mixed multiple-choice questions covering recognition/valuation, common-size, and ratios.</p>
+  <div class="test-intro"><h2>Coverage</h2><p>Even split across B.1 (recognition &amp; valuation), B.2 (common-size), and B.3 (ratio analysis).</p>
+    <div class="test-meta"><span>Questions<strong>15</strong></span><span>Time target<strong>~27 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
 
   <div class="test">
-    <div class="test-progress"><span class="answered">0 / 12 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
+    <div class="test-progress"><span class="answered">0 / 15 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
 
-    <div class="test-question" data-correct="3" data-unit="1" data-topic="Inventory">
+    <div class="test-question" data-correct="3" data-unit="2" data-topic="Inventory">
       <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Inventory</span></div>
-      <p class="quiz-q">Under US GAAP (FIFO), inventory is reported at:</p>
-      <ul class="quiz-options"><li>Historical cost only</li><li>Fair value</li><li>Replacement cost</li><li>Lower of cost or net realizable value</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> LCNRV is the rule for FIFO/average. NRV = selling price − completion/disposal costs.</div>
+      <p class="quiz-q">Under U.S. GAAP using FIFO/avg, inventory is reported at:</p>
+      <ul class="quiz-options"><li>Historical cost only</li><li>Fair value</li><li>Replacement cost</li><li>Lower of cost or NRV</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> LCNRV is the rule for FIFO/avg under U.S. GAAP. Older "lower of cost or market" still applies for LIFO.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="1" data-topic="AFS">
-      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">AFS securities</span></div>
-      <p class="quiz-q">Available-for-sale debt securities — unrealized G/L flow through:</p>
-      <ul class="quiz-options"><li>OCI</li><li>Net income</li><li>Direct equity</li><li>Not recognized</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> AFS → OCI. Trading → P&amp;L. Held-to-maturity uses amortized cost.</div>
+    <div class="test-question" data-correct="0" data-unit="2" data-topic="LIFO COGS">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">LIFO</span></div>
+      <p class="quiz-q">In a period of rising prices, LIFO produces (compared to FIFO):</p>
+      <ul class="quiz-options"><li>Higher COGS, lower NI, lower taxes</li><li>Lower COGS, higher NI</li><li>Identical NI</li><li>Higher ending inventory</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> LIFO uses newest (more expensive) costs in COGS → higher COGS → lower NI → lower taxable income. Tax advantage is the main reason LIFO survives.</div>
     </div>
 
-    <div class="test-question" data-correct="1" data-unit="2" data-topic="Contingent">
-      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Contingent liability</span></div>
-      <p class="quiz-q">Loss contingency that is "probable and reasonably estimable" — record:</p>
-      <ul class="quiz-options"><li>Footnote disclosure only</li><li>Accrue as liability</li><li>Direct charge to equity</li><li>Ignore</li></ul>
+    <div class="test-question" data-correct="2" data-unit="3" data-topic="Goodwill">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Goodwill</span></div>
+      <p class="quiz-q">Public-company goodwill under U.S. GAAP is:</p>
+      <ul class="quiz-options"><li>Amortized over 10 years</li><li>Amortized over useful life</li><li>Tested for impairment annually; not amortized</li><li>Always written off in year of acquisition</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Goodwill is impairment-tested only since SFAS 142 (2001). Private companies may elect to amortize over up to 10 years.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="4" data-topic="Contingent">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Contingent liability</span></div>
+      <p class="quiz-q">Loss contingency probable + reasonably estimable — treatment:</p>
+      <ul class="quiz-options"><li>Disclose only</li><li>Accrue + disclose</li><li>Direct charge to equity</li><li>Ignore</li></ul>
       <div class="quiz-explanation"><strong>Why:</strong> Probable + estimable = accrue. Reasonably possible = disclose. Remote = ignore.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="2" data-topic="Stock split">
-      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">Stock split</span></div>
-      <p class="quiz-q">A 3-for-1 stock split:</p>
-      <ul class="quiz-options"><li>Increases retained earnings</li><li>Decreases total equity</li><li>Triples shares; no journal entry to balance-sheet totals</li><li>Recorded at fair value to APIC</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Splits are memo-only; par value adjusts proportionally. Stock dividends, in contrast, reclassify RE to CS/APIC.</div>
+    <div class="test-question" data-correct="3" data-unit="4" data-topic="Bond pricing">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Bonds</span></div>
+      <p class="quiz-q">A bond with 5% coupon issued in a market demanding 4% will be priced at:</p>
+      <ul class="quiz-options"><li>Par</li><li>Discount</li><li>Cannot determine</li><li>Premium</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Coupon (5%) &gt; market (4%) → bond pays MORE than market expects → buyers will pay a premium.</div>
     </div>
 
-    <div class="test-question" data-correct="3" data-unit="3" data-topic="ASC 606">
-      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Revenue rec</span></div>
-      <p class="quiz-q">ASC 606 step 4 is:</p>
-      <ul class="quiz-options"><li>Identify the contract</li><li>Identify performance obligations</li><li>Determine transaction price</li><li>Allocate the price to performance obligations</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Order: contract (1), POs (2), price (3), allocate (4), recognize (5).</div>
+    <div class="test-question" data-correct="2" data-unit="5" data-topic="Stock split">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Stock split</span></div>
+      <p class="quiz-q">A 4-for-1 stock split:</p>
+      <ul class="quiz-options"><li>Reduces total equity</li><li>Increases retained earnings</li><li>Quadruples shares; no journal entry to balance-sheet totals</li><li>Records FV × new shares to APIC</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Splits are memo only. Par value adjusts proportionally (down to 1/4). Total CS / total equity unchanged. Stock dividends, in contrast, reclassify within equity at FV (small) or par (large).</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="3" data-topic="% complete">
-      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Percent-complete</span></div>
-      <p class="quiz-q">Contract $5M; total est cost $4M; cost incurred to date $1M. Revenue recognized to date:</p>
-      <ul class="quiz-options"><li>$1,000,000</li><li>$1,250,000</li><li>$1,250,000 if cost-to-cost; alt methods may differ</li><li>$5,000,000</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> % complete = $1M / $4M = 25%. Rev = 25% × $5M = $1.25M. Output methods (units delivered) might give a different %.</div>
+    <div class="test-question" data-correct="3" data-unit="6" data-topic="ASC 606">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Revenue rec</span></div>
+      <p class="quiz-q">ASC 606 step 5 is:</p>
+      <ul class="quiz-options"><li>Identify contract</li><li>Identify POs</li><li>Allocate price</li><li>Recognize revenue when (or as) POs are satisfied</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Step 5 — recognize revenue. Order: contract, POs, price, allocate, recognize.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="4" data-topic="Common-size">
-      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Common-size</span></div>
-      <p class="quiz-q">On a common-size BALANCE SHEET, total assets equals:</p>
-      <ul class="quiz-options"><li>100%</li><li>Net sales</li><li>Total equity</li><li>Working capital</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> BS common-size base = total assets, set to 100%. IS common-size base = net sales.</div>
+    <div class="test-question" data-correct="2" data-unit="6" data-topic="% complete">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Percent-complete</span></div>
+      <p class="quiz-q">$10M contract; total est cost $7M; cost incurred $2.1M. Revenue recognized to date:</p>
+      <ul class="quiz-options"><li>$2,100,000</li><li>$3,500,000</li><li>$3,000,000</li><li>$10,000,000</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> % complete = $2.1M / $7M = 30%. Revenue = 30% × $10M = <strong>$3M</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="1" data-unit="5" data-topic="Quick">
-      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Quick ratio</span></div>
-      <p class="quiz-q">Cash $30K; Mkt Sec $20K; AR $50K; Inventory $80K; CL $100K. Quick ratio:</p>
-      <ul class="quiz-options"><li>1.80</li><li>1.00</li><li>0.50</li><li>0.30</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Quick = ($30K + $20K + $50K) / $100K = $100K / $100K = <strong>1.00</strong>. Inventory excluded.</div>
+    <div class="test-question" data-correct="1" data-unit="7" data-topic="EPS">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">Basic EPS</span></div>
+      <p class="quiz-q">NI $800K; preferred dividends declared $50K; weighted avg common shares 250K. Basic EPS:</p>
+      <ul class="quiz-options"><li>$3.20</li><li>$3.00</li><li>$3.40</li><li>$2.80</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ($800K − $50K) / 250K = $750K / 250K = <strong>$3.00</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="5" data-topic="Current ratio change">
-      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">Current ratio</span></div>
-      <p class="quiz-q">A company with current ratio &gt; 1 collects $30K from customers. The current ratio:</p>
-      <ul class="quiz-options"><li>Decreases</li><li>Increases</li><li>Is unchanged</li><li>Cannot be determined</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Cash up $30K, AR down $30K — net change in CA is zero. CL unchanged. Ratio unchanged. Tricky exam staple.</div>
+    <div class="test-question" data-correct="0" data-unit="8" data-topic="Common-size">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">Common-size</span></div>
+      <p class="quiz-q">Best use of common-size statements:</p>
+      <ul class="quiz-options"><li>Compare companies of different sizes on a structural basis</li><li>Forecast next-year revenue</li><li>Compute total return</li><li>Audit trail</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Common-size eliminates scale. Apples-to-apples cross-company comparison. Industry benchmarking is the killer use case.</div>
     </div>
 
-    <div class="test-question" data-correct="3" data-unit="6" data-topic="DSO">
-      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">DSO</span></div>
-      <p class="quiz-q">Net credit sales $730K; average AR $60K. DSO is:</p>
-      <ul class="quiz-options"><li>12 days</li><li>20 days</li><li>365 days</li><li>30 days</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Turnover = $730K / $60K ≈ 12.17×. DSO = 365 / 12.17 ≈ <strong>30 days</strong>.</div>
+    <div class="test-question" data-correct="1" data-unit="9" data-topic="CAGR">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">CAGR</span></div>
+      <p class="quiz-q">Revenue grew from $100M to $200M in 5 years. CAGR is closest to:</p>
+      <ul class="quiz-options"><li>20%</li><li>15%</li><li>10%</li><li>50%</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 2^(1/5) − 1 = 1.149 − 1 ≈ <strong>14.9%</strong>. The 20% trap is 100% / 5.</div>
     </div>
 
-    <div class="test-question" data-correct="2" data-unit="7" data-topic="DuPont">
-      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">DuPont</span></div>
-      <p class="quiz-q">Net margin 8%; asset turnover 1.5; equity multiplier 2.0. ROE:</p>
-      <ul class="quiz-options"><li>16%</li><li>20%</li><li>24%</li><li>30%</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> 8% × 1.5 × 2.0 = <strong>24%</strong>. ROA would be 8% × 1.5 = 12%, levered up to 24% by the multiplier.</div>
+    <div class="test-question" data-correct="2" data-unit="10" data-topic="CCC">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">CCC</span></div>
+      <p class="quiz-q">DIO 50; DSO 40; DPO 60. Cash conversion cycle:</p>
+      <ul class="quiz-options"><li>150 days</li><li>−30 days</li><li>30 days</li><li>50 days</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 50 + 40 − 60 = <strong>30 days</strong>.</div>
     </div>
 
-    <div class="test-question" data-correct="0" data-unit="7" data-topic="Strategy fit">
-      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Strategy</span></div>
-      <p class="quiz-q">A firm with low net margin and high asset turnover is most likely a:</p>
-      <ul class="quiz-options"><li>Discount retailer (volume strategy)</li><li>Luxury jeweler</li><li>Software-as-a-service vendor</li><li>Pharmaceutical innovator</li></ul>
-      <div class="quiz-explanation"><strong>Why:</strong> Volume strategy = thin margins, fast turns. Luxury / SaaS / pharma rely on high margins and slower asset turns. ROE achieved by different mixes of margin × turnover × leverage.</div>
+    <div class="test-question" data-correct="3" data-unit="11" data-topic="TIE">
+      <div class="q-num"><span class="num-text">Question 13</span><span class="topic">TIE</span></div>
+      <p class="quiz-q">EBIT $250K; interest expense $50K. TIE:</p>
+      <ul class="quiz-options"><li>0.20×</li><li>$200K</li><li>1.0×</li><li>5.0×</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> $250K / $50K = <strong>5.0×</strong>. Comfortable.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="12" data-topic="Inventory turnover">
+      <div class="q-num"><span class="num-text">Question 14</span><span class="topic">Inventory turnover</span></div>
+      <p class="quiz-q">COGS $900K; avg inventory $150K. DIO:</p>
+      <ul class="quiz-options"><li>~61 days</li><li>30 days</li><li>167 days</li><li>50 days</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Turnover = $900K / $150K = 6×. DIO = 365 / 6 ≈ <strong>61 days</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="13" data-topic="DuPont">
+      <div class="q-num"><span class="num-text">Question 15</span><span class="topic">DuPont</span></div>
+      <p class="quiz-q">Net margin 4%; asset turnover 2.5; EM 1.8. ROE:</p>
+      <ul class="quiz-options"><li>10%</li><li>14%</li><li>18%</li><li>20%</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> 4% × 2.5 × 1.8 = <strong>18%</strong>.</div>
     </div>
 
     <div class="test-summary"><h2>Test 1 · Results</h2><div class="score-display">0%</div><div class="score-meta">—</div><div class="missed-list"></div><button class="btn restart-btn">↻ Restart with shuffled order</button></div>
@@ -668,10 +1400,130 @@
   <button class="btn done-btn" id="mark-done-900">Mark complete</button>
 </article>
 
+<article class="unit" data-id="901">
+  <span class="unit-eyebrow">Practice Test 2 · FMAA Section B</span>
+  <h1>Test 2 — Ratio analysis deep dive</h1>
+  <p class="unit-lead">15 questions focused entirely on ratios — liquidity, leverage, activity, profitability — at slightly higher difficulty.</p>
+  <div class="test-intro"><h2>Coverage</h2><p>All four ratio families plus DuPont. Mix of computation and interpretation.</p>
+    <div class="test-meta"><span>Questions<strong>15</strong></span><span>Time target<strong>~27 min</strong></span><span>Pass mark<strong>75%</strong></span></div></div>
+
+  <div class="test">
+    <div class="test-progress"><span class="answered">0 / 15 answered</span><div class="score-bar"><div class="score-fill"></div></div><span class="score-percent">0 correct</span></div>
+
+    <div class="test-question" data-correct="2" data-unit="10" data-topic="Current ratio change">
+      <div class="q-num"><span class="num-text">Question 1</span><span class="topic">Current ratio change</span></div>
+      <p class="quiz-q">A firm with current ratio 0.8 pays $20K of accounts payable using cash. Current ratio:</p>
+      <ul class="quiz-options"><li>Increases above 0.8 — equal $-changes pull below-1 ratio toward 1</li><li>Decreases — both numerator and denominator shrink</li><li>Decreases — numerator shrinks faster proportionally when ratio is below 1</li><li>Stays the same</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> When ratio &lt; 1, equal $-decreases hurt the ratio (numerator shrinks proportionally faster). Test: 80/100 = 0.80 → 60/80 = 0.75. Below 1, equal changes move AWAY from 1.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="10" data-topic="Quick ratio components">
+      <div class="q-num"><span class="num-text">Question 2</span><span class="topic">Quick ratio</span></div>
+      <p class="quiz-q">Which CA is EXCLUDED from the quick ratio numerator?</p>
+      <ul class="quiz-options"><li>Marketable securities</li><li>Inventory</li><li>Net AR</li><li>Cash</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Quick excludes inventory (and prepaid). Inventory is the slowest-converting CA. Numerator: cash + marketable securities + net AR.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="10" data-topic="Negative CCC">
+      <div class="q-num"><span class="num-text">Question 3</span><span class="topic">Negative CCC</span></div>
+      <p class="quiz-q">A company with negative CCC most directly enjoys:</p>
+      <ul class="quiz-options"><li>Lower revenue</li><li>Higher tax rate</li><li>Slow inventory</li><li>Free working-capital financing from suppliers</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Customers pay before suppliers need payment → suppliers fund operations interest-free. Amazon, Costco, Apple are textbook examples.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="11" data-topic="D/E from D/A">
+      <div class="q-num"><span class="num-text">Question 4</span><span class="topic">D/E vs D/A</span></div>
+      <p class="quiz-q">Debt-to-assets is 0.4. Debt-to-equity is:</p>
+      <ul class="quiz-options"><li>0.667</li><li>1.5</li><li>0.4</li><li>2.5</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> D/A = 0.4 → E/A = 0.6 → D/E = 0.4/0.6 = <strong>0.667</strong>. Equity multiplier = 1/0.6 = 1.667.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="11" data-topic="Tax shield">
+      <div class="q-num"><span class="num-text">Question 5</span><span class="topic">Cost of debt</span></div>
+      <p class="quiz-q">Pre-tax cost of debt 10%; tax rate 25%. After-tax cost:</p>
+      <ul class="quiz-options"><li>10%</li><li>12.5%</li><li>7.5%</li><li>2.5%</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Interest is tax-deductible: After-tax = Pre-tax × (1 − tax rate) = 10% × 0.75 = <strong>7.5%</strong>. The tax shield = $2.5 saved per $100 of interest.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="11" data-topic="Coverage">
+      <div class="q-num"><span class="num-text">Question 6</span><span class="topic">Cash coverage</span></div>
+      <p class="quiz-q">EBIT $400K; depreciation $100K; interest expense $80K. Cash-coverage ratio:</p>
+      <ul class="quiz-options"><li>6.25×</li><li>5.0×</li><li>4.0×</li><li>1.25×</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ($400K + $100K) / $80K = $500K / $80K = <strong>6.25×</strong>. Adds back non-cash depreciation since it's available for interest payment in cash terms. TIE alone = 5.0×.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="12" data-topic="Inventory turnover">
+      <div class="q-num"><span class="num-text">Question 7</span><span class="topic">Inventory days</span></div>
+      <p class="quiz-q">COGS $730K; ending inventory $80K; beginning $100K. Days inventory outstanding (use average):</p>
+      <ul class="quiz-options"><li>40 days</li><li>45 days</li><li>365 days</li><li>22 days</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Avg inventory = ($80K + $100K)/2 = $90K. Turnover = $730K/$90K ≈ 8.11×. DIO = 365/8.11 ≈ <strong>45 days</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="12" data-topic="Activity numerator">
+      <div class="q-num"><span class="num-text">Question 8</span><span class="topic">Numerator choice</span></div>
+      <p class="quiz-q">Inventory turnover should use which numerator?</p>
+      <ul class="quiz-options"><li>Net income</li><li>Operating income</li><li>Net sales</li><li>COGS</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Inventory is at cost; the matching numerator must also be at cost (COGS). Using sales inflates the apparent turnover by the gross-margin amount.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="12" data-topic="DSO interpretation">
+      <div class="q-num"><span class="num-text">Question 9</span><span class="topic">DSO trend</span></div>
+      <p class="quiz-q">DSO has dropped from 60 to 35 days. The most likely positive interpretation:</p>
+      <ul class="quiz-options"><li>Switch from credit to cash sales</li><li>Sales decline</li><li>Tighter credit policy or improved collections process</li><li>Increased bad debts written off</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Faster collection — tighter credit, better collection ops. Could also be a problematic narrative (lost AR-sensitive customers), but the option-set asks for the positive read.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="13" data-topic="ROA gap">
+      <div class="q-num"><span class="num-text">Question 10</span><span class="topic">ROA vs ROE</span></div>
+      <p class="quiz-q">A company has ROA 10% and ROE 22%. The gap reflects:</p>
+      <ul class="quiz-options"><li>Financial leverage (equity multiplier)</li><li>Tax efficiency</li><li>Operating efficiency</li><li>Higher inventory turnover</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ROE = ROA × Equity multiplier. EM ≈ 22/10 = 2.2× — meaningful debt-to-equity. Higher leverage levers ROA up.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="13" data-topic="DuPont reverse">
+      <div class="q-num"><span class="num-text">Question 11</span><span class="topic">DuPont reverse</span></div>
+      <p class="quiz-q">A company's ROE is 24% with asset turnover 2.0× and equity multiplier 2.0. Net margin:</p>
+      <ul class="quiz-options"><li>12%</li><li>6%</li><li>24%</li><li>3%</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> ROE = NM × AT × EM → 24% = NM × 2.0 × 2.0 = NM × 4 → NM = <strong>6%</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="3" data-unit="13" data-topic="Gross margin">
+      <div class="q-num"><span class="num-text">Question 12</span><span class="topic">Gross margin</span></div>
+      <p class="quiz-q">Net sales $200K; gross profit $80K. Gross margin:</p>
+      <ul class="quiz-options"><li>25%</li><li>2.5×</li><li>$120K</li><li>40%</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> $80K / $200K = <strong>40%</strong>.</div>
+    </div>
+
+    <div class="test-question" data-correct="2" data-unit="13" data-topic="Strategy spotting">
+      <div class="q-num"><span class="num-text">Question 13</span><span class="topic">Strategy</span></div>
+      <p class="quiz-q">A business with high gross margin (60%+) and low asset turnover (0.4×) is most likely:</p>
+      <ul class="quiz-options"><li>Discount retailer</li><li>Commodity producer</li><li>Luxury / premium brand</li><li>Bank</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> High margin + low turnover = premium / luxury. Discount retailers do the inverse (low margin, fast turnover). Banks have specific high leverage and very low asset turnover.</div>
+    </div>
+
+    <div class="test-question" data-correct="0" data-unit="13" data-topic="Operating margin">
+      <div class="q-num"><span class="num-text">Question 14</span><span class="topic">Operating margin</span></div>
+      <p class="quiz-q">A jump in operating margin without revenue growth most likely reflects:</p>
+      <ul class="quiz-options"><li>Cost reduction or improved operating leverage</li><li>Currency effects</li><li>One-time gain on asset sale</li><li>Increased financial leverage</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Operating margin reflects revenue and operating costs. Holding revenue constant, margin expansion comes from cost discipline. One-time gains on asset sale are below operating income (gains, not revenues). Currency/financial leverage affect different lines.</div>
+    </div>
+
+    <div class="test-question" data-correct="1" data-unit="13" data-topic="ROE interpretation">
+      <div class="q-num"><span class="num-text">Question 15</span><span class="topic">Falling ROA, rising ROE</span></div>
+      <p class="quiz-q">A company's ROE rose while ROA fell. The most likely cause:</p>
+      <ul class="quiz-options"><li>Increased operating efficiency</li><li>Higher financial leverage (e.g. debt-funded buybacks)</li><li>Inventory write-downs</li><li>Currency tailwinds</li></ul>
+      <div class="quiz-explanation"><strong>Why:</strong> Higher leverage compensates for declining asset productivity. Buying back stock with debt cash shrinks equity and inflates EM, raising ROE while ROA reflects the deteriorating fundamentals.</div>
+    </div>
+
+    <div class="test-summary"><h2>Test 2 · Results</h2><div class="score-display">0%</div><div class="score-meta">—</div><div class="missed-list"></div><button class="btn restart-btn">↻ Restart with shuffled order</button></div>
+  </div>
+  <button class="btn done-btn" id="mark-done-901">Mark complete</button>
+</article>
+
 <article class="unit" data-id="950">
   <span class="unit-eyebrow">Flashcards · Section B</span>
   <h1>Flashcard hub</h1>
-  <p class="unit-lead">Drill the recognition rules and ratio formulas.</p>
+  <p class="unit-lead">Drill the recognition rules, ratio formulas, and DuPont decomposition.</p>
   <div class="flashcard-hub" id="flashcard-hub"></div>
   <button class="btn done-btn" id="mark-done-950">Mark complete</button>
 </article>
@@ -686,57 +1538,97 @@ window.SECTION_CONFIG = {
   sectionTitle: "FMAA · Section B — FS Preparation & Analysis",
   storageKey: "fmaa-b-progress-v1",
   annotationKey: "fmaa-b-ann-v1",
-  totalUnits: 9,
-  trackedUnits: 7,
+  totalUnits: 16,
+  trackedUnits: 13,
   navStructure: [
     { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
     { group: "B.1 · Recognition & Valuation", units: [
-      { id: 1, num: "01", title: "Asset valuation" },
-      { id: 2, num: "02", title: "Liabilities & equity" },
-      { id: 3, num: "03", title: "Revenue recognition" },
+      { id: 1, num: "01", title: "Asset valuation — cash, AR" },
+      { id: 2, num: "02", title: "Inventory — FIFO/LIFO/avg/LCNRV" },
+      { id: 3, num: "03", title: "PP&E and intangibles" },
+      { id: 4, num: "04", title: "Liability valuation" },
+      { id: 5, num: "05", title: "Equity transactions" },
+      { id: 6, num: "06", title: "Revenue recognition (ASC 606)" },
+      { id: 7, num: "07", title: "Income measurement" },
     ]},
     { group: "B.2 · Common-Size & Base-Year", units: [
-      { id: 4, num: "04", title: "Common-size & CAGR" },
+      { id: 8, num: "08", title: "Common-size statements" },
+      { id: 9, num: "09", title: "Base year & CAGR" },
     ]},
     { group: "B.3 · Ratio Analysis", units: [
-      { id: 5, num: "05", title: "Liquidity" },
-      { id: 6, num: "06", title: "Leverage & activity" },
-      { id: 7, num: "07", title: "Profitability & DuPont" },
+      { id: 10, num: "10", title: "Liquidity & CCC" },
+      { id: 11, num: "11", title: "Leverage" },
+      { id: 12, num: "12", title: "Activity / turnover" },
+      { id: 13, num: "13", title: "Profitability & DuPont" },
     ]},
-    { group: "📝 Practice Test", units: [
-      { id: 900, num: "T1", title: "Section B mixed (12Q)" },
+    { group: "📝 Practice Tests", units: [
+      { id: 900, num: "T1", title: "Section B mixed (15Q)" },
+      { id: 901, num: "T2", title: "Ratio deep dive (15Q)" },
     ]},
     { group: "🃏 Flashcards", units: [
       { id: 950, num: "FC", title: "All decks" },
     ]},
   ],
   keyTakeaways: {
-    1: ["Most assets enter at historical cost. Subsequent measurement varies by asset type.", "Inventory (FIFO/avg, US GAAP): LCNRV. AFS securities: FV through OCI. Trading: FV through NI.", "PP&E: cost − accumulated depreciation, tested for impairment.", "Goodwill: not amortized; tested for impairment annually."],
-    2: ["Contingent liability: accrue if probable AND reasonably estimable; otherwise disclose or ignore.", "Bonds payable measured at PV; amortized to face at maturity.", "Treasury stock (cost method): contra-equity; reissuance gains/losses go to APIC.", "Stock splits: memo only. Stock dividends: reclassify RE → CS/APIC (small dividend at FV)."],
-    3: ["ASC 606 / IFRS 15: five steps — contract, POs, price, allocate, recognize.", "Cost-to-cost % complete = costs incurred ÷ total estimated costs; revenue = % × total price.", "Variable consideration: include only if significant reversal is highly improbable.", "Point-in-time vs over-time depends on transfer of control."],
-    4: ["Vertical (common-size) IS: each line as % of net sales. BS: each line as % of total assets.", "Horizontal (common-base-year): each line vs base year value.", "Use common-size for cross-company comparison regardless of size.", "CAGR = (Ending/Beginning)^(1/n) − 1."],
-    5: ["Current ratio = CA / CL (all CA included).", "Quick (acid-test) = (Cash + Mkt Sec + AR) / CL — excludes inventory and prepaid.", "Cash ratio = (Cash + Mkt Sec) / CL — strictest.", "CCC = DIO + DSO − DPO. Negative CCC means suppliers fund operations."],
-    6: ["Leverage: D/E, D/A, TIE (EBIT ÷ interest), equity multiplier.", "TIE > 3 generally comfortable; > 2 usually covenant minimum.", "Inventory turnover uses COGS (not sales). DIO = 365 ÷ turnover.", "AR turnover uses net credit sales. DSO = 365 ÷ turnover."],
-    7: ["Margins: gross, operating, net — each as % of net sales.", "Returns: ROA (NI / avg assets), ROE (NI / avg equity).", "DuPont: ROE = Net margin × Asset turnover × Equity multiplier.", "Strategy lens: high-margin/low-turnover (luxury) vs low-margin/high-turnover (volume) — same ROE achievable both ways."],
+    1: ["AR is reported at net realizable value: gross AR − allowance for doubtful accounts.", "Two estimation methods: % of credit sales (IS focus) sets expense; aging (BS focus) sets ending allowance.", "Write-off entry: DR Allowance / CR AR. Net AR unchanged.", "Direct write-off violates matching; allowed under U.S. GAAP only when immaterial."],
+    2: ["FIFO: oldest costs flow through COGS; newest in ending inventory. Rising prices → lower COGS, higher NI.", "LIFO (US GAAP only): newest first; rising prices → higher COGS, lower NI/taxes.", "Weighted-average: total cost / total units; sits between FIFO and LIFO.", "LCNRV: write down to NRV (selling − completion/disposal) when below cost. U.S. GAAP no reversal; IFRS allows."],
+    3: ["Depreciation methods: SL flat; UoP usage-based; DDB front-loaded.", "U.S. GAAP impairment: two-step. (1) undiscounted CF vs carrying. (2) if impaired, write to FV.", "Goodwill arises only from purchased businesses; not amortized; impairment-tested annually.", "U.S. GAAP impairment loss cannot reverse; IFRS allows reversal up to original cost (except goodwill)."],
+    4: ["Bond pricing: coupon = market → par; coupon > market → premium; coupon < market → discount.", "Effective-interest amortization brings carrying to face by maturity.", "Loss contingency: probable + estimable = accrue; reasonably possible = disclose; remote = ignore.", "Gain contingencies are NOT accrued (conservatism); disclose only."],
+    5: ["Stock issuance: DR Cash, CR CS at par + APIC for excess.", "Treasury stock (cost method) = contra-equity. Reissuance gains/losses flow through APIC, never P&L.", "Stock dividends: small (<25%) = reclassify RE at FV; large (≥25%) = reclassify at par. Splits = memo only.", "Three dividend dates: declaration (record liability), record (no entry), payment (DR Div Pay / CR Cash)."],
+    6: ["ASC 606 / IFRS 15 five steps: contract → POs → price → allocate → recognize.", "Cost-to-cost % complete: cost incurred / total estimated cost; revenue = % × total price.", "Loss on overall contract: recognize entire loss IMMEDIATELY (conservatism).", "Variable consideration: include only to extent reversal is highly improbable (constraint)."],
+    7: ["Revenues = ordinary, ongoing operations. Gains = peripheral / incidental — different IS placement.", "Multi-step IS: Rev − COGS = GP; − OpEx = OI; ± non-op = Pre-tax; − Tax = NI.", "Basic EPS = (NI − Pref div) / Weighted-avg common shares.", "Cumulative preferred dividends accrue regardless of declaration; non-cumulative only if declared."],
+    8: ["IS common-size base = net sales; BS base = total assets.", "Reveals operating structure (margin profile) and capital structure (debt/equity mix).", "Cross-company comparison: scale-independent.", "Inventory rising as % of assets faster than revenue grows = warning sign (build-up, slow turn, obsolescence)."],
+    9: ["Horizontal analysis: each year's value as index against base year.", "CAGR = (Ending/Beginning)^(1/n) − 1; converts cumulative growth to annualized compound rate.", "Arithmetic-average growth overstates returns when there's volatility; CAGR is geometric.", "CAGR connects start and end; doesn't capture volatility — always look at the actual series."],
+    10: ["Current ratio = CA / CL; quick excludes inventory and prepaid; cash strictest (only cash + Mkt Sec).", "CCC = DIO + DSO − DPO. Lower = less working capital tied up.", "Negative CCC: suppliers fund operations interest-free (Amazon, Costco, Apple).", "Effect of equal $-changes on numerator AND denominator: pulls ratio toward 1."],
+    11: ["D/E = total debt / total equity. EM = total assets / equity = 1 + D/E.", "TIE = EBIT / Interest expense. Cash-coverage adds back depreciation.", "Interest is tax-deductible: after-tax cost = pre-tax × (1 − tax rate).", "Higher leverage amplifies ROE in good times AND losses in bad times. Optimal balance trade-off theory."],
+    12: ["Inventory turnover uses COGS (NOT sales); AR turnover uses net credit sales.", "DIO/DSO/DPO = 365 / turnover.", "Total asset turnover = Sales / Avg total assets.", "Trend interpretation: rising DSO on flat sales = collections concern."],
+    13: ["Margins (gross / operating / net) measure profit per dollar of sales.", "ROA = NI / avg assets. ROE = NI / avg equity. Gap reflects leverage.", "DuPont 3-step: ROE = Net margin × Asset turnover × Equity multiplier.", "Same ROE achievable with different mixes (volume vs luxury vs SaaS vs bank)."],
   },
   flashcardDecks: {
     "valuation-rules": {
       title: "Recognition & valuation",
       eyebrow: "B.1",
       cards: [
-        ["Inventory (FIFO, US GAAP)", "Lower of cost or NRV"],
-        ["AFS securities", "FV with unrealized G/L through OCI"],
-        ["Trading securities", "FV with unrealized G/L through NI"],
-        ["Held-to-maturity", "Amortized cost"],
-        ["Goodwill", "Not amortized; impairment-tested annually"],
-        ["Contingent liability — probable + estimable", "Accrue as liability"],
-        ["Contingent liability — reasonably possible", "Disclose only"],
-        ["Treasury stock (cost method)", "Contra-equity"],
-        ["Stock split", "Memo entry only — par adjusts"],
-        ["Stock dividend (small <25%)", "Reclassify RE → CS/APIC at FV"],
-        ["ASC 606 step 1", "Identify the contract"],
-        ["ASC 606 step 5", "Recognize revenue when (or as) PO is satisfied"],
-        ["Cost-to-cost % complete", "Cost incurred to date ÷ Total estimated cost"],
+        ["Net AR formula", "Gross AR − Allowance for Doubtful Accounts"],
+        ["% of sales method", "Sets bad-debt EXPENSE; allowance is the plug"],
+        ["Aging method", "Sets ending ALLOWANCE; expense is the plug"],
+        ["Write-off entry", "DR Allowance / CR AR (net AR unchanged)"],
+        ["FIFO rising prices", "Lower COGS, higher NI, higher ending inventory"],
+        ["LIFO rising prices", "Higher COGS, lower NI/taxes (US GAAP only)"],
+        ["Weighted-avg cost/unit", "Total cost ÷ Total units available"],
+        ["LCNRV", "Write down to NRV when below cost (US GAAP no reversal)"],
+        ["Straight-line depreciation", "(Cost − Salvage) ÷ Life"],
+        ["DDB rate", "2 ÷ Life × NBV (ignores salvage in calc)"],
+        ["US GAAP impairment", "Two-step: undiscounted CF then FV"],
+        ["Goodwill rule", "Not amortized; impairment-tested annually"],
+        ["Bond at par", "Coupon = market"],
+        ["Bond at premium", "Coupon > market"],
+        ["Bond at discount", "Coupon < market"],
+        ["Loss contingency accrual", "Probable + estimable"],
+        ["Gain contingency rule", "Disclose only — never accrue"],
+        ["Treasury stock method", "Cost method = contra-equity"],
+        ["Stock dividend (<25%)", "Reclassify RE at FV"],
+        ["Stock split", "Memo entry only — no journal effect"],
+        ["ASC 606 five steps", "Contract → POs → Price → Allocate → Recognize"],
+        ["% complete", "Cost to date ÷ Total estimated cost"],
+        ["Loss contract treatment", "Recognize entire loss IMMEDIATELY"],
+        ["Basic EPS", "(NI − Preferred div) / Weighted-avg common shares"],
+        ["Cumulative preferred", "Subtract regardless of declaration"],
+      ]
+    },
+    "analysis-vocab": {
+      title: "Analysis vocabulary",
+      eyebrow: "B.2",
+      cards: [
+        ["IS common-size base", "Net sales (= 100%)"],
+        ["BS common-size base", "Total assets (= 100%)"],
+        ["Common-size purpose", "Compare companies of different sizes structurally"],
+        ["Horizontal analysis", "Each year as index against base year"],
+        ["CAGR formula", "(End/Begin)^(1/n) − 1"],
+        ["YoY growth", "(This year − Last year) / Last year"],
+        ["Arithmetic vs geometric", "Arithmetic overstates with volatility; CAGR is geometric"],
+        ["Margin compression cue", "GP% falling = COGS rising faster than revenue"],
+        ["Inventory % rising fast", "Possible build-up / slow turn / obsolescence"],
       ]
     },
     "ratios-master": {
@@ -748,48 +1640,72 @@ window.SECTION_CONFIG = {
         ["Cash ratio", "(Cash + Mkt Sec) / CL"],
         ["Working capital", "CA − CL ($ amount)"],
         ["Cash conversion cycle", "DIO + DSO − DPO"],
-        ["Debt-to-equity", "Total debt / Total equity"],
+        ["Negative CCC means", "Suppliers fund operations"],
+        ["D/E ratio", "Total debt / Total equity"],
+        ["D/A ratio", "Total debt / Total assets"],
+        ["Equity multiplier", "Total assets / Total equity = 1 + D/E"],
         ["TIE", "EBIT / Interest expense"],
-        ["Equity multiplier", "Total assets / Total equity"],
+        ["Cash coverage", "(EBIT + Depreciation) / Interest"],
+        ["After-tax cost of debt", "Pre-tax × (1 − tax rate)"],
         ["Inventory turnover", "COGS / Avg inventory"],
         ["DIO", "365 / Inventory turnover"],
         ["AR turnover", "Net credit sales / Avg AR"],
         ["DSO", "365 / AR turnover"],
+        ["AP turnover", "Purchases / Avg AP"],
+        ["DPO", "365 / AP turnover"],
+        ["Total asset turnover", "Sales / Avg total assets"],
         ["Gross margin", "Gross profit / Net sales"],
         ["Operating margin", "Operating income / Net sales"],
         ["Net margin", "Net income / Net sales"],
         ["ROA", "Net income / Avg total assets"],
         ["ROE", "Net income / Avg equity"],
-        ["DuPont 3-step ROE", "Net margin × Asset turnover × Equity multiplier"],
-        ["CAGR", "(End/Begin)^(1/n) − 1"],
+        ["DuPont 3-step", "Net margin × Asset turnover × Equity multiplier"],
+        ["DuPont 5-step adds", "Tax burden × Interest burden (splits net margin)"],
+        ["ROE > ROA gap", "Driven by financial leverage"],
+        ["Volume strategy mix", "Low margin × high turnover"],
+        ["Luxury strategy mix", "High margin × low turnover"],
       ]
     },
   },
   formulaReference: [
     { section: "Liquidity", items: [
-      { label: "Current ratio", formula: "CA ÷ CL", unitId: 5 },
-      { label: "Quick ratio", formula: "(Cash + Mkt Sec + AR) ÷ CL", unitId: 5 },
-      { label: "Cash ratio", formula: "(Cash + Mkt Sec) ÷ CL", unitId: 5 },
-      { label: "CCC", formula: "DIO + DSO − DPO", unitId: 5 },
+      { label: "Current ratio", formula: "CA ÷ CL", unitId: 10 },
+      { label: "Quick ratio", formula: "(Cash + Mkt Sec + AR) ÷ CL", unitId: 10 },
+      { label: "Cash ratio", formula: "(Cash + Mkt Sec) ÷ CL", unitId: 10 },
+      { label: "CCC", formula: "DIO + DSO − DPO", unitId: 10 },
     ]},
     { section: "Leverage", items: [
-      { label: "Debt-to-equity", formula: "Total debt ÷ Total equity", unitId: 6 },
-      { label: "TIE", formula: "EBIT ÷ Interest expense", unitId: 6 },
-      { label: "Equity multiplier", formula: "Total assets ÷ Total equity", unitId: 6 },
+      { label: "Debt-to-equity", formula: "Total debt ÷ Total equity", unitId: 11 },
+      { label: "Equity multiplier", formula: "Total assets ÷ Total equity (= 1 + D/E)", unitId: 11 },
+      { label: "TIE", formula: "EBIT ÷ Interest expense", unitId: 11 },
+      { label: "After-tax cost of debt", formula: "Pre-tax × (1 − tax rate)", unitId: 11 },
     ]},
     { section: "Activity", items: [
-      { label: "Inventory turnover", formula: "COGS ÷ Avg inventory", unitId: 6 },
-      { label: "DIO", formula: "365 ÷ Inventory turnover", unitId: 6 },
-      { label: "DSO", formula: "365 ÷ AR turnover (= 365 × Avg AR / Sales)", unitId: 6 },
+      { label: "Inventory turnover", formula: "COGS ÷ Avg inventory", unitId: 12 },
+      { label: "DIO", formula: "365 ÷ Inventory turnover", unitId: 12 },
+      { label: "AR turnover", formula: "Net credit sales ÷ Avg AR", unitId: 12 },
+      { label: "DSO", formula: "365 ÷ AR turnover", unitId: 12 },
+      { label: "Total asset turnover", formula: "Sales ÷ Avg total assets", unitId: 12 },
     ]},
     { section: "Profitability & DuPont", items: [
-      { label: "ROA", formula: "NI ÷ Avg total assets", unitId: 7 },
-      { label: "ROE", formula: "NI ÷ Avg equity", unitId: 7 },
-      { label: "DuPont 3-step", formula: "ROE = Net margin × Asset turnover × Equity multiplier", unitId: 7 },
+      { label: "ROA", formula: "NI ÷ Avg total assets", unitId: 13 },
+      { label: "ROE", formula: "NI ÷ Avg equity", unitId: 13 },
+      { label: "DuPont 3-step", formula: "ROE = Net margin × Asset turnover × Equity multiplier", unitId: 13 },
     ]},
     { section: "Recognition", items: [
-      { label: "ASC 606 5 steps", formula: "Contract → POs → Price → Allocate → Recognize", unitId: 3 },
-      { label: "% complete", formula: "Costs incurred to date ÷ Total estimated cost", unitId: 3 },
+      { label: "ASC 606 5 steps", formula: "Contract → POs → Price → Allocate → Recognize", unitId: 6 },
+      { label: "% complete", formula: "Costs incurred / Total estimated cost", unitId: 6 },
+      { label: "Loss contract", formula: "Recognize entire loss IMMEDIATELY", unitId: 6 },
+      { label: "Basic EPS", formula: "(NI − Pref div) ÷ Weighted-avg common shares", unitId: 7 },
+    ]},
+    { section: "Inventory & PP&E", items: [
+      { label: "Weighted-avg cost", formula: "Total cost ÷ Total units", unitId: 2 },
+      { label: "Straight-line depreciation", formula: "(Cost − Salvage) ÷ Life", unitId: 3 },
+      { label: "DDB rate", formula: "(2 ÷ Life) × NBV", unitId: 3 },
+    ]},
+    { section: "Growth", items: [
+      { label: "CAGR", formula: "(End ÷ Begin)^(1/n) − 1", unitId: 9 },
+      { label: "YoY growth", formula: "(This − Last) ÷ Last", unitId: 9 },
     ]},
   ],
 };
