@@ -72,7 +72,16 @@
       document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
       const navBtn = document.querySelector(`.nav-item[data-id="${id}"]`);
       if (navBtn) navBtn.classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (window.matchMedia && window.matchMedia("(max-width: 1000px)").matches) {
+        // On mobile the sidebar stacks above the content; scroll to the unit
+        // itself (page top is the nav) and close the collapsed menu.
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.body.classList.remove("nav-open");
+        const tgl = document.getElementById("sidebar-toggle");
+        if (tgl) tgl.setAttribute("aria-expanded", "false");
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
       // For flashcards hub re-render:
       if (id === 800 && typeof window.__renderFcHub === "function") window.__renderFcHub();
     }
@@ -104,6 +113,44 @@
     if (btn) setMarkDoneButton(btn, !wasDone);
   }
   window.markDone = markDone;
+
+  // ===== A11Y HELPERS =====
+  // Make a clickable non-button element (e.g. a quiz <li>) keyboard-operable:
+  // adds role/tabindex and fires onChoose on Enter/Space, so quiz and test
+  // answer options work for keyboard and screen-reader users.
+  function makeOptionInteractive(el, onChoose) {
+    if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "0");
+    if (!el.getAttribute("role")) el.setAttribute("role", "button");
+    el.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        onChoose(e);
+      }
+    });
+  }
+  // Polite screen-reader announcement via the shared #sr-status live region.
+  function srAnnounce(msg) {
+    const live = document.getElementById("sr-status");
+    if (live) live.textContent = msg;
+  }
+  // Trap Tab focus within a modal; returns release() that restores focus to opener.
+  function trapFocus(modalEl, opener) {
+    const sel = 'a[href], button:not([disabled]), textarea, input:not([disabled]), select, [tabindex]:not([tabindex="-1"])';
+    const focusables = () => Array.from(modalEl.querySelectorAll(sel)).filter(el => el.offsetParent !== null);
+    function onKey(e) {
+      if (e.key !== "Tab") return;
+      const f = focusables();
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    modalEl.addEventListener("keydown", onKey);
+    return function release() {
+      modalEl.removeEventListener("keydown", onKey);
+      if (opener && typeof opener.focus === "function") opener.focus();
+    };
+  }
 
   // ===== INLINE QUIZ =====
   function handleQuiz(quizEl, correctIdx) {
@@ -143,6 +190,7 @@
       locked = true;
       opts.forEach((x, j) => {
         x.classList.add("locked");
+        x.setAttribute("aria-disabled", "true");
         if (j === correctIdx) x.classList.add("correct");
       });
       if (finalPickIdx != null && finalPickIdx !== correctIdx) {
@@ -161,12 +209,14 @@
         status.textContent = `Answer revealed · ${tries} ${tries === 1 ? "try" : "tries"}`;
         status.className = "quiz-status miss";
       }
+      srAnnounce(status.textContent);
     }
 
     function reset() {
       tries = 0; locked = false;
       opts.forEach(x => {
         x.classList.remove("disabled","locked","correct","wrong","eliminated");
+        x.removeAttribute("aria-disabled");
       });
       quizEl.querySelectorAll(".opt-rationale").forEach(r => r.classList.remove("show"));
       if (expl) expl.classList.remove("show");
@@ -177,11 +227,12 @@
     }
 
     opts.forEach((o, i) => {
-      o.addEventListener("click", () => {
+      function choose() {
         if (locked || o.classList.contains("eliminated")) return;
         tries++;
         if (i === correctIdx) { lock(i); return; }
         o.classList.add("eliminated");
+        o.setAttribute("aria-disabled", "true");
         const rat = quizEl.querySelector(`.opt-rationale[data-for="${i}"]`);
         if (rat) {
           if (!rat.textContent) rat.textContent = "Not quite — eliminate this option and try again.";
@@ -194,8 +245,11 @@
           status.textContent = `Try again · ${remaining.length} options left`;
           status.className = "quiz-status try";
           revealBtn.style.display = "inline-block";
+          srAnnounce(`Not quite — ${remaining.length} options left.`);
         }
-      });
+      }
+      makeOptionInteractive(o, choose);
+      o.addEventListener("click", choose);
     });
 
     revealBtn.addEventListener("click", () => { if (!locked) lock(null); });
@@ -241,6 +295,20 @@
     let total = activeQuestions.length;
     let answered = 0, correct = 0;
     const missed = [];
+    let submitHintEl = null;
+    let restoring = false;
+
+    // Stable per-question identity (survives shuffles and missed-only replays).
+    allQuestions.forEach((q, i) => { if (q.dataset.origIndex == null) q.dataset.origIndex = String(i); });
+
+    // Persist in-progress answers so navigating away / reloading doesn't wipe a test.
+    const testUnit = rootEl.closest(".unit[data-id]");
+    const testId = testUnit ? testUnit.dataset.id : "t";
+    const testStateKey = CONFIG.storageKey + "-test-" + testId;
+    function loadTestState() { try { return JSON.parse(localStorage.getItem(testStateKey)) || {}; } catch { return {}; } }
+    let savedAnswers = loadTestState();
+    function persistAnswers() { try { localStorage.setItem(testStateKey, JSON.stringify(savedAnswers)); } catch {} }
+    function clearTestState() { savedAnswers = {}; try { localStorage.removeItem(testStateKey); } catch {} }
 
     const TARGET_PER_Q_SEC = 108;
     let timerStart = null;
@@ -322,6 +390,10 @@
       const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
       if (scoreFillEl) scoreFillEl.style.width = (answered / total * 100) + "%";
       if (scorePercentEl) scorePercentEl.textContent = answered > 0 ? `${correct} correct (${pct}%)` : "0 correct";
+      if (submitHintEl) {
+        const remaining = total - answered;
+        submitHintEl.textContent = remaining > 0 ? `${remaining} unanswered` : "All answered — ready to submit";
+      }
     }
 
     function unitLabel(uid) {
@@ -340,6 +412,7 @@
     function showSummary() {
       if (!summaryEl) return;
       stopTimer();
+      clearTestState();
       const scoreEl = summaryEl.querySelector(".score-display");
       const metaEl  = summaryEl.querySelector(".score-meta");
       const pct = Math.round((correct / total) * 100);
@@ -429,10 +502,12 @@
       const explanationText = expl ? expl.textContent.trim().replace(/^Why:\s*/i, "") : "";
 
       opts.forEach((o, i) => {
+        if (!o.hasAttribute("tabindex")) o.setAttribute("tabindex", "0");
+        if (!o.getAttribute("role")) o.setAttribute("role", "button");
         o.onclick = () => {
           if (o.classList.contains("disabled")) return;
-          if (!timerStarted) startTimer();
-          opts.forEach(x => x.classList.add("disabled"));
+          if (!restoring && !timerStarted) startTimer();
+          opts.forEach(x => { x.classList.add("disabled"); x.setAttribute("aria-disabled", "true"); });
           const isRight = (i === correctIdx);
           const userPickText = o.textContent.trim();
           if (isRight) {
@@ -443,13 +518,18 @@
             o.classList.add("wrong");
             opts[correctIdx].classList.add("correct");
             qEl.classList.add("answered-wrong");
-            missed.push({ num: idx + 1, topic: topicLabel, unitId, questionText, correctText, userPickText, explanationText });
+            missed.push({ num: idx + 1, origIndex: parseInt(qEl.dataset.origIndex, 10), topic: topicLabel, unitId, questionText, correctText, userPickText, explanationText });
           }
           // Reveal the explanation regardless of right/wrong outcome.
           if (expl) expl.classList.add("show");
           answered++;
+          savedAnswers[qEl.dataset.origIndex] = i;
+          persistAnswers();
           updateProgress();
-          if (answered === total) setTimeout(showSummary, 600);
+          if (!restoring) srAnnounce(isRight ? "Correct." : `Incorrect. Correct answer: ${correctText}`);
+        };
+        o.onkeydown = e => {
+          if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); o.onclick(); }
         };
       });
     }
@@ -458,6 +538,7 @@
       qEl.classList.remove("answered-correct", "answered-wrong");
       qEl.querySelectorAll(".quiz-options li").forEach(li => {
         li.classList.remove("correct","wrong","disabled","eliminated","locked");
+        li.removeAttribute("aria-disabled");
       });
       const e = qEl.querySelector(".quiz-explanation"); if (e) e.classList.remove("show");
       if (newNumber != null) {
@@ -470,8 +551,10 @@
       const container = allQuestions[0].parentElement;
       let pool = allQuestions.slice();
       if (missedOnly) {
-        const missedNums = new Set(missed.map(m => m.num));
-        pool = allQuestions.filter((_, i) => missedNums.has(i + 1));
+        // Filter on the stable origIndex, not the current position, so chained
+        // "replay missed" passes keep selecting the right questions.
+        const missedSet = new Set(missed.map(m => m.origIndex));
+        pool = allQuestions.filter(q => missedSet.has(parseInt(q.dataset.origIndex, 10)));
       } else if (flaggedOnly) {
         pool = allQuestions.filter(q => q.classList.contains("flagged"));
       }
@@ -490,6 +573,7 @@
       activeQuestions = pool;
       total = pool.length;
       answered = 0; correct = 0; missed.length = 0;
+      clearTestState();
       pool.forEach((q, i) => attachQuestionHandlers(q, i));
       if (summaryEl) summaryEl.classList.remove("show");
       resetTimer();
@@ -497,7 +581,44 @@
       rootEl.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
+    // Explicit submit (replaces the old accidental auto-grade on last answer).
+    let submitBar = rootEl.querySelector(".test-submit-bar");
+    if (!submitBar) {
+      submitBar = document.createElement("div");
+      submitBar.className = "test-submit-bar";
+      submitBar.innerHTML = '<button type="button" class="btn test-submit-btn">Submit test for grading</button> <span class="test-submit-hint"></span>';
+      if (summaryEl) rootEl.insertBefore(submitBar, summaryEl);
+      else rootEl.appendChild(submitBar);
+    }
+    submitHintEl = submitBar.querySelector(".test-submit-hint");
+    const submitBtn = submitBar.querySelector(".test-submit-btn");
+    if (submitBtn) submitBtn.addEventListener("click", () => {
+      const remaining = total - answered;
+      if (remaining > 0 && !confirm(`${remaining} question(s) still unanswered. Submit and grade anyway?`)) return;
+      showSummary();
+    });
+
+    // Replay answers saved from a previous (un-submitted) sitting. We re-click
+    // each saved option under the `restoring` guard (so the timer and announcer
+    // stay quiet); this faithfully rebuilds the correct/missed counts. Answers
+    // map by the stable origIndex onto the original DOM order, so a reload after a
+    // shuffle shows the original order with the user's picks reapplied — intended.
+    function restoreAnswers() {
+      const entries = Object.entries(savedAnswers || {});
+      if (!entries.length) return;
+      restoring = true;
+      entries.forEach(([oi, chosen]) => {
+        const qEl = allQuestions.find(q => q.dataset.origIndex === String(oi));
+        if (!qEl) return;
+        if (qEl.classList.contains("answered-correct") || qEl.classList.contains("answered-wrong")) return;
+        const opts = qEl.querySelectorAll(".quiz-options li");
+        if (opts[chosen]) opts[chosen].click();
+      });
+      restoring = false;
+    }
+
     allQuestions.forEach((qEl, idx) => attachQuestionHandlers(qEl, idx));
+    restoreAnswers();
     updateProgress();
     const tTar = progressEl && progressEl.querySelector(".t-target");
     if (tTar) tTar.textContent = fmtTime(targetSec());
@@ -528,13 +649,18 @@
         c.classList.add("dragging");
       });
       c.addEventListener("dragend", () => c.classList.remove("dragging"));
-      c.addEventListener("click", () => {
+      c.tabIndex = 0;
+      c.setAttribute("role", "button");
+      // Click / tap / Enter / Space cycle tray → bucket1 → bucket2 → tray.
+      // This is the touch- and keyboard-accessible path (HTML5 drag is mouse-only).
+      function cycle() {
         const groups = Array.from(buckets).map(b => b.dataset.group);
         const cur = c.parentElement.dataset.group || null;
         let nextIdx = groups.indexOf(cur) + 1;
         if (nextIdx >= groups.length) {
           tray.appendChild(c);
           c.classList.remove("in-bucket", "correct", "incorrect");
+          updateCounts();
           return;
         }
         const nextBucket = rootEl.querySelector(`.bucket[data-group="${groups[nextIdx]}"]`);
@@ -542,6 +668,10 @@
         c.classList.add("in-bucket");
         c.classList.remove("correct", "incorrect");
         updateCounts();
+      }
+      c.addEventListener("click", cycle);
+      c.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); cycle(); }
       });
       tray.appendChild(c);
     });
@@ -807,13 +937,17 @@
   function initKeyboardShortcuts() {
     const helpEl = document.getElementById("kbd-help");
     if (!helpEl) return;
-    document.getElementById("show-shortcuts").addEventListener("click", () => helpEl.classList.add("show"));
-    document.getElementById("kbd-help-close").addEventListener("click", () => helpEl.classList.remove("show"));
-    helpEl.addEventListener("click", e => { if (e.target === helpEl) helpEl.classList.remove("show"); });
+    const showShortcutsBtn = document.getElementById("show-shortcuts");
+    let helpRelease = null;
+    function openHelp() { helpEl.classList.add("show"); helpRelease = trapFocus(helpEl, showShortcutsBtn); }
+    function closeHelp() { helpEl.classList.remove("show"); if (helpRelease) { helpRelease(); helpRelease = null; } }
+    if (showShortcutsBtn) showShortcutsBtn.addEventListener("click", openHelp);
+    document.getElementById("kbd-help-close").addEventListener("click", closeHelp);
+    helpEl.addEventListener("click", e => { if (e.target === helpEl) closeHelp(); });
 
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") {
-        helpEl.classList.remove("show");
+        closeHelp();
         document.getElementById("formula-panel")?.classList.remove("open");
         const annPanel = document.getElementById("ann-panel");
         if (annPanel && annPanel.classList.contains("open")) annPanel.classList.remove("open");
@@ -830,7 +964,7 @@
           const search = document.getElementById("nav-search");
           if (search) { search.focus(); search.select(); } break;
         case "?":
-          helpEl.classList.toggle("show"); break;
+          if (helpEl.classList.contains("show")) closeHelp(); else openHelp(); break;
         case "f": case "F": {
           const fp = document.getElementById("formula-panel");
           if (fp) fp.classList.toggle("open"); break;
@@ -860,6 +994,8 @@
     const closeBtn = document.getElementById("formula-panel-close");
     if (!list || !panel) return;
     const data = CONFIG.formulaReference || [];
+    // No formulas for this section → hide the ƒx affordance entirely.
+    if (!data.length) { if (toggle) toggle.style.display = "none"; return; }
 
     function render(filter = "") {
       const q = filter.toLowerCase().trim();
@@ -1096,6 +1232,9 @@
     }
     let store = load();
     const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" })[c]);
+    }
 
     const UNIT_LABELS = {};
     document.querySelectorAll('.unit[data-id]').forEach(el => {
@@ -1270,7 +1409,7 @@
       currentSel = null; activeHlId = null;
     }
 
-    document.addEventListener('mouseup', e => {
+    function onSelectionEnd(e) {
       requestAnimationFrame(() => {
         if (clickedMark) { clickedMark = false; return; }
         if (toolbar.contains(e.target)) return;
@@ -1289,7 +1428,10 @@
         const y = rect.top + window.scrollY;
         showToolbar(x, y, selData, null);
       });
-    });
+    }
+    // Bind both mouse and touch so text-selection highlighting works on phones.
+    document.addEventListener('mouseup', onSelectionEnd);
+    document.addEventListener('touchend', onSelectionEnd);
     document.addEventListener('click', e => {
       const mark = e.target.closest('mark.ann-hl');
       if (mark) {
@@ -1381,18 +1523,22 @@
     const noteSave = noteModal && noteModal.querySelector('.ann-note-save');
     const noteCancel = noteModal && noteModal.querySelector('.ann-note-cancel');
 
+    let noteRelease = null;
     function openNoteModal(hlId) {
       const hl = store.highlights.find(h => h.id === hlId);
       if (!hl) return;
       pendingNoteHlId = hlId;
       notePreview.textContent = hl.text || '(selection)';
       noteInput.value = hl.note || '';
+      const opener = document.activeElement;
       noteModal.classList.add('show');
       setTimeout(() => noteInput.focus(), 50);
+      noteRelease = trapFocus(noteModal, opener);
     }
     function closeNoteModal() {
       noteModal.classList.remove('show');
       pendingNoteHlId = null;
+      if (noteRelease) { noteRelease(); noteRelease = null; }
     }
     if (noteSave) noteSave.addEventListener('click', () => {
       const hl = store.highlights.find(h => h.id === pendingNoteHlId);
@@ -1404,6 +1550,7 @@
     });
     if (noteCancel) noteCancel.addEventListener('click', closeNoteModal);
     if (noteModal) noteModal.addEventListener('click', e => { if (e.target === noteModal) closeNoteModal(); });
+    if (noteModal) noteModal.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); closeNoteModal(); } });
 
     // Side panel
     const panel = document.getElementById('ann-panel');
@@ -1466,7 +1613,7 @@
               <div class="hl-item-bar ${h.color}"></div>
               <div class="hl-item-body">
                 <div class="hl-unit-label">Unit ${h.articleId} · ${UNIT_LABELS[h.articleId] || ''}</div>
-                <div class="hl-text-preview">${(h.text || '').slice(0, 200)}</div>
+                <div class="hl-text-preview">${esc((h.text || '').slice(0, 200))}</div>
               </div>
               <div class="hl-item-footer">
                 <button class="hl-action-btn" data-act="note" data-id="${h.id}">+ Note</button>
@@ -1486,8 +1633,8 @@
               <div class="hl-item-bar ${h.color}"></div>
               <div class="hl-item-body">
                 <div class="hl-unit-label">Unit ${h.articleId} · ${UNIT_LABELS[h.articleId] || ''}</div>
-                <div class="hl-text-preview">${(h.text || '').slice(0, 160)}</div>
-                <div class="hl-note-text">${h.note}</div>
+                <div class="hl-text-preview">${esc((h.text || '').slice(0, 160))}</div>
+                <div class="hl-note-text">${esc(h.note)}</div>
               </div>
               <div class="hl-item-footer">
                 <button class="hl-action-btn" data-act="note" data-id="${h.id}">Edit</button>
@@ -1586,13 +1733,171 @@
     });
   }
 
+  // ===== SCREEN-READER LIVE REGION =====
+  function ensureLiveRegion() {
+    if (document.getElementById("sr-status")) return;
+    const live = document.createElement("div");
+    live.id = "sr-status";
+    live.className = "sr-only";
+    live.setAttribute("aria-live", "polite");
+    live.setAttribute("aria-atomic", "true");
+    document.body.appendChild(live);
+  }
+
+  // ===== MOBILE SIDEBAR =====
+  // On narrow screens the sidebar stacks above content; a hamburger collapses
+  // the nav so the unit content is reachable without scrolling the whole menu.
+  function initMobileSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    if (!sidebar) return;
+    let toggle = document.getElementById("sidebar-toggle");
+    if (!toggle) {
+      toggle = document.createElement("button");
+      toggle.id = "sidebar-toggle";
+      toggle.type = "button";
+      toggle.setAttribute("aria-label", "Toggle section menu");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-controls", "nav");
+      toggle.innerHTML = '<span class="sb-bars" aria-hidden="true"></span><span class="sb-label">Menu</span>';
+      document.body.appendChild(toggle);
+    }
+    toggle.addEventListener("click", () => {
+      const open = document.body.classList.toggle("nav-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // ===== JOURNAL-ENTRY BUILDER =====
+  // <div class="je-builder" data-prompt="…"
+  //      data-accounts='["Cash","Service Revenue", …]'
+  //      data-solution='[{"account":"Cash","side":"debit","amount":1000}, …]'></div>
+  // Renders account/side/amount rows, a live debit=credit balance check, and
+  // grades against the model entry (order-independent). Fully keyboard-operable.
+  function setupJournalBuilder(rootEl) {
+    let accounts, solution;
+    try {
+      accounts = JSON.parse(rootEl.dataset.accounts || "[]");
+      solution = JSON.parse(rootEl.dataset.solution || "[]");
+    } catch (e) { console.error("Bad je-builder data", e); return; }
+    if (!accounts.length || !solution.length) return;
+    const prompt = rootEl.dataset.prompt || "Record the transaction.";
+    const startRows = Math.max(2, solution.length);
+
+    function acctOptions() {
+      return '<option value="">— account —</option>' +
+        accounts.map(a => `<option value="${esc(a)}">${esc(a)}</option>`).join("");
+    }
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" })[c]);
+    }
+    function rowHtml() {
+      return `<div class="je-row">
+        <select class="je-acct" aria-label="Account">${acctOptions()}</select>
+        <select class="je-side" aria-label="Debit or credit"><option value="debit">Debit</option><option value="credit">Credit</option></select>
+        <input class="je-amt" type="number" min="0" step="0.01" placeholder="Amount" aria-label="Amount" />
+        <button type="button" class="je-del" aria-label="Remove line">×</button>
+      </div>`;
+    }
+    rootEl.innerHTML = `
+      <div class="je-tag">Journal entry</div>
+      <p class="je-prompt">${esc(prompt)}</p>
+      <div class="je-rows">${Array.from({ length: startRows }).map(rowHtml).join("")}</div>
+      <div class="je-actions">
+        <button type="button" class="btn ghost small je-add">+ Add line</button>
+        <button type="button" class="btn small je-check">Check entry</button>
+        <button type="button" class="btn ghost small je-reset">Reset</button>
+      </div>
+      <div class="je-balance" aria-live="polite"></div>
+      <div class="je-feedback" style="display:none"></div>`;
+
+    const rowsEl = rootEl.querySelector(".je-rows");
+    const balanceEl = rootEl.querySelector(".je-balance");
+    const feedbackEl = rootEl.querySelector(".je-feedback");
+
+    function readRows() {
+      return Array.from(rowsEl.querySelectorAll(".je-row")).map(r => ({
+        account: r.querySelector(".je-acct").value,
+        side: r.querySelector(".je-side").value,
+        amount: parseFloat(r.querySelector(".je-amt").value) || 0
+      })).filter(x => x.account && x.amount > 0);
+    }
+    function fmt(n) { return "$" + n.toLocaleString(undefined, { maximumFractionDigits: 2 }); }
+    function updateBalance() {
+      const rows = readRows();
+      const dr = rows.filter(r => r.side === "debit").reduce((s, r) => s + r.amount, 0);
+      const cr = rows.filter(r => r.side === "credit").reduce((s, r) => s + r.amount, 0);
+      const bal = Math.abs(dr - cr) < 0.005 && (dr > 0);
+      balanceEl.innerHTML = `Debits ${fmt(dr)} · Credits ${fmt(cr)} — <strong class="${bal ? "je-bal-ok" : "je-bal-no"}">${bal ? "balanced" : "out of balance"}</strong>`;
+    }
+    function wireRow(r) {
+      r.querySelectorAll("select, input").forEach(el => el.addEventListener("input", updateBalance));
+      const del = r.querySelector(".je-del");
+      if (del) del.addEventListener("click", () => {
+        if (rowsEl.querySelectorAll(".je-row").length <= 2) return;
+        r.remove(); updateBalance();
+      });
+    }
+    rowsEl.querySelectorAll(".je-row").forEach(wireRow);
+
+    rootEl.querySelector(".je-add").addEventListener("click", () => {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = rowHtml();
+      const r = tmp.firstElementChild;
+      rowsEl.appendChild(r); wireRow(r);
+    });
+    rootEl.querySelector(".je-reset").addEventListener("click", () => {
+      rowsEl.querySelectorAll(".je-row").forEach((r, i) => {
+        if (i >= startRows) { r.remove(); return; }
+        r.querySelector(".je-acct").value = "";
+        r.querySelector(".je-side").value = "debit";
+        r.querySelector(".je-amt").value = "";
+      });
+      feedbackEl.style.display = "none";
+      updateBalance();
+    });
+    rootEl.querySelector(".je-check").addEventListener("click", () => {
+      const rows = readRows();
+      const dr = rows.filter(r => r.side === "debit").reduce((s, r) => s + r.amount, 0);
+      const cr = rows.filter(r => r.side === "credit").reduce((s, r) => s + r.amount, 0);
+      feedbackEl.style.display = "block";
+      if (rows.length < 2) {
+        feedbackEl.className = "je-feedback miss";
+        feedbackEl.textContent = "Enter at least one debit and one credit line.";
+        return;
+      }
+      if (Math.abs(dr - cr) >= 0.005) {
+        feedbackEl.className = "je-feedback miss";
+        feedbackEl.innerHTML = `Not balanced — debits (${fmt(dr)}) must equal credits (${fmt(cr)}).`;
+        srAnnounce("Entry is out of balance.");
+        return;
+      }
+      const norm = arr => arr.map(x => `${x.account}|${x.side}|${Math.round(x.amount * 100)}`).sort();
+      const got = norm(rows), want = norm(solution);
+      const match = got.length === want.length && got.every((v, i) => v === want[i]);
+      if (match) {
+        feedbackEl.className = "je-feedback ok";
+        feedbackEl.innerHTML = "✓ Correct — balanced and matches the model entry.";
+        srAnnounce("Correct journal entry.");
+      } else {
+        const model = solution.map(s => `${s.side === "debit" ? "Dr" : "&nbsp;&nbsp;&nbsp;Cr"} ${esc(s.account)} ${fmt(s.amount)}`).join("<br/>");
+        feedbackEl.className = "je-feedback miss";
+        feedbackEl.innerHTML = `It balances, but doesn't match the model entry. Model answer:<div class="je-model">${model}</div>`;
+        srAnnounce("Balances, but does not match the model entry.");
+      }
+    });
+    updateBalance();
+  }
+
   // ===== INITIALIZE EVERYTHING =====
   function initAll() {
     progress = loadProgress();
+    ensureLiveRegion();
     buildNav();
+    initMobileSidebar();
     document.querySelectorAll(".quiz[data-correct]").forEach(q => handleQuiz(q, parseInt(q.dataset.correct, 10)));
     document.querySelectorAll(".test").forEach(t => setupTest(t));
     document.querySelectorAll(".bucket-sort").forEach(b => setupBucketSort(b));
+    document.querySelectorAll(".je-builder").forEach(j => setupJournalBuilder(j));
     document.querySelectorAll("[id^='mark-done-']").forEach(btn => {
       const id = parseInt(btn.id.replace("mark-done-", ""), 10);
       setMarkDoneButton(btn, progress.done.includes(id));
