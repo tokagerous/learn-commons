@@ -17,7 +17,7 @@
   <div class="brand"><span class="ornament"></span>FMAA · A</div>
   <div class="brand-sub">Foundations & the accounting cycle · A visual field guide</div>
   <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-  <div class="progress-text" id="progress-text">0 of 20 units complete</div>
+  <div class="progress-text" id="progress-text">0 of 21 units complete</div>
   <div class="sidebar-search" style="margin-top:18px">
     <input type="text" id="nav-search" placeholder="Search units…" autocomplete="off" spellcheck="false" />
     <button class="clear-btn" id="nav-search-clear" title="Clear" aria-label="Clear search">×</button>
@@ -97,11 +97,11 @@
 
 <article class="unit active" data-id="0">
   <div class="cover">
-    <span class="unit-eyebrow">FMAA · Section A · ~30% of exam content</span>
+    <span class="unit-eyebrow">FMAA · Section A · ~25% of exam content</span>
     <h1 class="cover-title">Foundations &<br/>the Accounting Cycle.</h1>
     <p class="cover-sub">The mechanics of bookkeeping — equation, journals, ledgers, trial balances, adjusting and closing — followed by the financial statements that result, and the short-term cash, receivables, payables, and inventory decisions that keep an entity solvent. This is the largest section: master it and the others slot in on top.</p>
     <div class="cover-meta">
-      <span>Units<strong>20 covered</strong></span>
+      <span>Units<strong>21 covered</strong></span>
       <span>Practice questions<strong>~140</strong></span>
       <span>Sub-sections<strong>A.1 — A.5</strong></span>
       <span>Tests<strong>3 + comprehensive</strong></span>
@@ -109,9 +109,10 @@
 
     <h2 style="margin-top:48px"><span class="marker">A.1</span>The Language of Accounting</h2>
     <div class="toc-card">
-      <h3>A.1 — Foundations (Unit 1)</h3>
+      <h3>A.1 — Foundations (Units 1, 21)</h3>
       <ol>
         <li><button onclick="goTo(1)">The language of accounting — entity, period, accrual basis, GAAP and the FASB</button></li>
+        <li><button onclick="goTo(21)">Types of businesses — legal forms & operating types</button></li>
       </ol>
     </div>
 
@@ -299,6 +300,132 @@
   <button class="btn done-btn" id="mark-done-1">Mark complete</button>
   <div class="unit-footer">
     <button class="nav-link" onclick="goTo(0)"><span class="dir">← Cover</span><span class="ttl">Section A overview</span></button>
+    <button class="nav-link next" onclick="goTo(21)"><span class="dir">Next →</span><span class="ttl">Types of businesses</span></button>
+  </div>
+</article>
+
+<article class="unit" data-id="21">
+  <span class="unit-eyebrow">Unit 21 · A.1 · The Language of Accounting</span>
+  <h1>Types of Businesses</h1>
+  <p class="unit-lead">A business can be classified two ways — by its legal form of ownership and by what it actually does — and both choices change how the books look.</p>
+
+  <h2><span class="marker">§21.1</span>Legal forms of organization</h2>
+  <p>Every business adopts a legal structure that determines who owns it, who is liable for its debts, and how the equity section of the balance sheet is labeled.</p>
+  <table class="fin-table">
+    <thead><tr><th>Form</th><th>Owners</th><th>Owner liability</th><th>Equity section uses…</th></tr></thead>
+    <tbody>
+      <tr><td>Sole proprietorship</td><td>One owner</td><td>Unlimited (owner personally liable)</td><td>Owner's Capital & Owner's Drawings</td></tr>
+      <tr><td>Partnership</td><td>Two or more partners</td><td>Unlimited (general partners)</td><td>Partners' Capital & Partners' Drawings</td></tr>
+      <tr><td>Corporation</td><td>Shareholders</td><td>Limited to investment</td><td>Common Stock + Additional Paid-in Capital + Retained Earnings</td></tr>
+      <tr><td>Limited liability company (LLC)</td><td>Members</td><td>Limited to investment</td><td>Members' equity (often capital-style, like a partnership)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="callout-label">Reconciling the equity labels</span>
+    <p style="margin-bottom:0">Unincorporated forms (sole proprietorships and partnerships) track owner investment and withdrawals in <strong>Capital</strong> and <strong>Drawings</strong> accounts. A corporation instead splits paid-in capital into <strong>Common Stock</strong> plus <strong>Additional Paid-in Capital (APIC)</strong> and keeps accumulated profits in <strong>Retained Earnings</strong>. That is why earlier units sometimes credit "Common Stock (or Owner's Capital)" — the wording simply follows whichever legal form is being illustrated.</p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">In the equity section of a <strong>sole proprietorship</strong>, owner investments and withdrawals are tracked in which accounts?</p>
+    <ul class="quiz-options">
+      <li>Owner's Capital and Owner's Drawings</li>
+      <li data-rationale="Common Stock and APIC appear in a corporation's equity, not a sole proprietorship's.">Common Stock and Additional Paid-in Capital</li>
+      <li data-rationale="Retained Earnings and Dividends are corporate accounts; a proprietorship uses Capital and Drawings.">Retained Earnings and Dividends</li>
+      <li data-rationale="Partners' Capital is used by a partnership with two or more owners, not a single-owner proprietorship.">Partners' Capital and Partners' Drawings</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> An unincorporated single-owner business records the owner's investment in Owner's Capital and withdrawals in Owner's Drawings; it has no stock accounts.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">Which set of accounts makes up the equity (stockholders' equity) section of a <strong>corporation</strong>?</p>
+    <ul class="quiz-options">
+      <li data-rationale="Owner's Capital and Drawings belong to a proprietorship, not a corporation.">Owner's Capital and Owner's Drawings</li>
+      <li data-rationale="Partners' Capital belongs to a partnership.">Partners' Capital accounts only</li>
+      <li>Common Stock, Additional Paid-in Capital, and Retained Earnings</li>
+      <li data-rationale="Bonds payable is a long-term liability, not part of equity.">Common Stock, Bonds Payable, and Retained Earnings</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A corporation reports paid-in capital as Common Stock plus Additional Paid-in Capital, and accumulated, undistributed profit as Retained Earnings.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">A key advantage of organizing as a <strong>limited liability company (LLC)</strong> is that:</p>
+    <ul class="quiz-options">
+      <li data-rationale="Unlimited personal liability describes sole proprietorships and general partners — the opposite of an LLC's protection.">Its members have unlimited personal liability for business debts</li>
+      <li>Its members have limited liability, like a corporation, while it can often be taxed like a partnership</li>
+      <li data-rationale="An LLC is a distinct legal form; it is not required to issue common stock the way a corporation does.">It must issue common stock and report Additional Paid-in Capital</li>
+      <li data-rationale="An LLC is a separate legal entity and may have one or many members, unlike a sole proprietorship.">It can have only one owner and no separate legal existence</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> An LLC shields its members' personal assets (limited liability, like a corporation) while typically keeping pass-through, partnership-style taxation and capital-style equity accounts.</div>
+  </div>
+
+  <h2><span class="marker">§21.2</span>Operating types: service, merchandising, manufacturing</h2>
+  <p>Apart from legal form, a business is classified by what it sells. This determines whether it carries inventory and how — or whether — it computes cost of goods sold (COGS).</p>
+  <table class="fin-table">
+    <thead><tr><th>Type</th><th>What it sells</th><th>Inventory accounts</th><th>Cost of goods sold</th></tr></thead>
+    <tbody>
+      <tr><td>Service</td><td>Time, expertise, labor</td><td>None</td><td>None — no goods to sell</td></tr>
+      <tr><td>Merchandising</td><td>Goods bought ready to resell</td><td>One: Merchandise Inventory</td><td>Beg. Inventory + Purchases − End. Inventory</td></tr>
+      <tr><td>Manufacturing</td><td>Goods it makes itself</td><td>Three: Raw Materials, Work in Process, Finished Goods</td><td>Built from Cost of Goods Manufactured (COGM)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout formula">
+    <span class="callout-label">Two COGS formulas</span>
+    <div class="formula-box" style="font-size:13.5px; text-align:left;">
+      Merchandiser COGS = Beginning Inventory + Purchases − Ending Inventory<br/>
+      Manufacturer COGS = Beginning Finished Goods + Cost of Goods Manufactured − Ending Finished Goods
+    </div>
+  </div>
+  <p>A manufacturer first computes the <strong>cost of goods manufactured</strong> — the cost of units finished during the period as raw materials, direct labor, and overhead flow through Work in Process — and then uses it exactly the way a merchandiser uses purchases.</p>
+
+  <div class="callout analogy">
+    <span class="callout-label">Analogy</span>
+    <p style="margin-bottom:0">A merchandiser buys finished sandwiches to resell; a manufacturer buys bread, meat, and cheese (raw materials), assembles them (work in process), and stocks the finished sandwiches (finished goods). A service business just gives advice — nothing sits on the shelf.</p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 4</h3>
+    <p class="quiz-prompt">Which type of business carries <strong>no inventory and reports no cost of goods sold</strong>?</p>
+    <ul class="quiz-options">
+      <li data-rationale="A merchandiser holds Merchandise Inventory and reports COGS.">A merchandising business</li>
+      <li>A service business</li>
+      <li data-rationale="A manufacturer holds three inventory accounts and reports COGS.">A manufacturing business</li>
+      <li data-rationale="A retailer is a merchandiser and does carry inventory and COGS.">A retailer</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A service business sells expertise or labor, not goods, so it has no inventory and no cost of goods sold.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 5</h3>
+    <p class="quiz-prompt">A merchandiser had beginning inventory of $10,000, purchases of $60,000, and ending inventory of $15,000. What is cost of goods sold?</p>
+    <ul class="quiz-options">
+      <li data-rationale="$85,000 adds ending inventory instead of subtracting it ($10,000 + $60,000 + $15,000).">$85,000</li>
+      <li data-rationale="$70,000 ignores ending inventory entirely ($10,000 + $60,000).">$70,000</li>
+      <li>$55,000</li>
+      <li data-rationale="$65,000 subtracts beginning inventory instead of ending inventory.">$65,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> COGS = Beginning Inventory + Purchases − Ending Inventory = $10,000 + $60,000 − $15,000 = $55,000.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 6</h3>
+    <p class="quiz-prompt">Which three inventory accounts are unique to a <strong>manufacturing</strong> business?</p>
+    <ul class="quiz-options">
+      <li data-rationale="A merchandiser uses a single Merchandise Inventory account, not three.">Merchandise Inventory, Supplies, and Prepaids</li>
+      <li data-rationale="Cash and receivables are current assets but not inventory accounts.">Cash, Accounts Receivable, and Inventory</li>
+      <li data-rationale="COGS and COGM are cost flows/results, not inventory accounts on the balance sheet.">Cost of Goods Sold, COGM, and Purchases</li>
+      <li>Raw Materials, Work in Process, and Finished Goods</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A manufacturer tracks inventory in three stages — Raw Materials, Work in Process, and Finished Goods — as costs flow from materials through production to completed units.</div>
+  </div>
+
+  <button class="btn done-btn" id="mark-done-21">Mark complete</button>
+  <div class="unit-footer">
+    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Language of Accounting</span></button>
     <button class="nav-link next" onclick="goTo(2)"><span class="dir">Next →</span><span class="ttl">Accounting equation & double-entry</span></button>
   </div>
 </article>
@@ -404,7 +531,7 @@
 
   <button class="btn done-btn" id="mark-done-2">Mark complete</button>
   <div class="unit-footer">
-    <button class="nav-link" onclick="goTo(1)"><span class="dir">← Previous</span><span class="ttl">Language of Accounting</span></button>
+    <button class="nav-link" onclick="goTo(21)"><span class="dir">← Previous</span><span class="ttl">Types of businesses</span></button>
     <button class="nav-link next" onclick="goTo(3)"><span class="dir">Next →</span><span class="ttl">Source documents & analyzing transactions</span></button>
   </div>
 </article>
@@ -1718,7 +1845,56 @@ Ending RE (Dec 31)                  <strong>$33,375</strong>
   </pre>
   <p>Ending RE flows to the balance sheet's equity section.</p>
 
-  <h2><span class="marker">§14.4</span>Balance sheet — elements and classifications</h2>
+  <h2><span class="marker">§14.4</span>The statement of changes in equity</h2>
+  <p>The statement of retained earnings explains only one equity account. A fuller <strong>statement of changes in equity</strong> shows the beginning-to-ending movement in <em>every</em> equity column — common stock, additional paid-in capital (APIC), retained earnings, and treasury stock — so readers see share issuances, dividends, net income, and stock buybacks in one place.</p>
+  <table class="fin-table">
+    <thead><tr><th>&nbsp;</th><th>Common Stock</th><th>APIC</th><th>Retained Earnings</th><th>Treasury Stock</th><th>Total</th></tr></thead>
+    <tbody>
+      <tr><td>Beginning balance</td><td>$100,000</td><td>$40,000</td><td>$80,000</td><td>($10,000)</td><td>$210,000</td></tr>
+      <tr><td>+ Net income</td><td>—</td><td>—</td><td>$30,000</td><td>—</td><td>$30,000</td></tr>
+      <tr><td>− Dividends</td><td>—</td><td>—</td><td>($12,000)</td><td>—</td><td>($12,000)</td></tr>
+      <tr><td>+ Stock issued</td><td>$20,000</td><td>$15,000</td><td>—</td><td>—</td><td>$35,000</td></tr>
+      <tr><td>− Treasury stock purchased</td><td>—</td><td>—</td><td>—</td><td>($8,000)</td><td>($8,000)</td></tr>
+      <tr><th>Ending balance</th><th>$120,000</th><th>$55,000</th><th>$98,000</th><th>($18,000)</th><th>$255,000</th></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <span class="callout-label">Treasury stock is contra-equity</span>
+    <p style="margin-bottom:0"><strong>Treasury stock</strong> — a company's own shares it has bought back — carries a debit balance and is <strong>subtracted</strong> in arriving at total equity.</p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Equity 1</h3>
+    <p class="quiz-prompt">In a statement of changes in equity, how is the <strong>treasury stock</strong> column treated when computing total stockholders' equity?</p>
+    <ul class="quiz-options">
+      <li data-rationale="Treasury stock is contra-equity; it reduces equity rather than adding to it.">Added, because it is part of paid-in capital</li>
+      <li>Subtracted, because it is a contra-equity account</li>
+      <li data-rationale="Treasury stock affects the equity section, not the income statement.">Reported as an expense on the income statement</li>
+      <li data-rationale="Treasury stock is the company's own repurchased shares — an equity item, not a liability.">Reported as a long-term liability</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Treasury stock is a contra-equity account with a debit balance, so it is subtracted from the other equity components to reach total stockholders' equity.</div>
+  </div>
+
+  <h2><span class="marker">§14.5</span>Comprehensive income &amp; OCI</h2>
+  <p>A few gains and losses are required to bypass net income and flow directly into equity. These items make up <strong>other comprehensive income (OCI)</strong>; examples include certain foreign-currency translation adjustments and unrealized gains or losses on some investments.</p>
+  <div class="callout formula">
+    <div class="formula-box" style="font-size:14px;">Comprehensive Income = Net Income + Other Comprehensive Income</div>
+  </div>
+  <p>OCI accumulates in a separate equity line called <strong>accumulated other comprehensive income (AOCI)</strong>, sitting alongside retained earnings — so total comprehensive income captures changes in equity from non-owner sources that net income alone misses.</p>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Equity 2</h3>
+    <p class="quiz-prompt">Items of <strong>other comprehensive income (OCI)</strong> are best described as:</p>
+    <ul class="quiz-options">
+      <li>Gains and losses that bypass net income and accumulate in equity (AOCI)</li>
+      <li data-rationale="OCI items are specifically those excluded from net income — that is what makes them 'other' comprehensive income.">Ordinary revenues that are included in net income</li>
+      <li data-rationale="Dividends are a distribution to owners, not a component of comprehensive income.">Dividends paid to shareholders</li>
+      <li data-rationale="OCI is an equity/income concept, not a category of operating cash flow.">Cash flows from operating activities</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> OCI captures specific gains/losses (e.g., certain translation adjustments and unrealized investment gains) that GAAP requires to skip net income and accumulate in AOCI within equity. Comprehensive income = net income + OCI.</div>
+  </div>
+
+  <h2><span class="marker">§14.6</span>Balance sheet — elements and classifications</h2>
   <p><strong>Classified balance sheet</strong> separates current from long-term items:</p>
   <table class="fin-table">
     <thead><tr><th>Section</th><th>Examples</th></tr></thead>
@@ -1765,7 +1941,7 @@ LIABILITIES & EQUITY
   TOTAL LIABILITIES & EQUITY                     <strong>$65,400</strong>
   </pre>
 
-  <h2><span class="marker">§14.5</span>How the four statements link</h2>
+  <h2><span class="marker">§14.7</span>How the four statements link</h2>
   <ul class="plain">
     <li>Net income from the income statement → flows into retained earnings.</li>
     <li>Ending RE from the SRE → equity section of the balance sheet.</li>
@@ -1773,7 +1949,7 @@ LIABILITIES & EQUITY
     <li>Adjusting entries → reflected on every statement they touch.</li>
   </ul>
 
-  <h2><span class="marker">§14.6</span>Order of preparation & presentation</h2>
+  <h2><span class="marker">§14.8</span>Order of preparation & presentation</h2>
   <ol>
     <li>Income statement (need NI first)</li>
     <li>Statement of retained earnings (uses NI)</li>
@@ -1803,10 +1979,10 @@ LIABILITIES & EQUITY
     <div class="quiz-explanation"><strong>Why:</strong> The 12-month/operating-cycle rule defines current items on the classified balance sheet.</div>
   </div>
 
-  <div class="quiz" data-correct="1">
+  <div class="quiz" data-correct="0">
     <h3>Check your understanding — Practice 4</h3>
     <p class="quiz-prompt">Beginning RE $20,000; Net Income $8,000; Dividends $3,000. Ending RE is:</p>
-    <ul class="quiz-options"><li>$25,000</li><li>$25,000 — same as above</li><li>$11,000</li><li>$31,000</li></ul>
+    <ul class="quiz-options"><li>$25,000</li><li data-rationale="That ignores the $3,000 dividends. Dividends reduce retained earnings, so they must be subtracted: $28,000 − $3,000 = $25,000.">$28,000</li><li>$11,000</li><li>$31,000</li></ul>
     <div class="quiz-explanation"><strong>Why:</strong> $20,000 + $8,000 − $3,000 = <strong>$25,000</strong>.</div>
   </div>
 
@@ -1972,6 +2148,7 @@ Cash at end of year                            <strong>$40,300</strong>  (matche
   </ol>
 
   <h2><span class="marker">§16.2</span>The COSO framework — five components</h2>
+  <p>The authoritative model is the <strong>2013 COSO Internal Control–Integrated Framework</strong>. It defines five interrelated components and, in the 2013 update, organizes them into <strong>17 principles</strong> distributed across the five.</p>
   <table class="fin-table">
     <thead><tr><th>Component</th><th>What it covers</th></tr></thead>
     <tbody>
@@ -1983,6 +2160,22 @@ Cash at end of year                            <strong>$40,300</strong>  (matche
     </tbody>
   </table>
   <p>Mnemonic: <strong>"CRIME"</strong> — Control environment, Risk assessment, Information & communication, Monitoring, control activitiEs.</p>
+  <div class="callout">
+    <span class="callout-label">5 components, 17 principles</span>
+    <p style="margin-bottom:0">The five components hold <strong>17 principles</strong> in total. Effective internal control requires every component and every relevant principle to be present and functioning together.</p>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">The widely used framework that organizes internal control into five components and 17 principles is the:</p>
+    <ul class="quiz-options">
+      <li data-rationale="GAAP governs financial-reporting standards, not the internal-control framework.">GAAP conceptual framework</li>
+      <li data-rationale="Sarbanes-Oxley requires controls but is legislation, not the component/principle framework itself.">Sarbanes-Oxley Act</li>
+      <li>2013 COSO Internal Control–Integrated Framework</li>
+      <li data-rationale="The COSO ERM framework addresses enterprise risk management, not the five internal-control components and 17 principles.">COSO Enterprise Risk Management framework</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The 2013 COSO Internal Control–Integrated Framework defines the five components and the 17 supporting principles.</div>
+  </div>
 
   <h2><span class="marker">§16.3</span>The five activity-level controls</h2>
   <ul class="plain">
@@ -1993,7 +2186,89 @@ Cash at end of year                            <strong>$40,300</strong>  (matche
     <li><strong>Independent reconciliation / verification</strong> — bank rec, A/R confirmations, inventory counts.</li>
   </ul>
 
-  <h2><span class="marker">§16.4</span>Cash-specific controls</h2>
+  <h2><span class="marker">§16.4</span>Types of risk &amp; types of control</h2>
+  <p>Controls exist to manage risk, and auditors break the risk that something goes wrong into three pieces.</p>
+  <table class="fin-table">
+    <thead><tr><th>Risk</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Inherent risk</strong></td><td>The risk of a misstatement <em>before</em> any controls are considered — driven by the nature of the item (complex estimates, large cash volumes).</td></tr>
+      <tr><td><strong>Control risk</strong></td><td>The risk that the company's internal controls fail to prevent or detect a misstatement.</td></tr>
+      <tr><td><strong>Detection risk</strong></td><td>The risk that the auditor's own procedures fail to catch a misstatement that exists.</td></tr>
+    </tbody>
+  </table>
+  <p>Controls themselves are classified by <strong>when</strong> they act relative to a problem:</p>
+  <ul class="plain">
+    <li><strong>Preventive</strong> — stop an error or fraud before it happens (approval before payment, segregation of duties).</li>
+    <li><strong>Detective</strong> — find problems after they occur (bank reconciliations, physical counts, exception reports).</li>
+    <li><strong>Corrective</strong> — fix problems a detective control has surfaced (adjusting entries, recovering an overpayment).</li>
+  </ul>
+  <div class="callout">
+    <span class="callout-label">Reasonable, not absolute</span>
+    <p style="margin-bottom:0">Even a well-designed system gives only <strong>reasonable assurance</strong>, never absolute assurance. Cost-benefit limits, human error, management override, and collusion mean no system can guarantee every objective is met. (The inherent limitations are detailed in §16.8.)</p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">A bank reconciliation that uncovers an unrecorded bank service charge is an example of which type of control?</p>
+    <ul class="quiz-options">
+      <li>Detective</li>
+      <li data-rationale="A preventive control stops a problem before it happens; the reconciliation finds it afterward.">Preventive</li>
+      <li data-rationale="Inherent risk is a category of risk, not a type of control.">Inherent</li>
+      <li data-rationale="A corrective control fixes the problem; the reconciliation first detects it. The follow-up adjusting entry would be corrective.">Corrective</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> A reconciliation finds discrepancies after transactions occur, so it is a detective control. The adjusting entry that follows is the corrective step.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <h3>Check your understanding — Practice 2</h3>
+    <p class="quiz-prompt">The risk of a material misstatement <strong>before</strong> considering any related internal controls is called:</p>
+    <ul class="quiz-options">
+      <li data-rationale="Control risk is the risk that controls fail — it assumes controls exist.">Control risk</li>
+      <li data-rationale="Detection risk relates to the auditor's procedures, not the account's nature before controls.">Detection risk</li>
+      <li data-rationale="Reasonable assurance is the level of assurance controls provide, not a type of risk.">Reasonable assurance</li>
+      <li>Inherent risk</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Inherent risk is the susceptibility to misstatement assuming there are no related controls; it stems from the nature of the item itself.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Practice 3</h3>
+    <p class="quiz-prompt">Why can internal control provide only <strong>reasonable, not absolute,</strong> assurance?</p>
+    <ul class="quiz-options">
+      <li data-rationale="Controls do reduce — not eliminate — risk; the limit comes from human factors and cost, not from controls being useless.">Because controls never reduce risk at all</li>
+      <li>Because of cost-benefit limits, human error, management override, and collusion</li>
+      <li data-rationale="Detective controls are valuable; their existence does not explain the reasonable-assurance ceiling.">Because detective controls are not allowed under COSO</li>
+      <li data-rationale="Segregation of duties strengthens control; it does not guarantee fraud is impossible.">Because segregation of duties guarantees no fraud</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Inherent limitations — the cost of controls, human mistakes, management overriding controls, and two people colluding — mean even a strong system cannot give a 100% guarantee.</div>
+  </div>
+
+  <h2><span class="marker">§16.5</span>Organizational structure &amp; management philosophy</h2>
+  <p>The control environment — the foundation of the whole framework — is shaped by how the organization is governed and how its leaders behave.</p>
+  <ul class="plain">
+    <li><strong>Board of directors</strong> — exercises oversight of management and the control system on behalf of owners.</li>
+    <li><strong>Audit committee</strong> — a subset of independent board members that oversees financial reporting, the external auditor, and the internal audit function.</li>
+    <li><strong>Internal audit function</strong> — an independent group that evaluates and monitors whether controls are designed well and operating effectively, reporting to the audit committee.</li>
+    <li><strong>Management's operating style &amp; risk appetite</strong> — leaders' attitude toward risk, controls, and integrity. This is the <strong>"tone at the top"</strong>: when management models ethical behavior and takes controls seriously, employees follow.</li>
+  </ul>
+  <div class="callout analogy">
+    <span class="callout-label">Analogy</span>
+    <p style="margin-bottom:0">"Tone at the top" is like a team captain's attitude — if the captain cuts corners, the rest of the team learns that cutting corners is acceptable.</p>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding</h3>
+    <p class="quiz-prompt">An independent group of board members that oversees financial reporting, the external auditor, and the internal audit function is the:</p>
+    <ul class="quiz-options">
+      <li data-rationale="Control activities are the procedures themselves, not a governance body.">Control activities team</li>
+      <li data-rationale="The treasury department manages cash and financing, not audit oversight.">Treasury department</li>
+      <li>Audit committee</li>
+      <li data-rationale="Internal audit performs the evaluations and reports to the audit committee; it is not the oversight board subset.">Internal audit staff</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> The audit committee is the subset of independent directors charged with oversight of financial reporting, the external auditor, and internal audit.</div>
+  </div>
+
+  <h2><span class="marker">§16.6</span>Cash-specific controls</h2>
   <table class="fin-table">
     <thead><tr><th>Cash receipt control</th><th>Cash disbursement control</th></tr></thead>
     <tbody>
@@ -2005,7 +2280,7 @@ Cash at end of year                            <strong>$40,300</strong>  (matche
     </tbody>
   </table>
 
-  <h2><span class="marker">§16.5</span>Bank reconciliation — the workhorse cash control</h2>
+  <h2><span class="marker">§16.7</span>Bank reconciliation — the workhorse cash control</h2>
   <p>Reconciles the cash-per-books to cash-per-bank statement at month-end. Adjustments to either side until they agree:</p>
   <pre style="background:var(--paper-2); padding:14px 18px; border-radius:4px; font-family:'JetBrains Mono', monospace; font-size:12.5px; line-height:1.55;">
 Balance per BANK statement                $X
@@ -2025,8 +2300,31 @@ Balance per BOOKS                         $A
 Adjusted book balance                     $Y   ← must equal adjusted bank balance
   </pre>
   <p>Items adjusting the BOOK side (interest, service charges, NSF, errors) require journal entries. Items adjusting the BANK side (deposits in transit, outstanding checks) clear themselves over time.</p>
+  <p>Work the two sides separately and they must meet at the same <strong>adjusted (true) cash balance</strong>. Suppose the bank statement shows $8,500 and the books show $8,150:</p>
+  <table class="fin-table">
+    <thead><tr><th>Bank side</th><th>Amount</th><th>Book side</th><th>Amount</th></tr></thead>
+    <tbody>
+      <tr><td>Balance per bank statement</td><td>$8,500</td><td>Balance per books</td><td>$8,150</td></tr>
+      <tr><td>+ Deposit in transit</td><td>$1,200</td><td>+ Note collected by bank</td><td>$700</td></tr>
+      <tr><td>− Outstanding checks</td><td>($900)</td><td>− Bank service charge</td><td>($50)</td></tr>
+      <tr><th>Adjusted bank balance</th><th>$8,800</th><th>Adjusted book balance</th><th>$8,800</th></tr>
+    </tbody>
+  </table>
+  <p>Only the <strong>book-side</strong> adjustments (the note collected, the service charge) require journal entries — the company didn't know about them. Bank-side items (deposits in transit, outstanding checks) are timing differences that need no entry; the bank will catch up.</p>
 
-  <h2><span class="marker">§16.6</span>Inherent limitations of internal control</h2>
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Practice 7</h3>
+    <p class="quiz-prompt">The bank statement shows $5,000. There is a $600 deposit in transit and $400 of outstanding checks. What is the adjusted (true) cash balance?</p>
+    <ul class="quiz-options">
+      <li data-rationale="$4,800 subtracts the deposit and adds the checks — both signs are reversed.">$4,800</li>
+      <li data-rationale="$6,000 adds both items instead of subtracting the outstanding checks.">$6,000</li>
+      <li>$5,200</li>
+      <li data-rationale="$5,000 is the unadjusted bank balance, before reconciling items.">$5,000</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Adjusted bank balance = $5,000 + $600 deposit in transit − $400 outstanding checks = $5,200.</div>
+  </div>
+
+  <h2><span class="marker">§16.8</span>Inherent limitations of internal control</h2>
   <ul class="plain">
     <li><strong>Cost vs. benefit</strong> — control cost should not exceed expected loss.</li>
     <li><strong>Human error</strong> — fatigue, mistakes, misunderstanding.</li>
@@ -2152,6 +2450,51 @@ Adjusted book balance                     $Y   ← must equal adjusted bank bala
     </tbody>
   </table>
   <p>Cash is tied up in the operating cycle for ~76 days. Reducing DSO or DIO, or extending DPO (without souring supplier terms), shortens it.</p>
+
+  <h2><span class="marker">§17.7</span>The quick (acid-test) ratio</h2>
+  <p>The current ratio counts <em>all</em> current assets, but inventory and prepaids can be slow to turn into cash. The <strong>quick ratio</strong> — also called the acid-test ratio — strips those out for a stricter liquidity check.</p>
+  <div class="callout formula">
+    <span class="callout-label">Quick ratio — two equivalent forms</span>
+    <div class="formula-box" style="font-size:13.5px; text-align:left;">
+      Quick Ratio = (Current Assets − Inventory − Prepaid Expenses) ÷ Current Liabilities<br/>
+      = (Cash + Marketable Securities + Receivables) ÷ Current Liabilities
+    </div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Liquidity 1</h3>
+    <p class="quiz-prompt">Current assets are $200,000 (including $80,000 of inventory and no prepaids) and current liabilities are $100,000. What is the quick ratio?</p>
+    <ul class="quiz-options">
+      <li data-rationale="2.0 is the current ratio ($200,000 ÷ $100,000); the quick ratio excludes inventory.">2.0</li>
+      <li>1.2</li>
+      <li data-rationale="0.8 incorrectly uses only inventory ($80,000) in the numerator.">0.8</li>
+      <li data-rationale="2.8 adds inventory back instead of removing it.">2.8</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Quick ratio = ($200,000 − $80,000) ÷ $100,000 = $120,000 ÷ $100,000 = 1.2.</div>
+  </div>
+
+  <h2><span class="marker">§17.8</span>Activity ratios: turnover and days</h2>
+  <p>Turnover ratios show how many times a year a company cycles through its inventory or collects its receivables. Each has a matching day-based form that converts the turnover into an average number of days.</p>
+  <div class="callout formula">
+    <span class="callout-label">Turnover & day-based forms</span>
+    <div class="formula-box" style="font-size:13px; text-align:left;">
+      Inventory Turnover = COGS ÷ Average Inventory&nbsp;&nbsp;·&nbsp;&nbsp;Days in Inventory = 365 ÷ Inventory Turnover<br/>
+      Receivables Turnover = Net Credit Sales ÷ Average Receivables&nbsp;&nbsp;·&nbsp;&nbsp;Days Sales Outstanding = 365 ÷ Receivables Turnover
+    </div>
+  </div>
+  <p>Higher turnover (or fewer days) means inventory sells and receivables collect faster — which feeds straight back into the cash conversion cycle from §17.2. Days in inventory and days sales outstanding are simply that cycle's DIO and DSO inputs.</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Liquidity 2</h3>
+    <p class="quiz-prompt">COGS is $600,000 and average inventory is $100,000. What is inventory turnover, and roughly how many days does inventory sit?</p>
+    <ul class="quiz-options">
+      <li data-rationale="0.17 inverts the ratio (average inventory ÷ COGS).">0.17 times; ~2,190 days</li>
+      <li data-rationale="That halves the turnover; $600,000 ÷ $100,000 = 6 times, not 3.">3 times; ~122 days</li>
+      <li>6 times; ~61 days</li>
+      <li data-rationale="6 times is right, but 365 ÷ 6 ≈ 61 days, not 365 days.">6 times; ~365 days</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Inventory turnover = $600,000 ÷ $100,000 = 6 times; days in inventory = 365 ÷ 6 ≈ 61 days.</div>
+  </div>
 
   <div class="quiz" data-correct="1">
     <h3>Check your understanding</h3>
@@ -2477,7 +2820,68 @@ Annual carrying cost = (632/2) × $2 = $632   ← always equal at EOQ
   </table>
   <p><strong>Lower-of-cost-or-net-realizable-value (LCNRV)</strong> rule: if NRV (selling price − completion & disposal costs) is below cost, write down to NRV.</p>
 
-  <h2><span class="marker">§20.5</span>Perpetual vs. periodic inventory</h2>
+  <h2><span class="marker">§20.5</span>A worked example — same layers, three answers</h2>
+  <p>Take the same purchase layers and apply each method. The company has 400 units available, sells 250, and ends with 150 units.</p>
+  <table class="fin-table">
+    <thead><tr><th>Layer</th><th>Units</th><th>Unit cost</th><th>Total cost</th></tr></thead>
+    <tbody>
+      <tr><td>Beginning inventory</td><td>100</td><td>$10</td><td>$1,000</td></tr>
+      <tr><td>Purchase 1</td><td>200</td><td>$12</td><td>$2,400</td></tr>
+      <tr><td>Purchase 2</td><td>100</td><td>$15</td><td>$1,500</td></tr>
+      <tr><th>Available for sale</th><th>400</th><th>—</th><th>$4,900</th></tr>
+    </tbody>
+  </table>
+  <p>Cost of goods available for sale ($4,900) always splits into ending inventory + COGS — only <em>how</em> it splits changes.</p>
+  <table class="fin-table">
+    <thead><tr><th>Method</th><th>Ending inventory (150 units)</th><th>COGS (250 units)</th></tr></thead>
+    <tbody>
+      <tr><td>FIFO</td><td>50@$12 + 100@$15 = <strong>$2,100</strong></td><td>100@$10 + 150@$12 = <strong>$2,800</strong></td></tr>
+      <tr><td>LIFO</td><td>100@$10 + 50@$12 = <strong>$1,600</strong></td><td>100@$15 + 150@$12 = <strong>$3,300</strong></td></tr>
+      <tr><td>Weighted average</td><td>150 × $12.25 = <strong>$1,837.50</strong></td><td>250 × $12.25 = <strong>$3,062.50</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <span class="callout-label">Check</span>
+    <p style="margin-bottom:0">Weighted-average unit cost = $4,900 ÷ 400 units = <strong>$12.25</strong>. Prices are rising, so FIFO gives the lowest COGS ($2,800) and LIFO the highest ($3,300), with weighted average in between — exactly as the rule predicts. In every method, ending inventory + COGS = $4,900.</p>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Check your understanding — Costing 1</h3>
+    <p class="quiz-prompt">Using the layers above (100@$10, then 200@$12, then 100@$15; 150 units left), what is <strong>FIFO ending inventory</strong>?</p>
+    <ul class="quiz-options">
+      <li data-rationale="$1,600 is LIFO ending inventory (the oldest, cheapest layers), not FIFO.">$1,600</li>
+      <li>$2,100</li>
+      <li data-rationale="$3,300 is LIFO COGS, not FIFO ending inventory.">$3,300</li>
+      <li data-rationale="$1,837.50 is weighted-average ending inventory, not FIFO.">$1,837.50</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> FIFO leaves the newest costs in ending inventory: 100 units @ $15 + 50 units @ $12 = $1,500 + $600 = $2,100.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Check your understanding — Costing 2</h3>
+    <p class="quiz-prompt">Using the same layers (250 units sold), what is <strong>LIFO cost of goods sold</strong>?</p>
+    <ul class="quiz-options">
+      <li data-rationale="$2,800 is FIFO COGS (oldest costs first), not LIFO.">$2,800</li>
+      <li data-rationale="$3,062.50 is weighted-average COGS (250 × $12.25), not LIFO.">$3,062.50</li>
+      <li>$3,300</li>
+      <li data-rationale="$1,600 is LIFO ending inventory, not LIFO COGS.">$1,600</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> LIFO sends the newest costs to COGS: 100 units @ $15 + 150 units @ $12 = $1,500 + $1,800 = $3,300.</div>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <h3>Check your understanding — Costing 3</h3>
+    <p class="quiz-prompt">Under <strong>weighted average</strong>, what is the cost per unit for these layers?</p>
+    <ul class="quiz-options">
+      <li>$12.25</li>
+      <li data-rationale="$12.33 averages only the three unit prices ($10, $12, $15) without weighting by quantity.">$12.33</li>
+      <li data-rationale="$10 is the oldest layer's cost, not the weighted average of all layers.">$10.00</li>
+      <li data-rationale="$15 is the newest layer's cost, not the weighted average.">$15.00</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Weighted-average unit cost = total cost ÷ total units = $4,900 ÷ 400 = $12.25.</div>
+  </div>
+
+  <h2><span class="marker">§20.6</span>Perpetual vs. periodic inventory</h2>
   <table class="fin-table">
     <thead><tr><th>System</th><th>How inventory and COGS are tracked</th><th>Used by</th></tr></thead>
     <tbody>
@@ -2486,7 +2890,7 @@ Annual carrying cost = (632/2) × $2 = $632   ← always equal at EOQ
     </tbody>
   </table>
 
-  <h2><span class="marker">§20.6</span>JIT, ABC, and just-in-time fundamentals</h2>
+  <h2><span class="marker">§20.7</span>JIT, ABC, and just-in-time fundamentals</h2>
   <ul class="plain">
     <li><strong>Just-in-time (JIT)</strong> — minimise inventory; rely on tight supplier relationships, kanban signals, and short setup times. Risk: supply disruption.</li>
     <li><strong>ABC analysis</strong> — Pareto split: A items (top ~10% of items, ~70% of value) get tight management; C items (~70% of items, ~10% of value) get loose management.</li>
@@ -2717,12 +3121,13 @@ window.SECTION_CONFIG = {
   sectionTitle: "FMAA · Section A — Foundations & The Accounting Cycle",
   storageKey: "fmaa-a-progress-v1",
   annotationKey: "fmaa-a-ann-v1",
-  totalUnits: 25,
-  trackedUnits: 20,
+  totalUnits: 26,
+  trackedUnits: 21,
   navStructure: [
     { group: "Welcome", units: [{ id: 0, num: "—", title: "Cover & Map" }]},
     { group: "A.1 · Language of Accounting", units: [
       { id: 1, num: "01", title: "The language of accounting" },
+      { id: 21, num: "1b", title: "Types of businesses" },
     ]},
     { group: "A.2 · The Bookkeeping Cycle", units: [
       { id: 2, num: "02", title: "Equation & double-entry" },
@@ -2774,11 +3179,12 @@ window.SECTION_CONFIG = {
     13: ["Reversing entries on day 1 of new period undo the prior period's accruals.", "Optional — both methods produce identical net income.", "Reverse accrued items only; don't reverse depreciation, prepaid amortisations, or bad-debt allowance.", "Simplifies recording of future cash receipts/payments — book the full amount, no split."],
     14: ["Four primary statements: IS, SRE, BS, SCF, plus required notes.", "IS is for a period; BS is at a point in time.", "Classified BS separates current (≤12 months) from long-term.", "Order of preparation: IS → SRE → BS → SCF."],
     15: ["SCF reconciles change in cash by three activities: operating, investing, financing.", "Indirect operating: NI + non-cash + working-capital adjustments.", "CA ↑ → cash ↓; CL ↑ → cash ↑.", "Investing = long-term assets; Financing = stock & debt with owners/lenders."],
-    16: ["COSO 5: Control environment, Risk assessment, Information, Monitoring, control activitiEs.", "Segregation of duties: Authorisation, Recording, Custody (ARC).", "Bank rec: outstanding checks reduce bank; service charges reduce books (with JE).", "Inherent limitations: cost-benefit, error, collusion, management override."],
-    17: ["Working capital = CA − CL. Current ratio = CA ÷ CL.", "CCC = DIO + DSO − DPO. Lower = less working capital tied up.", "Aggressive WC: minimal CA, ST debt — higher return, higher risk.", "Float: disbursement helps the company; collection hurts."],
+    16: ["2013 COSO Internal Control–Integrated Framework: 5 components, 17 principles. CRIME = Control environment, Risk assessment, Information, Monitoring, control activitiEs.", "Risk types: inherent (before controls), control (controls fail), detection (auditor misses). Controls: preventive, detective, corrective.", "Governance: board, audit committee, internal audit, and 'tone at the top' shape the control environment. Controls give reasonable, not absolute, assurance.", "Bank rec: +deposits in transit / −outstanding checks (bank side); +notes & interest collected / −service charges & NSF (book side, needs JE). Both sides meet at the adjusted cash balance."],
+    17: ["Working capital = CA − CL. Current ratio = CA ÷ CL. Quick (acid-test) ratio = (CA − Inventory − Prepaids) ÷ CL.", "CCC = DIO + DSO − DPO. Lower = less working capital tied up.", "Inventory turnover = COGS ÷ Avg Inventory; Receivables turnover = Net Credit Sales ÷ Avg Receivables. Days = 365 ÷ turnover.", "Aggressive WC: minimal CA, ST debt — higher return, higher risk. Float: disbursement helps the company; collection hurts."],
     18: ["Forgoing 2/10, n/30 = ~37% APR — almost always cheaper to borrow.", "Allowance method (GAAP): estimate at period end, write-off hits allowance not expense.", "Direct write-off violates matching — only acceptable for tax / immaterial cases.", "Aging schedule = balance-sheet approach; % of credit sales = income-statement approach."],
     19: ["Discount loan effective = stated ÷ (1 − stated). Comp balance: stated ÷ (1 − comp %).", "Take cash discounts when offered; pay on the net day otherwise.", "Net method exposes 'Purchase Discounts Lost' as an explicit expense.", "Commercial paper: unsecured, ≤270 days, investment-grade only."],
-    20: ["EOQ = √(2DO/C). Ordering cost = carrying cost at EOQ.", "ROP = lead-time × daily demand (+ safety stock if applicable).", "FIFO: high NI, high inventory in rising prices. LIFO: opposite (U.S. GAAP only).", "LCNRV: write down to NRV when below cost. ABC analysis: focus management on high-value items."]
+    20: ["EOQ = √(2DO/C). Ordering cost = carrying cost at EOQ.", "ROP = lead-time × daily demand (+ safety stock if applicable).", "FIFO: high NI, high inventory in rising prices. LIFO: opposite (U.S. GAAP only).", "LCNRV: write down to NRV when below cost. ABC analysis: focus management on high-value items."],
+    21: ["Legal forms — sole proprietorship, partnership, corporation, LLC — differ in owner liability and equity labels.", "Proprietorships/partnerships use Capital & Drawings; corporations use Common Stock + APIC + Retained Earnings.", "Operating types: service (no inventory, no COGS), merchandising (one Merchandise Inventory; COGS = Beg + Purchases − End), manufacturing (Raw Materials, WIP, Finished Goods).", "A manufacturer builds COGS from cost of goods manufactured (COGM); a service business reports no COGS at all."]
   },
   flashcardDecks: {
     "equation-and-debits-credits": {
@@ -2849,7 +3255,12 @@ window.SECTION_CONFIG = {
       title: "Internal controls (COSO)",
       eyebrow: "A.4 Controls",
       cards: [
+        ["Authoritative framework", "2013 COSO Internal Control–Integrated Framework — 5 components, 17 principles"],
         ["Five COSO components", "Control Environment, Risk Assessment, Control Activities, Information & Communication, Monitoring"],
+        ["Inherent vs. control vs. detection risk", "Inherent = before controls; Control = controls fail; Detection = auditor's procedures miss it"],
+        ["Preventive / detective / corrective", "Stop before; find after; fix what was found"],
+        ["Audit committee", "Independent board members overseeing reporting, external auditor & internal audit"],
+        ["Reasonable vs. absolute assurance", "Controls give reasonable assurance only — limited by cost, error, override, collusion"],
         ["Segregation of duties", "Authorisation, Recording, Custody (ARC)"],
         ["Five control activities", "Authorisation, segregation, documentation, physical, reconciliation"],
         ["Bank rec — outstanding checks", "Subtract from bank balance"],
@@ -2867,6 +3278,9 @@ window.SECTION_CONFIG = {
       cards: [
         ["Working capital", "CA − CL"],
         ["Current ratio", "CA ÷ CL"],
+        ["Quick (acid-test) ratio", "(CA − Inventory − Prepaids) ÷ CL"],
+        ["Inventory turnover", "COGS ÷ Average Inventory (Days = 365 ÷ turnover)"],
+        ["Receivables turnover", "Net Credit Sales ÷ Average Receivables (Days = 365 ÷ turnover)"],
         ["Cash conversion cycle", "DIO + DSO − DPO"],
         ["DSO", "A/R ÷ (Sales / 365)"],
         ["DIO", "Inventory ÷ (COGS / 365)"],
@@ -2902,11 +3316,25 @@ window.SECTION_CONFIG = {
         ["Reorder point (no safety stock)", "Lead time × daily demand"],
         ["FIFO in rising prices", "Higher NI, higher inventory"],
         ["LIFO in rising prices", "Lower NI, lower inventory (U.S. GAAP only)"],
+        ["Weighted-average unit cost", "Total cost of goods available ÷ total units available"],
+        ["Goods available identity", "Ending inventory + COGS = cost of goods available for sale"],
         ["LCNRV rule", "Write down to NRV when NRV < cost"],
         ["Perpetual vs. periodic", "Perpetual = real-time; periodic = period-end count"],
         ["JIT", "Minimise inventory; tight supplier coordination"],
         ["ABC analysis", "Pareto split — manage A items tightly"],
         ["Carrying cost includes", "Storage, insurance, obsolescence, opportunity cost"],
+      ]
+    },
+    "types-of-businesses": {
+      title: "Types of businesses",
+      eyebrow: "A.1 Legal & Operating Forms",
+      cards: [
+        ["Sole proprietorship equity", "Owner's Capital and Owner's Drawings"],
+        ["Corporation equity", "Common Stock + Additional Paid-in Capital (APIC) + Retained Earnings"],
+        ["Limited liability forms", "Corporations and LLCs (members); sole proprietors and general partners have unlimited liability"],
+        ["Service business inventory & COGS", "None — sells time/expertise, no goods to sell"],
+        ["Merchandiser COGS", "Beginning Inventory + Purchases − Ending Inventory"],
+        ["Manufacturer's three inventories", "Raw Materials, Work in Process, Finished Goods (COGS built from COGM)"],
       ]
     }
   },
@@ -2938,6 +3366,11 @@ window.SECTION_CONFIG = {
     { section: "Working capital", items: [
       { label: "Working capital", formula: "Current Assets − Current Liabilities", unitId: 17 },
       { label: "Current ratio", formula: "CA ÷ CL", unitId: 17 },
+      { label: "Quick (acid-test) ratio", formula: "(Current Assets − Inventory − Prepaids) ÷ Current Liabilities", unitId: 17 },
+      { label: "Inventory turnover", formula: "COGS ÷ Average Inventory", unitId: 17 },
+      { label: "Days in inventory", formula: "365 ÷ Inventory Turnover", unitId: 17 },
+      { label: "Receivables turnover", formula: "Net Credit Sales ÷ Average Receivables", unitId: 17 },
+      { label: "Days sales outstanding (turnover form)", formula: "365 ÷ Receivables Turnover", unitId: 17 },
       { label: "Cash conversion cycle", formula: "DIO + DSO − DPO", unitId: 17 },
       { label: "DSO", formula: "A/R ÷ (Sales / 365)", unitId: 17 },
       { label: "DIO", formula: "Inventory ÷ (COGS / 365)", unitId: 17 },
