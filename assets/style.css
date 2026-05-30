@@ -1889,6 +1889,9 @@ textarea:focus-visible,
   aside.sidebar .sidebar-search { display: none; }
   body.nav-open aside.sidebar #nav,
   body.nav-open aside.sidebar .sidebar-search { display: block; }
+  /* The content-search results panel sits after #nav inside the sidebar; keep
+     it collapsed with the menu (JS sets its inline display, so force-hide). */
+  body:not(.nav-open) aside.sidebar .search-results { display: none !important; }
   .content { padding-bottom: 96px; }
   #ann-panel { max-width: 90vw; }
 }

@@ -417,6 +417,32 @@
       if (!summaryEl) return;
       stopTimer();
       clearTestState();
+      // Treat any still-unanswered question (e.g. early submit) as skipped:
+      // reveal its answer and add it to the missed list, so the summary can't
+      // show "perfect score" while the denominator still counts unanswered items.
+      activeQuestions.forEach((qEl, i) => {
+        if (qEl.classList.contains("answered-correct") ||
+            qEl.classList.contains("answered-wrong") ||
+            qEl.classList.contains("answered-skipped")) return;
+        const opts = qEl.querySelectorAll(".quiz-options li");
+        const cIdx = parseInt(qEl.dataset.correct, 10);
+        const expl = qEl.querySelector(".quiz-explanation");
+        if (opts[cIdx]) opts[cIdx].classList.add("correct");
+        opts.forEach(o => { o.classList.add("disabled"); o.setAttribute("aria-disabled", "true"); });
+        if (expl) expl.classList.add("show");
+        qEl.classList.add("answered-skipped");
+        missed.push({
+          num: i + 1,
+          origIndex: parseInt(qEl.dataset.origIndex, 10),
+          topic: qEl.dataset.topic || ("Question " + (i + 1)),
+          unitId: qEl.dataset.unit ? parseInt(qEl.dataset.unit, 10) : null,
+          questionText: (qEl.querySelector(".quiz-q") ? qEl.querySelector(".quiz-q").textContent.trim() : ""),
+          correctText: opts[cIdx] ? opts[cIdx].textContent.trim() : "",
+          userPickText: "(not answered)",
+          explanationText: (expl ? expl.textContent.trim().replace(/^Why:\s*/i, "") : "")
+        });
+      });
+      missed.sort((a, b) => a.num - b.num);
       const scoreEl = summaryEl.querySelector(".score-display");
       const metaEl  = summaryEl.querySelector(".score-meta");
       const pct = Math.round((correct / total) * 100);
@@ -539,7 +565,7 @@
     }
 
     function resetQuestionState(qEl, newNumber) {
-      qEl.classList.remove("answered-correct", "answered-wrong");
+      qEl.classList.remove("answered-correct", "answered-wrong", "answered-skipped");
       qEl.querySelectorAll(".quiz-options li").forEach(li => {
         li.classList.remove("correct","wrong","disabled","eliminated","locked");
         li.removeAttribute("aria-disabled");
