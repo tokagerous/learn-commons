@@ -131,7 +131,10 @@
   // Polite screen-reader announcement via the shared #sr-status live region.
   function srAnnounce(msg) {
     const live = document.getElementById("sr-status");
-    if (live) live.textContent = msg;
+    if (!live) return;
+    // Clear first so a repeated identical message is still re-announced.
+    live.textContent = "";
+    requestAnimationFrame(() => { live.textContent = msg; });
   }
   // Trap Tab focus within a modal; returns release() that restores focus to opener.
   function trapFocus(modalEl, opener) {
@@ -303,12 +306,13 @@
 
     // Persist in-progress answers so navigating away / reloading doesn't wipe a test.
     const testUnit = rootEl.closest(".unit[data-id]");
-    const testId = testUnit ? testUnit.dataset.id : "t";
-    const testStateKey = CONFIG.storageKey + "-test-" + testId;
-    function loadTestState() { try { return JSON.parse(localStorage.getItem(testStateKey)) || {}; } catch { return {}; } }
+    // Null key when a test isn't inside a .unit[data-id] → persistence disabled
+    // for it (avoids two such tests colliding on one localStorage key).
+    const testStateKey = testUnit ? (CONFIG.storageKey + "-test-" + testUnit.dataset.id) : null;
+    function loadTestState() { if (!testStateKey) return {}; try { return JSON.parse(localStorage.getItem(testStateKey)) || {}; } catch { return {}; } }
     let savedAnswers = loadTestState();
-    function persistAnswers() { try { localStorage.setItem(testStateKey, JSON.stringify(savedAnswers)); } catch {} }
-    function clearTestState() { savedAnswers = {}; try { localStorage.removeItem(testStateKey); } catch {} }
+    function persistAnswers() { if (!testStateKey) return; try { localStorage.setItem(testStateKey, JSON.stringify(savedAnswers)); } catch {} }
+    function clearTestState() { savedAnswers = {}; if (!testStateKey) return; try { localStorage.removeItem(testStateKey); } catch {} }
 
     const TARGET_PER_Q_SEC = 108;
     let timerStart = null;
@@ -607,14 +611,17 @@
       const entries = Object.entries(savedAnswers || {});
       if (!entries.length) return;
       restoring = true;
-      entries.forEach(([oi, chosen]) => {
-        const qEl = allQuestions.find(q => q.dataset.origIndex === String(oi));
-        if (!qEl) return;
-        if (qEl.classList.contains("answered-correct") || qEl.classList.contains("answered-wrong")) return;
-        const opts = qEl.querySelectorAll(".quiz-options li");
-        if (opts[chosen]) opts[chosen].click();
-      });
-      restoring = false;
+      try {
+        entries.forEach(([oi, chosen]) => {
+          const qEl = allQuestions.find(q => q.dataset.origIndex === String(oi));
+          if (!qEl) return;
+          if (qEl.classList.contains("answered-correct") || qEl.classList.contains("answered-wrong")) return;
+          const opts = qEl.querySelectorAll(".quiz-options li");
+          if (opts[chosen]) opts[chosen].click();
+        });
+      } finally {
+        restoring = false;
+      }
     }
 
     allQuestions.forEach((qEl, idx) => attachQuestionHandlers(qEl, idx));
@@ -942,7 +949,7 @@
     function openHelp() { helpEl.classList.add("show"); helpRelease = trapFocus(helpEl, showShortcutsBtn); }
     function closeHelp() { helpEl.classList.remove("show"); if (helpRelease) { helpRelease(); helpRelease = null; } }
     if (showShortcutsBtn) showShortcutsBtn.addEventListener("click", openHelp);
-    document.getElementById("kbd-help-close").addEventListener("click", closeHelp);
+    document.getElementById("kbd-help-close")?.addEventListener("click", closeHelp);
     helpEl.addEventListener("click", e => { if (e.target === helpEl) closeHelp(); });
 
     document.addEventListener("keydown", e => {
@@ -1021,9 +1028,9 @@
         });
       });
     }
-    toggle.addEventListener("click", () => panel.classList.toggle("open"));
-    closeBtn.addEventListener("click", () => panel.classList.remove("open"));
-    search.addEventListener("input", () => render(search.value));
+    if (toggle) toggle.addEventListener("click", () => panel.classList.toggle("open"));
+    if (closeBtn) closeBtn.addEventListener("click", () => panel.classList.remove("open"));
+    if (search) search.addEventListener("input", () => render(search.value));
     render();
   }
 
@@ -1821,7 +1828,7 @@
         amount: parseFloat(r.querySelector(".je-amt").value) || 0
       })).filter(x => x.account && x.amount > 0);
     }
-    function fmt(n) { return "$" + n.toLocaleString(undefined, { maximumFractionDigits: 2 }); }
+    function fmt(n) { return "$" + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
     function updateBalance() {
       const rows = readRows();
       const dr = rows.filter(r => r.side === "debit").reduce((s, r) => s + r.amount, 0);
