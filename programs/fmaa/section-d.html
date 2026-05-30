@@ -95,7 +95,7 @@
     <p class="cover-sub">Cost behavior up front; costing systems and overhead in the middle; variance analysis to evaluate; profitability metrics for performance; CVP and marginal analysis for decisions. The most quantitative section — pencil-ready calculations dominate.</p>
     <div class="cover-meta">
       <span>Units<strong>12 covered</strong></span>
-      <span>Practice questions<strong>~65</strong></span>
+      <span>Practice questions<strong>90+ (60 inline + 30 test)</strong></span>
       <span>Tests<strong>2 (T1 + T2)</strong></span>
       <span>FMAA weight<strong>20% of exam</strong></span>
     </div>
@@ -130,7 +130,7 @@
     <div class="toc-card"><h3>D.4 — Profitability metrics (Units 9–10)</h3>
       <ol start="9">
         <li><button onclick="goTo(9)">Profitability analysis — product, BU, customer</button></li>
-        <li><button onclick="goTo(10)">Return on investment (ROI) and responsibility centers</button></li>
+        <li><button onclick="goTo(10)">Return on investment (ROI)</button></li>
       </ol>
     </div>
 
@@ -249,7 +249,7 @@
     <li><strong>Basic standard</strong> — held constant for years; useful for trend analysis but increasingly stale.</li>
   </ul>
 
-  <div class="callout tip"><span class="callout-label">AAU / AAO mnemonic</span><p>Actual &gt; Applied = Under-applied (we didn't apply enough; raise COGS). Actual &lt; Applied = Over-applied (we applied too much; lower COGS).</p></div>
+  <div class="callout tip"><span class="callout-label">Over- vs under-applied</span><p>Actual &gt; Applied = <strong>under</strong>-applied (we didn't apply enough; raise COGS). Actual &lt; Applied = <strong>over</strong>-applied (we applied too much; lower COGS).</p></div>
 
   <div class="quiz" data-correct="1">
     <h3>Practice 1 — Predetermined rate</h3>
@@ -397,6 +397,48 @@
 
   <div class="callout warning"><span class="callout-label">Period vs product</span><p>Manufacturing overhead is product cost (capitalized into inventory). Corporate G&A and selling expenses are period costs (expensed when incurred). Don't co-mingle them when computing inventory value.</p></div>
 
+  <h2><span class="marker">§4.4</span>Absorption vs variable costing</h2>
+  <p>The two methods differ in exactly ONE thing: how they treat <strong>fixed manufacturing overhead</strong>.</p>
+  <table class="fin-table">
+    <thead><tr><th></th><th>Absorption costing</th><th>Variable costing</th></tr></thead>
+    <tbody>
+      <tr><td>DM, DL, variable MOH</td><td>Product cost</td><td>Product cost</td></tr>
+      <tr><td><strong>Fixed MOH</strong></td><td><strong>Product cost</strong> (in inventory)</td><td><strong>Period cost</strong> (expensed now)</td></tr>
+      <tr><td>Selling &amp; admin</td><td>Period cost</td><td>Period cost</td></tr>
+      <tr><td>Required for external reporting?</td><td>Yes (GAAP/IFRS)</td><td>No (internal only)</td></tr>
+    </tbody>
+  </table>
+
+  <p>Because absorption costing parks fixed MOH inside inventory, income differs from variable costing only <em>when inventory changes</em>:</p>
+  <ul>
+    <li><strong>Production = sales</strong> (no inventory change) → both methods report the same operating income.</li>
+    <li><strong>Production &gt; sales</strong> (inventory rises) → absorption income is HIGHER (some fixed MOH is deferred in ending inventory rather than expensed).</li>
+    <li><strong>Production &lt; sales</strong> (inventory falls) → absorption income is LOWER (fixed MOH from prior periods is released into COGS).</li>
+  </ul>
+
+  <p>This deferral of fixed MOH into inventory is also why absorption costing produces a fixed-overhead <em>volume</em> variance (Unit 8) — variable costing has no such variance because it never applies fixed MOH to units.</p>
+
+  <h2><span class="marker">§4.5</span>The contribution-format income statement</h2>
+  <p>Variable costing lends itself to the <strong>contribution-format</strong> income statement, which groups costs by behavior (variable vs fixed) rather than by function (product vs period). It surfaces contribution margin directly — the engine of CVP analysis (Unit 11):</p>
+  <table class="fin-table">
+    <thead><tr><th>Contribution-format income statement</th><th>Amount</th></tr></thead>
+    <tbody>
+      <tr><td>Sales</td><td>$500,000</td></tr>
+      <tr><td>Less: Variable costs (production + selling)</td><td>(300,000)</td></tr>
+      <tr><td><strong>Contribution margin</strong></td><td><strong>200,000</strong></td></tr>
+      <tr><td>Less: Fixed costs (production + S&amp;A)</td><td>(150,000)</td></tr>
+      <tr><td><strong>Operating income</strong></td><td><strong>50,000</strong></td></tr>
+    </tbody>
+  </table>
+  <p>Contrast the traditional (absorption) format, which subtracts COGS to show gross margin first, then deducts S&amp;A. Same operating income when inventory is flat; different intermediate subtotals.</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 0 — Absorption vs variable costing</h3>
+    <p class="quiz-prompt">The ONLY cost classified differently under absorption costing versus variable costing is:</p>
+    <ul class="quiz-options"><li data-rationale="Direct materials are a product cost under both methods.">Direct materials</li><li data-rationale="Variable manufacturing overhead is a product cost under both methods.">Variable manufacturing overhead</li><li>Fixed manufacturing overhead</li><li data-rationale="Selling and administrative costs are period costs under both methods.">Selling &amp; administrative expense</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Both methods treat DM, DL, and variable MOH as product costs and S&amp;A as period cost. They differ only on <strong>fixed MOH</strong>: a product cost (inventoried) under absorption, a period cost (expensed at once) under variable. Income diverges only when inventory levels change.</div>
+  </div>
+
   <div class="quiz" data-correct="3">
     <h3>Practice 1 — Variable OH</h3>
     <p class="quiz-prompt">Which is most likely a VARIABLE overhead item?</p>
@@ -528,6 +570,36 @@
   <p>Always compare actual usage against the standard allowed for the actual production — NOT against the original budget standard. This is what makes variance analysis fair to the manager (they're not penalized for producing more or fewer units than planned).</p>
 
   <div class="callout tip"><span class="callout-label">Why decompose?</span><p>The TOTAL variance = "actual differs from standard by $X." That alone is uninformative. The decomposition into price and quantity points the investigation: price variance suggests procurement or rate negotiation issues; quantity variance suggests production or yield issues.</p></div>
+
+  <h2><span class="marker">§6.4</span>The flexible budget — splitting the static-budget variance</h2>
+  <p>A <strong>static budget</strong> is built once, at the start of the period, for the planned (budgeted) output. But actual output is almost never exactly the planned level — so comparing actual results to the static budget mixes two very different things together. The fix is the <strong>flexible budget</strong>: take the static-budget per-unit assumptions and re-cost them at the <em>actual</em> output level.</p>
+  <div class="formula-box">Flexible budget = Budgeted CM per unit × ACTUAL units<br/>Static-budget variance = Flexible-budget variance + Sales-volume variance<br/>Sales-volume variance = (Actual units − Budgeted units) × Budgeted CM per unit</div>
+
+  <p>The <strong>sales-volume variance</strong> isolates the effect of selling more or fewer units than planned (volume only — it holds per-unit CM at budget). The <strong>flexible-budget variance</strong> isolates everything else: prices, costs, and efficiency at the actual volume. Splitting them tells you whether a miss came from "we sold the wrong number of units" or "we executed at the wrong cost/price per unit."</p>
+
+  <table class="fin-table">
+    <thead><tr><th>Worked example — CM</th><th>Static budget</th><th>Flexible budget</th><th>Actual</th></tr></thead>
+    <tbody>
+      <tr><td>Units</td><td>1,000</td><td>1,200</td><td>1,200</td></tr>
+      <tr><td>Budgeted CM/unit</td><td>$30</td><td>$30</td><td>—</td></tr>
+      <tr><td>Contribution margin</td><td>$30,000</td><td>$36,000</td><td>$33,000</td></tr>
+    </tbody>
+  </table>
+  <p>Total static-budget variance = $33,000 actual − $30,000 static = $3,000 F. It splits into: sales-volume variance = (1,200 − 1,000) × $30 = <strong>$6,000 F</strong> (sold 200 more units), and flexible-budget variance = $33,000 actual − $36,000 flexible = <strong>$3,000 U</strong> (each unit's actual CM fell short of the $30 budget). Same $3,000 F total, but now you know the volume helped while per-unit execution hurt.</p>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 0a — Flexible budget</h3>
+    <p class="quiz-prompt">Budgeted CM is $30/unit on 1,000 planned units; the company actually made and sold 1,200 units. The flexible-budget contribution margin is:</p>
+    <ul class="quiz-options"><li data-rationale="$30,000 is the STATIC budget (1,000 planned units). The flexible budget re-costs at the 1,200 ACTUAL units.">$30,000</li><li>$36,000</li><li data-rationale="$6,000 is the sales-volume variance (the difference), not the flexible-budget amount itself.">$6,000</li><li data-rationale="The flexible budget keeps budgeted CM/unit ($30) and flexes only the volume; it does not use a different rate.">$33,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Flexible budget = budgeted CM/unit × ACTUAL units = $30 × 1,200 = <strong>$36,000</strong>. You flex the volume to actual while holding per-unit assumptions at budget.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 0b — Sales-volume variance</h3>
+    <p class="quiz-prompt">Budgeted 1,000 units at $30 CM/unit; actual 1,200 units. The sales-volume variance is:</p>
+    <ul class="quiz-options"><li data-rationale="$3,000 is the flexible-budget variance in the worked example, not the volume variance.">$3,000 F</li><li data-rationale="The volume variance values the 200-unit difference at the BUDGETED $30 CM, giving $6,000 — not $30,000.">$30,000 F</li><li>$6,000 F</li><li data-rationale="More units than planned is favorable (more contribution), not unfavorable.">$6,000 U</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Sales-volume variance = (actual − budgeted units) × budgeted CM/unit = (1,200 − 1,000) × $30 = <strong>$6,000 F</strong>. Selling 200 more units than planned, valued at the budgeted contribution rate, is favorable.</div>
+  </div>
 
   <div class="quiz" data-correct="0">
     <h3>Practice 1 — Standard quantity allowed</h3>
@@ -730,6 +802,35 @@
 
   <div class="callout tip"><span class="callout-label">Action: tier the service model</span><p>Once customer profitability is clear, design service tiers matched to value. Premium customers get high-touch; standard customers get self-service. Don't fire unprofitable customers — make them profitable through service economics, or let them go to a lower-cost channel.</p></div>
 
+  <h2><span class="marker">§9.4</span>Contribution margin vs segment margin</h2>
+  <p>When you measure a business unit's (segment's) profitability, two subtotals matter — and the difference is which fixed costs you subtract:</p>
+  <ul>
+    <li><strong>Contribution margin</strong> = segment sales − segment variable costs.</li>
+    <li><strong>Segment margin</strong> = contribution margin − <em>traceable (avoidable) fixed costs</em> — the fixed costs that exist only because the segment exists and would disappear if it were dropped.</li>
+  </ul>
+  <div class="formula-box">Segment margin = Segment CM − Traceable (avoidable) fixed costs<br/>(Do NOT subtract common / allocated fixed costs to judge the segment.)</div>
+  <p><strong>Common fixed costs</strong> (corporate HQ, the CEO's salary, central IT) support the whole company and would continue even if one segment closed. Allocating them to a segment can make a healthy segment look like a loser. <strong>Segment margin</strong> is the right number for keep/drop and BU-performance decisions because it stops at the costs the segment actually controls or causes.</p>
+  <table class="fin-table">
+    <thead><tr><th>Worked example — Segment B</th><th>Amount</th></tr></thead>
+    <tbody>
+      <tr><td>Segment sales</td><td>$400,000</td></tr>
+      <tr><td>Less: variable costs</td><td>(250,000)</td></tr>
+      <tr><td><strong>Contribution margin</strong></td><td><strong>150,000</strong></td></tr>
+      <tr><td>Less: traceable (avoidable) fixed costs</td><td>(90,000)</td></tr>
+      <tr><td><strong>Segment margin</strong></td><td><strong>60,000</strong></td></tr>
+      <tr><td>Less: allocated common fixed costs</td><td>(70,000)</td></tr>
+      <tr><td>"Net" after allocation</td><td>(10,000)</td></tr>
+    </tbody>
+  </table>
+  <p>The allocated total shows a $10,000 "loss," but the segment's true contribution is a <strong>$60,000 positive segment margin</strong>. Dropping Segment B would lose $60,000 of margin while the $70,000 of common costs simply shift to other segments — a worse outcome. Judge the segment on segment margin, not on allocated net.</p>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 0 — Segment margin</h3>
+    <p class="quiz-prompt">A segment has $400,000 sales, $250,000 variable costs, $90,000 of traceable (avoidable) fixed costs, and $70,000 of allocated common fixed costs. Its segment margin is:</p>
+    <ul class="quiz-options"><li data-rationale="$150,000 is the contribution margin; segment margin also subtracts the $90,000 traceable fixed costs.">$150,000</li><li data-rationale="−$10,000 wrongly subtracts the $70,000 of common allocated costs. Segment margin stops at traceable fixed costs.">−$10,000</li><li>$60,000</li><li data-rationale="$310,000 is sales minus only the variable + common costs; it omits the traceable fixed and misuses common costs.">$310,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Segment margin = CM − traceable fixed = ($400,000 − $250,000) − $90,000 = $150,000 − $90,000 = <strong>$60,000</strong>. The $70,000 of common/allocated fixed cost is NOT subtracted to evaluate the segment, because it would persist even if the segment were dropped.</div>
+  </div>
+
   <div class="quiz" data-correct="0">
     <h3>Practice 1 — Pareto pattern</h3>
     <p class="quiz-prompt">A typical customer profitability analysis reveals:</p>
@@ -761,75 +862,48 @@
   <button class="btn done-btn" id="mark-done-9">Mark complete</button>
   <div class="unit-footer">
     <button class="nav-link" onclick="goTo(8)"><span class="dir">← Previous</span><span class="ttl">OH variances</span></button>
-    <button class="nav-link next" onclick="goTo(10)"><span class="dir">Next →</span><span class="ttl">ROI & responsibility centers</span></button>
+    <button class="nav-link next" onclick="goTo(10)"><span class="dir">Next →</span><span class="ttl">Return on investment (ROI)</span></button>
   </div>
 </article>
 
 <article class="unit" data-id="10">
   <span class="unit-eyebrow">Unit 10 · D.4 Performance</span>
-  <h1>Return on investment (ROI) and responsibility centers</h1>
-  <p class="unit-lead"><strong>ROI</strong> measures profit per dollar of invested capital, putting investments on a common scale. <strong>Responsibility centers</strong> structure the organization so each manager is held accountable for what they actually control.</p>
+  <h1>Return on investment (ROI)</h1>
+  <p class="unit-lead"><strong>ROI</strong> measures profit earned per dollar of invested capital, putting divisions and projects of different sizes on a common scale.</p>
 
-  <h2><span class="marker">§10.1</span>ROI</h2>
-  <div class="formula-box">ROI = Net income (or operating income) ÷ Average investment (or assets)<br/>= Profit margin × Asset turnover (DuPont 2-step)</div>
+  <h2><span class="marker">§10.1</span>The ROI formula</h2>
+  <div class="formula-box">ROI = Operating income ÷ Average operating assets</div>
 
-  <p>Used to compare divisions, projects, capital investments. Easy to compute; widely understood.</p>
+  <p>Average operating assets is usually (beginning assets + ending assets) ÷ 2. ROI is easy to compute, widely understood, and lets you rank investments regardless of their absolute dollar size — a $50K profit on $250K of assets (20%) beats a $90K profit on $600K (15%).</p>
 
-  <h2><span class="marker">§10.2</span>ROI's structural weakness</h2>
-  <p>Managers may reject value-creating projects whose return is below their unit's current ROI — accepting drags the average down. Example:</p>
-  <ul>
-    <li>Division ROI: 25%. Cost of capital: 12%.</li>
-    <li>New project: ROI 18% (above cost of capital — value-creating).</li>
-    <li>If accepted, division ROI averages down. Manager rejects to protect bonus.</li>
-    <li>The company loses 6% above cost of capital × project size.</li>
-  </ul>
+  <div class="callout analogy"><span class="callout-label">Analogy</span><p>ROI is like a savings-account interest rate. Two accounts can hold very different balances, but the rate tells you which one works your money harder. A division's ROI tells you how hard its asset base is working.</p></div>
 
-  <h2><span class="marker">§10.3</span>Residual income (RI) — fixes ROI's incentive</h2>
-  <div class="formula-box">RI = Net income − (Required return × Investment)</div>
+  <h2><span class="marker">§10.2</span>Reading ROI well</h2>
+  <p>A division can lift ROI two ways: earn more income on the same assets, or earn the same income on fewer assets (sell off idle equipment, trim inventory). Because the denominator is the asset base, ROI rewards managers who avoid carrying assets that don't pull their weight.</p>
 
-  <p>RI rewards any project earning above the required return, regardless of effect on average ROI. The CMA prefers RI for divisional evaluation; ROI is still ubiquitous because it's intuitive.</p>
+  <div class="callout warning"><span class="callout-label">Use a consistent base</span><p>Compare divisions on the same definition of "operating assets" and "operating income." Mixing book values, market values, or including non-operating assets makes ROI comparisons meaningless.</p></div>
 
-  <h2><span class="marker">§10.4</span>Responsibility centers</h2>
-  <table class="fin-table">
-    <thead><tr><th>Type</th><th>Manager controls</th><th>Manager evaluated on</th></tr></thead>
-    <tbody>
-      <tr><td>Cost center</td><td>Costs only</td><td>Spending efficiency, variances</td></tr>
-      <tr><td>Revenue center</td><td>Revenue only</td><td>Sales targets, mix</td></tr>
-      <tr><td>Profit center</td><td>Both revenues and costs</td><td>Operating income</td></tr>
-      <tr><td>Investment center</td><td>Revenues, costs, AND investment base</td><td>ROI, RI, EVA</td></tr>
-    </tbody>
-  </table>
-
-  <p>Match the metric to the level of control: don't penalize a cost-center manager for revenue shortfalls; don't expect a revenue-center manager to manage capital allocation.</p>
-
-  <div class="callout warning"><span class="callout-label">Controllability principle</span><p>Hold managers accountable only for what they meaningfully control. Allocating uncontrollable corporate overhead into divisional ROI/RI calculations introduces noise and erodes the trust the metric requires.</p></div>
+  <p class="unit-lead" style="font-size:0.95rem;opacity:0.8;margin-top:24px">Beyond FMAA scope: alternative divisional metrics such as residual income and economic value added refine ROI's incentives but are CMA-level topics — not tested on the FMAA, which covers plain ROI only.</p>
 
   <div class="quiz" data-correct="1">
     <h3>Practice 1 — ROI</h3>
     <p class="quiz-prompt">Operating income $90K; average operating assets $600K. ROI:</p>
-    <ul class="quiz-options"><li>10%</li><li>15%</li><li>20%</li><li>6.67%</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> $90K / $600K = <strong>15%</strong>.</div>
-  </div>
-
-  <div class="quiz" data-correct="2">
-    <h3>Practice 2 — ROI dilution</h3>
-    <p class="quiz-prompt">A division at 20% ROI (cost of capital 10%) considers a project that would earn 14%. Under ROI evaluation, the manager will likely:</p>
-    <ul class="quiz-options"><li>Accept — 14% &gt; 10% cost of capital</li><li>Decline — 14% is below the required return</li><li>Decline — accepting drags the divisional ROI down</li><li>Be indifferent</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> 14% &lt; current 20% ROI, so accepting reduces divisional ROI. Bonus tied to ROI gives the manager an incentive to reject — even though 14% &gt; 10% is value-creating. Classic dilution problem; RI fixes it.</div>
-  </div>
-
-  <div class="quiz" data-correct="0">
-    <h3>Practice 3 — RI calculation</h3>
-    <p class="quiz-prompt">NI $80K; investment $500K; required return 12%. Residual income:</p>
-    <ul class="quiz-options"><li>$20,000</li><li>$80,000</li><li>$500,000</li><li>−$60,000</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> RI = $80K − (12% × $500K) = $80K − $60K = <strong>$20K</strong>. Positive RI = earning above required return.</div>
+    <ul class="quiz-options"><li data-rationale="$60K / $600K would give 10%; the operating income is $90K, not $60K.">10%</li><li>15%</li><li data-rationale="$120K / $600K would give 20%; with $90K income the ratio is 15%.">20%</li><li data-rationale="This inverts the ratio ($600K is not divided by $90K). ROI = income ÷ assets.">6.67%</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ROI = operating income ÷ average operating assets = $90K / $600K = <strong>15%</strong>.</div>
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 4 — Center type</h3>
-    <p class="quiz-prompt">A division manager controls revenues, operating costs, AND can recommend capital investments evaluated against a hurdle rate. Best classified as:</p>
-    <ul class="quiz-options"><li>Cost center</li><li>Revenue center</li><li>Profit center</li><li>Investment center</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Investment center: controls inputs, outputs, AND the asset base. Evaluated on ROI/RI/EVA. Profit center stops at operating income; cost/revenue centers control only their respective dimension.</div>
+    <h3>Practice 2 — ROI from income and assets</h3>
+    <p class="quiz-prompt">A division earns $120K operating income on $800K of average operating assets. Its ROI is:</p>
+    <ul class="quiz-options"><li data-rationale="$80K / $800K = 10%; income here is $120K.">10%</li><li data-rationale="This is the profit margin if sales were $1M, not ROI. ROI uses the asset base, not sales.">12%</li><li data-rationale="$160K / $800K = 20%; income here is $120K.">20%</li><li>15%</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ROI = $120K / $800K = <strong>15%</strong>. Always divide operating income by the average operating-asset base.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Raising ROI</h3>
+    <p class="quiz-prompt">Holding operating income constant, a manager can raise the division's ROI by:</p>
+    <ul class="quiz-options"><li data-rationale="Buying more assets raises the denominator, which LOWERS ROI when income is unchanged.">Acquiring more operating assets</li><li data-rationale="Higher operating expenses cut income, lowering ROI — the opposite of the goal.">Increasing operating expenses</li><li>Reducing idle operating assets (e.g., selling unused equipment)</li><li data-rationale="The denominator is operating assets, not the number of employees; headcount alone does not enter the ROI formula.">Hiring more employees</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> ROI = income ÷ assets. With income fixed, shrinking the asset base raises the ratio. Selling idle equipment or trimming excess inventory lifts ROI without changing profit.</div>
   </div>
 
   <button class="btn done-btn" id="mark-done-10">Mark complete</button>
@@ -845,7 +919,11 @@
   <p class="unit-lead">Cost-volume-profit (CVP) analysis links volume, contribution margin, and operating income. The breakeven point is the volume where total revenue equals total cost — zero operating profit. Beyond breakeven, every additional unit's CM falls to OI.</p>
 
   <h2><span class="marker">§11.1</span>Core formulas</h2>
-  <div class="formula-box">Contribution margin (CM) = Sales − Variable cost<br/>Unit CM = Selling price − Variable cost per unit<br/>CM ratio = CM ÷ Sales (or Unit CM ÷ Selling price)<br/>Breakeven units = Fixed cost ÷ Unit CM<br/>Breakeven sales $ = Fixed cost ÷ CM ratio<br/>Target profit units = (Fixed + Target profit) ÷ Unit CM</div>
+  <div class="formula-box">Contribution margin (CM) = Sales − Variable cost<br/>Unit CM = Selling price − Variable cost per unit<br/>CM ratio = CM ÷ Sales (or Unit CM ÷ Selling price)<br/>Breakeven units = Fixed cost ÷ Unit CM<br/>Breakeven sales $ = Fixed cost ÷ CM ratio<br/>Target profit units = (Fixed + Target profit) ÷ Unit CM<br/>Target profit sales $ = (Fixed + Target profit) ÷ CM ratio</div>
+
+  <h2><span class="marker">§11.1b</span>Working in dollars vs units</h2>
+  <p>When the question gives you a CM <em>ratio</em> (or sales and variable costs in total dollars) but no per-unit price, solve in <strong>dollars</strong>: divide by the CM ratio instead of the unit CM. The structure is identical — only the denominator changes.</p>
+  <div class="callout tip"><span class="callout-label">Worked example — breakeven $ and target-profit $</span><p>Fixed costs $120,000; CM ratio 40%.<br/>• Breakeven sales $ = $120,000 ÷ 0.40 = <strong>$300,000</strong>.<br/>• To earn a $60,000 target profit: target-profit sales $ = ($120,000 + $60,000) ÷ 0.40 = $180,000 ÷ 0.40 = <strong>$450,000</strong>.<br/>Check: at $450,000 sales, CM = 40% × $450,000 = $180,000; minus $120,000 fixed = $60,000 profit. ✓</p></div>
 
   <h2><span class="marker">§11.2</span>Margin of safety</h2>
   <div class="formula-box">Margin of safety ($) = Actual sales − Breakeven sales<br/>Margin of safety (%) = MOS $ ÷ Actual sales</div>
@@ -879,6 +957,20 @@
     <p class="quiz-prompt">Sales $500K; variable costs $300K. CM ratio:</p>
     <ul class="quiz-options"><li>30%</li><li>60%</li><li>40%</li><li>67%</li></ul>
     <div class="quiz-explanation"><strong>Why:</strong> CM = $500K − $300K = $200K. CM ratio = $200K / $500K = <strong>40%</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2b — Breakeven in dollars</h3>
+    <p class="quiz-prompt">Fixed costs $120,000; CM ratio 40%. Breakeven sales DOLLARS:</p>
+    <ul class="quiz-options"><li data-rationale="$48,000 multiplies fixed costs by the CM ratio; breakeven divides fixed costs by the CM ratio.">$48,000</li><li data-rationale="$200,000 would use a 60% denominator (the variable-cost ratio). Divide by the CM ratio of 40%.">$200,000</li><li>$300,000</li><li data-rationale="$480,000 divides by 0.25; the CM ratio is 0.40, giving $300,000.">$480,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Breakeven sales $ = Fixed cost ÷ CM ratio = $120,000 ÷ 0.40 = <strong>$300,000</strong>. Use this when you have a CM ratio rather than a per-unit CM.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2c — Target profit in dollars</h3>
+    <p class="quiz-prompt">Fixed costs $120,000; CM ratio 40%; target profit $60,000. Required sales DOLLARS:</p>
+    <ul class="quiz-options"><li data-rationale="$300,000 is the breakeven level; it ignores the $60,000 target profit that must also be covered.">$300,000</li><li>$450,000</li><li data-rationale="$150,000 is the dollars of CM needed (fixed + profit), not the sales required to generate that CM. Divide by the CM ratio.">$150,000</li><li data-rationale="$180,000 is (fixed + target profit) before dividing by the CM ratio; the sales figure is $180,000 ÷ 0.40.">$180,000</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Target-profit sales $ = (Fixed + Target profit) ÷ CM ratio = ($120,000 + $60,000) ÷ 0.40 = $180,000 ÷ 0.40 = <strong>$450,000</strong>. Check: 40% × $450,000 = $180,000 CM − $120,000 fixed = $60,000 profit.</div>
   </div>
 
   <div class="quiz" data-correct="3">
@@ -933,7 +1025,23 @@
     </tbody>
   </table>
 
-  <h2><span class="marker">§12.3</span>Capacity-constrained decisions</h2>
+  <h2><span class="marker">§12.3</span>Marginal cost and marginal revenue</h2>
+  <p>"Incremental" and "marginal" describe the same idea at the level of a single extra unit:</p>
+  <ul>
+    <li><strong>Marginal cost (MC)</strong> — the added cost of producing one more unit. In the short run this is essentially the variable cost per unit (fixed costs don't change for one more unit).</li>
+    <li><strong>Marginal revenue (MR)</strong> — the added revenue from selling one more unit. If price is constant, MR equals the selling price.</li>
+  </ul>
+  <div class="formula-box">Produce/sell one more unit while Marginal revenue &gt; Marginal cost.<br/>Stop when MR = MC (the profit-maximizing output).</div>
+  <p>Each unit where MR &gt; MC adds to profit; once MC rises above MR, further units shrink profit. This is the same logic as the special-order and CVP decisions — just expressed one unit at a time.</p>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 0 — Marginal cost &amp; revenue</h3>
+    <p class="quiz-prompt">Selling one more unit adds $18 of revenue and $11 of cost. A profit-maximizing manager should:</p>
+    <ul class="quiz-options"><li data-rationale="Marginal revenue ($18) exceeds marginal cost ($11), so the extra unit ADDS $7 of profit — declining it leaves money on the table.">Decline — the extra unit is unprofitable</li><li>Produce it — marginal revenue ($18) exceeds marginal cost ($11)</li><li data-rationale="The rule compares MR to MC, not to total or average cost; allocated fixed cost is irrelevant for one more unit.">Decline unless price covers full average cost</li><li data-rationale="The information given (MR vs MC) is exactly what is needed to decide; no further data is required.">Cannot decide without total fixed costs</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Produce while marginal revenue &gt; marginal cost. Here MR $18 &gt; MC $11, so the unit adds $18 − $11 = <strong>$7 of profit</strong>. Keep producing until MR = MC.</div>
+  </div>
+
+  <h2><span class="marker">§12.4</span>Capacity-constrained decisions</h2>
   <p>When capacity is fully utilized, accepting a special order means giving up some current production. Use <strong>contribution margin per unit of constrained resource</strong> to rank competing uses:</p>
   <div class="formula-box">CM per machine hour (or per labor hour, or per pound of scarce material) = Unit CM ÷ Resource per unit</div>
 
@@ -955,11 +1063,11 @@
     <div class="quiz-explanation"><strong>Why:</strong> Idle capacity → fixed costs unchanged → only variable cost is differential. ($24 − $18) × 5,000 = $30K incremental. Take it. Allocated fixed is irrelevant.</div>
   </div>
 
-  <div class="quiz" data-correct="3">
+  <div class="quiz" data-correct="2">
     <h3>Practice 3 — Make-vs-buy</h3>
-    <p class="quiz-prompt">Currently making a part at $12 variable + $4 allocated fixed (of which $2 is avoidable). Outside vendor offers $13. Decision:</p>
-    <ul class="quiz-options"><li>Make — total cost is $16 vs $13</li><li>Buy — saves $3/unit</li><li>Buy — saves $1/unit</li><li>Make — saves $1/unit (vs avoidable $14)</li></ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Avoidable cost of making = $12 + $2 = $14. Buy at $13 saves $1/unit, BUT the question is asking direction: "make at $14 or buy at $13?" Buy saves $1. Wait — re-read: "Make saves $1/unit (vs avoidable $14)" is comparing $14 making vs $13 buying — buying is cheaper by $1, so MAKING does NOT save. The correct answer is choice 2: BUY saves $1/unit.</div>
+    <p class="quiz-prompt">Currently making a part at $12 variable + $4 allocated fixed (of which only $2 is avoidable). An outside vendor offers the part at $13. Decision:</p>
+    <ul class="quiz-options"><li data-rationale="The $16 full cost includes $2 of fixed cost that stays whether you make or buy — that unavoidable fixed cost is irrelevant. Compare $14 avoidable vs $13.">Make — full cost $16 beats $13… so keep making</li><li data-rationale="The fixed portion is mostly unavoidable. Only $2 of the $4 fixed is avoidable, so avoidable make cost is $14, not $16. Savings from buying are $14 − $13 = $1, not $3.">Buy — saves $3/unit</li><li>Buy — saves $1/unit</li><li data-rationale="Avoidable make cost ($14) is HIGHER than the $13 buy price, so making is the more expensive option, not the cheaper one.">Make — saves $1/unit</li></ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Only avoidable costs are relevant. Relevant cost to make = variable $12 + avoidable fixed $2 = <strong>$14</strong>. The other $2 of fixed cost is unavoidable, so it is irrelevant. Since $14 (make) &gt; $13 (buy), <strong>buying saves $1/unit</strong>.</div>
   </div>
 
   <div class="quiz" data-correct="0">
@@ -1261,7 +1369,7 @@ window.SECTION_CONFIG = {
     ]},
     { group: "D.4 · Performance", units: [
       { id: 9, num: "09", title: "Profitability analysis" },
-      { id: 10, num: "10", title: "ROI & responsibility centers" },
+      { id: 10, num: "10", title: "Return on investment (ROI)" },
     ]},
     { group: "D.5 · Decisions", units: [
       { id: 11, num: "11", title: "Breakeven & CVP" },
@@ -1285,7 +1393,7 @@ window.SECTION_CONFIG = {
     7: ["DM Price = (AP − SP) × Actual quantity. DM Quantity = (AQ − SQ allowed) × Standard price.", "DL Rate = (AR − SR) × Actual hours. DL Efficiency = (AH − SH allowed) × Standard rate.", "Common pattern: DM price F + quantity U = bought cheap, wasted more.", "Variance investigation directs to procurement (price) or production (quantity)."],
     8: ["VOH variances mirror DL Rate and Efficiency.", "FOH Budget = Actual − Budgeted (spending performance).", "FOH Volume = Budgeted − Applied (capacity utilization, NOT spending discipline).", "Volume variance is informational; doesn't reflect cost control directly."],
     9: ["Three profitability cuts: product, business unit, customer.", "Pareto pattern: 20% drives 80% of profit; 10-20% may actually destroy value.", "Whale curve: rises, peaks, declines as unprofitable customers drag total down.", "Allocated overhead trap: dropping a 'losing' product may not save the allocated OH."],
-    10: ["ROI = NI / Avg investment. Easy to compute, widely understood.", "ROI weakness: managers reject value-creating projects below current ROI (dilution).", "Residual income (RI) = NI − (Required return × Investment). Fixes the dilution incentive.", "Responsibility centers: cost / revenue / profit / investment. Match metric to control."],
+    10: ["ROI = operating income / average operating assets.", "ROI lets you compare divisions and projects of different sizes on one scale.", "With income fixed, shrinking the asset base raises ROI; growing it lowers ROI."],
     11: ["CM = Sales − VC. CM ratio = CM / Sales.", "Breakeven units = Fixed / Unit CM. Breakeven $ = Fixed / CM ratio.", "Target profit units = (Fixed + Target) / Unit CM.", "Operating leverage = CM / OI. Higher leverage = higher OI sensitivity to sales."],
     12: ["Sunk cost: never relevant. Opportunity cost: always relevant. Differential cost: drives marginal analysis.", "Special order with idle capacity: only VC matters; allocated fixed often irrelevant.", "Make-vs-buy: compare AVOIDABLE cost (variable + truly-avoidable fixed) to purchase price.", "Capacity constrained: rank by CM per unit of scarce resource, not absolute CM."],
   },
@@ -1341,19 +1449,20 @@ window.SECTION_CONFIG = {
       title: "Performance & decisions",
       eyebrow: "D.4-D.5",
       cards: [
-        ["ROI", "NI / Avg investment = Margin × Turnover"],
-        ["ROI weakness", "Managers reject value-adding projects below current ROI"],
-        ["RI", "NI − (Required return × Investment)"],
-        ["EVA", "RI with various accounting adjustments"],
-        ["Cost center", "Controls costs; evaluate on spending"],
-        ["Profit center", "Controls revenues + costs; evaluate on OI"],
-        ["Investment center", "Controls revenues, costs, AND assets; ROI/RI/EVA"],
+        ["ROI", "Operating income / Average operating assets"],
+        ["Raising ROI (income fixed)", "Shrink the asset base — sell idle equipment, trim inventory"],
+        ["Segment margin", "Segment CM − traceable (avoidable) fixed costs"],
+        ["Common fixed costs", "Support the whole firm; NOT subtracted to judge a segment"],
         ["Whale curve", "Rises (profitable) → peaks → declines (value-destroying customers)"],
+        ["Marginal cost (MC)", "Added cost of producing one more unit"],
+        ["Marginal revenue (MR)", "Added revenue from selling one more unit"],
+        ["Profit-max rule", "Produce while MR &gt; MC; stop when MR = MC"],
         ["Contribution margin", "Sales − Variable cost"],
         ["CM ratio", "CM / Sales"],
         ["Breakeven units", "Fixed / Unit CM"],
         ["Breakeven $", "Fixed / CM ratio"],
         ["Target profit units", "(Fixed + Target) / Unit CM"],
+        ["Target profit $", "(Fixed + Target) / CM ratio"],
         ["Margin of safety", "Actual sales − Breakeven sales"],
         ["Operating leverage", "CM / OI"],
         ["Sunk cost", "Already spent — irrelevant"],
@@ -1391,16 +1500,19 @@ window.SECTION_CONFIG = {
       { label: "Standard quantity allowed", formula: "Actual output × Standard per unit", unitId: 6 },
     ]},
     { section: "Performance", items: [
-      { label: "ROI", formula: "NI / Avg investment = Margin × Turnover", unitId: 10 },
-      { label: "RI", formula: "NI − (Required return × Investment)", unitId: 10 },
+      { label: "ROI", formula: "Operating income / Average operating assets", unitId: 10 },
+      { label: "Segment margin", formula: "Segment CM − Traceable (avoidable) fixed costs", unitId: 9 },
     ]},
     { section: "CVP", items: [
       { label: "Contribution margin", formula: "Sales − Variable cost", unitId: 11 },
       { label: "CM ratio", formula: "CM / Sales", unitId: 11 },
       { label: "Breakeven units", formula: "Fixed / Unit CM", unitId: 11 },
+      { label: "Breakeven sales $", formula: "Fixed / CM ratio", unitId: 11 },
       { label: "Target profit units", formula: "(Fixed + Target) / Unit CM", unitId: 11 },
+      { label: "Target profit sales $", formula: "(Fixed + Target) / CM ratio", unitId: 11 },
       { label: "Margin of safety", formula: "Actual sales − Breakeven sales", unitId: 11 },
       { label: "Operating leverage", formula: "CM / OI", unitId: 11 },
+      { label: "Marginal cost vs revenue", formula: "Produce while MR &gt; MC", unitId: 12 },
     ]},
     { section: "Decisions", items: [
       { label: "Sunk cost rule", formula: "Irrelevant — spent already", unitId: 12 },
