@@ -95,7 +95,7 @@
     <p class="cover-sub">After the books are closed, two activities matter: prepare the statements correctly (recognition and valuation rules), and read what they say (vertical, horizontal, and ratio analysis). This is one of the two largest sections on the FMAA exam — master it and you've covered half the test.</p>
     <div class="cover-meta">
       <span>Units<strong>13 covered</strong></span>
-      <span>Practice questions<strong>~75</strong></span>
+      <span>Practice questions<strong>~95</strong></span>
       <span>Tests<strong>2 (T1 + T2)</strong></span>
       <span>FMAA weight<strong>25% of exam</strong></span>
     </div>
@@ -250,6 +250,9 @@
   <h2><span class="marker">§2.2</span>LCNRV (U.S. GAAP, FIFO/avg)</h2>
   <p>If net realizable value (selling price − completion/disposal costs) falls below cost, write inventory down to NRV. The write-down hits COGS or a separate loss account; recovery (later increases) cannot reverse the prior write-down under U.S. GAAP. IFRS allows reversals up to original cost.</p>
 
+  <h2><span class="marker">§2.3</span>Which rule applies — LCNRV vs LCM</h2>
+  <p>U.S. GAAP uses two different write-down rules depending on cost-flow method. <strong>LCNRV</strong> (lower of cost or net realizable value) applies to inventory measured with <strong>FIFO or weighted-average</strong>. The older <strong>LCM</strong> (lower of cost or market, where "market" is replacement cost bounded by an NRV ceiling and an NRV-minus-normal-profit floor) is retained for inventory measured with <strong>LIFO or the retail inventory method</strong>. So the simpler LCNRV is the modern default, but LIFO/retail keep the older LCM test.</p>
+
   <div class="callout tip"><span class="callout-label">LIFO conformity</span><p>If a U.S. company uses LIFO for tax, IRS rules require LIFO for financial statements too — the "LIFO conformity rule." This is a major reason LIFO persists despite IFRS prohibiting it.</p></div>
 
   <div class="quiz" data-correct="0">
@@ -376,8 +379,20 @@
     <div class="quiz-explanation"><strong>Why:</strong> DDB rate = 2/5 = 40%. Year 1 = 40% × $50K (cost, NOT cost minus salvage in DDB calc) = <strong>$20,000</strong>. Year 2 = 40% × ($50K − $20K NBV) = $12K. Stops when NBV reaches salvage.</div>
   </div>
 
+  <div class="quiz" data-correct="2">
+    <h3>Practice 3 — Units-of-production</h3>
+    <p class="quiz-prompt">A machine costs $90,000, has a $10,000 salvage value, and is expected to produce 200,000 units over its life. It produces 25,000 units this year. Depreciation expense for the year:</p>
+    <ul class="quiz-options">
+      <li data-rationale="$11,250 = $90,000 ÷ 200,000 × 25,000 — this forgets to subtract salvage from the depreciable base.">$11,250</li>
+      <li data-rationale="$8,000 is the per-period rate computed differently; the right answer multiplies the $0.40/unit rate by the 25,000 units made.">$8,000</li>
+      <li>$10,000</li>
+      <li data-rationale="$12,500 = $100,000 ÷ 200,000 × 25,000 — uses cost without salvage AND an inflated cost. Depreciable base is cost − salvage = $80,000.">$12,500</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Rate per unit = (Cost − Salvage) ÷ Total estimated units = ($90,000 − $10,000) ÷ 200,000 = $0.40/unit. This year = $0.40 × 25,000 units = <strong>$10,000</strong>. Units-of-production ties depreciation directly to usage, unlike straight-line's flat charge.</div>
+  </div>
+
   <div class="quiz" data-correct="1">
-    <h3>Practice 3 — Impairment recoverability</h3>
+    <h3>Practice 4 — Impairment recoverability</h3>
     <p class="quiz-prompt">PP&amp;E carrying $300K; expected undiscounted future cash flows $310K; fair value $250K. Under U.S. GAAP, the impairment loss is:</p>
     <ul class="quiz-options">
       <li>$50,000</li>
@@ -389,7 +404,7 @@
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 4 — Goodwill</h3>
+    <h3>Practice 5 — Goodwill</h3>
     <p class="quiz-prompt">Under U.S. GAAP, goodwill is:</p>
     <ul class="quiz-options">
       <li>Amortized over 10 years for all companies</li>
@@ -454,8 +469,20 @@
     <div class="quiz-explanation"><strong>Why:</strong> Coupon (6%) &lt; market (7%) → bond pays less than market expects → buyers demand a discount on the face. Coupon &gt; market would create a premium.</div>
   </div>
 
+  <div class="quiz" data-correct="2">
+    <h3>Practice 2 — Effective-interest expense</h3>
+    <p class="quiz-prompt">A bond was issued at a discount; its carrying value at the start of the period is $940,000. The market (effective) rate at issuance was 8%; the stated coupon is 6% on $1,000,000 face. Interest expense for this period under the effective-interest method:</p>
+    <ul class="quiz-options">
+      <li data-rationale="$60,000 is the CASH coupon (6% × $1,000,000 face), not interest expense. Expense uses the market rate on carrying value.">$60,000</li>
+      <li data-rationale="$80,000 = 8% × $1,000,000 face. The effective rate is applied to CARRYING value ($940,000), not face.">$80,000</li>
+      <li>$75,200</li>
+      <li data-rationale="$56,400 = 6% × $940,000, mixing the coupon rate with carrying value. Expense uses the MARKET rate on carrying value.">$56,400</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Interest expense = beginning carrying value × market (effective) rate = $940,000 × 8% = <strong>$75,200</strong>. Cash paid = 6% × $1,000,000 = $60,000. The $15,200 difference amortizes the discount, raising carrying value toward $1,000,000 face by maturity.</div>
+  </div>
+
   <div class="quiz" data-correct="0">
-    <h3>Practice 2 — Contingent liability — probable + estimable</h3>
+    <h3>Practice 3 — Contingent liability — probable + estimable</h3>
     <p class="quiz-prompt">A pending lawsuit is "probable" of resulting in a loss between $200K and $300K, with $250K being most likely. The company:</p>
     <ul class="quiz-options">
       <li>Accrues a $250K liability and discloses the range</li>
@@ -467,7 +494,7 @@
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 3 — Gain contingency</h3>
+    <h3>Practice 4 — Gain contingency</h3>
     <p class="quiz-prompt">A company is suing a competitor for $5M, with management estimating a 90% chance of victory. The company should:</p>
     <ul class="quiz-options">
       <li>Accrue a $4.5M receivable</li>
@@ -479,7 +506,7 @@
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 4 — Unearned revenue classification</h3>
+    <h3>Practice 5 — Unearned revenue classification</h3>
     <p class="quiz-prompt">A magazine publisher receives $120 in advance for a 12-month subscription. After 3 months, the unearned-revenue balance is:</p>
     <ul class="quiz-options">
       <li>$120</li>
@@ -552,16 +579,16 @@
     <div class="quiz-explanation"><strong>Why:</strong> Sale below cost: total loss = ($50 − $40) × 200 = $2K. Hits APIC-Treasury first ($1K), then RE for the remainder ($1K). Treasury credited at cost ($50 × 200 = $10K). Never P&amp;L — equity transactions don't flow through NI.</div>
   </div>
 
-  <div class="quiz" data-correct="2">
+  <div class="quiz" data-correct="1">
     <h3>Practice 3 — Stock dividend (small)</h3>
     <p class="quiz-prompt">Declared a 5% stock dividend; current shares 1M; FV $30/share; par $1. RE reduction is:</p>
     <ul class="quiz-options">
-      <li>$50,000</li>
-      <li>$1,500,000</li>
+      <li data-rationale="That's the par-only amount (50,000 × $1). Small stock dividends reduce RE by FULL fair value, not just par.">$50,000</li>
       <li>$1,500,000 (50,000 × $30)</li>
-      <li>$30,000</li>
+      <li data-rationale="That's only the APIC portion (50,000 × ($30 − $1)). The TOTAL RE reduction is the full FV; it then splits into CS (par) + APIC (excess).">$1,450,000</li>
+      <li data-rationale="That's $30 × 1,000 or a mis-scaled figure. New shares = 5% × 1,000,000 = 50,000, not 1,000.">$30,000</li>
     </ul>
-    <div class="quiz-explanation"><strong>Why:</strong> Small (&lt;25%) stock dividend uses fair value. New shares = 5% × 1M = 50,000. RE reduction = 50,000 × $30 = <strong>$1.5M</strong>, of which $50K goes to CS (par) and $1.45M to APIC.</div>
+    <div class="quiz-explanation"><strong>Why:</strong> Small (&lt;25%) stock dividend uses fair value. New shares = 5% × 1M = 50,000. RE reduction = 50,000 × $30 = <strong>$1,500,000</strong>, of which $50K goes to CS (par) and $1.45M to APIC.</div>
   </div>
 
   <div class="quiz" data-correct="1">
@@ -620,7 +647,19 @@
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 2 — Cost-to-cost</h3>
+    <h3>Practice 2 — Step-4 allocation by SSP</h3>
+    <p class="quiz-prompt">A company sells a bundle for a transaction price of $1,200. It contains two performance obligations: hardware (standalone selling price $1,000) and a one-year service plan (standalone selling price $500). How much of the $1,200 is allocated to the hardware?</p>
+    <ul class="quiz-options">
+      <li data-rationale="$1,000 is the hardware's standalone price. Step 4 allocates the DISCOUNTED transaction price ($1,200) in proportion to SSPs, not the full SSP.">$1,000</li>
+      <li>$800</li>
+      <li data-rationale="$720 = 60% × $1,200, but 60% is the wrong proportion. Hardware's SSP share is $1,000 ÷ $1,500 = 66.7%, not 60%.">$720</li>
+      <li data-rationale="$600 splits the price 50/50. The two SSPs are not equal — hardware is $1,000 of the $1,500 SSP total.">$600</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Total SSP = $1,000 + $500 = $1,500. Hardware's share = $1,000 ÷ $1,500 = 66.67%. Allocate 66.67% × $1,200 = <strong>$800</strong> to hardware; the service plan gets $500 ÷ $1,500 × $1,200 = $400. The bundle's $300 discount is spread proportionally across both POs.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Cost-to-cost</h3>
     <p class="quiz-prompt">$8M contract; total estimated cost $6M; cost incurred to date $1.5M. Revenue to recognize so far:</p>
     <ul class="quiz-options">
       <li>$1,500,000</li>
@@ -632,7 +671,7 @@
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 3 — Loss on long-term contract</h3>
+    <h3>Practice 4 — Loss on long-term contract</h3>
     <p class="quiz-prompt">$5M contract; revised total estimated cost climbs to $6M (loss expected). Cost to date $2M. Treatment under ASC 606:</p>
     <ul class="quiz-options">
       <li>Spread the $1M loss over remaining percent-complete</li>
@@ -644,7 +683,7 @@
   </div>
 
   <div class="quiz" data-correct="0">
-    <h3>Practice 4 — Variable consideration</h3>
+    <h3>Practice 5 — Variable consideration</h3>
     <p class="quiz-prompt">Contract base $1,000 + $200 bonus probable of being earned. Constraint analysis suggests minimal reversal risk. Transaction price:</p>
     <ul class="quiz-options">
       <li>$1,200 — include the $200 bonus</li>
@@ -1123,8 +1162,20 @@
     <div class="quiz-explanation"><strong>Why:</strong> $1.2M / $200K = <strong>6.0×</strong>. DIO = 365 / 6 ≈ 61 days.</div>
   </div>
 
+  <div class="quiz" data-correct="1">
+    <h3>Practice 2 — Average the balance first</h3>
+    <p class="quiz-prompt">COGS $960,000; beginning inventory $100,000; ending inventory $140,000. Inventory turnover (use average inventory):</p>
+    <ul class="quiz-options">
+      <li data-rationale="6.86× = $960,000 ÷ $140,000 uses ENDING inventory only. Turnover should use AVERAGE inventory across the period.">6.86×</li>
+      <li>8.0×</li>
+      <li data-rationale="9.6× = $960,000 ÷ $100,000 uses BEGINNING inventory only. Average the two balances first.">9.6×</li>
+      <li data-rationale="4.0× = $960,000 ÷ $240,000, where $240,000 is the SUM of the two balances, not the average. Divide the sum by 2.">4.0×</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Average inventory = ($100,000 + $140,000) ÷ 2 = $120,000. Turnover = COGS ÷ avg inventory = $960,000 ÷ $120,000 = <strong>8.0×</strong>. Turnover ratios pair a flow (COGS, over the whole year) with the AVERAGE of the two period-end stock balances.</div>
+  </div>
+
   <div class="quiz" data-correct="0">
-    <h3>Practice 2 — DSO</h3>
+    <h3>Practice 3 — DSO</h3>
     <p class="quiz-prompt">Net credit sales $1.46M; average AR $200K. DSO:</p>
     <ul class="quiz-options">
       <li>50 days</li>
@@ -1135,8 +1186,32 @@
     <div class="quiz-explanation"><strong>Why:</strong> Turnover = $1.46M / $200K = 7.3×. DSO = 365 / 7.3 = <strong>50 days</strong>. Direct formula: 365 × $200K / $1.46M = 50.</div>
   </div>
 
+  <div class="quiz" data-correct="2">
+    <h3>Practice 4 — AR turnover</h3>
+    <p class="quiz-prompt">Net credit sales $1,800,000; beginning AR $250,000; ending AR $350,000. Accounts-receivable turnover (use average AR):</p>
+    <ul class="quiz-options">
+      <li data-rationale="7.2× = $1,800,000 ÷ $250,000 uses BEGINNING AR only. Use the average of beginning and ending.">7.2×</li>
+      <li data-rationale="5.14× = $1,800,000 ÷ $350,000 uses ENDING AR only. Average the two balances first.">5.14×</li>
+      <li>6.0×</li>
+      <li data-rationale="3.0× = $1,800,000 ÷ $600,000 divides by the SUM of the balances, not the average. Divide the $600,000 sum by 2.">3.0×</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Average AR = ($250,000 + $350,000) ÷ 2 = $300,000. AR turnover = Net credit sales ÷ avg AR = $1,800,000 ÷ $300,000 = <strong>6.0×</strong>. (DSO would then be 365 ÷ 6 ≈ 61 days.) AR turnover always uses net CREDIT sales — cash sales never sit in AR.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 5 — AP turnover and DPO</h3>
+    <p class="quiz-prompt">Annual purchases $1,200,000; average accounts payable $150,000. AP turnover and days-payable-outstanding (DPO, 365 days):</p>
+    <ul class="quiz-options">
+      <li data-rationale="0.125× inverts the ratio. AP turnover = purchases ÷ avg AP, not avg AP ÷ purchases.">0.125×; DPO ≈ 2,920 days</li>
+      <li>8.0×; DPO ≈ 46 days</li>
+      <li data-rationale="DPO is computed from AP turnover (8×), giving 365 ÷ 8 ≈ 46 days, not 8 days. 8 days confuses the turnover count with the day count.">8.0×; DPO ≈ 8 days</li>
+      <li data-rationale="6.0× would require avg AP of $200,000 ($1,200,000 ÷ 6). With $150,000 the turnover is 8×.">6.0×; DPO ≈ 61 days</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> AP turnover = Purchases ÷ avg AP = $1,200,000 ÷ $150,000 = <strong>8.0×</strong>. DPO = 365 ÷ AP turnover = 365 ÷ 8 ≈ <strong>46 days</strong> — the company takes about 46 days on average to pay suppliers. AP turnover uses purchases (or COGS as a proxy), never sales.</div>
+  </div>
+
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — Wrong numerator</h3>
+    <h3>Practice 6 — Wrong numerator</h3>
     <p class="quiz-prompt">Using sales (instead of COGS) in inventory turnover:</p>
     <ul class="quiz-options">
       <li>Has no effect</li>
@@ -1148,7 +1223,7 @@
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 4 — Total asset turnover</h3>
+    <h3>Practice 7 — Total asset turnover</h3>
     <p class="quiz-prompt">Sales $5M; average total assets $2.5M. Total asset turnover:</p>
     <ul class="quiz-options">
       <li>0.5×</li>
@@ -1160,7 +1235,7 @@
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 5 — DSO trend interpretation</h3>
+    <h3>Practice 8 — DSO trend interpretation</h3>
     <p class="quiz-prompt">DSO has risen from 35 to 60 days over three quarters while sales stayed flat. The most likely interpretation:</p>
     <ul class="quiz-options">
       <li>Strong sales-discipline improvement</li>
@@ -1213,6 +1288,11 @@
 
   <p>Splits net margin into three pieces (tax efficiency, interest burden, operating performance). FMAA tests the 3-step; the 5-step is bonus knowledge.</p>
 
+  <h2><span class="marker">§13.5</span>Dividend ratios</h2>
+  <p>These ratios describe how a company splits earnings between paying shareholders and reinvesting in the business.</p>
+  <div class="formula-box">Dividend payout ratio = Dividends ÷ Net income (= DPS ÷ EPS)<br/>Dividend yield = Dividends per share (DPS) ÷ Price per share<br/>Retention (plowback) ratio = 1 − Payout ratio = Retained earnings ÷ Net income</div>
+  <p>Payout and retention are complements that sum to 1: every dollar of earnings is either paid out or kept. A high payout signals a mature, cash-generating business returning cash to owners; a high retention signals a growth company reinvesting. Dividend yield expresses the cash return relative to the share price an investor pays.</p>
+
   <div class="quiz" data-correct="0">
     <h3>Practice 1 — Gross margin</h3>
     <p class="quiz-prompt">Net sales $400K; COGS $260K. Gross margin:</p>
@@ -1225,8 +1305,32 @@
     <div class="quiz-explanation"><strong>Why:</strong> Gross profit = $400K − $260K = $140K. Gross margin = $140K / $400K = <strong>35%</strong>. The 65% trap is COGS-as-percent-of-sales, the complement.</div>
   </div>
 
+  <div class="quiz" data-correct="3">
+    <h3>Practice 2 — Payout and retention</h3>
+    <p class="quiz-prompt">Net income $5,000,000; dividends declared $2,000,000. The dividend payout ratio and the retention (plowback) ratio are:</p>
+    <ul class="quiz-options">
+      <li data-rationale="40% payout is right, but the retention ratio is 1 − payout = 60%, not 40%. The two must sum to 100%.">Payout 40%; retention 40%</li>
+      <li data-rationale="This inverts the two. Payout = dividends ÷ NI = 40%, so retention is the larger 60%.">Payout 60%; retention 40%</li>
+      <li data-rationale="2.5× is net income ÷ dividends — the inverse of the payout ratio. Payout = dividends ÷ net income = 40%.">Payout 2.5×; retention 60%</li>
+      <li>Payout 40%; retention 60%</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Payout = Dividends ÷ Net income = $2,000,000 ÷ $5,000,000 = <strong>40%</strong>. Retention (plowback) = 1 − payout = <strong>60%</strong>. The two are complements that always sum to 100% — every earnings dollar is paid out or retained.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <h3>Practice 3 — Dividend yield</h3>
+    <p class="quiz-prompt">A stock trades at $80 per share and pays an annual dividend of $3.20 per share. The dividend yield is:</p>
+    <ul class="quiz-options">
+      <li data-rationale="25× is the price ÷ dividend (a price-to-dividend multiple), the inverse of yield. Yield = DPS ÷ price.">25×</li>
+      <li>4.0%</li>
+      <li data-rationale="2.5% would require a $2.00 dividend on an $80 price. Here DPS is $3.20: $3.20 ÷ $80 = 4.0%.">2.5%</li>
+      <li data-rationale="40% misplaces the decimal. $3.20 ÷ $80 = 0.04 = 4.0%, not 40%.">40%</li>
+    </ul>
+    <div class="quiz-explanation"><strong>Why:</strong> Dividend yield = DPS ÷ Price per share = $3.20 ÷ $80 = <strong>4.0%</strong>. It is the cash return an investor earns from dividends relative to the share price paid, independent of any share-price appreciation.</div>
+  </div>
+
   <div class="quiz" data-correct="2">
-    <h3>Practice 2 — DuPont</h3>
+    <h3>Practice 4 — DuPont</h3>
     <p class="quiz-prompt">Net margin 6%; asset turnover 1.5; equity multiplier 2.5. ROE:</p>
     <ul class="quiz-options">
       <li>9%</li>
@@ -1238,7 +1342,7 @@
   </div>
 
   <div class="quiz" data-correct="3">
-    <h3>Practice 3 — Strategy classification</h3>
+    <h3>Practice 5 — Strategy classification</h3>
     <p class="quiz-prompt">A company has gross margin 60% and asset turnover 0.4×. The strategy is most likely:</p>
     <ul class="quiz-options">
       <li>High-volume discount</li>
@@ -1250,7 +1354,7 @@
   </div>
 
   <div class="quiz" data-correct="1">
-    <h3>Practice 4 — ROA vs ROE</h3>
+    <h3>Practice 6 — ROA vs ROE</h3>
     <p class="quiz-prompt">A company has ROA 8% and ROE 18%. The most likely explanation is:</p>
     <ul class="quiz-options">
       <li>Sales declined</li>
@@ -1262,7 +1366,7 @@
   </div>
 
   <div class="quiz" data-correct="2">
-    <h3>Practice 5 — When ROE rises but ROA falls</h3>
+    <h3>Practice 7 — When ROE rises but ROA falls</h3>
     <p class="quiz-prompt">A company's ROE rose from 15% to 18% but ROA fell from 12% to 9%. The most likely cause:</p>
     <ul class="quiz-options">
       <li>Net margin improved sharply</li>
@@ -1685,12 +1789,17 @@ window.SECTION_CONFIG = {
       { label: "DIO", formula: "365 ÷ Inventory turnover", unitId: 12 },
       { label: "AR turnover", formula: "Net credit sales ÷ Avg AR", unitId: 12 },
       { label: "DSO", formula: "365 ÷ AR turnover", unitId: 12 },
+      { label: "AP turnover", formula: "Purchases (or COGS) ÷ Avg AP", unitId: 12 },
+      { label: "DPO", formula: "365 ÷ AP turnover", unitId: 12 },
       { label: "Total asset turnover", formula: "Sales ÷ Avg total assets", unitId: 12 },
     ]},
     { section: "Profitability & DuPont", items: [
       { label: "ROA", formula: "NI ÷ Avg total assets", unitId: 13 },
       { label: "ROE", formula: "NI ÷ Avg equity", unitId: 13 },
       { label: "DuPont 3-step", formula: "ROE = Net margin × Asset turnover × Equity multiplier", unitId: 13 },
+      { label: "Dividend payout ratio", formula: "Dividends ÷ Net income (= DPS ÷ EPS)", unitId: 13 },
+      { label: "Dividend yield", formula: "DPS ÷ Price per share", unitId: 13 },
+      { label: "Retention (plowback) ratio", formula: "1 − Payout ratio", unitId: 13 },
     ]},
     { section: "Recognition", items: [
       { label: "ASC 606 5 steps", formula: "Contract → POs → Price → Allocate → Recognize", unitId: 6 },
